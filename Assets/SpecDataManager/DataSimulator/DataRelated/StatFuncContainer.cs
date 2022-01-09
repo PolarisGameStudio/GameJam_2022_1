@@ -1,7 +1,7 @@
 ﻿
 using System;
 using System.Collections;
-using Sirenix.Utilities;
+//using Sirenix.Utilities;
 using UnityEngine;
 
 namespace DataSimulator
