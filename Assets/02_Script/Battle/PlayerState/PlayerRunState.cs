@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class PlayerRunState : NormalState
 {
-    public const string NormalRunAnimationName = "Normal_Run";
-    public const string BerserkRunAnimationName = "Berserk_Run";
+    public const string NormalRunAnimationName = "move";
     
     private AnimationAbility _animationAbility;
     private MovementAbility _movementAbility;
     private MonsterDetectAbility _monsterDetectAbility;
     private PlayerAttackAbility _playerAttackAbility;
-    private BerserkAbility _berserkAbility;
     
     public PlayerRunState(CharacterObject owner, StateMachine stateMachine) : base(owner, stateMachine)
     {
@@ -26,7 +24,6 @@ public class PlayerRunState : NormalState
         _movementAbility  = _owner.GetAbility<MovementAbility>();
         _monsterDetectAbility = _owner.GetAbility<MonsterDetectAbility>();
         _playerAttackAbility = _owner.GetAbility<PlayerAttackAbility>();
-        _berserkAbility = _owner.GetAbility<BerserkAbility>();
     }
 
     public override void Enter()
@@ -42,16 +39,11 @@ public class PlayerRunState : NormalState
             
             moveScale = Mathf.Min(moveScale, _animationAbility.MaxMovementAnimationSpeedScale);
             
-            _animationAbility.PlayAnimation(_berserkAbility.IsOn ? BerserkRunAnimationName : NormalRunAnimationName, true, moveScale);
+            _animationAbility.PlayAnimation(NormalRunAnimationName, true, moveScale);
         }
         else
         {
-            _animationAbility.PlayAnimation(_berserkAbility.IsOn ? BerserkRunAnimationName : NormalRunAnimationName, true, 1f);
-        }
-
-        if (_berserkAbility.IsOn)
-        {
-            _berserkAbility.SetActivationEyeTrail(true);
+            _animationAbility.PlayAnimation(NormalRunAnimationName, true, 1f);
         }
     }
 

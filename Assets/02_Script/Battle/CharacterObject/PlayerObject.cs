@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerObject : CharacterObject, GameEventListener<BerserkEvent>, GameEventListener<RefreshEvent> , GameEventListener<BattleEvent>
+public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , GameEventListener<BattleEvent>
 {
     private FSMAbility _fsmAbility;
 
@@ -24,13 +24,12 @@ public class PlayerObject : CharacterObject, GameEventListener<BerserkEvent>, Ga
         _fsmAbility.Register(Enum_PlayerStateType.Run, new PlayerRunState(this, _fsmAbility.StateMachine));
         _fsmAbility.Register(Enum_PlayerStateType.Attack, new PlayerAttackState(this, _fsmAbility.StateMachine));
         _fsmAbility.Register(Enum_PlayerStateType.Death, new PlayerDeathState(this, _fsmAbility.StateMachine));
-        _fsmAbility.Register(Enum_PlayerStateType.Skill, new PlayerSkillState(this, _fsmAbility.StateMachine));
+        //_fsmAbility.Register(Enum_PlayerStateType.Skill, new PlayerSkillState(this, _fsmAbility.StateMachine));
 
         _fsmAbility.Initialize(Enum_PlayerStateType.Init);
 
         GetAbility<ShadowAbility>().SetSize(GetAbility<AnimationAbility>().Width);
 
-        this.AddGameEventListening<BerserkEvent>();
         this.AddGameEventListening<RefreshEvent>();
         this.AddGameEventListening<BattleEvent>();
 
@@ -64,7 +63,6 @@ public class PlayerObject : CharacterObject, GameEventListener<BerserkEvent>, Ga
         SafeSetActive(true);
 
         RefreshHealthbar();
-        RefreshWeaponAbility();
         RefreshSkillAbility();
 
         GetAbility<PlayerSkillAbility>().HideSkills();
@@ -107,52 +105,17 @@ public class PlayerObject : CharacterObject, GameEventListener<BerserkEvent>, Ga
         {
             GetAbility<PlayerSkillAbility>().OnEnemyKill();
         }
-
     }
 
     protected override void OnDeath()
     {
         _fsmAbility.ChangeState(Enum_PlayerStateType.Death);
-        
-        InitScale(_defaultScaleSize);
-    }
-
-    public void OnGameEvent(BerserkEvent e)
-    {
-        switch (e.Type)
-        {
-            case Enum_BerserkEventType.Start:
-            {
-                InitScale(_berserkScaleSize);
-                
-                GetAbility<BerserkAbility>().On();
-                GetAbility<PlayerSkillAbility>().OnBerserkStart();
-                GetAbility<AnimationAbility>().SetToBerserkAnimation();
-                break;
-            }
-
-            case Enum_BerserkEventType.End:
-            {
-                InitScale(_defaultScaleSize);
-                GetAbility<BerserkAbility>().Off();
-                GetAbility<AnimationAbility>().SetToNormalAnimation();
-                break;
-            }
-        }
-
-        GetAbility<WeaponAbility>().RefreshWeapon();
     }
 
     public void OnGameEvent(RefreshEvent e)
     {
         switch (e.Type)
         {
-            case Enum_RefreshEventType.Weapon:
-            {
-                RefreshWeaponAbility();
-                break;
-            }
-
             case Enum_RefreshEventType.Skill:
             {
                 RefreshSkillAbility();
@@ -165,24 +128,12 @@ public class PlayerObject : CharacterObject, GameEventListener<BerserkEvent>, Ga
     {
         if (e.Type == Enum_BattleEventType.BattleClear)
         {
-            _fsmAbility.ChangeState(Enum_PlayerStateType.Skill);
         }
     }
 
-    private void RefreshWeaponAbility()
-    {
-        GetAbility<WeaponAbility>().RefreshWeapon();
-    }
-    
     private void RefreshSkillAbility()
     {
         GetAbility<PlayerSkillAbility>().RefreshSkill();
-    }
-
-
-    private void InitScale(float size)
-    {
-        transform.localScale = new Vector3(size, size, 1f); 
     }
 
 }

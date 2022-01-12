@@ -77,25 +77,4 @@ public class AnimationAbility : CharacterAbility
 
         return animation.Duration / speed;
     }
-
-    public void SetToBerserkAnimation()
-    {
-        switch (_currentAnimationName)
-        {
-            case PlayerRunState.NormalRunAnimationName:
-                PlayAnimation(PlayerRunState.BerserkRunAnimationName, _currentAnimationLoop, _currentAnimationSpeed);
-                break;
-        }
-        
-    }
-
-    public void SetToNormalAnimation()
-    {
-        switch (_currentAnimationName)
-        {
-            case PlayerRunState.BerserkRunAnimationName:
-                PlayAnimation(PlayerRunState.NormalRunAnimationName, _currentAnimationLoop, _currentAnimationSpeed);
-                break;
-        }
-    }
 }

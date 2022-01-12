@@ -17,6 +17,8 @@ public class BackgroundManager : SingletonBehaviour<BackgroundManager>
     private BattleCamera _battleCamera;
     private PlayerObject _playerObject;
 
+    [SerializeField] private float _cameraOffsetY;
+
     private void Start()
     {
         _battleCamera = BattleCamera.Instance;
@@ -31,7 +33,7 @@ public class BackgroundManager : SingletonBehaviour<BackgroundManager>
         cameraPosition.z = 0;
         cameraPosition.y = 0;
         
-        transform.position = cameraPosition;
+        transform.position = cameraPosition + Vector3.up * _cameraOffsetY;
         
         Layer1Background.Refresh(cameraPosition);
         Layer2Background.Refresh(cameraPosition);

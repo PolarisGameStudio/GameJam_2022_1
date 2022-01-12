@@ -71,7 +71,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
         _bossTime = false;
 
-        _stageSpecData = DataSpecContainer.InstanceSpecStageWave[Math.Min(_level, DataSpecContainer.InstanceSpecStageWave.Count - 1)];
+        //_stageSpecData = DataSpecContainer.InstanceSpecStageWave[Math.Min(_level, DataSpecContainer.InstanceSpecStageWave.Count - 1)];
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
         var wavePosition = _waveStartPosition;
