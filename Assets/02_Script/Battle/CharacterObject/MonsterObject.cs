@@ -109,8 +109,8 @@ public class MonsterObject : CharacterObject
         _fsmAbility.ChangeState(Enum_MonsterStateType.Death);
         
         CurrencyManager.Instance.AddGold(BattleManager.Instance.CurrentBattle.GoldAmount);
-        PlayerDataManager.PlayerDataContainer.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount);
-                
+        DataManager.PlayerData.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount);
+        
         MonsterEvent.Trigger(Enum_MonsterEventType.NormalMonsterDeath);
 
         switch (CharacterType)

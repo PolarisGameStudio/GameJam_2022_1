@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 
 public class BattleManager : SingletonBehaviour<BattleManager>
@@ -70,9 +69,6 @@ public class BattleManager : SingletonBehaviour<BattleManager>
         // TODO: 씬 스크립트로 옮겨야 함
         Application.targetFrameRate = 60;
 
-
-        // TODO: 시작 씬에 따라 스테이지 or 툴
-        // 프로토타입이라서 일단 여기서 제어
         
         BattleStart(Enum_BattleType.Stage, 0);
     }
