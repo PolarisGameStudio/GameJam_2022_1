@@ -29,7 +29,7 @@ public class BattleCamera : SingletonBehaviour<BattleCamera> , GameEventListener
 
     private TweenerCore<float, float, FloatOptions> _tweener;
     
-    [SerializeField] private ShakePreset _onStageEndPreset;
+   // [SerializeField] private ShakePreset _onStageEndPreset;
     
     protected override void Awake()
     {
@@ -80,7 +80,7 @@ public class BattleCamera : SingletonBehaviour<BattleCamera> , GameEventListener
 
     private void OnStateClear()
     {
-        Shake(_onStageEndPreset);
+       // Shake(_onStageEndPreset);
     }
 
     public void ResetOrthographicSize()

@@ -52,11 +52,9 @@ public class PlayerAttackAbility : CharacterAbility
 
     private IEnumerator DelayAttack_Coroutine(CharacterObject target, float delay)
     {
-        var currentBattleID = BattleManager.Instance.BattleID;
-
         yield return new WaitForSeconds(delay);
 
-        if (!target.isActiveAndEnabled || target.IsDeath || currentBattleID != BattleManager.Instance.BattleID)
+        if (!target.isActiveAndEnabled || target.IsDeath)
         {
             yield break;
         }
@@ -78,7 +76,7 @@ public class PlayerAttackAbility : CharacterAbility
 
         var value = 0d;
         
-        if (damageType == Enum_DamageType.Critical || damageType == Enum_DamageType.BerserkCritical)
+        if (damageType == Enum_DamageType.Critical)
         {
             value = GetCriticalDamage();
         }

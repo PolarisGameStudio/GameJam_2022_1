@@ -15,7 +15,7 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
 
     private void Awake()
     {
-        Init(Enum_CharacterType.Player, new Stat());
+        Init(Enum_CharacterType.Player, PlayerStatManager.Instance.Stat);
 
         _fsmAbility = GetAbility<FSMAbility>();
 
@@ -75,7 +75,7 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
         if (!_healthbarObject || !_healthbarObject.isActiveAndEnabled)
         {
             // Todo: 플레이어 캐릭터 적절한 위치
-            _healthbarObject = HealthbarFactory.Instance.Show(this, 3.8f);
+            _healthbarObject = HealthbarFactory.Instance.Show(this, GetAbility<AnimationAbility>().Height);
         }
     }
 
@@ -120,11 +120,9 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
 
     public void OnGameEvent(RefreshEvent gameEventType)
     {
-        throw new System.NotImplementedException();
     }
 
     public void OnGameEvent(BattleEvent gameEventType)
     {
-        throw new System.NotImplementedException();
     }
 }

@@ -48,7 +48,7 @@ public class SlowManager : SingletonBehaviour<SlowManager> , GameEventListener<B
     
     private void OnStateClear()
     {
-        PlaySlowMotion(_onStageEndPreset);
+       // PlaySlowMotion(_onStageEndPreset);
     }
     
     

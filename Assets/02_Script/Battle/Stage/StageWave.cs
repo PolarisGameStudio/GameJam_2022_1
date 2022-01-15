@@ -26,34 +26,4 @@ public class StageWave : GameBehaviour
     {
         _waveLevel = level;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player"))
-        {
-            return;
-        }
-        
-        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage)
-        {
-            return;
-        }
-        
-        BattleManager.Instance.GetBattle<StageBattle>().OnWaveEnter(_waveLevel);
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player"))
-        {
-            return;
-        }
-
-        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage)
-        {
-            return;
-        }
-        
-        BattleManager.Instance.GetBattle<StageBattle>().OnWaveExit(_waveLevel);
-    }
 }

@@ -39,6 +39,6 @@ public class UI_BattleTitle : GameBehaviour, GameEventListener<RefreshEvent>
     {
         var stageBattle = BattleManager.Instance.GetBattle<StageBattle>();
         _stageText.text = $"Stage {stageBattle.Level + 1}";
-        _waveText.text = $"Wave {stageBattle.WaveLevel + 1}";
+        //_waveText.text = $"Wave {stageBattle.WaveLevel + 1}";
     }
 }

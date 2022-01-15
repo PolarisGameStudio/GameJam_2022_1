@@ -13,6 +13,13 @@ public abstract class Battle : MonoBehaviour
     
     protected List<CharacterObject> _monsterObjects = new List<CharacterObject>(3);
     public List<CharacterObject> MonsterObjects => _monsterObjects;
+
+    public double DamageFactor;
+    public double HealthFactor;
+    public double GoldAmount;
+    public double ExpAmount;
+    
+    protected PlayerObject _player;
     
     public virtual void BattleInit(int level)
     {
@@ -21,6 +28,8 @@ public abstract class Battle : MonoBehaviour
         _monsterObjects.Clear();
         
         OnBattleInit();
+
+        _player = BattleManager.Instance.PlayerObject;
         
         RefreshEvent.Trigger(Enum_RefreshEventType.Battle);
 

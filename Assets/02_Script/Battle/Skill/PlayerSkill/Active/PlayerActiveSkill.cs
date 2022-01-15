@@ -28,7 +28,8 @@ public class PlayerActiveSkill : PlayerSkill
         _skillVFX = GetComponent<ParticleSystem>();
         _animator = GetComponent<Animator>();
 
-        _damageDelay = new WaitForSeconds(AttackPreset.DamageDelay);
+        //_damageDelay = new WaitForSeconds(AttackPreset.DamageDelay);
+        _damageDelay = new WaitForSeconds(0f);
     }
     
     public override bool TryUseSkill()

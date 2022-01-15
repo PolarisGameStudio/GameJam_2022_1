@@ -39,21 +39,21 @@ public class UI_BossRemainTime : GameBehaviour, GameEventListener<RefreshEvent>
             return;
         }
 
-        if (!_stageBattle.IsBossTime)
-        {
-            SafeSetActive(false);
-            return;
-        }
+        // if (!_stageBattle.IsBossTime)
+        // {
+        //     SafeSetActive(false);
+        //     return;
+        // }
 
         SafeSetActive(true);
     }
 
     private void Update()
     {
-        if (_stageBattle && _stageBattle.IsBossTime)
-        { 
-            _remainTimeSlider.value =  _stageBattle.CurrentBossRemainTime / _stageBattle.MaxBossRemainTime;
-            _remainTimeText.text = $"{_stageBattle.CurrentBossRemainTime:N1}s";
-        }
+        // if (_stageBattle && _stageBattle.IsBossTime)
+        // { 
+        //     _remainTimeSlider.value =  _stageBattle.CurrentBossRemainTime / _stageBattle.MaxBossRemainTime;
+        //     _remainTimeText.text = $"{_stageBattle.CurrentBossRemainTime:N1}s";
+        // }
     }
 }

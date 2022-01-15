@@ -37,7 +37,7 @@ public class StateMachine : MonoBehaviour
 
     public void ChangeState(State newState)
     {
-        if (_enterCoroutine != null || _runEnterCoroutine)
+        if (_enterCoroutine != null && _runEnterCoroutine)
         {
             StopCoroutine(_innerEnterCoroutine);
             StopCoroutine(_enterCoroutine);

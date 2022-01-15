@@ -6,7 +6,7 @@ using UnityEngine;
 // todo: 스킬툴 공격연출을 위한 땜빵용
 public class PlayerAttackState : CoroutineState
 {
-    public const string animationName = "";
+    public const string animationName = "attack1";
     
     private AnimationAbility _animationAbility;
     private PlayerAttackAbility _playerAttackAbility;
@@ -28,8 +28,15 @@ public class PlayerAttackState : CoroutineState
     
     public override IEnumerator Enter_Coroutine()
     {
-        var targets = _monsterDetectAbility.AttackableTargets;
-        if (targets == null || targets.Count == 0)
+        // var targets = _monsterDetectAbility.AttackableTargets;
+        // if (targets == null || targets.Count == 0)
+        // {
+        //     _owner.GetAbility<FSMAbility>().ChangeState(Enum_PlayerStateType.Run);
+        //     yield break;
+        // }
+        var target = _monsterDetectAbility.NearestAttackableTarget;
+        
+        if (target == null || target.IsDeath)
         {
             _owner.GetAbility<FSMAbility>().ChangeState(Enum_PlayerStateType.Run);
             yield break;
@@ -63,14 +70,16 @@ public class PlayerAttackState : CoroutineState
         
         TryStateExit();
 
-        var intervalTime = 0.02f / realTimeScale;
+        //var intervalTime = 0.02f / realTimeScale;
 
-        int targetCount = targets.Count;
+        // int targetCount = targets.Count;
+        //
+        // for (int i = 0; i < targetCount; ++i)
+        // {
+        //     _playerAttackAbility.DelayAttack(targets[i], i * intervalTime);
+        // }
 
-        for (int i = 0; i < targetCount; ++i)
-        {
-            _playerAttackAbility.DelayAttack(targets[i], i * intervalTime);
-        }
+        _playerAttackAbility.Attack(target);
 
         yield return new WaitForSeconds(duration - damageDelay);
 

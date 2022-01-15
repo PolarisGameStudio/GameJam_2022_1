@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerRunState : NormalState
 {
-    public const string NormalRunAnimationName = "Normal_Run";
+    public const string NormalRunAnimationName = "move";
     
     private AnimationAbility _animationAbility;
     private MovementAbility _movementAbility;
@@ -49,7 +49,7 @@ public class PlayerRunState : NormalState
 
     public override void LogicUpdate(float deltaTime)
     {
-        if (_monsterDetectAbility.HaveTarget )
+        if (_monsterDetectAbility.IsEnableAttack)
         {
             if (_playerAttackAbility.IsAttackPossible)
             {

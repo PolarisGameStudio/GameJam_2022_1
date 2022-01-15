@@ -53,7 +53,6 @@ public class NoWaveBattle : Battle, GameEventListener<MonsterEvent>
     private bool _inited = false;
     public bool IsInited => _inited;
 
-    private PlayerObject _player;
     
     private void Awake()
     {

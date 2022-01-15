@@ -17,9 +17,6 @@ public class BattleManager : SingletonBehaviour<BattleManager>
 
     public PlayerObject PlayerObject => _playerObject;
 
-    private int _battleID = 0;
-    public int BattleID => _battleID;
-
     public Battle CurrentBattle
     {
         get
@@ -76,15 +73,8 @@ public class BattleManager : SingletonBehaviour<BattleManager>
 
         // TODO: 시작 씬에 따라 스테이지 or 툴
         // 프로토타입이라서 일단 여기서 제어
-
-        if (SceneManager.GetActiveScene().name.Contains("Tool"))
-        {
-            BattleStart(Enum_BattleType.Tool, 0);
-        }
-        else
-        {
-            BattleStart(Enum_BattleType.Stage, 0);
-        }
+        
+        BattleStart(Enum_BattleType.Stage, 0);
     }
 
     public List<CharacterObject> GetMonsters()
@@ -100,8 +90,6 @@ public class BattleManager : SingletonBehaviour<BattleManager>
     public void BattleStart(Enum_BattleType battleType, int level)
     {
         //SaveManager.Save();
-
-        _battleID += 1;
 
         CurrentBattleEnd();
 
@@ -175,7 +163,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
             case Enum_BattleType.None:
                 break;
             case Enum_BattleType.Stage:
-                BattleStart(battleType, level + 1);
+                BattleStart(battleType, level);
                 break;
             case Enum_BattleType.Dungeon:
                 break;
@@ -186,6 +174,5 @@ public class BattleManager : SingletonBehaviour<BattleManager>
             default:
                 break;
         }
-        
     }
 }

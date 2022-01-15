@@ -24,8 +24,8 @@ public class MonsterObject : CharacterObject
 
         _fsmAbility.Register(Enum_MonsterStateType.Init, new MonsterInitState(this, _fsmAbility.StateMachine));
         _fsmAbility.Register(Enum_MonsterStateType.Idle, new MonsterIdleState(this, _fsmAbility.StateMachine));
-        _fsmAbility.Register(Enum_MonsterStateType.Run,  new MonsterRunState(this, _fsmAbility.StateMachine));
-        _fsmAbility.Register(Enum_MonsterStateType.Attack, new MonsterAttackState(this, _fsmAbility.StateMachine));
+        // _fsmAbility.Register(Enum_MonsterStateType.Run,  new MonsterRunState(this, _fsmAbility.StateMachine));
+        //_fsmAbility.Register(Enum_MonsterStateType.Attack, new MonsterAttackState(this, _fsmAbility.StateMachine));
         _fsmAbility.Register(Enum_MonsterStateType.Death, new MonsterDeathState(this, _fsmAbility.StateMachine));
 
         _fsmAbility.Initialize(Enum_MonsterStateType.Init);
@@ -35,15 +35,10 @@ public class MonsterObject : CharacterObject
 
     private void InitStat()
     {
-        Stat = _monster.Stat.Copy();
-        // todo: 보스 테스트용 보스의 형태가 단순 능력치 상승이 아니라면 일반 몬스터와 분리하는게 좋을듯.
-        // if (CharacterType == Enum_CharacterType.StageBossMonster)
-        // {
-        //     Debug.LogError("보스 몬스터 생성 능력치 10배");
-        //     Stat[Enum_StatType.MaxHealth] *= BossAbilityMultiple;
-        //     Stat[Enum_StatType.Damage] *= BossAbilityMultiple;
-        // }
-
+        Stat = _monster.Stat;
+        Stat[Enum_StatType.Damage] *= BattleManager.Instance.CurrentBattle.DamageFactor;
+        Stat[Enum_StatType.MaxHealth] *= BattleManager.Instance.CurrentBattle.HealthFactor;
+        
         _currentHealth = Stat[Enum_StatType.MaxHealth];
 
         // todo: 매직넘버 + 거리 느낌을 주기 의해 들어간건가? 이런 애들때문에 예측 계산이 맞지 않음.
@@ -63,16 +58,16 @@ public class MonsterObject : CharacterObject
         base.Init(characterType);
 
         InitScale();
-        
-        transform.position = initPosition + (Vector3)UnityEngine.Random.insideUnitCircle + Vector3.right * Random.Range(1f, 5f);
+
+        transform.position = initPosition;
         
         InitAbilities();
 
         GetAbility<AnimationAbility>().SetSkeletonDataAsset(skeletonDataAsset);
-        GetAbility<MonsterAttackAbility>().SetAttackPreset(attackPreset);
+       // GetAbility<MonsterAttackAbility>().SetAttackPreset(attackPreset);
         GetAbility<ShadowAbility>().SetSize(GetAbility<AnimationAbility>().Width);
         
-        _fsmAbility.ChangeState(Enum_MonsterStateType.Run);
+        //_fsmAbility.ChangeState(Enum_MonsterStateType.Run);
         
         SafeSetActive(true);
     }
@@ -112,19 +107,19 @@ public class MonsterObject : CharacterObject
     protected override void OnDeath()
     {
         _fsmAbility.ChangeState(Enum_MonsterStateType.Death);
+        
+        CurrencyManager.Instance.AddGold(BattleManager.Instance.CurrentBattle.GoldAmount);
+        PlayerDataManager.PlayerDataContainer.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount);
+                
+        MonsterEvent.Trigger(Enum_MonsterEventType.NormalMonsterDeath);
 
         switch (CharacterType)
         {
             case Enum_CharacterType.StageNormalMonster:
-                CurrencyManager.Instance.AddGold(this._monster.MonsterData.gold);
-                PlayerDataManager.PlayerDataContainer.AddExp((int)_monster.MonsterData.exp);
                 MonsterEvent.Trigger(Enum_MonsterEventType.NormalMonsterDeath);
                 break;
             
             case Enum_CharacterType.StageBossMonster:
-                Debug.Log($"보스 경험치, 골드 더미 gold:{this._monster.MonsterData.gold * BossAbilityMultiple}, exp :{_monster.MonsterData.exp* BossAbilityMultiple}");
-                CurrencyManager.Instance.AddGold(this._monster.MonsterData.gold * BossAbilityMultiple); //TODO : 보스 그냥 10배임.
-                PlayerDataManager.PlayerDataContainer.AddExp((int)_monster.MonsterData.exp* BossAbilityMultiple);//TODO : 보스 그냥 10배임.
                 MonsterEvent.Trigger(Enum_MonsterEventType.BossMonsterDeath);
                 break;
         }

@@ -38,36 +38,28 @@ public class UI_StageBossGauge : GameBehaviour, GameEventListener<RefreshEvent>
             SafeSetActive(false);
             return;
         }
-
-        if (_stageBattle.IsBossTime)
-        {
-            SafeSetActive(false);
-            return;
-        }
+        //
+        // if (_stageBattle.IsBossTime)
+        // {
+        //     SafeSetActive(false);
+        //     return;
+        // }
 
         SafeSetActive(true);
         
-        _bossGaugeSlider.value = _stageBattle.CurrentBossGauge / (float)_stageBattle.RequireBossGauge;
-        _bossGaugeAmountText.text = $"{_stageBattle.CurrentBossGauge}/{_stageBattle.RequireBossGauge}";
-        txtTitleStage.text = $"<{_stageBattle.StageName} wave :{_stageBattle.WaveLevel + 1}>";
-        _bossChallengeButton.gameObject.SetActive(_stageBattle.IsEnableBossChallenge);
+        // _bossGaugeSlider.value = _stageBattle.CurrentBossGauge / (float)_stageBattle.RequireBossGauge;
+        // _bossGaugeAmountText.text = $"{_stageBattle.CurrentBossGauge}/{_stageBattle.RequireBossGauge}";
+        // txtTitleStage.text = $"<{_stageBattle.StageName} wave :{_stageBattle.WaveLevel + 1}>";
+        // _bossChallengeButton.gameObject.SetActive(_stageBattle.IsEnableBossChallenge);
     }
     
     public void OnClickChallengeButton()
     {
-        if (_stageBattle.TryBossChallenge())
-        {
-            
-        }
-        else
-        {
-            
-        }
+     
     }
 
     public void OnToggleAutoChallenge(bool isOn)
     {
-        _stageBattle.TryBossChallenge();
        // OptionManager.Instance.ToggleAutoBossChallenge(isOn);
     }
     

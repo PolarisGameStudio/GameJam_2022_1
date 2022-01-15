@@ -98,8 +98,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 824049247
-  m_SortingLayer: 0
+  m_SortingLayerID: 1516735223
+  m_SortingLayer: 1
   m_SortingOrder: -999
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
@@ -180,8 +180,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1162447879
-  m_SortingLayer: 0
+  m_SortingLayerID: 2043989791
+  m_SortingLayer: 3
   m_SortingOrder: 999
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
@@ -296,11 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8c96e2cdc154e848a3d9fe62464d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraTargets:
-  - TargetTransform: {fileID: 0}
-    TargetInfluenceH: 1
-    TargetInfluenceV: 1
-    TargetOffset: {x: 2, y: 0}
+  CameraTargets: []
   CenterTargetOnStart: 0
   Axis: 0
   UpdateType: 0
@@ -350,7 +346,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pivotTransform: {fileID: 640269966}
   _pivotThreshold: 0
-  _onStageEndPreset: {fileID: 0}
 --- !u!114 &6000092034125707117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,5 +362,5 @@ MonoBehaviour:
   FrontBackground: {fileID: 6654156514369801296}
   InOutTime: 0.1
   BlackoutAlphaValue: 0.7
-  _onStageEndPreset: {fileID: 0}
+  _onStageEndPreset: {fileID: 11400000, guid: a7dbac30113302247904c1788e9455bf, type: 2}
   _defaultColor: {r: 0, g: 0, b: 0, a: 0}

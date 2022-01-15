@@ -14,17 +14,11 @@ public class MonsterObjectFactory : ObjectPool<MonsterObjectFactory, MonsterObje
     public MonsterObject Make(Enum_CharacterType characterType, Vector3 position, int monsterIndex, Enum_BattleType battleType , bool IsSpecialType = false)
     {
         MonsterObject monsterObject = GetPooledObject();
-
-        if (DataSpecContainer.InstanceSpecStageMonster.Count <= monsterIndex + 1)
-        {
-            Debug.LogError($"monster index overflow : {monsterIndex + 1} / {DataSpecContainer.InstanceSpecStageMonster.Count}");
-            monsterIndex = DataSpecContainer.InstanceSpecStageMonster.Count - 1;
-        }
-        Monster monster = new Monster(DataSpecContainer.InstanceSpecStageMonster[monsterIndex + 1]);
-        monster.StatInit(battleType, characterType == Enum_CharacterType.StageBossMonster);
         
-        monsterObject.Init(characterType, position, monster, SkeletonDataAssets[monsterIndex % MAX_WAVE_COUNT], MonsterAttackPreset[monsterIndex % MAX_WAVE_COUNT]);
-  
+        Monster monster = new Monster(TBL_MONSTER.GetEntity(monsterIndex));
+        
+        monsterObject.Init(characterType, position, monster, SkeletonDataAssets[monsterIndex], null);
+
         monsterObject.transform.localScale = IsSpecialType ? Vector3.one * 1.5f : Vector3.one;
 
         switch (characterType)

@@ -105,26 +105,26 @@ public class PlayerGrowStat
 
 	public void CheckLevelUp()
 	{
-		if (DataSpecContainer.InstanceSpecLevelUp.ContainsKey(level + 1) == false)
-		{
-			Debug.LogError($"spec container doesn't have {level + 1} data. only {DataSpecContainer.InstanceSpecLevelUp.Count} levels exist");
-			return;
-		}
-
-		double levelUpExp = DataSpecContainer.GetLevelUpEXP(level);
-		double remainExp = exp - levelUpExp;
-		if (remainExp >= 0)
-		{
-			exp = remainExp;
-			level++;
-			
-			AddLevelUpStats(level);
-			
-			RefreshEvent.Trigger(Enum_RefreshEventType.PlayerStat);
-			RefreshEvent.Trigger(Enum_RefreshEventType.LevelUp);
-			
-			CheckLevelUp();	// 재귀로 다시 검사. : TODO : 레벨업 여러단계 한 번에 되게 하려면 수정 필요.
-		}
+		// if (DataSpecContainer.InstanceSpecLevelUp.ContainsKey(level + 1) == false)
+		// {
+		// 	Debug.LogError($"spec container doesn't have {level + 1} data. only {DataSpecContainer.InstanceSpecLevelUp.Count} levels exist");
+		// 	return;
+		// }
+		//
+		// double levelUpExp = DataSpecContainer.GetLevelUpEXP(level);
+		// double remainExp = exp - levelUpExp;
+		// if (remainExp >= 0)
+		// {
+		// 	exp = remainExp;
+		// 	level++;
+		// 	
+		// 	AddLevelUpStats(level);
+		// 	
+		// 	RefreshEvent.Trigger(Enum_RefreshEventType.PlayerStat);
+		// 	RefreshEvent.Trigger(Enum_RefreshEventType.LevelUp);
+		// 	
+		// 	CheckLevelUp();	// 재귀로 다시 검사. : TODO : 레벨업 여러단계 한 번에 되게 하려면 수정 필요.
+		// }
 	}
 
 	// level up 시 적용될 값 반영

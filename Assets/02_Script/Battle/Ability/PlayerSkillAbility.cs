@@ -21,25 +21,25 @@ public class PlayerSkillAbility : CharacterAbility
 
         _skillIntervalTimer += deltaTime;
 
-        foreach (var activeSkill in _activeSkills)
+        if (_activeSkills != null)
         {
-            if (activeSkill == null)
+            for (var i = 0; i < _activeSkills.Count; i++)
             {
-                continue;
+                _activeSkills[i]?.UpdateCoolTime(deltaTime);
             }
-
-            activeSkill.UpdateCoolTime(deltaTime);
-        }        
-        
-        foreach (var passiveSkill in _passiveSkills)
-        {
-            if (passiveSkill == null)
-            {
-                continue;
-            }
-
-            passiveSkill.UpdateCoolTime(deltaTime);
         }
+        
+         if (_passiveSkills != null)
+        {
+            for (var i = 0; i < _passiveSkills.Count; i++)
+            {
+                _passiveSkills[i]?.UpdateCoolTime(deltaTime);
+            }
+        }
+        
+        
+            
+        
 
         // if (OptionManager.Instance.IsAutoSkill)
         // {

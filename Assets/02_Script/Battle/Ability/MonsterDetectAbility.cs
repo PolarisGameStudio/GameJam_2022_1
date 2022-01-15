@@ -7,6 +7,10 @@ public class MonsterDetectAbility : DetectAbility
     protected readonly List<CharacterObject> _attackableTargets = new List<CharacterObject>(4);
     public List<CharacterObject> AttackableTargets => _attackableTargets;
     public CharacterObject AttackableTarget => _targets[0];
+
+    public CharacterObject NearestAttackableTarget;
+
+    public bool IsEnableAttack => NearestAttackableTarget != null && NearestAttackableTarget.IsAlive;
     
     public override void Init()
     {
@@ -30,6 +34,8 @@ public class MonsterDetectAbility : DetectAbility
         float myX = transform.position.x;
         double detectRange = _onwerObject.Stat[Enum_StatType.DetectRange];
         double attackRange = _onwerObject.Stat[Enum_StatType.AttackRange];
+
+        float minDistance = float.MaxValue;
         
         foreach (var monster in monsters)
         {
@@ -41,6 +47,7 @@ public class MonsterDetectAbility : DetectAbility
             float monsterX = monster.Position.x;
 
             var distance = Mathf.Abs(myX - monsterX);
+            
             if (distance <= detectRange)
             {
                 _targets.Add(monster);
@@ -49,6 +56,12 @@ public class MonsterDetectAbility : DetectAbility
             if (distance <= attackRange)
             {
                 _attackableTargets.Add(monster);
+            }
+
+            if (distance <= minDistance && distance <= attackRange)
+            {
+                minDistance = distance;
+                NearestAttackableTarget = monster;
             }
         }
         

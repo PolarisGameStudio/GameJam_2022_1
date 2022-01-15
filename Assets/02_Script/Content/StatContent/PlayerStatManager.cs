@@ -46,7 +46,7 @@ public class PlayerStatManager : StatManager<PlayerStatManager> , GameEventListe
         // Stat[Enum_StatType.MoveSpeed] = _playerData.MoveSpeed;
         
         Stat[Enum_StatType.DetectRange] = 6;        // TODO: 관리가 필요한가?
-        Stat[Enum_StatType.AttackRange] = 7;        // TODO: 관리가 필요한가?
+        Stat[Enum_StatType.AttackRange] = 2;        // TODO: 관리가 필요한가?
     }
 
     protected override void CalculateStat()
