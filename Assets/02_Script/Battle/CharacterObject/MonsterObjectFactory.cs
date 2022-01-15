@@ -11,7 +11,7 @@ public class MonsterObjectFactory : ObjectPool<MonsterObjectFactory, MonsterObje
 
     public const int MAX_WAVE_COUNT = 3;
     
-    public MonsterObject Make(Enum_CharacterType characterType, Vector3 position, int monsterIndex, Enum_BattleType battleType)
+    public MonsterObject Make(Enum_CharacterType characterType, Vector3 position, int monsterIndex, Enum_BattleType battleType , bool IsSpecialType = false)
     {
         MonsterObject monsterObject = GetPooledObject();
 
@@ -24,6 +24,8 @@ public class MonsterObjectFactory : ObjectPool<MonsterObjectFactory, MonsterObje
         monster.StatInit(battleType, characterType == Enum_CharacterType.StageBossMonster);
         
         monsterObject.Init(characterType, position, monster, SkeletonDataAssets[monsterIndex % MAX_WAVE_COUNT], MonsterAttackPreset[monsterIndex % MAX_WAVE_COUNT]);
+  
+        monsterObject.transform.localScale = IsSpecialType ? Vector3.one * 1.5f : Vector3.one;
 
         switch (characterType)
         {

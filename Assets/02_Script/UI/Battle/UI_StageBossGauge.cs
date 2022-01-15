@@ -68,7 +68,7 @@ public class UI_StageBossGauge : GameBehaviour, GameEventListener<RefreshEvent>
     public void OnToggleAutoChallenge(bool isOn)
     {
         _stageBattle.TryBossChallenge();
-        OptionManager.Instance.ToggleAutoBossChallenge(isOn);
+       // OptionManager.Instance.ToggleAutoBossChallenge(isOn);
     }
     
 }

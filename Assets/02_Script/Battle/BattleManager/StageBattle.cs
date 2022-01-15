@@ -50,6 +50,8 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
     public const int MAX_WAVE_COUNT = 3;
     public const int MAX_WAVE_INDEX_COUNT = 10;
 
+    public int SpawnCount = 6;
+
     private bool _inited = false;
     public bool IsInited => _inited;
     
@@ -71,7 +73,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
         _bossTime = false;
 
-        //_stageSpecData = DataSpecContainer.InstanceSpecStageWave[Math.Min(_level, DataSpecContainer.InstanceSpecStageWave.Count - 1)];
+        _stageSpecData = DataSpecContainer.InstanceSpecStageWave[Math.Min(_level, DataSpecContainer.InstanceSpecStageWave.Count - 1)];
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
         var wavePosition = _waveStartPosition;
@@ -92,10 +94,10 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
     {
         BattleCamera.Instance.SetPosition(_startCameraPosition);
         
-        if (OptionManager.Instance.IsAutoBossChallenge)
-        {
-            TryBossChallenge();
-        }
+        // if (OptionManager.Instance.IsAutoBossChallenge)
+        // {
+        //     TryBossChallenge();
+        // }
     }
 
     public void OnWaveEnter(int waveLevel)
@@ -113,9 +115,9 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         // TODO : 웨이브 갯수 넘어가면 마지막 웨이브 반복? 임의로 처리 
         int waveIndex = _waveLevel < _stageSpecData.WaveMonsterGroupDataList.Count - 1 ? _waveLevel : _stageSpecData.WaveMonsterGroupDataList.Count - 1; 
         int[] waveMonsterIndexes = _stageSpecData.WaveMonsterGroupDataList[waveIndex];
-        for (int i = 0; i < MAX_WAVE_COUNT; i++) // TODO : 스폰 포인트 3개만 있음. 3개 이상 처리하려면 추가 작업 필요
+        for (int i = 0; i < SpawnCount; i++) // TODO : 스폰 포인트 3개만 있음. 3개 이상 처리하려면 추가 작업 필요
         {
-            Vector3 objPosition = _stageWaves[_waveLevel % MAX_WAVE_COUNT].GetSpawnPosition(i);
+            Vector3 objPosition = _stageWaves[_waveLevel % MAX_WAVE_COUNT].GetSpawnPosition(i & MAX_WAVE_COUNT);
 
             // TODO : 임의로 데이터 테이블에 3개 미만으로 설정 되었다면 마지막 인덱스로 3개 채움
             int tempIdx = i;
@@ -146,7 +148,6 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
                 
         RefreshEvent.Trigger(Enum_RefreshEventType.Battle);
         
-        SaveManager.Save();
     }
 
     public void OnGameEvent(MonsterEvent e)
@@ -182,10 +183,10 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         // CurrencyManager.Instance.AddGold(10000);
         // UserManager.Instance.AddExp(10);
 
-        if (OptionManager.Instance.IsAutoBossChallenge)
-        {
-            TryBossChallenge();
-        }
+        // if (OptionManager.Instance.IsAutoBossChallenge)
+        // {
+        //     TryBossChallenge();
+        // }
     }
 
     private void OnBossMonsterDeath()

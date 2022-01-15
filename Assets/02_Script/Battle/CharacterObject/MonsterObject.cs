@@ -64,7 +64,7 @@ public class MonsterObject : CharacterObject
 
         InitScale();
         
-        transform.position = initPosition;
+        transform.position = initPosition + (Vector3)UnityEngine.Random.insideUnitCircle + Vector3.right * Random.Range(1f, 5f);
         
         InitAbilities();
 
@@ -122,7 +122,7 @@ public class MonsterObject : CharacterObject
                 break;
             
             case Enum_CharacterType.StageBossMonster:
-                Debug.LogError("보스 경험치, 골드 더미");
+                Debug.Log($"보스 경험치, 골드 더미 gold:{this._monster.MonsterData.gold * BossAbilityMultiple}, exp :{_monster.MonsterData.exp* BossAbilityMultiple}");
                 CurrencyManager.Instance.AddGold(this._monster.MonsterData.gold * BossAbilityMultiple); //TODO : 보스 그냥 10배임.
                 PlayerDataManager.PlayerDataContainer.AddExp((int)_monster.MonsterData.exp* BossAbilityMultiple);//TODO : 보스 그냥 10배임.
                 MonsterEvent.Trigger(Enum_MonsterEventType.BossMonsterDeath);

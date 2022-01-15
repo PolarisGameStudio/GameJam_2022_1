@@ -60,8 +60,6 @@ public class PlayerAttackState_Backup : CoroutineState
         {
             _playerAttackAbility.Attack(targets[i]);
         }
-    
-        BerserkManager.Instance.OnPlayerAttack();
         
         yield return waitForHalf;
         

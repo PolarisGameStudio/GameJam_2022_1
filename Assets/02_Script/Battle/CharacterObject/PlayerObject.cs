@@ -6,10 +6,10 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
 {
     private FSMAbility _fsmAbility;
 
-    private HealthbarObject _healthbarObject;
-
     private float _defaultScaleSize = 0.8f;
     private float _berserkScaleSize = 1.0f;
+
+    private HealthbarObject _healthbarObject;
 
     public Transform SkillEffectPos;
 
@@ -112,28 +112,19 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
         _fsmAbility.ChangeState(Enum_PlayerStateType.Death);
     }
 
-    public void OnGameEvent(RefreshEvent e)
-    {
-        switch (e.Type)
-        {
-            case Enum_RefreshEventType.Skill:
-            {
-                RefreshSkillAbility();
-                break;
-            }
-        }
-    }
-
-    public void OnGameEvent(BattleEvent e)
-    {
-        if (e.Type == Enum_BattleEventType.BattleClear)
-        {
-        }
-    }
 
     private void RefreshSkillAbility()
     {
         GetAbility<PlayerSkillAbility>().RefreshSkill();
     }
 
+    public void OnGameEvent(RefreshEvent gameEventType)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnGameEvent(BattleEvent gameEventType)
+    {
+        throw new System.NotImplementedException();
+    }
 }

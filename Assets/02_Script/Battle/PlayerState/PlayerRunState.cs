@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerRunState : NormalState
 {
-    public const string NormalRunAnimationName = "move";
+    public const string NormalRunAnimationName = "Normal_Run";
     
     private AnimationAbility _animationAbility;
     private MovementAbility _movementAbility;
@@ -39,7 +39,7 @@ public class PlayerRunState : NormalState
             
             moveScale = Mathf.Min(moveScale, _animationAbility.MaxMovementAnimationSpeedScale);
             
-            _animationAbility.PlayAnimation(NormalRunAnimationName, true, moveScale);
+            _animationAbility.PlayAnimation( NormalRunAnimationName, true, moveScale);
         }
         else
         {

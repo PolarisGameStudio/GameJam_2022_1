@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class PlayerIdleState : NormalState
 {
-    public const string NormalIdleAnimationName = "Normal_Run";
-    public const string BerserkIdleAnimationName = "Berserk_Run";
-    
+    public const string NormalIdleAnimationName = "";
     private AnimationAbility _animationAbility;
     private MonsterDetectAbility _monsterDetectAbility;
     private PlayerAttackAbility _playerAttackAbility;
-    private BerserkAbility _berserkAbility;
 
     public PlayerIdleState(CharacterObject owner, StateMachine stateMachine) : base(owner, stateMachine)
     {
@@ -23,7 +20,6 @@ public class PlayerIdleState : NormalState
         _animationAbility = _owner.GetAbility<AnimationAbility>();
         _monsterDetectAbility = _owner.GetAbility<MonsterDetectAbility>();
         _playerAttackAbility = _owner.GetAbility<PlayerAttackAbility>();
-        _berserkAbility = _owner.GetAbility<BerserkAbility>();
     }
 
     public override void Enter()
@@ -42,7 +38,7 @@ public class PlayerIdleState : NormalState
             return;
         }
         
-        _animationAbility.PlayAnimation(_berserkAbility.IsOn ? BerserkIdleAnimationName : NormalIdleAnimationName, true);
+        _animationAbility.PlayAnimation(NormalIdleAnimationName, true);
     }
     
 

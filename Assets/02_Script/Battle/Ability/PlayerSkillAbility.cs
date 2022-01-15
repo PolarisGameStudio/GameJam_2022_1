@@ -21,53 +21,47 @@ public class PlayerSkillAbility : CharacterAbility
 
         _skillIntervalTimer += deltaTime;
 
-        if (_activeSkills != null && _activeSkills.Count > 0)
+        foreach (var activeSkill in _activeSkills)
         {
-            foreach (var activeSkill in _activeSkills)
+            if (activeSkill == null)
             {
-                if (activeSkill == null)
-                {
-                    continue;
-                }
+                continue;
+            }
 
-                activeSkill.UpdateCoolTime(deltaTime);
-            }        
+            activeSkill.UpdateCoolTime(deltaTime);
+        }        
+        
+        foreach (var passiveSkill in _passiveSkills)
+        {
+            if (passiveSkill == null)
+            {
+                continue;
+            }
+
+            passiveSkill.UpdateCoolTime(deltaTime);
         }
 
-        if (_passiveSkills != null&& _passiveSkills.Count > 0)
-        {
-            foreach (var passiveSkill in _passiveSkills)
-            {
-                if (passiveSkill == null)
-                {
-                    continue;
-                }
-
-                passiveSkill.UpdateCoolTime(deltaTime);
-            }
-        }
-
-        if (OptionManager.Instance.IsAutoSkill)
-        {
-            if (!_onwerObject.GetAbility<MonsterDetectAbility>().HaveTarget)
-            {
-                return;
-            }
-
-            if (_skillIntervalTime > _skillIntervalTimer)
-            {
-                return;
-            }
-            
-            foreach (var activeSkill in _activeSkills)
-            {
-                if (activeSkill.TryUseSkill())
-                {
-                    _skillIntervalTimer = 0;
-                    break;
-                }
-            }
-        }
+        // if (OptionManager.Instance.IsAutoSkill)
+        // {
+        //     if (!_onwerObject.GetAbility<MonsterDetectAbility>().HaveTarget)
+        //     {
+        //         return;
+        //     }
+        //
+        //     if (_skillIntervalTime > _skillIntervalTimer)
+        //     {
+        //         return;
+        //     }
+        //     
+        //     foreach (var activeSkill in _activeSkills)
+        //     {
+        //         if (activeSkill.TryUseSkill())
+        //         {
+        //             _skillIntervalTimer = 0;
+        //             break;
+        //         }
+        //     }
+        // }
     }
 
     public void RefreshSkill()

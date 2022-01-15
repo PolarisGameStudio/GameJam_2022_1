@@ -15,7 +15,6 @@ public class PlayerDataContainer : DataContainerBase, GameEventListener<RefreshE
 	private PlayerGrowStat _playerGrowStatData;
 
 	[SerializeField]
-	private BerserkerStat _berserkerStatData;
 
 
 	
@@ -23,7 +22,6 @@ public class PlayerDataContainer : DataContainerBase, GameEventListener<RefreshE
 	{
 		_playerUpgradeStatData = new PlayerUpgradeStat();
 		_playerGrowStatData = new PlayerGrowStat();
-		_berserkerStatData = new BerserkerStat();
 		
 	}
 
@@ -70,17 +68,17 @@ public class PlayerDataContainer : DataContainerBase, GameEventListener<RefreshE
 		return true;
 	}
 
-	public bool GetBerserkerStat(ref BerserkerStat berserkerStatData)
-	{
-		if (_berserkerStatData == null)
-		{
-			Debug.LogError("_berserkerStatData is null but try to get Data");
-			return false;
-		}
-		
-		berserkerStatData = _berserkerStatData;
-		return true;
-	}
+	// public bool GetBerserkerStat(ref BerserkerStat berserkerStatData)
+	// {
+	// 	if (_berserkerStatData == null)
+	// 	{
+	// 		Debug.LogError("_berserkerStatData is null but try to get Data");
+	// 		return false;
+	// 	}
+	// 	
+	// 	berserkerStatData = _berserkerStatData;
+	// 	return true;
+	// }
 	#endregion
 
 
@@ -96,8 +94,7 @@ public class PlayerDataContainer : DataContainerBase, GameEventListener<RefreshE
 	// + 공격력 * (1+광폭화 시 추가 피해량) * (1+광폭화 시 공격속도) * 2
 	// + 생명력
 	public double GetCharacterPower() => _playerGrowStatData.attackPower * (1 + _playerUpgradeStatData.criticalChancePercentage) * _playerUpgradeStatData.criticalDamagePercentage * 10 +
-	                                      _playerGrowStatData.attackPower * (1 + _berserkerStatData.GetStatValue(Enum_StatType.Damage, true)) * (1 + _berserkerStatData.GetStatValue(Enum_StatType.AttackSpeed, true)) * 2 +
-	                                      + _playerGrowStatData.health;
+	                                      _playerGrowStatData.attackPower * 2  + _playerGrowStatData.health;
 
 	private double GetDamage()
 	{
@@ -107,7 +104,7 @@ public class PlayerDataContainer : DataContainerBase, GameEventListener<RefreshE
 		무기 공격력 +100% 방어구 공격력 +50%
 		-> (100+200)*(1+1)*(1+0.5) = 900			*/
 		
-		return (_playerUpgradeStatData.attack + _playerGrowStatData.attackPower) * (1 + _berserkerStatData.GetStatValue(Enum_StatType.Damage));
+		return (_playerUpgradeStatData.attack + _playerGrowStatData.attackPower);
 	}
 	
 	// private double GetAttackSpeedPercentage()
@@ -117,12 +114,12 @@ public class PlayerDataContainer : DataContainerBase, GameEventListener<RefreshE
 	
 	private double GetAttackSpeed()
 	{
-		return 2  * (1 + _berserkerStatData.GetStatValue(Enum_StatType.AttackSpeed));		// TODO 기본값과 연산해야 함. 기본값은 어디서? 
+		return 2  ;		// TODO 기본값과 연산해야 함. 기본값은 어디서? 
 	}
 
 	private double GetMoveSpeed()
 	{
-		return _playerGrowStatData.moveSpeed * (1 + _berserkerStatData.GetStatValue(Enum_StatType.MoveSpeed));
+		return _playerGrowStatData.moveSpeed;
 	}
 	private double GetHealth()
 	{

@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Spine.Unity;
+using UnityEngine;
+
+public class AssetManager : SingletonBehaviour<AssetManager>
+{
+    [PreviewField][Header("군주 스켈레톤 데이터")] public SkeletonDataAsset KingSkeletonDataAsset;
+    [PreviewField][Header("종족 아이콘")] public List<Sprite> TribeIcon;
+    [PreviewField][Header("그림자 아이콘")]     public List<Sprite> ShadowIcon;
+    [PreviewField][Header("그림자 사망 아이콘")]     public List<Sprite> ShadowDeathIcon;
+    [PreviewField][Header("그림자 조각 아이콘")]     public List<Sprite> ShadowPieceIcon;
+    [PreviewField][Header("그림자 등급 태그 아이콘")]     public List<Sprite> ShadowGradeTagIcon;
+    [PreviewField][Header("그림자 직업 아이콘")]     public List<Sprite> ShadowJobIcon;
+    [PreviewField][Header("그림자 등급 프레임")]     public List<Sprite> ShadowGradeFrame;
+    [PreviewField][Header("그림자 등급 인벤토리 프레임")]     public List<Sprite> ShadowGradeInventoryFrame;
+    [PreviewField][Header("그림자 락 아이콘")]     public List<Sprite> ShadowLockIcon;
+    [PreviewField][Header("그림자 락 아이콘_더미")]     public List<Sprite> ShadowDummyLockIcon;
+    [PreviewField][Header("그림자 액티브 아이콘")] public List<Sprite> ShadowSkillIcon;
+    [PreviewField][Header("그림자 패시브 아이콘")] public List<Sprite> ShadowPassiveIcon;
+    [PreviewField][Header("그림자 획득 종족 배경화면")] public List<Sprite> ShadowTribeBackground;
+    [PreviewField] [Header("던전 백그라운드")] public List<Sprite> DungeonBackground;
+    [PreviewField][Header("유물 아이콘")]       public List<Sprite> ArtifactIcon;
+    [PreviewField][Header("유물 등급")]        public List<Sprite> ArtifactGradeIcon;
+    [PreviewField][Header("유물 프레임")]        public List<Sprite> ArtifactFrameIcon;
+    [PreviewField][Header("유물 인벤토리 프레임")]        public List<Sprite> ArtifactInventoryFrameIcon;
+    [PreviewField][Header("스킬 아이콘")]         public List<Sprite> SkillIcon;
+    [PreviewField][Header("스킬 조각 아이콘")]         public List<Sprite> SkillPieceIcon;
+    [PreviewField][Header("스킬 락 아이콘")]         public List<Sprite> SkillLockIcon;
+    [PreviewField][Header("스킬 등급")]         public List<Sprite> SkillGradeIcon;
+    [PreviewField][Header("스킬 인벤토리 프레임")]         public List<Sprite> SkillGradeInventoryFrame;
+    [PreviewField][Header("펫 아이콘")]         public List<Sprite> PetIcon;
+    [PreviewField][Header("마스터리 아이콘")]    public List<Sprite> MasteryIcon;
+    [PreviewField][Header("토벌 스켈레톤 데이터")] public List<SkeletonDataAsset> TobeolMonsterSkeletonDataAssets;
+    [PreviewField][Header("토벌 업그레이드 아이콘")]    public List<Sprite> TobeolUpgradeIcon;
+    [PreviewField][Header("재화 아이콘")]         public List<Sprite> CurrencyIcon;
+    [PreviewField][Header("보상 아이콘")]         public List<Sprite> RewardIcon;
+    [PreviewField][Header("가차 박스 아이콘 (오픈전)")]         public List<Sprite> GachaBoxIcon1;
+    [PreviewField][Header("가차 박스 아이콘 (오픈후)")]         public List<Sprite> GachaBoxIcon2;
+    [PreviewField][Header("UI 대표 아이콘")] public List<Sprite> UIIcon;
+    [PreviewField] [Header("인벤토리 프레임")] public List<Sprite> InventoryFrame;
+    [PreviewField] [Header("패키지 아이콘")] public List<Sprite> PackageIcon;
+    [PreviewField] [Header("종족 성장 아이콘")] public List<Sprite> ShadowTreeIcon;
+    [PreviewField] [Header("종족 성정 락아이콘")] public List<Sprite> ShadowTreeLockIcon;
+    [PreviewField] [Header("군주 오라 아이콘")] public List<Sprite> KingAuraIcon;
+    [PreviewField] [Header("그림자 장비 등급 프레임")] public List<Sprite> ShadowEquipmentFrameIcon;
+    [PreviewField] [Header("무기 장비 아이콘")] public List<Sprite> ShadowEquipmentWeaponIcon;
+    [PreviewField] [Header("아머 장비 아이콘")] public List<Sprite> ShadowEquipmentArmorIcon;
+    [PreviewField] [Header("투구 장비 아이콘")] public List<Sprite> ShadowEquipmentHelmetIcon;
+    [PreviewField] [Header("반지 장비 아이콘")] public List<Sprite> ShadowEquipmentRingIcon;
+    [PreviewField] [Header("장비 세트 아이콘")] public List<Sprite> ShadowEquipmentSetIcon;
+    [PreviewField] [Header("티켓 아이콘")] public List<Sprite> TicketIcon;
+    [PreviewField] [Header("궁주 클래스 아이콘")] public List<Sprite> KingClassIcon;
+    [PreviewField] [Header("대화 캐릭터 스프라이트")] public List<Sprite> DialogueSpeakerIcon;
+    [PreviewField] [Header("보스 레이드 아이콘")] public List<Sprite> BossRaidIcon;
+}

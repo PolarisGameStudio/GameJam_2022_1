@@ -6,11 +6,11 @@ using UnityEngine;
 // todo: 스킬툴 공격연출을 위한 땜빵용
 public class PlayerAttackState : CoroutineState
 {
+    public const string animationName = "";
+    
     private AnimationAbility _animationAbility;
     private PlayerAttackAbility _playerAttackAbility;
     private MonsterDetectAbility _monsterDetectAbility;
-    private WeaponAbility _weaponAbility;
-    private BerserkAbility _berserkAbility;
 
     public PlayerAttackState(CharacterObject owner, StateMachine stateMachine) : base(owner, stateMachine)
     {
@@ -23,15 +23,11 @@ public class PlayerAttackState : CoroutineState
         _animationAbility = _owner.GetAbility<AnimationAbility>();
         _playerAttackAbility = _owner.GetAbility<PlayerAttackAbility>();
         _monsterDetectAbility = _owner.GetAbility<MonsterDetectAbility>();
-        _weaponAbility = _owner.GetAbility<WeaponAbility>();
-        _berserkAbility = _owner.GetAbility<BerserkAbility>();
     }
     
     
     public override IEnumerator Enter_Coroutine()
     {
-        _berserkAbility.SetActivationEyeTrail(false);
-
         var targets = _monsterDetectAbility.AttackableTargets;
         if (targets == null || targets.Count == 0)
         {
@@ -46,9 +42,6 @@ public class PlayerAttackState : CoroutineState
 
 
         //var animationName = UnityEngine.Random.Range(0, 2) == 1 ? "attack1" : "attack2";
-        var randomIndex = UnityEngine.Random.Range(0, _weaponAbility.AttackPresetCount);
-        var attackPreset = _weaponAbility.GetAttackPreset(randomIndex);
-        var animationName = attackPreset.AnimtaionName;
         var duration = _animationAbility.GetDuration(animationName, timeScale);
 
         float diff = (1f / attackSpeed) - duration;
@@ -61,12 +54,9 @@ public class PlayerAttackState : CoroutineState
         }
 
         _animationAbility.PlayAnimation(animationName, false, timeScale);
-        _weaponAbility.PlaySlashVFX(randomIndex, timeScale);
 
-        attackPreset.PlayBlackout();
-        attackPreset.PlaySlow();
-
-        var damageDelay = attackPreset.DamageDelay / realTimeScale;
+        var damageDelay = 0;
+        //var damageDelay = attackPreset.DamageDelay / realTimeScale;
         var waitForDamageDelay = new WaitForSeconds(damageDelay);
 
         yield return waitForDamageDelay;
@@ -82,10 +72,6 @@ public class PlayerAttackState : CoroutineState
             _playerAttackAbility.DelayAttack(targets[i], i * intervalTime);
         }
 
-        attackPreset.PlayShake();
-
-        BerserkManager.Instance.OnPlayerAttack();
-
         yield return new WaitForSeconds(duration - damageDelay);
 
         _playerAttackAbility.SetAttackCoolTime(diff < 0 ? 0 : (1f / attackSpeed) - duration);
@@ -95,12 +81,7 @@ public class PlayerAttackState : CoroutineState
 
     public override void LogicUpdate(float deltaTime)
     {
-        Debug.LogError("Attack_Update");
-    }
-
-    public override void Exit()
-    {
-        _weaponAbility.StopSlashVFX();
+        
     }
 
     private void TryStateExit()

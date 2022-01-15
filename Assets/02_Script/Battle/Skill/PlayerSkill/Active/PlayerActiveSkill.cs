@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Com.LuisPedroFonseca.ProCamera2D;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 
@@ -18,6 +19,8 @@ public class PlayerActiveSkill : PlayerSkill
 
     public bool EffectOnPlayerPosition;
     
+    // 연출 관련 변수
+    [InlineEditor(ObjectFieldMode = InlineEditorObjectFieldModes.Foldout)]
     public AttackPreset AttackPreset;
 
     protected virtual void Awake()
@@ -121,9 +124,9 @@ public class PlayerActiveSkill : PlayerSkill
 
     protected virtual void PlaySkillEffect()
     {
-       // AttackPreset.PlayBlackout();
-       // AttackPreset.PlaySlow();
-       // AttackPreset.PlayShake();
+        AttackPreset.PlayBlackout();
+        AttackPreset.PlaySlow();
+        AttackPreset.PlayShake();
     }
 
     public void Hide()
@@ -136,4 +139,5 @@ public class PlayerActiveSkill : PlayerSkill
 
         SafeSetActive(false);
     }
+
 }

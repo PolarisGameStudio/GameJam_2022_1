@@ -16,6 +16,8 @@ public class PlayerAttackAbility : CharacterAbility
     private List<AttackPreset> _attackPresets = new List<AttackPreset>();
     public int AttackPresetCount => _attackPresets.Count;
 
+    public int MaxAttackCount = 3;
+
     public override void Init()
     {
         base.Init();
@@ -72,10 +74,7 @@ public class PlayerAttackAbility : CharacterAbility
         var isCritical = IsCritical();
         var damageType = isCritical ? Enum_DamageType.Critical : Enum_DamageType.Normal;
         
-        if (_onwerObject.GetAbility<BerserkAbility>().IsOn)
-        {
-            damageType = isCritical ? Enum_DamageType.BerserkCritical : Enum_DamageType.BerserkNormal;
-        }
+       
 
         var value = 0d;
         
