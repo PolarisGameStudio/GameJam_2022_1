@@ -12,7 +12,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
     private Battle[] _battles;
     private bool _battleCached = false;
 
-    [SerializeField] [Header("플레이어 오브젝트")] private PlayerObject _playerObject;
+    [Header("플레이어 오브젝트")] private PlayerObject _playerObject;
 
     public PlayerObject PlayerObject => _playerObject;
 
@@ -35,6 +35,8 @@ public class BattleManager : SingletonBehaviour<BattleManager>
     protected override void Awake()
     {
         base.Awake();
+
+        _playerObject = FindObjectOfType<PlayerObject>();
 
         CacheBattles();
     }
@@ -160,6 +162,10 @@ public class BattleManager : SingletonBehaviour<BattleManager>
                 break;
             case Enum_BattleType.Stage:
                 BattleStart(battleType, level);
+                break;       
+            case Enum_BattleType.StageBoss:
+                DataManager.BattleData.BossStageClear();
+                BattleStart(Enum_BattleType.Stage, level + 1);
                 break;
             case Enum_BattleType.Dungeon:
                 break;

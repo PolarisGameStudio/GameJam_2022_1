@@ -31,7 +31,8 @@ public class MonsterObjectFactory : ObjectPool<MonsterObjectFactory, MonsterObje
 
             case Enum_CharacterType.StageBossMonster:
             {
-                UI_BossHealthbar.Instance.Show(monsterObject);
+               // HealthbarFactory.Instance.Show(monsterObject, monsterObject.GetAbility<AnimationAbility>().Height);
+               // UI_BossHealthbar.Instance.Show(monsterObject);
                 break;
             }
         }

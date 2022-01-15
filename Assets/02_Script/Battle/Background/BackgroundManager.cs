@@ -37,15 +37,6 @@ public class BackgroundManager : SingletonBehaviour<BackgroundManager>
         Layer2Background.Refresh(cameraPosition);
         Layer3Background.Refresh(cameraPosition);
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SetBackground(Enum_BackgroundType.Stage);
-        }
-    }
-
     public void SetBackground(int backgroundIndex)
     {
         Layer1Background.SetTexture(_layer1TextureList[backgroundIndex]);

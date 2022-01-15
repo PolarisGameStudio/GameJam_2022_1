@@ -10,7 +10,7 @@ public class BattleData
 
 
 
-    public void NextStage()
+    public void BossStageClear()
     {
         StageLevel++;
     }

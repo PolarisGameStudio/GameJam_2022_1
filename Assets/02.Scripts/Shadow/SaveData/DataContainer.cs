@@ -1,15 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DataContainer
 {
-    private PlayerData _playerData;
-    public PlayerData PlayerData => _playerData;
+    [SerializeField] private PlayerData _playerData;
+    public PlayerData PlayerData
+    {
+        get { return _playerData; }
+    }
     
-    private BattleData _battleData;
-    public BattleData BattleData => _battleData;
-
+    [SerializeField] private BattleData _battleData;
+    public BattleData BattleData
+    {
+        get { return _battleData; }
+    }
+    
+    
     public DataContainer()
     {
         _playerData = new PlayerData();

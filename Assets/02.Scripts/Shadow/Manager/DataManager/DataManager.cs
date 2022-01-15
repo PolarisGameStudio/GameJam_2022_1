@@ -33,6 +33,6 @@ public class DataManager : SingletonBehaviour<DataManager>
 
     public void Load()
     {
-        _container = ES3.Load<DataContainer>(saveKey, new DataContainer());
+        _container = ES3.Load(saveKey, new DataContainer());
     }
 }

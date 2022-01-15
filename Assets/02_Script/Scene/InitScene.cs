@@ -21,7 +21,7 @@ public class InitScene : MonoBehaviour
 #if __DATA_SIMULATOR
             SceneManager.LoadScene("DataSimulator");
 #else
-            SceneManager.LoadScene("2_Main");
+            SceneManager.LoadScene("02.Main");
 #endif
         }
     }
