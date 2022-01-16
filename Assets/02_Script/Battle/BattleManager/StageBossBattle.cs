@@ -42,29 +42,24 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
         _inited = true;
     }
 
-    private void SpawnWaveMonsters()
+    private void SpawnBossMonster()
     {
         Vector3 objPosition = _player.Position + Vector3.right * _waveOffsetX;
 
-        var spawnCount = _stageData.WaveMonsterCount;
+        int monsterIndex = _stageData.BossMonsterIndex;
 
-        for (int i = 0; i < spawnCount; i++)
-        {
-            int monsterIndex = _stageData.BossMonsterIndex;
+        var spawnPosition = objPosition;
+        MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageBossMonster, spawnPosition,
+            monsterIndex, Enum_BattleType.StageBoss);
 
-            var spawnPosition = objPosition;
-            MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageBossMonster, spawnPosition,
-                monsterIndex, Enum_BattleType.StageBoss);
-
-            _monsterObjects.Add(obj);
-        }
+        _monsterObjects.Add(obj);
     }
 
     protected override void OnBattleStart()
     {
         BattleCamera.Instance.SetPosition(_startCameraPosition);
 
-        SpawnWaveMonsters();
+        SpawnBossMonster();
     }
 
     protected override void OnBattleClear()
