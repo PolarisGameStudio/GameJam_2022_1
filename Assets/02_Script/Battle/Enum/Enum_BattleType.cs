@@ -5,7 +5,6 @@ public enum Enum_BattleType
     Stage,
     StageBoss,
     Dungeon,
-    Tool,
     
     Count,
 }

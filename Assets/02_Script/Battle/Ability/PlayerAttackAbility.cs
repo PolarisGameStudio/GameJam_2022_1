@@ -105,7 +105,7 @@ public class PlayerAttackAbility : CharacterAbility
 
     public double GetCriticalDamage()
     {
-        return _onwerObject.Stat[Enum_StatType.CriticalDamage];//GetNormalDamage() * _onwerObject.Stat[Enum_StatType.CriticalDamage] / 100f;
+        return _onwerObject.Stat[Enum_StatType.CriticalDamage];//GetNormalDamage() * _onwerObject.StatChange[Enum_StatType.CriticalDamage] / 100f;
     }
 
     public void SetAttackCoolTime(float time)

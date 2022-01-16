@@ -15,7 +15,7 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
 
     private void Awake()
     {
-        Init(Enum_CharacterType.Player, PlayerStatManager.Instance.Stat);
+        Init(Enum_CharacterType.Player, DataManager.Container.Stat);
 
         _fsmAbility = GetAbility<FSMAbility>();
 
@@ -38,10 +38,6 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
     
     public override void CalculateStat()
     {
-        if (Stat == null)
-        {
-            return;
-        }
         GetAbility<PlayerStatAbility>().Calculate();
     }
 
@@ -118,8 +114,12 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
         GetAbility<PlayerSkillAbility>().RefreshSkill();
     }
 
-    public void OnGameEvent(RefreshEvent gameEventType)
+    public void OnGameEvent(RefreshEvent e)
     {
+        if (e.Type == Enum_RefreshEventType.StatCalculate)
+        {
+            CalculateStat();
+        }
     }
 
     public void OnGameEvent(BattleEvent gameEventType)

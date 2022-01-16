@@ -10,7 +10,6 @@ public class MainScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            BattleManager.Instance.BattleStart(Enum_BattleType.StageBoss, DataManager.BattleData.StageLevel);   
         }
     }
 }

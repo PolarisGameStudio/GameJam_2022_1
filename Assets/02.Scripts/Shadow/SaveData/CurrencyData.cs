@@ -59,12 +59,16 @@ public class CurrencyData : SaveDataBase
         
         GetCurrency(type).Consume(amount);
 
+        RefreshEvent.Trigger(Enum_RefreshEventType.Currency);
+        
         return true;
     }
      
     public void Add(Enum_CurrencyType type, double amount)
     {
         GetCurrency(type).Add(amount);
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Currency);
     }
     
 }

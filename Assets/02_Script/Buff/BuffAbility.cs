@@ -7,8 +7,8 @@ public class BuffAbility : CharacterAbility
     // ex) TryStun() => { if(BuffAbility.Immune == true) 면역, else 기절 }
     // ex) PlayerStunState => Update() => { if(BuffAbility.Stun == false) IdleState }
 
-    // 버프 스탯, Stat[Damage] = 30 => 공격력 30%증가
-    // 버프디버프 Add될때마다 버프 스탯 갱신 => PlayerStat Calculate()
+    // 버프 스탯, StatChange[Damage] = 30 => 공격력 30%증가
+    // 버프디버프 Add될때마다 버프 스탯 갱신 => StatCalculate Calculate()
 
     public List<Buff> Buffs;
 

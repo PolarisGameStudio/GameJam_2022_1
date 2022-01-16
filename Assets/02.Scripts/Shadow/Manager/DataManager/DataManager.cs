@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SerializeField]
-public class DataManager : SingletonBehaviour<DataManager>
+public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<RefreshEvent>
 {
-    [SerializeField] private DataContainer _container;
+    private DataContainer _container;
     public static DataContainer Container => Instance._container;
 
-    public static PlayerLevelData PlayerLevelData => Container.PlayerLevelData;
-    public static BattleData BattleData => Container.BattleData;
+    public static PlayerData PlayerData => Container.PlayerData;
+    public static StageData StageData => Container.StageData;
     public static CurrencyData CurrencyData => Container.CurrencyData;
     public static GoldGrowthData GoldGrowthData => Container.GoldGrowthData;
     public static StatGrowthData StatGrowthData => Container.StatGrowthData;
     public static EquipmentData EquipmentData => Container.EquipmentData;
     
-    
+    public bool IsReady { get; set; }
+
 
     protected override void Awake()
     {
@@ -42,5 +43,15 @@ public class DataManager : SingletonBehaviour<DataManager>
         _container = ES3.Load(saveKey, new DataContainer());
 
         _container.ValidCheck();
+
+        IsReady = true;
+    }
+
+    public void OnGameEvent(RefreshEvent e)
+    {
+        if (e.Type == Enum_RefreshEventType.StatChange)
+        {
+            _container.CalculateStat();
+        }
     }
 }

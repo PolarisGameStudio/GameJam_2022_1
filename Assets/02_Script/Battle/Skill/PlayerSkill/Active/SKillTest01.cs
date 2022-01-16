@@ -17,11 +17,11 @@ public class SKillTest01 : PlayerActiveSkill
 
     public override void Active(List<CharacterObject> targets)
     {
-        // var currentHealth = _playerObject.Stat[Enum_StatType.Health];
+        // var currentHealth = _playerObject.StatChange[Enum_StatType.Health];
         // currentHealth -= currentHealth * 0.3f;
-        // _playerObject.Stat[Enum_StatType.Health] = currentHealth;
+        // _playerObject.StatChange[Enum_StatType.Health] = currentHealth;
         //
-        // Stat buffStat = new Stat();
+        // StatChange buffStat = new StatChange();
         // buffStat[Enum_StatType.Damage] = 30;
         //
         // _playerObject.AddBuff(new Buff(buffStat, 10f));

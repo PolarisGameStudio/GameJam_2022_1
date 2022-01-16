@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Battle : MonoBehaviour
 {
     [SerializeField] [Header("전투 타입")] 
-    private Enum_BattleType _battleType;
+    protected Enum_BattleType _battleType;
     public Enum_BattleType BattleType => _battleType;
 
     protected int _level;

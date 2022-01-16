@@ -120,7 +120,7 @@ public class PlayerGrowStat
 		// 	
 		// 	AddLevelUpStats(level);
 		// 	
-		// 	RefreshEvent.Trigger(Enum_RefreshEventType.PlayerStat);
+		// 	RefreshEvent.Trigger(Enum_RefreshEventType.StatCalculate);
 		// 	RefreshEvent.Trigger(Enum_RefreshEventType.LevelUp);
 		// 	
 		// 	CheckLevelUp();	// 재귀로 다시 검사. : TODO : 레벨업 여러단계 한 번에 되게 하려면 수정 필요.

@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 1476625630005408408}
   - component: {fileID: 1476625630005408410}
   - component: {fileID: 1476625630005408411}
+  - component: {fileID: 6157110945700127805}
   m_Layer: 5
   m_Name: UI_Player_Level
   m_TagString: Untagged
@@ -778,6 +779,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6157110945700127805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476625630005408409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcb796ed0266504e81be0468019e689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _txtLevel: {fileID: 1476625629604269600}
+  _txtExp: {fileID: 1476625629863070007}
+  _txtExpPercent: {fileID: 1476625629061181398}
+  _sliderExp: {fileID: 1476625630253651437}
 --- !u!1 &1476625630174005307
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +916,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1476625630174005300}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6157110945700127805}
+        m_TargetAssemblyTypeName: UI_Player_TopInfo_Level, Assembly-CSharp
+        m_MethodName: OnClickLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1476625630192455914
 GameObject:
   m_ObjectHideFlags: 0

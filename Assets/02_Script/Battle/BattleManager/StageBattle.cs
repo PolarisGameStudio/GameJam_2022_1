@@ -20,6 +20,9 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
     private int waveLevel = 0;
 
+    public float StageProcess => waveLevel / (float) _stageData.WaveCount;
+    public string StageTitle => $"Stage {_stageData.name}";
+
     private void Awake()
     {
         this.AddGameEventListening<MonsterEvent>();
@@ -58,7 +61,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
             var spawnPosition = objPosition + (i * _monsterOffestX) * Vector3.right;
             MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageNormalMonster, spawnPosition,
-                monsterIndex, BattleType, (i == spawnCount - 1) && waveLevel == _stageData.WaveCount - 1);
+                monsterIndex, _battleType, (i == spawnCount - 1) && waveLevel == _stageData.WaveCount - 1);
 
             _monsterObjects.Add(obj);
         }
@@ -80,7 +83,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleOver()
     {
-        PlayerStatManager.Instance.InitHealth();
+       // PlayerStatManager.Instance.InitHealth();
 
         BattleManager.Instance.BattleStart(Enum_BattleType.Stage, _level);
     }
@@ -92,7 +95,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
     public void OnGameEvent(MonsterEvent e)
     {
-        if (BattleManager.Instance.CurrentBattleType != BattleType)
+        if (BattleManager.Instance.CurrentBattleType != _battleType)
         {
             return;
         }
@@ -120,6 +123,8 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         {
             SpawnWaveMonsters();
         }
+        
+        StageWaveEvent.Trigger(Enum_StageWaveEventType.Exit, waveLevel);
     }
     
 

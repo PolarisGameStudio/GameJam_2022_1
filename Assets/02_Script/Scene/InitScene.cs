@@ -16,7 +16,7 @@ public class InitScene : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitUntil(() => PlayerDataManager.Instance.IsReady);
+            yield return new WaitUntil(() => DataManager.Instance.IsReady);
             
 #if __DATA_SIMULATOR
             SceneManager.LoadScene("DataSimulator");

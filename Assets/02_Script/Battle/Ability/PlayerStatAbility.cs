@@ -10,7 +10,7 @@ public class PlayerStatAbility : CharacterAbility
     {
         base.Init();
 
-        _playerStat = PlayerStatManager.Instance.Stat;
+        //_playerStat = PlayerStatManager.Instance.Stat;
     }
 
     public void Calculate()

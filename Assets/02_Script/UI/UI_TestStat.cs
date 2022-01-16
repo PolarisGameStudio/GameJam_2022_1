@@ -42,8 +42,8 @@ public class UI_TestStat : SingletonBehaviour<UI_TestStat>, GameEventListener<Re
     {
         this.AddGameEventListening<RefreshEvent>();
         
-        _stat = PlayerStatManager.Instance.Stat;
-        // _berserkStat = BerserkManager.Instance.Stat;
+       // _stat = PlayerStatManager.Instance.Stat;
+        // _berserkStat = BerserkManager.Instance.StatChange;
         
         Refresh();
         

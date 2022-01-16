@@ -107,10 +107,10 @@ RectTransform:
   m_Father: {fileID: 1496794904066686578}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 66, y: -15}
-  m_SizeDelta: {x: 132, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7528164795617079620
 CanvasRenderer:
@@ -186,10 +186,10 @@ RectTransform:
   m_Father: {fileID: 1496794904066686578}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 215, y: -15}
-  m_SizeDelta: {x: 146, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6187798770904119823
 CanvasRenderer:
@@ -323,7 +323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6674397859781496136
 RectTransform:
   m_ObjectHideFlags: 0
@@ -340,8 +340,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -17.5}
-  m_SizeDelta: {x: -8, y: -45}
+  m_AnchoredPosition: {x: 0, y: -2.6934}
+  m_SizeDelta: {x: -8, y: -15.3868}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3321817020214234234
 CanvasRenderer:
@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 6463379539642921441}
   - component: {fileID: 6056688712730384992}
   - component: {fileID: 512963639996384078}
+  - component: {fileID: 3731951050833578128}
   m_Layer: 5
   m_Name: UI_Player_Upgrade_Stat_Slot
   m_TagString: Untagged
@@ -465,6 +466,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3731951050833578128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090654430872439821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36536cfc6fdd60e4192efdfe6f2af362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _imgStatIcon: {fileID: 2761702461810270528}
+  _txtStatName: {fileID: 6449401161015712854}
+  _txtStatMaxLevel: {fileID: 9017377624663076069}
+  _txtStatValue: {fileID: 7446106260825114690}
+  _txtStatCurrenctLevel: {fileID: 3295532529102082776}
+  _txtStatPrice: {fileID: 1784257301803227790}
+  _btnLevelUp: {fileID: 305880572562873016}
 --- !u!1 &5277676964680143064
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +497,7 @@ GameObject:
   - component: {fileID: 6718750535720741231}
   - component: {fileID: 4714581989163999511}
   - component: {fileID: 305880572562873016}
+  - component: {fileID: 1487386688103317235}
   m_Layer: 5
   m_Name: LevelUpButton
   m_TagString: Untagged
@@ -586,7 +607,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4714581989163999511}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3731951050833578128}
+        m_TargetAssemblyTypeName: UI_Player_Upgrade_Stat_Slot, Assembly-CSharp
+        m_MethodName: OnClickLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1487386688103317235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277676964680143064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b9497f59919204a88706530e5314fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5722049267787903286
 GameObject:
   m_ObjectHideFlags: 0

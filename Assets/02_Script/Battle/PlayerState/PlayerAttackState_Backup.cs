@@ -70,7 +70,7 @@ public class PlayerAttackState_Backup : CoroutineState
         
         
         /**
-        var attackSpeed = (float)_owner.Stat[Enum_StatType.AttackSpeed];
+        var attackSpeed = (float)_owner.StatChange[Enum_StatType.AttackSpeed];
         
         _attackPresets = Tool_WeaponManager.Instance.GetAttackPresetList();
         

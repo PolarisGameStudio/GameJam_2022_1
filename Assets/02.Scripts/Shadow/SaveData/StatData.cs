@@ -3,7 +3,7 @@ using System;
 [Serializable]
 public abstract class StatData : SaveDataBase
 {    
-    public Stat Stat = new Stat();
+    [NonSerialized] public Stat Stat = new Stat();
 
     protected abstract void InitStat();
 

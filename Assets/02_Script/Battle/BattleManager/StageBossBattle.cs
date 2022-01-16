@@ -64,12 +64,12 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleClear()
     {
-        BattleManager.Instance.BattleClear(BattleType, _level);
+        BattleManager.Instance.BattleClear(_battleType, _level);
     }
 
     protected override void OnBattleOver()
     {
-        PlayerStatManager.Instance.InitHealth();
+        //PlayerStatManager.Instance.InitHealth();
 
         BattleManager.Instance.BattleStart(Enum_BattleType.Stage, _level);
     }
@@ -81,7 +81,7 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
 
     public void OnGameEvent(MonsterEvent e)
     {
-        if (BattleManager.Instance.CurrentBattleType != BattleType)
+        if (BattleManager.Instance.CurrentBattleType != _battleType)
         {
             return;
         }

@@ -103,7 +103,7 @@ public abstract class CharacterObject : GameBehaviour
             return false;
         }
 
-        //Stat[Enum_StatType.Health] -= damage;
+        //StatChange[Enum_StatType.Health] -= damage;
         _currentHealth -= damage;
         
         OnTakeHit(damage, damageType);

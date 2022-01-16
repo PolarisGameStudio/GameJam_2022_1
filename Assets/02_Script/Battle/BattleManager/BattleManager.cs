@@ -72,7 +72,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
         Application.targetFrameRate = 60;
 
         
-        BattleStart(Enum_BattleType.Stage, DataManager.BattleData.StageLevel);
+        BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
     }
 
     public List<CharacterObject> GetMonsters()
@@ -161,20 +161,16 @@ public class BattleManager : SingletonBehaviour<BattleManager>
             case Enum_BattleType.None:
                 break;
             case Enum_BattleType.Stage:
-                BattleStart(battleType, level);
+                BattleStart(battleType, DataManager.StageData.StageLevel);
                 break;       
             case Enum_BattleType.StageBoss:
-                DataManager.BattleData.BossStageClear();
-                BattleStart(Enum_BattleType.Stage, level + 1);
+                DataManager.StageData.BossStageClear();
+                BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
                 break;
             case Enum_BattleType.Dungeon:
                 break;
-            case Enum_BattleType.Tool:
-                break;
-            case Enum_BattleType.Count:
-                break;
-            default:
-                break;
+            
+            
         }
     }
 }

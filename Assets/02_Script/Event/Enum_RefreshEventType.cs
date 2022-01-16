@@ -7,10 +7,10 @@ public enum Enum_RefreshEventType
     Weapon,
     Currency,
     
-    PlayerStat,
     
     Skill,
-    Stat,
+    StatChange,
+    StatCalculate,
     LevelUp,
 }
 
