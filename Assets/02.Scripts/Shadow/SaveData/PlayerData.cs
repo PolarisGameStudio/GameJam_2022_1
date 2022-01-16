@@ -2,12 +2,11 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class PlayerData
+public class PlayerData : SaveDataBase
 {
     public int Level = 0;
     public double Exp = 0;
 
-    
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private double GetRequireExp()

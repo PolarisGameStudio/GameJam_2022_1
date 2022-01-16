@@ -25,8 +25,7 @@ public class UI_Currency : GameBehaviour, GameEventListener<RefreshEvent>
 
     private void Refresh()
     {
-        //_goldText.text = $"Gold: {CurrencyManager.Instance.Gold}";
-        _goldText.text = $"{CurrencyManager.Instance.Gold}";
+        _goldText.text = $"{DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Gold)}";
     }
 }
 

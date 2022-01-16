@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,7 +52,7 @@ public class UI_Player_StatSlot : MonoBehaviour
     {
         // GoldGrowthManager.Instance.TryLevelUp(_upgradeType);
         // Refresh();
-        if (CurrencyManager.Instance.TryBuyGold(_price))
+        if (DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Gold,_price))
         {
             GoldGrowthManager.Instance.TryLevelUp(_upgradeType);
             Refresh();

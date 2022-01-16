@@ -72,7 +72,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
         Application.targetFrameRate = 60;
 
         
-        BattleStart(Enum_BattleType.Stage, 0);
+        BattleStart(Enum_BattleType.Stage, DataManager.BattleData.StageLevel);
     }
 
     public List<CharacterObject> GetMonsters()

@@ -34,6 +34,8 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
+        _level = Mathf.Min(TBL_STAGE.CountEntities - 1, _level);
+        
         _stageData = TBL_STAGE.GetEntity(_level);
 
         DamageFactor = _stageData.DamageFactor;

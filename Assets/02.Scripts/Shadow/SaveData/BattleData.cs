@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class BattleData
+public class BattleData : SaveDataBase
 {
     public int StageLevel;
-
-
-
+    
     public void BossStageClear()
     {
         StageLevel++;

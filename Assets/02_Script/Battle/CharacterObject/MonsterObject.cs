@@ -67,7 +67,7 @@ public class MonsterObject : CharacterObject
        // GetAbility<MonsterAttackAbility>().SetAttackPreset(attackPreset);
         GetAbility<ShadowAbility>().SetSize(GetAbility<AnimationAbility>().Width);
         
-        //_fsmAbility.ChangeState(Enum_MonsterStateType.Run);
+        _fsmAbility.ChangeState(Enum_MonsterStateType.Idle);
         
         SafeSetActive(true);
     }
@@ -77,11 +77,11 @@ public class MonsterObject : CharacterObject
         switch (CharacterType)
         {
             case Enum_CharacterType.StageNormalMonster:
-                Model.localScale = new Vector3(0.8f, 0.8f, 1f);
+                Model.localScale = new Vector3(1f, 1f, 1f);
                 break;
             
             case Enum_CharacterType.StageBossMonster:
-                Model.localScale = new Vector3(1.6f, 1.6f, 1);
+                Model.localScale = new Vector3(2f, 2f, 1);
                 break;
         }
     }
@@ -108,7 +108,7 @@ public class MonsterObject : CharacterObject
     {
         _fsmAbility.ChangeState(Enum_MonsterStateType.Death);
         
-        CurrencyManager.Instance.AddGold(BattleManager.Instance.CurrentBattle.GoldAmount);
+        DataManager.CurrencyData.Add(Enum_CurrencyType.Gold, BattleManager.Instance.CurrentBattle.GoldAmount);
         DataManager.PlayerData.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount);
         
         MonsterEvent.Trigger(Enum_MonsterEventType.NormalMonsterDeath);

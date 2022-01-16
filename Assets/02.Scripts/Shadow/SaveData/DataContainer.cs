@@ -3,24 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class DataContainer
 {
-    [SerializeField] private PlayerData _playerData;
-    public PlayerData PlayerData
-    {
-        get { return _playerData; }
-    }
+    [SerializeField] public PlayerData PlayerData { get; set; }
     
-    [SerializeField] private BattleData _battleData;
-    public BattleData BattleData
-    {
-        get { return _battleData; }
-    }
-    
-    
+    [SerializeField] public BattleData BattleData { get; set; }
+
+    [SerializeField] public CurrencyData CurrencyData { get; set; }
+
     public DataContainer()
     {
-        _playerData = new PlayerData();
-        _battleData = new BattleData();
+        PlayerData = new PlayerData();
+        BattleData = new BattleData();
+        CurrencyData = new CurrencyData();
+    }
+
+    public void ValidCheck()
+    {
+        PlayerData.ValidCheck();
+        BattleData.ValidCheck();
+        CurrencyData.ValidCheck();
     }
 }

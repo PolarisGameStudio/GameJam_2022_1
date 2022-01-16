@@ -6,11 +6,12 @@ using UnityEngine;
 [SerializeField]
 public class DataManager : SingletonBehaviour<DataManager>
 {
-    private DataContainer _container;
+    [SerializeField] private DataContainer _container;
     public static DataContainer Container => Instance._container;
 
     public static PlayerData PlayerData => Container.PlayerData;
     public static BattleData BattleData => Container.BattleData;
+    public static CurrencyData CurrencyData => Container.CurrencyData;
 
     protected override void Awake()
     {
@@ -34,5 +35,7 @@ public class DataManager : SingletonBehaviour<DataManager>
     public void Load()
     {
         _container = ES3.Load(saveKey, new DataContainer());
+
+        _container.ValidCheck();
     }
 }
