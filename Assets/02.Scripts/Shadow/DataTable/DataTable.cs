@@ -67,147 +67,26 @@ public partial class TBL_PLAYER : BGEntity
 			_name[Index] = value;
 		}
 	}
-	public System.Single CriticalChance
+	public Enum_StatType StatType
 	{
 		get
 		{
-			return _CriticalChance[Index];
+			return (Enum_StatType) _StatType[Index];
 		}
 		set
 		{
-			_CriticalChance[Index] = value;
+			_StatType[Index] = value;
 		}
 	}
-	public System.Int32 CriticalDamage
+	public System.Double Value
 	{
 		get
 		{
-			return _CriticalDamage[Index];
+			return _Value[Index];
 		}
 		set
 		{
-			_CriticalDamage[Index] = value;
-		}
-	}
-	public System.Int32 HealthRecovery
-	{
-		get
-		{
-			return _HealthRecovery[Index];
-		}
-		set
-		{
-			_HealthRecovery[Index] = value;
-		}
-	}
-	public System.Single HealthRecovertyTick
-	{
-		get
-		{
-			return _HealthRecovertyTick[Index];
-		}
-		set
-		{
-			_HealthRecovertyTick[Index] = value;
-		}
-	}
-	public System.Int32 MoveSpeed
-	{
-		get
-		{
-			return _MoveSpeed[Index];
-		}
-		set
-		{
-			_MoveSpeed[Index] = value;
-		}
-	}
-	public System.Int32 AttackSpeed
-	{
-		get
-		{
-			return _AttackSpeed[Index];
-		}
-		set
-		{
-			_AttackSpeed[Index] = value;
-		}
-	}
-	public System.Single AttackRange
-	{
-		get
-		{
-			return _AttackRange[Index];
-		}
-		set
-		{
-			_AttackRange[Index] = value;
-		}
-	}
-	public System.Single AttackSplash
-	{
-		get
-		{
-			return _AttackSplash[Index];
-		}
-		set
-		{
-			_AttackSplash[Index] = value;
-		}
-	}
-	public System.Single FeverSpeed
-	{
-		get
-		{
-			return _FeverSpeed[Index];
-		}
-		set
-		{
-			_FeverSpeed[Index] = value;
-		}
-	}
-	public System.Int32 ShadowCount
-	{
-		get
-		{
-			return _ShadowCount[Index];
-		}
-		set
-		{
-			_ShadowCount[Index] = value;
-		}
-	}
-	public System.Int32 LeaderShip
-	{
-		get
-		{
-			return _LeaderShip[Index];
-		}
-		set
-		{
-			_LeaderShip[Index] = value;
-		}
-	}
-	public System.Int32 PhysicalDefense
-	{
-		get
-		{
-			return _PhysicalDefense[Index];
-		}
-		set
-		{
-			_PhysicalDefense[Index] = value;
-		}
-	}
-	public System.Int32 MagicDefense
-	{
-		get
-		{
-			return _MagicDefense[Index];
-		}
-		set
-		{
-			_MagicDefense[Index] = value;
+			_Value[Index] = value;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
@@ -219,121 +98,22 @@ public partial class TBL_PLAYER : BGEntity
 			return _ufle12jhs77_name;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_CriticalChance;
-	public static BansheeGz.BGDatabase.BGFieldFloat _CriticalChance
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_StatType;
+	public static BansheeGz.BGDatabase.BGFieldEnum _StatType
 	{
 		get
 		{
-			if(_ufle12jhs77_CriticalChance==null || _ufle12jhs77_CriticalChance.IsDeleted) _ufle12jhs77_CriticalChance=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5330188731577634705,11109001397181607857));
-			return _ufle12jhs77_CriticalChance;
+			if(_ufle12jhs77_StatType==null || _ufle12jhs77_StatType.IsDeleted) _ufle12jhs77_StatType=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4810492547727373503,4935171528609877947));
+			return _ufle12jhs77_StatType;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_CriticalDamage;
-	public static BansheeGz.BGDatabase.BGFieldInt _CriticalDamage
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_Value;
+	public static BansheeGz.BGDatabase.BGFieldDouble _Value
 	{
 		get
 		{
-			if(_ufle12jhs77_CriticalDamage==null || _ufle12jhs77_CriticalDamage.IsDeleted) _ufle12jhs77_CriticalDamage=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5071755787833115079,5847642273983166083));
-			return _ufle12jhs77_CriticalDamage;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_HealthRecovery;
-	public static BansheeGz.BGDatabase.BGFieldInt _HealthRecovery
-	{
-		get
-		{
-			if(_ufle12jhs77_HealthRecovery==null || _ufle12jhs77_HealthRecovery.IsDeleted) _ufle12jhs77_HealthRecovery=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5306691180955865213,15045389524860623278));
-			return _ufle12jhs77_HealthRecovery;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_HealthRecovertyTick;
-	public static BansheeGz.BGDatabase.BGFieldFloat _HealthRecovertyTick
-	{
-		get
-		{
-			if(_ufle12jhs77_HealthRecovertyTick==null || _ufle12jhs77_HealthRecovertyTick.IsDeleted) _ufle12jhs77_HealthRecovertyTick=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(4958374854013893959,8996976309748967083));
-			return _ufle12jhs77_HealthRecovertyTick;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_MoveSpeed;
-	public static BansheeGz.BGDatabase.BGFieldInt _MoveSpeed
-	{
-		get
-		{
-			if(_ufle12jhs77_MoveSpeed==null || _ufle12jhs77_MoveSpeed.IsDeleted) _ufle12jhs77_MoveSpeed=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5041820164129602778,2942712683096411533));
-			return _ufle12jhs77_MoveSpeed;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_AttackSpeed;
-	public static BansheeGz.BGDatabase.BGFieldInt _AttackSpeed
-	{
-		get
-		{
-			if(_ufle12jhs77_AttackSpeed==null || _ufle12jhs77_AttackSpeed.IsDeleted) _ufle12jhs77_AttackSpeed=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5111682583957370910,14939470736889450634));
-			return _ufle12jhs77_AttackSpeed;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_AttackRange;
-	public static BansheeGz.BGDatabase.BGFieldFloat _AttackRange
-	{
-		get
-		{
-			if(_ufle12jhs77_AttackRange==null || _ufle12jhs77_AttackRange.IsDeleted) _ufle12jhs77_AttackRange=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(4958698955458918177,10855779121013182630));
-			return _ufle12jhs77_AttackRange;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_AttackSplash;
-	public static BansheeGz.BGDatabase.BGFieldFloat _AttackSplash
-	{
-		get
-		{
-			if(_ufle12jhs77_AttackSplash==null || _ufle12jhs77_AttackSplash.IsDeleted) _ufle12jhs77_AttackSplash=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5663755624796224953,17982207246686430640));
-			return _ufle12jhs77_AttackSplash;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_FeverSpeed;
-	public static BansheeGz.BGDatabase.BGFieldFloat _FeverSpeed
-	{
-		get
-		{
-			if(_ufle12jhs77_FeverSpeed==null || _ufle12jhs77_FeverSpeed.IsDeleted) _ufle12jhs77_FeverSpeed=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(4882589694654884868,6631825201546037146));
-			return _ufle12jhs77_FeverSpeed;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_ShadowCount;
-	public static BansheeGz.BGDatabase.BGFieldInt _ShadowCount
-	{
-		get
-		{
-			if(_ufle12jhs77_ShadowCount==null || _ufle12jhs77_ShadowCount.IsDeleted) _ufle12jhs77_ShadowCount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5121047252886498496,6408126392947964858));
-			return _ufle12jhs77_ShadowCount;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_LeaderShip;
-	public static BansheeGz.BGDatabase.BGFieldInt _LeaderShip
-	{
-		get
-		{
-			if(_ufle12jhs77_LeaderShip==null || _ufle12jhs77_LeaderShip.IsDeleted) _ufle12jhs77_LeaderShip=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5239492018218976561,81377302365684101));
-			return _ufle12jhs77_LeaderShip;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_PhysicalDefense;
-	public static BansheeGz.BGDatabase.BGFieldInt _PhysicalDefense
-	{
-		get
-		{
-			if(_ufle12jhs77_PhysicalDefense==null || _ufle12jhs77_PhysicalDefense.IsDeleted) _ufle12jhs77_PhysicalDefense=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5659188077983269618,1265125024007667083));
-			return _ufle12jhs77_PhysicalDefense;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_MagicDefense;
-	public static BansheeGz.BGDatabase.BGFieldInt _MagicDefense
-	{
-		get
-		{
-			if(_ufle12jhs77_MagicDefense==null || _ufle12jhs77_MagicDefense.IsDeleted) _ufle12jhs77_MagicDefense=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5749966509287294494,1488939081420087684));
-			return _ufle12jhs77_MagicDefense;
+			if(_ufle12jhs77_Value==null || _ufle12jhs77_Value.IsDeleted) _ufle12jhs77_Value=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5746211030539002987,8938136439251550881));
+			return _ufle12jhs77_Value;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
@@ -367,7 +147,7 @@ public partial class TBL_PLAYER : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_PLAYER() : base(MetaDefault)
 	{
@@ -556,7 +336,7 @@ public partial class TBL_MONSTER : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_MONSTER() : base(MetaDefault)
 	{
@@ -785,7 +565,7 @@ public partial class TBL_SKILL : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_SKILL() : base(MetaDefault)
 	{
@@ -894,26 +674,15 @@ public partial class TBL_UPGRADE_GOLD : BGEntity
 			_name[Index] = value;
 		}
 	}
-	public KingUpgradeType KingUpgradeType
+	public Enum_StatType StatType
 	{
 		get
 		{
-			return (KingUpgradeType) _KingUpgradeType[Index];
+			return (Enum_StatType) _StatType[Index];
 		}
 		set
 		{
-			_KingUpgradeType[Index] = value;
-		}
-	}
-	public System.Int32 Value
-	{
-		get
-		{
-			return _Value[Index];
-		}
-		set
-		{
-			_Value[Index] = value;
+			_StatType[Index] = value;
 		}
 	}
 	public System.Single IncreaseValue
@@ -949,6 +718,28 @@ public partial class TBL_UPGRADE_GOLD : BGEntity
 			_IncreaseGoldCost[Index] = value;
 		}
 	}
+	public System.Int32 MaxLevel
+	{
+		get
+		{
+			return _MaxLevel[Index];
+		}
+		set
+		{
+			_MaxLevel[Index] = value;
+		}
+	}
+	public Enum_StatType Condition
+	{
+		get
+		{
+			return (Enum_StatType) _Condition[Index];
+		}
+		set
+		{
+			_Condition[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -958,22 +749,13 @@ public partial class TBL_UPGRADE_GOLD : BGEntity
 			return _ufle12jhs77_name;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_KingUpgradeType;
-	public static BansheeGz.BGDatabase.BGFieldEnum _KingUpgradeType
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_StatType;
+	public static BansheeGz.BGDatabase.BGFieldEnum _StatType
 	{
 		get
 		{
-			if(_ufle12jhs77_KingUpgradeType==null || _ufle12jhs77_KingUpgradeType.IsDeleted) _ufle12jhs77_KingUpgradeType=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5305558587697189434,5235676377004260278));
-			return _ufle12jhs77_KingUpgradeType;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_Value;
-	public static BansheeGz.BGDatabase.BGFieldInt _Value
-	{
-		get
-		{
-			if(_ufle12jhs77_Value==null || _ufle12jhs77_Value.IsDeleted) _ufle12jhs77_Value=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4915538662950771157,8545376599331069349));
-			return _ufle12jhs77_Value;
+			if(_ufle12jhs77_StatType==null || _ufle12jhs77_StatType.IsDeleted) _ufle12jhs77_StatType=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5305558587697189434,5235676377004260278));
+			return _ufle12jhs77_StatType;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_IncreaseValue;
@@ -1003,13 +785,31 @@ public partial class TBL_UPGRADE_GOLD : BGEntity
 			return _ufle12jhs77_IncreaseGoldCost;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithKingUpgradeType;
-	public static BansheeGz.BGDatabase.BGKey _WithKingUpgradeType
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_MaxLevel;
+	public static BansheeGz.BGDatabase.BGFieldInt _MaxLevel
 	{
 		get
 		{
-			if(_edeht3sdad33_WithKingUpgradeType==null || _edeht3sdad33_WithKingUpgradeType.IsDeleted) _edeht3sdad33_WithKingUpgradeType= MetaDefault.GetKey(new BGId(5489236118865620078,951620871404929942));
-			return _edeht3sdad33_WithKingUpgradeType;
+			if(_ufle12jhs77_MaxLevel==null || _ufle12jhs77_MaxLevel.IsDeleted) _ufle12jhs77_MaxLevel=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5459640547434070240,15658810182849293203));
+			return _ufle12jhs77_MaxLevel;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_Condition;
+	public static BansheeGz.BGDatabase.BGFieldEnum _Condition
+	{
+		get
+		{
+			if(_ufle12jhs77_Condition==null || _ufle12jhs77_Condition.IsDeleted) _ufle12jhs77_Condition=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5042512801611395887,3797600495223484822));
+			return _ufle12jhs77_Condition;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithStatType;
+	public static BansheeGz.BGDatabase.BGKey _WithStatType
+	{
+		get
+		{
+			if(_edeht3sdad33_WithStatType==null || _edeht3sdad33_WithStatType.IsDeleted) _edeht3sdad33_WithStatType= MetaDefault.GetKey(new BGId(5360324774481109337,16601996368048132228));
+			return _edeht3sdad33_WithStatType;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
@@ -1043,7 +843,7 @@ public partial class TBL_UPGRADE_GOLD : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_UPGRADE_GOLD() : base(MetaDefault)
 	{
@@ -1093,9 +893,17 @@ public partial class TBL_UPGRADE_GOLD : BGEntity
 	{
 		return (TBL_UPGRADE_GOLD) MetaDefault.NewEntity();
 	}
-	public static TBL_UPGRADE_GOLD GetEntityByKeyWithKingUpgradeType(KingUpgradeType KingUpgradeType)
+	public static TBL_UPGRADE_GOLD GetEntityByKeyWithStatType(Enum_StatType StatType)
 	{
-		return (TBL_UPGRADE_GOLD) _WithKingUpgradeType.GetEntityByKey(KingUpgradeType);
+		return (TBL_UPGRADE_GOLD) _WithStatType.GetEntityByKey(StatType);
+	}
+	public static List<TBL_UPGRADE_GOLD> GetEntitiesByKeyWithStatType(Enum_StatType StatType)
+	{
+		var result = _WithStatType.GetEntitiesByKey(StatType);
+		if(result==null || result.Count==0) return null;
+		var list = new List<TBL_UPGRADE_GOLD>(result.Count);
+		for(var i = 0 ; i < result.Count ; i++) list.Add((TBL_UPGRADE_GOLD) result[i]);
+		return list;
 	}
 }
 
@@ -1405,7 +1213,7 @@ public partial class TBL_ARTIFACT : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_ARTIFACT() : base(MetaDefault)
 	{
@@ -1646,7 +1454,7 @@ public partial class TBL_QUEST : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_QUEST() : base(MetaDefault)
 	{
@@ -1913,7 +1721,7 @@ public partial class TBL_ACHIEVEMENT : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_ACHIEVEMENT() : base(MetaDefault)
 	{
@@ -2106,7 +1914,7 @@ public partial class TBL_PLAYER_LEVEL : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_PLAYER_LEVEL() : base(MetaDefault)
 	{
@@ -2424,7 +2232,7 @@ public partial class TBL_MASTERY : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_MASTERY() : base(MetaDefault)
 	{
@@ -2617,7 +2425,7 @@ public partial class TBL_GACHA_SKILL : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_GACHA_SKILL() : base(MetaDefault)
 	{
@@ -2786,7 +2594,7 @@ public partial class SYSTEM_VALUE : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private SYSTEM_VALUE() : base(MetaDefault)
 	{
@@ -3195,7 +3003,7 @@ public partial class TBL_DUNGEON1 : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_DUNGEON1() : base(MetaDefault)
 	{
@@ -3373,7 +3181,7 @@ public partial class TBL_DUNGEON : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_DUNGEON() : base(MetaDefault)
 	{
@@ -3615,7 +3423,7 @@ public partial class TBL_LOCK : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_LOCK() : base(MetaDefault)
 	{
@@ -3857,7 +3665,7 @@ public partial class TBL_SHOP : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_SHOP() : base(MetaDefault)
 	{
@@ -4051,7 +3859,7 @@ public partial class TBL_WORLD : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_WORLD() : base(MetaDefault)
 	{
@@ -4460,7 +4268,7 @@ public partial class TBL_DUNGEON2 : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_DUNGEON2() : base(MetaDefault)
 	{
@@ -4869,7 +4677,7 @@ public partial class TBL_DUNGEON3 : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_DUNGEON3() : base(MetaDefault)
 	{
@@ -5278,7 +5086,7 @@ public partial class TBL_DUNGEON4 : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_DUNGEON4() : base(MetaDefault)
 	{
@@ -5607,7 +5415,7 @@ public partial class TBL_DAILY_REWARD : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_DAILY_REWARD() : base(MetaDefault)
 	{
@@ -6236,7 +6044,7 @@ public partial class TBL_PACKAGE : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_PACKAGE() : base(MetaDefault)
 	{
@@ -6514,7 +6322,7 @@ public partial class TBL_TOKEN_ITEM : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_TOKEN_ITEM() : base(MetaDefault)
 	{
@@ -6715,7 +6523,7 @@ public partial class TBL_TOKEN_PERCENT : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_TOKEN_PERCENT() : base(MetaDefault)
 	{
@@ -6944,7 +6752,7 @@ public partial class TBL_PET : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_PET() : base(MetaDefault)
 	{
@@ -7153,7 +6961,7 @@ public partial class TBL_GACHA_REWARD : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_GACHA_REWARD() : base(MetaDefault)
 	{
@@ -7500,7 +7308,7 @@ public partial class TBL_SHADOW_EQUIPMENT : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_SHADOW_EQUIPMENT() : base(MetaDefault)
 	{
@@ -7762,7 +7570,7 @@ public partial class TBL_DIALOGUE : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_DIALOGUE() : base(MetaDefault)
 	{
@@ -8003,7 +7811,7 @@ public partial class TBL_KING_CLASS : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_KING_CLASS() : base(MetaDefault)
 	{
@@ -8192,7 +8000,7 @@ public partial class TBL_GACHA_ARTIFACT : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_GACHA_ARTIFACT() : base(MetaDefault)
 	{
@@ -8630,7 +8438,7 @@ public partial class TBL_BATTLEPASS_REWARD : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_BATTLEPASS_REWARD() : base(MetaDefault)
 	{
@@ -8804,7 +8612,7 @@ public partial class TBL_BATTLEPASS : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_BATTLEPASS() : base(MetaDefault)
 	{
@@ -8860,7 +8668,7 @@ public partial class TBL_BATTLEPASS : BGEntity
 //||                   Generated by BansheeGz Code Generator ||
 //=============================================================
 
-public partial class TBL_UPGRADE_LEVELGROW : BGEntity
+public partial class TBL_UPGRADE_STAT : BGEntity
 {
 
 	//=============================================================
@@ -8871,11 +8679,11 @@ public partial class TBL_UPGRADE_LEVELGROW : BGEntity
 	{
 		public BGEntity NewEntity(BGMetaEntity meta)
 		{
-			return new TBL_UPGRADE_LEVELGROW(meta);
+			return new TBL_UPGRADE_STAT(meta);
 		}
 		public BGEntity NewEntity(BGMetaEntity meta, BGId id)
 		{
-			return new TBL_UPGRADE_LEVELGROW(meta, id);
+			return new TBL_UPGRADE_STAT(meta, id);
 		}
 	}
 	private static BansheeGz.BGDatabase.BGMetaRow _metaDefault;
@@ -8913,26 +8721,15 @@ public partial class TBL_UPGRADE_LEVELGROW : BGEntity
 			_name[Index] = value;
 		}
 	}
-	public StatType StatType
+	public Enum_StatType StatType
 	{
 		get
 		{
-			return (StatType) _StatType[Index];
+			return (Enum_StatType) _StatType[Index];
 		}
 		set
 		{
 			_StatType[Index] = value;
-		}
-	}
-	public System.Double Value
-	{
-		get
-		{
-			return _Value[Index];
-		}
-		set
-		{
-			_Value[Index] = value;
 		}
 	}
 	public System.Double IncreaseValue
@@ -8986,15 +8783,6 @@ public partial class TBL_UPGRADE_LEVELGROW : BGEntity
 			return _ufle12jhs77_StatType;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_Value;
-	public static BansheeGz.BGDatabase.BGFieldDouble _Value
-	{
-		get
-		{
-			if(_ufle12jhs77_Value==null || _ufle12jhs77_Value.IsDeleted) _ufle12jhs77_Value=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5554393662031903078,4809200722705770884));
-			return _ufle12jhs77_Value;
-		}
-	}
 	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_IncreaseValue;
 	public static BansheeGz.BGDatabase.BGFieldDouble _IncreaseValue
 	{
@@ -9020,6 +8808,15 @@ public partial class TBL_UPGRADE_LEVELGROW : BGEntity
 		{
 			if(_ufle12jhs77_MaxLevel==null || _ufle12jhs77_MaxLevel.IsDeleted) _ufle12jhs77_MaxLevel=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5251841740816334108,16207574415420741009));
 			return _ufle12jhs77_MaxLevel;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithStatType;
+	public static BansheeGz.BGDatabase.BGKey _WithStatType
+	{
+		get
+		{
+			if(_edeht3sdad33_WithStatType==null || _edeht3sdad33_WithStatType.IsDeleted) _edeht3sdad33_WithStatType= MetaDefault.GetKey(new BGId(5004484065482535884,4904398913561986223));
+			return _edeht3sdad33_WithStatType;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
@@ -9053,55 +8850,67 @@ public partial class TBL_UPGRADE_LEVELGROW : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
-	private TBL_UPGRADE_LEVELGROW() : base(MetaDefault)
+	private TBL_UPGRADE_STAT() : base(MetaDefault)
 	{
 	}
-	private TBL_UPGRADE_LEVELGROW(BGId id) : base(MetaDefault, id)
+	private TBL_UPGRADE_STAT(BGId id) : base(MetaDefault, id)
 	{
 	}
-	private TBL_UPGRADE_LEVELGROW(BGMetaEntity meta) : base(meta)
+	private TBL_UPGRADE_STAT(BGMetaEntity meta) : base(meta)
 	{
 	}
-	private TBL_UPGRADE_LEVELGROW(BGMetaEntity meta, BGId id) : base(meta, id)
+	private TBL_UPGRADE_STAT(BGMetaEntity meta, BGId id) : base(meta, id)
 	{
 	}
-	public static TBL_UPGRADE_LEVELGROW FindEntity(Predicate<TBL_UPGRADE_LEVELGROW> filter)
+	public static TBL_UPGRADE_STAT FindEntity(Predicate<TBL_UPGRADE_STAT> filter)
 	{
-		return MetaDefault.FindEntity(entity => filter==null || filter((TBL_UPGRADE_LEVELGROW) entity)) as TBL_UPGRADE_LEVELGROW;
+		return MetaDefault.FindEntity(entity => filter==null || filter((TBL_UPGRADE_STAT) entity)) as TBL_UPGRADE_STAT;
 	}
-	public static List<TBL_UPGRADE_LEVELGROW> FindEntities(Predicate<TBL_UPGRADE_LEVELGROW> filter, List<TBL_UPGRADE_LEVELGROW> result=null, Comparison<TBL_UPGRADE_LEVELGROW> sort=null)
+	public static List<TBL_UPGRADE_STAT> FindEntities(Predicate<TBL_UPGRADE_STAT> filter, List<TBL_UPGRADE_STAT> result=null, Comparison<TBL_UPGRADE_STAT> sort=null)
 	{
-		result = result ?? new List<TBL_UPGRADE_LEVELGROW>();
+		result = result ?? new List<TBL_UPGRADE_STAT>();
 		_find_Entities_Result.Clear();
-		MetaDefault.FindEntities(filter == null ? (Predicate<BGEntity>) null: e => filter((TBL_UPGRADE_LEVELGROW) e), _find_Entities_Result, sort == null ? (Comparison<BGEntity>) null : (e1, e2) => sort((TBL_UPGRADE_LEVELGROW) e1, (TBL_UPGRADE_LEVELGROW) e2));
+		MetaDefault.FindEntities(filter == null ? (Predicate<BGEntity>) null: e => filter((TBL_UPGRADE_STAT) e), _find_Entities_Result, sort == null ? (Comparison<BGEntity>) null : (e1, e2) => sort((TBL_UPGRADE_STAT) e1, (TBL_UPGRADE_STAT) e2));
 		if (_find_Entities_Result.Count != 0)
 		{
-			for (var i = 0; i < _find_Entities_Result.Count; i++) result.Add((TBL_UPGRADE_LEVELGROW) _find_Entities_Result[i]);
+			for (var i = 0; i < _find_Entities_Result.Count; i++) result.Add((TBL_UPGRADE_STAT) _find_Entities_Result[i]);
 			_find_Entities_Result.Clear();
 		}
 		return result;
 	}
-	public static void ForEachEntity(Action<TBL_UPGRADE_LEVELGROW> action, Predicate<TBL_UPGRADE_LEVELGROW> filter=null, Comparison<TBL_UPGRADE_LEVELGROW> sort=null)
+	public static void ForEachEntity(Action<TBL_UPGRADE_STAT> action, Predicate<TBL_UPGRADE_STAT> filter=null, Comparison<TBL_UPGRADE_STAT> sort=null)
 	{
-		MetaDefault.ForEachEntity(entity => action((TBL_UPGRADE_LEVELGROW) entity), filter == null ? null : (Predicate<BGEntity>) (entity => filter((TBL_UPGRADE_LEVELGROW) entity)), sort==null?(Comparison<BGEntity>) null:(e1,e2) => sort((TBL_UPGRADE_LEVELGROW)e1,(TBL_UPGRADE_LEVELGROW)e2));
+		MetaDefault.ForEachEntity(entity => action((TBL_UPGRADE_STAT) entity), filter == null ? null : (Predicate<BGEntity>) (entity => filter((TBL_UPGRADE_STAT) entity)), sort==null?(Comparison<BGEntity>) null:(e1,e2) => sort((TBL_UPGRADE_STAT)e1,(TBL_UPGRADE_STAT)e2));
 	}
-	public static TBL_UPGRADE_LEVELGROW GetEntity(BGId entityId)
+	public static TBL_UPGRADE_STAT GetEntity(BGId entityId)
 	{
-		return (TBL_UPGRADE_LEVELGROW) MetaDefault.GetEntity(entityId);
+		return (TBL_UPGRADE_STAT) MetaDefault.GetEntity(entityId);
 	}
-	public static TBL_UPGRADE_LEVELGROW GetEntity(int index)
+	public static TBL_UPGRADE_STAT GetEntity(int index)
 	{
-		return (TBL_UPGRADE_LEVELGROW) MetaDefault[index];
+		return (TBL_UPGRADE_STAT) MetaDefault[index];
 	}
-	public static TBL_UPGRADE_LEVELGROW GetEntity(string entityName)
+	public static TBL_UPGRADE_STAT GetEntity(string entityName)
 	{
-		return (TBL_UPGRADE_LEVELGROW) MetaDefault.GetEntity(entityName);
+		return (TBL_UPGRADE_STAT) MetaDefault.GetEntity(entityName);
 	}
-	public static TBL_UPGRADE_LEVELGROW NewEntity()
+	public static TBL_UPGRADE_STAT NewEntity()
 	{
-		return (TBL_UPGRADE_LEVELGROW) MetaDefault.NewEntity();
+		return (TBL_UPGRADE_STAT) MetaDefault.NewEntity();
+	}
+	public static TBL_UPGRADE_STAT GetEntityByKeyWithStatType(Enum_StatType StatType)
+	{
+		return (TBL_UPGRADE_STAT) _WithStatType.GetEntityByKey(StatType);
+	}
+	public static List<TBL_UPGRADE_STAT> GetEntitiesByKeyWithStatType(Enum_StatType StatType)
+	{
+		var result = _WithStatType.GetEntitiesByKey(StatType);
+		if(result==null || result.Count==0) return null;
+		var list = new List<TBL_UPGRADE_STAT>(result.Count);
+		for(var i = 0 ; i < result.Count ; i++) list.Add((TBL_UPGRADE_STAT) result[i]);
+		return list;
 	}
 }
 
@@ -9422,7 +9231,7 @@ public partial class TBL_STAGE : BGEntity
 	private static readonly TBL_GACHA_ARTIFACT.Factory _factory28_PFS = new TBL_GACHA_ARTIFACT.Factory();
 	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory29_PFS = new TBL_BATTLEPASS_REWARD.Factory();
 	private static readonly TBL_BATTLEPASS.Factory _factory30_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_LEVELGROW.Factory _factory31_PFS = new TBL_UPGRADE_LEVELGROW.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory31_PFS = new TBL_UPGRADE_STAT.Factory();
 	private static readonly TBL_STAGE.Factory _factory32_PFS = new TBL_STAGE.Factory();
 	private TBL_STAGE() : base(MetaDefault)
 	{

@@ -15,9 +15,6 @@ public enum AttackType
 {
 }
 
-public enum StatType
-{
-}
 public enum MasteryType
 {
 }
