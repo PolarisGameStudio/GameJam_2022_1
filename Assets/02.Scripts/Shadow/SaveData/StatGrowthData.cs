@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentData : StatData
+[Serializable]
+public class StatGrowthData : StatData
 {
     protected override void InitStat()
     {
@@ -12,5 +14,13 @@ public class EquipmentData : StatData
     protected override void CalculateStat()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void CalculateStatPoint()
+    {
+        var usedPoint = 0;
+        //._darkStatList.ForEach(stat => usedPoint += stat.UsedPoint);
+
+        // m_KingInfo.DarkPoint = Level - usedPoint;
     }
 }

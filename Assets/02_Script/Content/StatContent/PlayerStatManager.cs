@@ -2,8 +2,8 @@ using System;
 
 public class PlayerStatManager : StatManager<PlayerStatManager> , GameEventListener<RefreshEvent>
 {
-    // private PlayerData _playerData;
-    // public PlayerData PlayerData => _playerData;
+    // private PlayerLevelData _playerData;
+    // public PlayerLevelData PlayerLevelData => _playerData;
     
 
     private PlayerObject _playerObject;

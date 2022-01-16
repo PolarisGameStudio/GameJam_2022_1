@@ -9,9 +9,14 @@ public class DataManager : SingletonBehaviour<DataManager>
     [SerializeField] private DataContainer _container;
     public static DataContainer Container => Instance._container;
 
-    public static PlayerData PlayerData => Container.PlayerData;
+    public static PlayerLevelData PlayerLevelData => Container.PlayerLevelData;
     public static BattleData BattleData => Container.BattleData;
     public static CurrencyData CurrencyData => Container.CurrencyData;
+    public static GoldGrowthData GoldGrowthData => Container.GoldGrowthData;
+    public static StatGrowthData StatGrowthData => Container.StatGrowthData;
+    public static EquipmentData EquipmentData => Container.EquipmentData;
+    
+    
 
     protected override void Awake()
     {
