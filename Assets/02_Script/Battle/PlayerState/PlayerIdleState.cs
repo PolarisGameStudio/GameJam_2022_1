@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerIdleState : NormalState
 {
-    public const string NormalIdleAnimationName = "";
+    public const string NormalIdleAnimationName = "idle";
     private AnimationAbility _animationAbility;
     private MonsterDetectAbility _monsterDetectAbility;
     private PlayerAttackAbility _playerAttackAbility;
