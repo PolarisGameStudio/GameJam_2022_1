@@ -16,6 +16,7 @@ public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<Re
     public static StatGrowthData StatGrowthData => Container.StatGrowthData;
     public static EquipmentData EquipmentData => Container.EquipmentData;
     public static PromotionData PromotionData => Container.PromotionData;
+    public static GachaData GachaData => Container.GachaData;
     
     public bool IsReady { get; set; }
 

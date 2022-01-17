@@ -11,6 +11,7 @@ public class DataContainer
     [SerializeField] public StatGrowthData StatGrowthData { get; set; }
     [SerializeField] public EquipmentData EquipmentData { get; set; }
     [SerializeField] public PromotionData PromotionData { get; set; }
+    [SerializeField] public GachaData GachaData { get; set; }
 
     public void ValidCheck()
     {
@@ -21,6 +22,7 @@ public class DataContainer
         StatGrowthData ??= new StatGrowthData();
         EquipmentData ??= new EquipmentData();
         PromotionData ??= new PromotionData();
+        GachaData ??= new GachaData();
 
         PlayerData.ValidCheck();
         StageData.ValidCheck();
@@ -29,6 +31,7 @@ public class DataContainer
         StatGrowthData.ValidCheck();
         EquipmentData.ValidCheck();
         PromotionData.ValidCheck();
+        GachaData.ValidCheck();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
