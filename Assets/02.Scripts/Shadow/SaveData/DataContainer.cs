@@ -10,6 +10,7 @@ public class DataContainer
     [SerializeField] public GoldGrowthData GoldGrowthData { get; set; }
     [SerializeField] public StatGrowthData StatGrowthData { get; set; }
     [SerializeField] public EquipmentData EquipmentData { get; set; }
+    [SerializeField] public PromotionData PromotionData { get; set; }
 
     public void ValidCheck()
     {
@@ -19,33 +20,34 @@ public class DataContainer
         GoldGrowthData ??= new GoldGrowthData();
         StatGrowthData ??= new StatGrowthData();
         EquipmentData ??= new EquipmentData();
-        
+        PromotionData ??= new PromotionData();
+
         PlayerData.ValidCheck();
         StageData.ValidCheck();
         CurrencyData.ValidCheck();
         GoldGrowthData.ValidCheck();
         StatGrowthData.ValidCheck();
         EquipmentData.ValidCheck();
+        PromotionData.ValidCheck();
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// 스탯/////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     [NonSerialized] public Stat Stat = new Stat();
-    
+
     public void CalculateStat()
     {
         Stat.Init();
 
         Stat[Enum_StatType.Damage] = GetDamage();
         Stat[Enum_StatType.MaxHealth] = GetHealth();
-        Stat[Enum_StatType.CriticalChance] = 0;
-        Stat[Enum_StatType.CriticalDamage] = GetDamage();
-        Stat[Enum_StatType.MoveSpeed] = 2;
-        Stat[Enum_StatType.AttackSpeed] = 2;
-        Stat[Enum_StatType.SuperCriticalChance] = 0;
-        Stat[Enum_StatType.SuperCriticalDamage] = 0;
+        Stat[Enum_StatType.CriticalChance] = GetCriticalChance();
+        Stat[Enum_StatType.CriticalDamage] = GetCriticalDamage();
+        Stat[Enum_StatType.MoveSpeed] = GetMovementSpeed();
+        Stat[Enum_StatType.AttackSpeed] = GetAttackSpeed();
+        Stat[Enum_StatType.SuperCriticalChance] = GetSuperCriticalChance();
+        Stat[Enum_StatType.SuperCriticalDamage] = GetSuperCriticalDamage();
         Stat[Enum_StatType.AttackRange] = 2;
         Stat[Enum_StatType.DetectRange] = 2;
     }
@@ -59,12 +61,53 @@ public class DataContainer
 
         damage *= (1 + EquipmentData.Stat[Enum_StatType.Damage]);
 
+        damage *= PromotionData.Stat[Enum_StatType.Damage];
+
         return damage;
     }
-    
-    
+
+
     public double GetHealth()
     {
-        return 1000;
+        double health = 0;
+
+        health = PlayerData.Stat[Enum_StatType.MaxHealth] + GoldGrowthData.Stat[Enum_StatType.MaxHealth] +
+                 StatGrowthData.Stat[Enum_StatType.MaxHealth];
+
+        health *= (1 + EquipmentData.Stat[Enum_StatType.MaxHealth]);
+        
+        health *= PromotionData.Stat[Enum_StatType.MaxHealth];
+
+        return health;
+    }
+
+    public double GetCriticalChance()
+    {
+        return GoldGrowthData.Stat[Enum_StatType.CriticalChance];
+    }
+
+    public double GetCriticalDamage()
+    {
+        return GoldGrowthData.Stat[Enum_StatType.CriticalDamage];
+    }
+
+    public double GetMovementSpeed()
+    {
+        return PlayerData.Stat[Enum_StatType.MoveSpeed];
+    }
+
+    public double GetAttackSpeed()
+    {
+        return PlayerData.Stat[Enum_StatType.AttackSpeed];
+    }
+
+    public double GetSuperCriticalChance()
+    {
+        return GoldGrowthData.Stat[Enum_StatType.SuperCriticalChance];
+    }
+
+    public double GetSuperCriticalDamage()
+    {
+        return GoldGrowthData.Stat[Enum_StatType.SuperCriticalDamage];
     }
 }

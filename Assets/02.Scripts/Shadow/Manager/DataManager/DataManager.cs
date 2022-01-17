@@ -15,6 +15,7 @@ public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<Re
     public static GoldGrowthData GoldGrowthData => Container.GoldGrowthData;
     public static StatGrowthData StatGrowthData => Container.StatGrowthData;
     public static EquipmentData EquipmentData => Container.EquipmentData;
+    public static PromotionData PromotionData => Container.PromotionData;
     
     public bool IsReady { get; set; }
 
@@ -43,6 +44,7 @@ public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<Re
         _container = ES3.Load(saveKey, new DataContainer());
 
         _container.ValidCheck();
+        _container.CalculateStat();
 
         IsReady = true;
     }
