@@ -9,9 +9,10 @@ public class PlayerStatAbility : CharacterAbility
     public override void Init()
     {
         base.Init();
-
-        //_playerStat = PlayerStatManager.Instance.Stat;
+        
+        _playerStat = DataManager.Container.Stat;
     }
+    
 
     public void Calculate()
     {

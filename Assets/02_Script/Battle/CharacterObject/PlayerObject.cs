@@ -15,7 +15,7 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
 
     private void Awake()
     {
-        Init(Enum_CharacterType.Player, DataManager.Container.Stat);
+        Init(Enum_CharacterType.Player, new Stat());
 
         _fsmAbility = GetAbility<FSMAbility>();
 

@@ -139,20 +139,19 @@ public partial class TBL_PLAYER : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_PLAYER() : base(MetaDefault)
 	{
 	}
@@ -332,20 +331,19 @@ public partial class TBL_MONSTER : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_MONSTER() : base(MetaDefault)
 	{
 	}
@@ -565,20 +563,19 @@ public partial class TBL_SKILL : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_SKILL() : base(MetaDefault)
 	{
 	}
@@ -867,20 +864,19 @@ public partial class TBL_UPGRADE_GOLD : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_UPGRADE_GOLD() : base(MetaDefault)
 	{
 	}
@@ -1241,20 +1237,19 @@ public partial class TBL_ARTIFACT : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_ARTIFACT() : base(MetaDefault)
 	{
 	}
@@ -1486,20 +1481,19 @@ public partial class TBL_QUEST : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_QUEST() : base(MetaDefault)
 	{
 	}
@@ -1757,20 +1751,19 @@ public partial class TBL_ACHIEVEMENT : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_ACHIEVEMENT() : base(MetaDefault)
 	{
 	}
@@ -1954,20 +1947,19 @@ public partial class TBL_PLAYER_LEVEL : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_PLAYER_LEVEL() : base(MetaDefault)
 	{
 	}
@@ -2276,20 +2268,19 @@ public partial class TBL_MASTERY : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_MASTERY() : base(MetaDefault)
 	{
 	}
@@ -2473,20 +2464,19 @@ public partial class TBL_GACHA_SKILL : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_GACHA_SKILL() : base(MetaDefault)
 	{
 	}
@@ -2646,20 +2636,19 @@ public partial class SYSTEM_VALUE : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private SYSTEM_VALUE() : base(MetaDefault)
 	{
 	}
@@ -3059,20 +3048,19 @@ public partial class TBL_DUNGEON1 : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_DUNGEON1() : base(MetaDefault)
 	{
 	}
@@ -3241,20 +3229,19 @@ public partial class TBL_DUNGEON : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_DUNGEON() : base(MetaDefault)
 	{
 	}
@@ -3487,20 +3474,19 @@ public partial class TBL_LOCK : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_LOCK() : base(MetaDefault)
 	{
 	}
@@ -3733,20 +3719,19 @@ public partial class TBL_SHOP : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_SHOP() : base(MetaDefault)
 	{
 	}
@@ -3931,20 +3916,19 @@ public partial class TBL_WORLD : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_WORLD() : base(MetaDefault)
 	{
 	}
@@ -4344,20 +4328,19 @@ public partial class TBL_DUNGEON2 : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_DUNGEON2() : base(MetaDefault)
 	{
 	}
@@ -4757,20 +4740,19 @@ public partial class TBL_DUNGEON3 : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_DUNGEON3() : base(MetaDefault)
 	{
 	}
@@ -5170,20 +5152,19 @@ public partial class TBL_DUNGEON4 : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_DUNGEON4() : base(MetaDefault)
 	{
 	}
@@ -5503,20 +5484,19 @@ public partial class TBL_DAILY_REWARD : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_DAILY_REWARD() : base(MetaDefault)
 	{
 	}
@@ -6136,20 +6116,19 @@ public partial class TBL_PACKAGE : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_PACKAGE() : base(MetaDefault)
 	{
 	}
@@ -6418,20 +6397,19 @@ public partial class TBL_TOKEN_ITEM : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_TOKEN_ITEM() : base(MetaDefault)
 	{
 	}
@@ -6623,20 +6601,19 @@ public partial class TBL_TOKEN_PERCENT : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_TOKEN_PERCENT() : base(MetaDefault)
 	{
 	}
@@ -6684,239 +6661,6 @@ public partial class TBL_TOKEN_PERCENT : BGEntity
 	public static TBL_TOKEN_PERCENT NewEntity()
 	{
 		return (TBL_TOKEN_PERCENT) MetaDefault.NewEntity();
-	}
-}
-
-//=============================================================
-//||                   Generated by BansheeGz Code Generator ||
-//=============================================================
-
-public partial class TBL_PET : BGEntity
-{
-
-	//=============================================================
-	//||                   Generated by BansheeGz Code Generator ||
-	//=============================================================
-
-	public class Factory : BGEntity.EntityFactory
-	{
-		public BGEntity NewEntity(BGMetaEntity meta)
-		{
-			return new TBL_PET(meta);
-		}
-		public BGEntity NewEntity(BGMetaEntity meta, BGId id)
-		{
-			return new TBL_PET(meta, id);
-		}
-	}
-	private static BansheeGz.BGDatabase.BGMetaRow _metaDefault;
-	public static BansheeGz.BGDatabase.BGMetaRow MetaDefault
-	{
-		get
-		{
-			if(_metaDefault==null || _metaDefault.IsDeleted) _metaDefault=BGRepo.I.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(5419392749066783304,9860536917740989330));
-			return _metaDefault;
-		}
-	}
-	public static BansheeGz.BGDatabase.BGRepoEvents Events
-	{
-		get
-		{
-			return BGRepo.I.Events;
-		}
-	}
-	private static readonly List<BGEntity> _find_Entities_Result = new List<BGEntity>();
-	public static int CountEntities
-	{
-		get
-		{
-			return MetaDefault.CountEntities;
-		}
-	}
-	public System.String name
-	{
-		get
-		{
-			return _name[Index];
-		}
-		set
-		{
-			_name[Index] = value;
-		}
-	}
-	public System.Single Value
-	{
-		get
-		{
-			return _Value[Index];
-		}
-		set
-		{
-			_Value[Index] = value;
-		}
-	}
-	public System.String Description
-	{
-		get
-		{
-			return _Description[Index];
-		}
-		set
-		{
-			_Description[Index] = value;
-		}
-	}
-	public System.String Price
-	{
-		get
-		{
-			return _Price[Index];
-		}
-		set
-		{
-			_Price[Index] = value;
-		}
-	}
-	public System.String IAP_ID
-	{
-		get
-		{
-			return _IAP_ID[Index];
-		}
-		set
-		{
-			_IAP_ID[Index] = value;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
-	public static BansheeGz.BGDatabase.BGFieldEntityName _name
-	{
-		get
-		{
-			if(_ufle12jhs77_name==null || _ufle12jhs77_name.IsDeleted) _ufle12jhs77_name=(BansheeGz.BGDatabase.BGFieldEntityName) MetaDefault.GetField(new BGId(5335170197504847715,18266281507328765599));
-			return _ufle12jhs77_name;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_Value;
-	public static BansheeGz.BGDatabase.BGFieldFloat _Value
-	{
-		get
-		{
-			if(_ufle12jhs77_Value==null || _ufle12jhs77_Value.IsDeleted) _ufle12jhs77_Value=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5133416762152435052,10321896776070050439));
-			return _ufle12jhs77_Value;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77_Description;
-	public static BansheeGz.BGDatabase.BGFieldString _Description
-	{
-		get
-		{
-			if(_ufle12jhs77_Description==null || _ufle12jhs77_Description.IsDeleted) _ufle12jhs77_Description=(BansheeGz.BGDatabase.BGFieldString) MetaDefault.GetField(new BGId(5515239326418588585,13030553883532032703));
-			return _ufle12jhs77_Description;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77_Price;
-	public static BansheeGz.BGDatabase.BGFieldString _Price
-	{
-		get
-		{
-			if(_ufle12jhs77_Price==null || _ufle12jhs77_Price.IsDeleted) _ufle12jhs77_Price=(BansheeGz.BGDatabase.BGFieldString) MetaDefault.GetField(new BGId(4798101660912056589,9494861014881958534));
-			return _ufle12jhs77_Price;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77_IAP_ID;
-	public static BansheeGz.BGDatabase.BGFieldString _IAP_ID
-	{
-		get
-		{
-			if(_ufle12jhs77_IAP_ID==null || _ufle12jhs77_IAP_ID.IsDeleted) _ufle12jhs77_IAP_ID=(BansheeGz.BGDatabase.BGFieldString) MetaDefault.GetField(new BGId(4738364394247342719,394952061480505259));
-			return _ufle12jhs77_IAP_ID;
-		}
-	}
-	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
-	private static readonly TBL_MONSTER.Factory _factory1_PFS = new TBL_MONSTER.Factory();
-	private static readonly TBL_SKILL.Factory _factory2_PFS = new TBL_SKILL.Factory();
-	private static readonly TBL_UPGRADE_GOLD.Factory _factory3_PFS = new TBL_UPGRADE_GOLD.Factory();
-	private static readonly TBL_ARTIFACT.Factory _factory4_PFS = new TBL_ARTIFACT.Factory();
-	private static readonly TBL_QUEST.Factory _factory5_PFS = new TBL_QUEST.Factory();
-	private static readonly TBL_ACHIEVEMENT.Factory _factory6_PFS = new TBL_ACHIEVEMENT.Factory();
-	private static readonly TBL_PLAYER_LEVEL.Factory _factory7_PFS = new TBL_PLAYER_LEVEL.Factory();
-	private static readonly TBL_MASTERY.Factory _factory8_PFS = new TBL_MASTERY.Factory();
-	private static readonly TBL_GACHA_SKILL.Factory _factory9_PFS = new TBL_GACHA_SKILL.Factory();
-	private static readonly SYSTEM_VALUE.Factory _factory10_PFS = new SYSTEM_VALUE.Factory();
-	private static readonly TBL_DUNGEON1.Factory _factory11_PFS = new TBL_DUNGEON1.Factory();
-	private static readonly TBL_DUNGEON.Factory _factory12_PFS = new TBL_DUNGEON.Factory();
-	private static readonly TBL_LOCK.Factory _factory13_PFS = new TBL_LOCK.Factory();
-	private static readonly TBL_SHOP.Factory _factory14_PFS = new TBL_SHOP.Factory();
-	private static readonly TBL_WORLD.Factory _factory15_PFS = new TBL_WORLD.Factory();
-	private static readonly TBL_DUNGEON2.Factory _factory16_PFS = new TBL_DUNGEON2.Factory();
-	private static readonly TBL_DUNGEON3.Factory _factory17_PFS = new TBL_DUNGEON3.Factory();
-	private static readonly TBL_DUNGEON4.Factory _factory18_PFS = new TBL_DUNGEON4.Factory();
-	private static readonly TBL_DAILY_REWARD.Factory _factory19_PFS = new TBL_DAILY_REWARD.Factory();
-	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
-	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
-	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
-	private TBL_PET() : base(MetaDefault)
-	{
-	}
-	private TBL_PET(BGId id) : base(MetaDefault, id)
-	{
-	}
-	private TBL_PET(BGMetaEntity meta) : base(meta)
-	{
-	}
-	private TBL_PET(BGMetaEntity meta, BGId id) : base(meta, id)
-	{
-	}
-	public static TBL_PET FindEntity(Predicate<TBL_PET> filter)
-	{
-		return MetaDefault.FindEntity(entity => filter==null || filter((TBL_PET) entity)) as TBL_PET;
-	}
-	public static List<TBL_PET> FindEntities(Predicate<TBL_PET> filter, List<TBL_PET> result=null, Comparison<TBL_PET> sort=null)
-	{
-		result = result ?? new List<TBL_PET>();
-		_find_Entities_Result.Clear();
-		MetaDefault.FindEntities(filter == null ? (Predicate<BGEntity>) null: e => filter((TBL_PET) e), _find_Entities_Result, sort == null ? (Comparison<BGEntity>) null : (e1, e2) => sort((TBL_PET) e1, (TBL_PET) e2));
-		if (_find_Entities_Result.Count != 0)
-		{
-			for (var i = 0; i < _find_Entities_Result.Count; i++) result.Add((TBL_PET) _find_Entities_Result[i]);
-			_find_Entities_Result.Clear();
-		}
-		return result;
-	}
-	public static void ForEachEntity(Action<TBL_PET> action, Predicate<TBL_PET> filter=null, Comparison<TBL_PET> sort=null)
-	{
-		MetaDefault.ForEachEntity(entity => action((TBL_PET) entity), filter == null ? null : (Predicate<BGEntity>) (entity => filter((TBL_PET) entity)), sort==null?(Comparison<BGEntity>) null:(e1,e2) => sort((TBL_PET)e1,(TBL_PET)e2));
-	}
-	public static TBL_PET GetEntity(BGId entityId)
-	{
-		return (TBL_PET) MetaDefault.GetEntity(entityId);
-	}
-	public static TBL_PET GetEntity(int index)
-	{
-		return (TBL_PET) MetaDefault[index];
-	}
-	public static TBL_PET GetEntity(string entityName)
-	{
-		return (TBL_PET) MetaDefault.GetEntity(entityName);
-	}
-	public static TBL_PET NewEntity()
-	{
-		return (TBL_PET) MetaDefault.NewEntity();
 	}
 }
 
@@ -7069,20 +6813,19 @@ public partial class TBL_GACHA_REWARD : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_GACHA_REWARD() : base(MetaDefault)
 	{
 	}
@@ -7311,20 +7054,19 @@ public partial class TBL_DIALOGUE : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_DIALOGUE() : base(MetaDefault)
 	{
 	}
@@ -7556,20 +7298,19 @@ public partial class TBL_KING_CLASS : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_KING_CLASS() : base(MetaDefault)
 	{
 	}
@@ -7749,20 +7490,19 @@ public partial class TBL_GACHA_ARTIFACT : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_GACHA_ARTIFACT() : base(MetaDefault)
 	{
 	}
@@ -8191,20 +7931,19 @@ public partial class TBL_BATTLEPASS_REWARD : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_BATTLEPASS_REWARD() : base(MetaDefault)
 	{
 	}
@@ -8369,20 +8108,19 @@ public partial class TBL_BATTLEPASS : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_BATTLEPASS() : base(MetaDefault)
 	{
 	}
@@ -8611,20 +8349,19 @@ public partial class TBL_UPGRADE_STAT : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_UPGRADE_STAT() : base(MetaDefault)
 	{
 	}
@@ -8996,20 +8733,19 @@ public partial class TBL_STAGE : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_STAGE() : base(MetaDefault)
 	{
 	}
@@ -9238,6 +8974,39 @@ public partial class TBL_EQUIPMENT : BGEntity
 			_OnOwnValue3[Index] = value;
 		}
 	}
+	public System.Double LevelUpCost
+	{
+		get
+		{
+			return _LevelUpCost[Index];
+		}
+		set
+		{
+			_LevelUpCost[Index] = value;
+		}
+	}
+	public System.Double LevelUpIncreaseCost
+	{
+		get
+		{
+			return _LevelUpIncreaseCost[Index];
+		}
+		set
+		{
+			_LevelUpIncreaseCost[Index] = value;
+		}
+	}
+	public System.Int32 GradeUpCost
+	{
+		get
+		{
+			return _GradeUpCost[Index];
+		}
+		set
+		{
+			_GradeUpCost[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -9346,6 +9115,42 @@ public partial class TBL_EQUIPMENT : BGEntity
 			return _ufle12jhs77_OnOwnValue3;
 		}
 	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_LevelUpCost;
+	public static BansheeGz.BGDatabase.BGFieldDouble _LevelUpCost
+	{
+		get
+		{
+			if(_ufle12jhs77_LevelUpCost==null || _ufle12jhs77_LevelUpCost.IsDeleted) _ufle12jhs77_LevelUpCost=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(4901021592194391783,9110530882584551599));
+			return _ufle12jhs77_LevelUpCost;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_LevelUpIncreaseCost;
+	public static BansheeGz.BGDatabase.BGFieldDouble _LevelUpIncreaseCost
+	{
+		get
+		{
+			if(_ufle12jhs77_LevelUpIncreaseCost==null || _ufle12jhs77_LevelUpIncreaseCost.IsDeleted) _ufle12jhs77_LevelUpIncreaseCost=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(4747970502529935450,6592807490160239520));
+			return _ufle12jhs77_LevelUpIncreaseCost;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_GradeUpCost;
+	public static BansheeGz.BGDatabase.BGFieldInt _GradeUpCost
+	{
+		get
+		{
+			if(_ufle12jhs77_GradeUpCost==null || _ufle12jhs77_GradeUpCost.IsDeleted) _ufle12jhs77_GradeUpCost=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4889434931629632764,17015473480085182377));
+			return _ufle12jhs77_GradeUpCost;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithEquipmentType;
+	public static BansheeGz.BGDatabase.BGKey _WithEquipmentType
+	{
+		get
+		{
+			if(_edeht3sdad33_WithEquipmentType==null || _edeht3sdad33_WithEquipmentType.IsDeleted) _edeht3sdad33_WithEquipmentType= MetaDefault.GetKey(new BGId(5364889277404312053,9389192471627006096));
+			return _edeht3sdad33_WithEquipmentType;
+		}
+	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
 	private static readonly TBL_MONSTER.Factory _factory1_PFS = new TBL_MONSTER.Factory();
 	private static readonly TBL_SKILL.Factory _factory2_PFS = new TBL_SKILL.Factory();
@@ -9369,20 +9174,19 @@ public partial class TBL_EQUIPMENT : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_EQUIPMENT() : base(MetaDefault)
 	{
 	}
@@ -9430,6 +9234,18 @@ public partial class TBL_EQUIPMENT : BGEntity
 	public static TBL_EQUIPMENT NewEntity()
 	{
 		return (TBL_EQUIPMENT) MetaDefault.NewEntity();
+	}
+	public static TBL_EQUIPMENT GetEntityByKeyWithEquipmentType(Enum_EquipmentType Type)
+	{
+		return (TBL_EQUIPMENT) _WithEquipmentType.GetEntityByKey(Type);
+	}
+	public static List<TBL_EQUIPMENT> GetEntitiesByKeyWithEquipmentType(Enum_EquipmentType Type)
+	{
+		var result = _WithEquipmentType.GetEntitiesByKey(Type);
+		if(result==null || result.Count==0) return null;
+		var list = new List<TBL_EQUIPMENT>(result.Count);
+		for(var i = 0 ; i < result.Count ; i++) list.Add((TBL_EQUIPMENT) result[i]);
+		return list;
 	}
 }
 
@@ -9742,20 +9558,19 @@ public partial class TBL_EQUIPMENT_RIGHT : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_EQUIPMENT_RIGHT() : base(MetaDefault)
 	{
 	}
@@ -10115,20 +9930,19 @@ public partial class TBL_EQUIPMENT_MOUTH : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_EQUIPMENT_MOUTH() : base(MetaDefault)
 	{
 	}
@@ -10488,20 +10302,19 @@ public partial class TBL_EQUIPMENT_RING : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_EQUIPMENT_RING() : base(MetaDefault)
 	{
 	}
@@ -10861,20 +10674,19 @@ public partial class TBL_EQUIPMENT_NECKLESS : BGEntity
 	private static readonly TBL_PACKAGE.Factory _factory20_PFS = new TBL_PACKAGE.Factory();
 	private static readonly TBL_TOKEN_ITEM.Factory _factory21_PFS = new TBL_TOKEN_ITEM.Factory();
 	private static readonly TBL_TOKEN_PERCENT.Factory _factory22_PFS = new TBL_TOKEN_PERCENT.Factory();
-	private static readonly TBL_PET.Factory _factory23_PFS = new TBL_PET.Factory();
-	private static readonly TBL_GACHA_REWARD.Factory _factory24_PFS = new TBL_GACHA_REWARD.Factory();
-	private static readonly TBL_DIALOGUE.Factory _factory25_PFS = new TBL_DIALOGUE.Factory();
-	private static readonly TBL_KING_CLASS.Factory _factory26_PFS = new TBL_KING_CLASS.Factory();
-	private static readonly TBL_GACHA_ARTIFACT.Factory _factory27_PFS = new TBL_GACHA_ARTIFACT.Factory();
-	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory28_PFS = new TBL_BATTLEPASS_REWARD.Factory();
-	private static readonly TBL_BATTLEPASS.Factory _factory29_PFS = new TBL_BATTLEPASS.Factory();
-	private static readonly TBL_UPGRADE_STAT.Factory _factory30_PFS = new TBL_UPGRADE_STAT.Factory();
-	private static readonly TBL_STAGE.Factory _factory31_PFS = new TBL_STAGE.Factory();
-	private static readonly TBL_EQUIPMENT.Factory _factory32_PFS = new TBL_EQUIPMENT.Factory();
-	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory33_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
-	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory34_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
-	private static readonly TBL_EQUIPMENT_RING.Factory _factory35_PFS = new TBL_EQUIPMENT_RING.Factory();
-	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory36_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
+	private static readonly TBL_GACHA_REWARD.Factory _factory23_PFS = new TBL_GACHA_REWARD.Factory();
+	private static readonly TBL_DIALOGUE.Factory _factory24_PFS = new TBL_DIALOGUE.Factory();
+	private static readonly TBL_KING_CLASS.Factory _factory25_PFS = new TBL_KING_CLASS.Factory();
+	private static readonly TBL_GACHA_ARTIFACT.Factory _factory26_PFS = new TBL_GACHA_ARTIFACT.Factory();
+	private static readonly TBL_BATTLEPASS_REWARD.Factory _factory27_PFS = new TBL_BATTLEPASS_REWARD.Factory();
+	private static readonly TBL_BATTLEPASS.Factory _factory28_PFS = new TBL_BATTLEPASS.Factory();
+	private static readonly TBL_UPGRADE_STAT.Factory _factory29_PFS = new TBL_UPGRADE_STAT.Factory();
+	private static readonly TBL_STAGE.Factory _factory30_PFS = new TBL_STAGE.Factory();
+	private static readonly TBL_EQUIPMENT.Factory _factory31_PFS = new TBL_EQUIPMENT.Factory();
+	private static readonly TBL_EQUIPMENT_RIGHT.Factory _factory32_PFS = new TBL_EQUIPMENT_RIGHT.Factory();
+	private static readonly TBL_EQUIPMENT_MOUTH.Factory _factory33_PFS = new TBL_EQUIPMENT_MOUTH.Factory();
+	private static readonly TBL_EQUIPMENT_RING.Factory _factory34_PFS = new TBL_EQUIPMENT_RING.Factory();
+	private static readonly TBL_EQUIPMENT_NECKLESS.Factory _factory35_PFS = new TBL_EQUIPMENT_NECKLESS.Factory();
 	private TBL_EQUIPMENT_NECKLESS() : base(MetaDefault)
 	{
 	}
