@@ -13,15 +13,15 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
     [SerializeField] [Header("웨이브 오프셋(x)")]  private float _waveOffsetX;
     [SerializeField] [Header("몬스터 오프셋(x)")]  private float _monsterOffestX;
 
-    private TBL_PROMOTION _promotionStageData;
+    private TBL_PROMOTION _promotionBattleData;
 
     private bool _inited = false;
     public bool IsInited => _inited;
 
     private int waveLevel = 0;
 
-    public float StageProcess => waveLevel / (float) _promotionStageData.WaveCount;
-    public string StageTitle => $"승급 {_promotionStageData.name}";
+    public float StageProcess => waveLevel / (float) _promotionBattleData.WaveCount;
+    public string StageTitle => $"승급 {_promotionBattleData.name}";
 
     private void Awake()
     {
@@ -37,12 +37,12 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
-        _level = Mathf.Min(TBL_STAGE.CountEntities - 1, _level);
+        _level = Mathf.Min(TBL_PROMOTION.CountEntities - 1, _level);
         
-        _promotionStageData = TBL_PROMOTION.GetEntity(_level);
+        _promotionBattleData = TBL_PROMOTION.GetEntity(_level);
 
-        DamageFactor = _promotionStageData.DamageFactor;
-        HealthFactor = _promotionStageData.HealthFactor;
+        DamageFactor = _promotionBattleData.DamageFactor;
+        HealthFactor = _promotionBattleData.HealthFactor;
 
         _inited = true;
     }
@@ -51,11 +51,11 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
     {
         Vector3 objPosition = _player.Position + Vector3.right * _waveOffsetX;
 
-        if (waveLevel == _promotionStageData.WaveCount - 1)
+        if (waveLevel == _promotionBattleData.WaveCount - 1)
         {
             // 보스 소환
 
-            int monsterIndex = _promotionStageData.BossMonsterIndex;
+            int monsterIndex = _promotionBattleData.BossMonsterIndex;
 
             var spawnPosition = objPosition;
             MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageBossMonster, spawnPosition,
@@ -65,11 +65,11 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
         }
         else
         {
-            var spawnCount = _promotionStageData.WaveMonsterCount;
+            var spawnCount = _promotionBattleData.WaveMonsterCount;
 
             for (int i = 0; i < spawnCount; i++)
             {
-                int monsterIndex = _promotionStageData.SpawnMonsterList[(Random.Range(0, _promotionStageData.SpawnMonsterList.Count))];
+                int monsterIndex = _promotionBattleData.SpawnMonsterList[(Random.Range(0, _promotionBattleData.SpawnMonsterList.Count))];
 
                 var spawnPosition = objPosition + (i * _monsterOffestX) * Vector3.right;
                 MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageNormalMonster, spawnPosition,
@@ -128,7 +128,7 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
         waveLevel++;
         _monsterObjects.Clear();
 
-        if (waveLevel > _promotionStageData.WaveCount)
+        if (waveLevel > _promotionBattleData.WaveCount)
         {
             BattleManager.Instance.BattleClear(Enum_BattleType.PromotionBattle, _level);
         }

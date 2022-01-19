@@ -6,19 +6,26 @@ public class PromotionData : StatData
     [SerializeField] private int _currentPromotionIndex;
 
     [SerializeField] private DiceStatData _diceStatData;
-
-    [NonSerialized] public bool IsMaxPromotion;
+    
+    public PromotionData()
+    {
+        _diceStatData = new DiceStatData();
+    }
 
     public override void ValidCheck()
     {
         base.ValidCheck();
-        
+
+        if (_diceStatData == null)
+        {
+            _diceStatData = new DiceStatData();
+        }
         _diceStatData.Init(TBL_PROMOTION.CountEntities + 1);
 
         CheckDiceUnlock();
         CalculateStat();
 
-        _currentPromotionIndex = Mathf.Max(0, _currentPromotionIndex);
+        _currentPromotionIndex = Mathf.Clamp(_currentPromotionIndex, 0, TBL_PROMOTION.CountEntities);
     }
     
     private void CheckDiceUnlock()

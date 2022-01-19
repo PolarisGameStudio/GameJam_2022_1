@@ -6,11 +6,16 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class DiceStatData : StatData
 {
-    public List<DiceStat> DiceSlotList;
+    public List<DiceStat> DiceSlotList = new List<DiceStat>();
 
     public void Init(int diceCount)
     {
         base.ValidCheck();
+
+        if (DiceSlotList == null)
+        {
+            DiceSlotList = new List<DiceStat>();
+        }
         
         //todo: 승급이면 승급 갯수 만큼 일반
         var gachaTypeCount = diceCount;
@@ -42,6 +47,10 @@ public class DiceStatData : StatData
 
         foreach (var diceStat in DiceSlotList)
         {
+            if (diceStat.Index == -1)
+            {
+                continue;
+            }
             var data = TBL_UPGRADE_DICE.GetEntity(diceStat.Index);
             Stat[data.StatType] += diceStat.AddValue + data.MinStatValue;
         }

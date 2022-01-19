@@ -14,7 +14,7 @@ public class FollowerData : StatData
     {
         base.ValidCheck();
 
-        var maxLevel = TBL_FOLLOWER.GetEntity(0).MaxLevel;
+        var maxLevel = SystemValue.FOLLOWER_MAX_LEVEL;
 
         var requireCount = TBL_FOLLOWER.CountEntities;
         var saveCount = Levels.Count;
@@ -43,7 +43,7 @@ public class FollowerData : StatData
         var data = TBL_FOLLOWER.GetEntity(index);
         var level = Levels[index];
 
-        if (level >= data.MaxLevel)
+        if (level >= SystemValue.FOLLOWER_MAX_LEVEL)
         {
             return false;
         }
@@ -72,14 +72,14 @@ public class FollowerData : StatData
 
         Counts[index] -= GetLevelUpCost(index);
         Levels[index] += 1;
-        
+
         CalculateStat();
     }
 
     public void TryEquip(int index, int changeSlotIndex)
     {
         EquippedIndex[changeSlotIndex] = index;
-        
+
         CalculateStat();
     }
 

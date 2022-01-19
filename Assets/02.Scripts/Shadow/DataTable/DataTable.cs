@@ -12142,17 +12142,6 @@ public partial class TBL_FOLLOWER : BGEntity
 			_IncreaseCost[Index] = value;
 		}
 	}
-	public System.Int32 MaxLevel
-	{
-		get
-		{
-			return _MaxLevel[Index];
-		}
-		set
-		{
-			_MaxLevel[Index] = value;
-		}
-	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -12241,15 +12230,6 @@ public partial class TBL_FOLLOWER : BGEntity
 		{
 			if(_ufle12jhs77_IncreaseCost==null || _ufle12jhs77_IncreaseCost.IsDeleted) _ufle12jhs77_IncreaseCost=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5319212891126310037,9167754078085057417));
 			return _ufle12jhs77_IncreaseCost;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_MaxLevel;
-	public static BansheeGz.BGDatabase.BGFieldInt _MaxLevel
-	{
-		get
-		{
-			if(_ufle12jhs77_MaxLevel==null || _ufle12jhs77_MaxLevel.IsDeleted) _ufle12jhs77_MaxLevel=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5539958416256836254,10917565367915319230));
-			return _ufle12jhs77_MaxLevel;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
