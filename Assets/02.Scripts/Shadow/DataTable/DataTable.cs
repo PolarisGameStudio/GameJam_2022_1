@@ -8535,6 +8535,17 @@ public partial class TBL_STAGE : BGEntity
 			_HealthFactor[Index] = value;
 		}
 	}
+	public System.Int32 TimeLimit
+	{
+		get
+		{
+			return _TimeLimit[Index];
+		}
+		set
+		{
+			_TimeLimit[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -8641,6 +8652,15 @@ public partial class TBL_STAGE : BGEntity
 		{
 			if(_ufle12jhs77_HealthFactor==null || _ufle12jhs77_HealthFactor.IsDeleted) _ufle12jhs77_HealthFactor=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5431072430801840616,9761465646848933786));
 			return _ufle12jhs77_HealthFactor;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_TimeLimit;
+	public static BansheeGz.BGDatabase.BGFieldInt _TimeLimit
+	{
+		get
+		{
+			if(_ufle12jhs77_TimeLimit==null || _ufle12jhs77_TimeLimit.IsDeleted) _ufle12jhs77_TimeLimit=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5002216049008151573,17352007991509666947));
+			return _ufle12jhs77_TimeLimit;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
