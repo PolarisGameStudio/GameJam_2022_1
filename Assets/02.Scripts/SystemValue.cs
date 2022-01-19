@@ -16,4 +16,6 @@ public static class SystemValue
 
 
     public static int FOLLOWER_MAX_LEVEL  = (int) SYSTEM_VALUE.GetEntity("FOLLWER_MAX_LEVEL").Value;
+
+    public static int RUNE_DAILY_LIMIT = 3;
 }
