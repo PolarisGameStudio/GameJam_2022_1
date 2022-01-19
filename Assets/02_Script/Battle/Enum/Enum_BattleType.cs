@@ -5,7 +5,10 @@ public enum Enum_BattleType
     Stage,
     StageBoss,
     PromotionBattle,
-    Dungeon,
+    
+    TreasureDungeon,
+    SmithDungeon,
+    BossDungeon,
     
     Count,
 }
