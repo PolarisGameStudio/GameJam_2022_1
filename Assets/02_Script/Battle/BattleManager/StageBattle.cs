@@ -15,8 +15,6 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
     private TBL_STAGE _stageData;
 
-    private bool _inited = false;
-    public bool IsInited => _inited;
 
     private int waveLevel = 0;
 

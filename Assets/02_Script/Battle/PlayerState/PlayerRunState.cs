@@ -31,11 +31,13 @@ public class PlayerRunState : NormalState
         float moveSpeed = (float)_owner.Stat[Enum_StatType.MoveSpeed];
 
         //float moveAnimationSpeed = Mathf.Min(moveSpeed, _animationAbility.MaxAnimationSpeedScale);
+        
+        var moveScale = 1f;
 
         if (_animationAbility.UseMovmentSpeed && moveSpeed > _animationAbility.StartMovementAnimationSpeed)
         {
             var diff = moveSpeed - _animationAbility.StartMovementAnimationSpeed;
-            var moveScale = 1 + (diff * _animationAbility.MovementAnimationSpeedFactor);
+            moveScale = 1 + (diff * _animationAbility.MovementAnimationSpeedFactor);
             
             moveScale = Mathf.Min(moveScale, _animationAbility.MaxMovementAnimationSpeedScale);
             
@@ -45,6 +47,8 @@ public class PlayerRunState : NormalState
         {
             _animationAbility.PlayAnimation(NormalRunAnimationName, true, 1f);
         }
+        
+        ((PlayerObject)_owner).SetFollowersMove(moveScale);
     }
 
     public override void LogicUpdate(float deltaTime)
@@ -68,5 +72,6 @@ public class PlayerRunState : NormalState
 
     public override void Exit()
     {
+        ((PlayerObject)_owner).SetFollowersIdle();
     }
 }

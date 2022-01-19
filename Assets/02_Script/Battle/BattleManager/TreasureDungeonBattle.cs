@@ -16,8 +16,6 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     private TBL_DUNGEON_TREASURE _treasureDungeonData;
 
-    private bool _inited = false;
-    public bool IsInited => _inited;
 
     public float RemainTime => _treasureDungeonData.TimeLimit - _timer;
     private float _timer;

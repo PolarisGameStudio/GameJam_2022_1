@@ -13,10 +13,7 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
     [SerializeField] [Header("몬스터 오프셋(x)")] private float _monsterOffestX;
 
     private TBL_DUNGEON_SMITH _smithDungeonData;
-
-    private bool _inited = false;
-    public bool IsInited => _inited;
-
+    
     private int waveLevel = 0;
     
 

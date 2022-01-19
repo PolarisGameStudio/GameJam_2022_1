@@ -15,9 +15,6 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 
     private TBL_PROMOTION _promotionBattleData;
 
-    private bool _inited = false;
-    public bool IsInited => _inited;
-
     private int waveLevel = 0;
 
     public float StageProcess => waveLevel / (float) _promotionBattleData.WaveCount;
