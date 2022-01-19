@@ -13,7 +13,7 @@ public class AdmobModule : MonoBehaviour
     private Action onRewardAdSkippedCallback;
 
 #if !UNITY_IOS
-    private string adUnitId = "ca-app-pub-1076272347919893/1081039694";
+    private string adUnitId = "ca-app-pub-1076272347919893/1172881253";
 #elif UNITY_IOS
     private string adUnitId = "ca-app-pub-1076272347919893/4916800748";
 #endif

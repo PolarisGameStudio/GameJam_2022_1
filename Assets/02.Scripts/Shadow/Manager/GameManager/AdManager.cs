@@ -5,18 +5,6 @@ using UnityEngine;
 
 public enum ADType
 {
-    ReconnectionDouble,
-    PremiumReward,
-    TobeolAutoClaim,
-    RuneBuff,
-    HuntingEnterToken,
-    
-    ArtifactGacha,
-    SkillGacha,
-    
-    ShopGem,
-    
-    BattlePassReward,
     
     None,
 }
