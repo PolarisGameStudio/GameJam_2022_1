@@ -28,15 +28,8 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         this.AddGameEventListening<MonsterEvent>();
     }
 
-    protected override void OnBattleInit()
+    protected override void InitBattleData()
     {
-        _inited = false;
-
-        MonsterObjectFactory.Instance.HideAll();
-        HealthbarFactory.Instance.HideAll();
-
-        BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
-
         _level = Mathf.Min(TBL_STAGE.CountEntities - 1, _level);
         
         _stageData = TBL_STAGE.GetEntity(_level);
@@ -45,6 +38,16 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         HealthFactor = _stageData.HealthFactor;
         GoldAmount = _stageData.Gold;
         ExpAmount = _stageData.Exp;
+    }
+
+    protected override void OnBattleInit()
+    {
+        _inited = false;
+
+        MonsterObjectFactory.Instance.HideAll();
+        HealthbarFactory.Instance.HideAll();
+
+        BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
         _inited = true;
     }
@@ -83,9 +86,6 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleOver()
     {
-       // PlayerStatManager.Instance.InitHealth();
-
-        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, _level);
     }
 
     protected override void OnBattleEnd()

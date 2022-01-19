@@ -14,19 +14,29 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
     [SerializeField] [Header("몬스터 오프셋(x)")]
     private float _monsterOffestX;
 
-    private TBL_STAGE _stageData;
+    private TBL_DUNGEON_TREASURE _treasureDungeonData;
 
     private bool _inited = false;
     public bool IsInited => _inited;
 
-    private int waveLevel = 0;
+    public float RemainTime => _treasureDungeonData.TimeLimit - _timer;
+    private float _timer;
 
-    public float StageProcess => waveLevel / (float) _stageData.WaveCount;
-    public string StageTitle => $"Stage {_stageData.name}";
+    private int _monsterKillCount = 0;
 
     private void Awake()
     {
         this.AddGameEventListening<MonsterEvent>();
+    }
+
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+
+        if (RemainTime < 0)
+        {
+            BattleOver();
+        }
     }
 
     protected override void OnBattleInit()
@@ -38,31 +48,34 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
-        _level = Mathf.Min(TBL_STAGE.CountEntities - 1, _level);
-
-        _stageData = TBL_STAGE.GetEntity(_level);
-
-        DamageFactor = _stageData.DamageFactor;
-        HealthFactor = _stageData.HealthFactor;
-        GoldAmount = _stageData.Gold;
-        ExpAmount = _stageData.Exp;
-
         _inited = true;
+    }
+
+    protected override void InitBattleData()
+    {
+        _treasureDungeonData = TBL_DUNGEON_TREASURE.GetEntity(_level);
+
+        DamageFactor = _treasureDungeonData.DamageFactor;
+        HealthFactor = _treasureDungeonData.HealthFactor;
+
+        GoldAmount = _treasureDungeonData.GoldAmount;
+        ExpAmount = _treasureDungeonData.ExpAmount;
     }
 
     private void SpawnWaveMonsters()
     {
         Vector3 objPosition = _player.Position + Vector3.right * _waveOffsetX;
 
-        var spawnCount = _stageData.WaveMonsterCount;
+        var spawnCount = _treasureDungeonData.WaveMonsterCount;
 
         for (int i = 0; i < spawnCount; i++)
         {
-            int monsterIndex = _stageData.SpawnMonsterIndex[(Random.Range(0, _stageData.SpawnMonsterIndex.Count))];
+            int monsterIndex =
+                _treasureDungeonData.SpawnMonsterList[(Random.Range(0, _treasureDungeonData.SpawnMonsterList.Count))];
 
             var spawnPosition = objPosition + (i * _monsterOffestX) * Vector3.right;
             MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageNormalMonster, spawnPosition,
-                monsterIndex, _battleType, (i == spawnCount - 1) && waveLevel == _stageData.WaveCount - 1);
+                monsterIndex, _battleType);
 
             _monsterObjects.Add(obj);
         }
@@ -70,8 +83,6 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleStart()
     {
-        waveLevel = 0;
-
         BattleCamera.Instance.SetPosition(_startCameraPosition);
 
         SpawnWaveMonsters();
@@ -79,19 +90,17 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleClear()
     {
-        BattleManager.Instance.BattleClear(Enum_BattleType.Stage, _level);
     }
 
     protected override void OnBattleOver()
     {
-        // PlayerStatManager.Instance.InitHealth();
-
-        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, _level);
     }
 
     protected override void OnBattleEnd()
     {
         UI_BossHealthbar.Instance.Hide();
+        DataManager.DungeonData.RecordDungeonScore(_battleType, _monsterKillCount);
+        DataManager.DungeonData.OnDungeonBattleEnd(_battleType, _level);
     }
 
     public void OnGameEvent(MonsterEvent e)
@@ -105,6 +114,7 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
         {
             case Enum_MonsterEventType.NormalMonsterDeath:
             {
+                _monsterKillCount++;
                 CheckWaveClear();
                 break;
             }
@@ -113,17 +123,10 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     private void OnWaveClear()
     {
-        waveLevel++;
+        _level++;
         _monsterObjects.Clear();
 
-        if (waveLevel >= _stageData.WaveCount)
-        {
-            BattleClear();
-        }
-        else
-        {
-            SpawnWaveMonsters();
-        }
+        SpawnWaveMonsters();
     }
 
 

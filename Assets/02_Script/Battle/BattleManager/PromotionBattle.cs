@@ -28,6 +28,19 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
         this.AddGameEventListening<MonsterEvent>();
     }
 
+    protected override void InitBattleData()
+    {   
+        _level = Mathf.Min(TBL_PROMOTION.CountEntities - 1, _level);
+        
+        _promotionBattleData = TBL_PROMOTION.GetEntity(_level);
+
+        DamageFactor = _promotionBattleData.DamageFactor;
+        HealthFactor = _promotionBattleData.HealthFactor;
+
+        GoldAmount = 0;
+        ExpAmount = 0;
+    }
+
     protected override void OnBattleInit()
     {
         _inited = false;
@@ -37,12 +50,7 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
-        _level = Mathf.Min(TBL_PROMOTION.CountEntities - 1, _level);
-        
-        _promotionBattleData = TBL_PROMOTION.GetEntity(_level);
-
-        DamageFactor = _promotionBattleData.DamageFactor;
-        HealthFactor = _promotionBattleData.HealthFactor;
+     
 
         _inited = true;
     }
@@ -96,7 +104,6 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleOver()
     {
-        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
     }
 
     protected override void OnBattleEnd()

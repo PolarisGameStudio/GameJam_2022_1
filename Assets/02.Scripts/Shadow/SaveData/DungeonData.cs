@@ -7,12 +7,12 @@ public class DungeonData : SaveDataBase
 {
     public int TreasureDungeonKillCount = 0;
     public double BossDungeonHighestDamage = 0;
-    
-    
+
+
     public int TreasureDungeonHighLevel = 0;
     public int SmithDungeonHighLevel = 0;
     public int BossDungeonHighLevel = 0;
-    
+
     public void OnDungeonBattleEnd(Enum_BattleType dungeonBattleType, int level)
     {
         switch (dungeonBattleType)
@@ -26,7 +26,7 @@ public class DungeonData : SaveDataBase
             case Enum_BattleType.BossDungeon:
                 BossDungeonHighLevel = Mathf.Max(BossDungeonHighLevel, level);
                 break;
-            
+
             default:
                 Debug.LogError("던전 아니면 안됨");
                 return;
@@ -38,12 +38,13 @@ public class DungeonData : SaveDataBase
         switch (dungeonBattleType)
         {
             case Enum_BattleType.TreasureDungeon:
-                TreasureDungeonKillCount = (int)score;
+                int scr = (int) score;
+                TreasureDungeonKillCount = TreasureDungeonKillCount > scr ? TreasureDungeonKillCount : scr;
                 break;
             case Enum_BattleType.BossDungeon:
-                BossDungeonHighestDamage = score;
+                BossDungeonHighestDamage = BossDungeonHighestDamage > score ? BossDungeonHighestDamage : score;
                 break;
-            
+
             default:
                 Debug.LogError("던전 아니면 안됨");
                 return;
@@ -60,8 +61,8 @@ public class DungeonData : SaveDataBase
                 break;
             case Enum_BattleType.BossDungeon:
                 break;
-            
-            default: 
+
+            default:
                 break;
         }
     }
@@ -82,12 +83,12 @@ public class DungeonData : SaveDataBase
             case Enum_BattleType.BossDungeon:
                 ticket = Enum_CurrencyType.Ticket_Boss;
                 break;
-            
+
             default:
                 Debug.LogError("던전 배틀타입만처리 가능");
                 return;
         }
-        
+
         if (DataManager.CurrencyData.IsEnough(ticket, 1))
         {
             BattleManager.Instance.BattleStart(dungeonBattleType, level);
@@ -97,35 +98,36 @@ public class DungeonData : SaveDataBase
     public void GetRewardTreasureDungeon(int count)
     {
         List<Reward> rewards = new List<Reward>();
-        
+
         while (count > 1)
         {
             count--;
         }
+
         RewardManager.GetWithRewardUI(rewards);
-    }    
-    
+    }
+
     public void GetRewardSmithDungeon(int count)
     {
         List<Reward> rewards = new List<Reward>();
-        
+
         while (count > 1)
         {
             count--;
         }
-        
+
         RewardManager.GetWithRewardUI(rewards);
-    }    
-    
+    }
+
     public void GetRewardBossDungeon(int count)
     {
         List<Reward> rewards = new List<Reward>();
-        
+
         while (count > 1)
         {
             count--;
         }
-        
+
         RewardManager.GetWithRewardUI(rewards);
     }
 }

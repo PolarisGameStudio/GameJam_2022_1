@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,30 +16,45 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
     private float _monsterOffestX;
 
     private TBL_DUNGEON_BOSS _bossDungeonData;
-
-    private bool _inited = false;
-    public bool IsInited => _inited;
+    
+    public float RemainTime => _bossDungeonData.TimeLimit - _timer;
+    private float _timer;
 
     private void Awake()
     {
         this.AddGameEventListening<MonsterEvent>();
     }
 
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+
+        if (RemainTime < 0)
+        {
+            BattleOver();
+        }
+    }
+
     protected override void OnBattleInit()
     {
-        _inited = false;
-
         MonsterObjectFactory.Instance.HideAll();
         HealthbarFactory.Instance.HideAll();
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
-        _bossDungeonData = TBL_DUNGEON_BOSS.GetEntity(0);
+        _timer = 0;
+        
+        _inited = true;
+    }
+
+    protected override void InitBattleData()
+    {
+        _bossDungeonData = TBL_DUNGEON_BOSS.GetEntity(_level);
 
         DamageFactor = _bossDungeonData.DamageFactor * 10;
         HealthFactor = _bossDungeonData.HealthFactor * 10;
-        
-        _inited = true;
+        GoldAmount = 0;
+        ExpAmount = 0;
     }
 
     private void SpawnBossMonster()
@@ -51,7 +67,7 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
         var spawnPosition = objPosition;
         MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.BossDungeonMonster, spawnPosition,
-            monsterIndex, Enum_BattleType.StageBoss);
+            monsterIndex, Enum_BattleType.BossDungeon);
 
         _monsterObjects.Add(obj);
     }
@@ -65,19 +81,16 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleClear()
     {
-        BattleManager.Instance.BattleClear(_battleType, _level);
     }
 
     protected override void OnBattleOver()
     {
-        //PlayerStatManager.Instance.InitHealth();
-
-        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, _level);
     }
 
     protected override void OnBattleEnd()
     {
         UI_BossHealthbar.Instance.Hide();
+        DataManager.DungeonData.OnDungeonBattleEnd(_battleType, _level);
     }
 
     public void OnGameEvent(MonsterEvent e)
@@ -89,23 +102,14 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
         if (e.Type == Enum_MonsterEventType.BossMonsterDeath)
         {
-            CheckWaveClear();
+            OnWaveClear();
         }
     }
 
     private void OnWaveClear()
     {
-        _monsterObjects.Clear();
-
-        BattleClear();
-    }
-
-
-    private void CheckWaveClear()
-    {
-        if (_monsterObjects.Find(monster => monster.IsAlive) == null)
-        {
-            OnWaveClear();
-        }
+        _level = Mathf.Min(_level + 1, TBL_DUNGEON_BOSS.CountEntities - 1);
+        
+        InitBattleData();
     }
 }

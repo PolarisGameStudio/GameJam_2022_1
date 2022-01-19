@@ -4055,6 +4055,39 @@ public partial class TBL_DUNGEON_TREASURE : BGEntity
 			_RewardCount3[Index] = value;
 		}
 	}
+	public System.Int32 TimeLimit
+	{
+		get
+		{
+			return _TimeLimit[Index];
+		}
+		set
+		{
+			_TimeLimit[Index] = value;
+		}
+	}
+	public System.Double GoldAmount
+	{
+		get
+		{
+			return _GoldAmount[Index];
+		}
+		set
+		{
+			_GoldAmount[Index] = value;
+		}
+	}
+	public System.Double ExpAmount
+	{
+		get
+		{
+			return _ExpAmount[Index];
+		}
+		set
+		{
+			_ExpAmount[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -4188,6 +4221,33 @@ public partial class TBL_DUNGEON_TREASURE : BGEntity
 		{
 			if(_ufle12jhs77_RewardCount3==null || _ufle12jhs77_RewardCount3.IsDeleted) _ufle12jhs77_RewardCount3=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5138319355546418507,437790168549954215));
 			return _ufle12jhs77_RewardCount3;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_TimeLimit;
+	public static BansheeGz.BGDatabase.BGFieldInt _TimeLimit
+	{
+		get
+		{
+			if(_ufle12jhs77_TimeLimit==null || _ufle12jhs77_TimeLimit.IsDeleted) _ufle12jhs77_TimeLimit=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5241799325609298296,9744513042652544129));
+			return _ufle12jhs77_TimeLimit;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_GoldAmount;
+	public static BansheeGz.BGDatabase.BGFieldDouble _GoldAmount
+	{
+		get
+		{
+			if(_ufle12jhs77_GoldAmount==null || _ufle12jhs77_GoldAmount.IsDeleted) _ufle12jhs77_GoldAmount=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5548323324085006372,702313621255606679));
+			return _ufle12jhs77_GoldAmount;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_ExpAmount;
+	public static BansheeGz.BGDatabase.BGFieldDouble _ExpAmount
+	{
+		get
+		{
+			if(_ufle12jhs77_ExpAmount==null || _ufle12jhs77_ExpAmount.IsDeleted) _ufle12jhs77_ExpAmount=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5248113970105791377,1961267476911320962));
+			return _ufle12jhs77_ExpAmount;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
@@ -4456,6 +4516,17 @@ public partial class TBL_DUNGEON_BOSS : BGEntity
 			_RewardCount3[Index] = value;
 		}
 	}
+	public System.Int32 TimeLimit
+	{
+		get
+		{
+			return _TimeLimit[Index];
+		}
+		set
+		{
+			_TimeLimit[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -4562,6 +4633,15 @@ public partial class TBL_DUNGEON_BOSS : BGEntity
 		{
 			if(_ufle12jhs77_RewardCount3==null || _ufle12jhs77_RewardCount3.IsDeleted) _ufle12jhs77_RewardCount3=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5631409697231884716,6467665368241204112));
 			return _ufle12jhs77_RewardCount3;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_TimeLimit;
+	public static BansheeGz.BGDatabase.BGFieldInt _TimeLimit
+	{
+		get
+		{
+			if(_ufle12jhs77_TimeLimit==null || _ufle12jhs77_TimeLimit.IsDeleted) _ufle12jhs77_TimeLimit=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5317894059697346539,16227419070252353677));
+			return _ufle12jhs77_TimeLimit;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();

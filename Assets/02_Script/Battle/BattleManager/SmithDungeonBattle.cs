@@ -12,38 +12,38 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     [SerializeField] [Header("몬스터 오프셋(x)")] private float _monsterOffestX;
 
-    private TBL_STAGE _stageData;
+    private TBL_DUNGEON_SMITH _smithDungeonData;
 
     private bool _inited = false;
     public bool IsInited => _inited;
 
     private int waveLevel = 0;
-
-    public float StageProcess => waveLevel / (float) _stageData.WaveCount;
-    public string StageTitle => $"Stage {_stageData.name}";
+    
 
     private void Awake()
     {
         this.AddGameEventListening<MonsterEvent>();
     }
 
+    protected override void InitBattleData()
+    {
+        _level = Mathf.Min(TBL_DUNGEON_SMITH.CountEntities - 1, _level);
+
+        _smithDungeonData = TBL_DUNGEON_SMITH.GetEntity(_level);
+
+        DamageFactor = _smithDungeonData.DamageFactor;
+        HealthFactor = _smithDungeonData.HealthFactor;
+        GoldAmount = 0;
+        ExpAmount = 0;
+    }
+
     protected override void OnBattleInit()
     {
-        _inited = false;
-
         MonsterObjectFactory.Instance.HideAll();
         HealthbarFactory.Instance.HideAll();
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
-        _level = Mathf.Min(TBL_STAGE.CountEntities - 1, _level);
-
-        _stageData = TBL_STAGE.GetEntity(_level);
-
-        DamageFactor = _stageData.DamageFactor;
-        HealthFactor = _stageData.HealthFactor;
-        GoldAmount = _stageData.Gold;
-        ExpAmount = _stageData.Exp;
 
         _inited = true;
     }
@@ -52,15 +52,15 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
     {
         Vector3 objPosition = _player.Position + Vector3.right * _waveOffsetX;
 
-        var spawnCount = _stageData.WaveMonsterCount;
+        var spawnCount = _smithDungeonData.WaveMonsterCount;
 
         for (int i = 0; i < spawnCount; i++)
         {
-            int monsterIndex = _stageData.SpawnMonsterIndex[(Random.Range(0, _stageData.SpawnMonsterIndex.Count))];
+            int monsterIndex = _smithDungeonData.SpawnMonsterList[(Random.Range(0, _smithDungeonData.SpawnMonsterList.Count))];
 
             var spawnPosition = objPosition + (i * _monsterOffestX) * Vector3.right;
             MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageNormalMonster, spawnPosition,
-                monsterIndex, _battleType, (i == spawnCount - 1) && waveLevel == _stageData.WaveCount - 1);
+                monsterIndex, _battleType);
 
             _monsterObjects.Add(obj);
         }
@@ -82,9 +82,6 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleOver()
     {
-        // PlayerStatManager.Instance.InitHealth();
-
-        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, _level);
     }
 
     protected override void OnBattleEnd()
@@ -114,7 +111,7 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
         waveLevel++;
         _monsterObjects.Clear();
 
-        if (waveLevel >= _stageData.WaveCount)
+        if (waveLevel >= _smithDungeonData.WaveCount)
         {
             BattleClear();
         }
