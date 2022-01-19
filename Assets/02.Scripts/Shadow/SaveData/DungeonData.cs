@@ -5,18 +5,54 @@ using UnityEngine;
 
 public class DungeonData : SaveDataBase
 {
-    public int TresureDungeonKillCount = 0;
-    public int SmithDungeonLevel = 0;
+    public int TreasureDungeonKillCount = 0;
     public double BossDungeonHighestDamage = 0;
-
-    public override void ValidCheck()
+    
+    
+    public int TreasureDungeonHighLevel = 0;
+    public int SmithDungeonHighLevel = 0;
+    public int BossDungeonHighLevel = 0;
+    
+    public void OnDungeonBattleEnd(Enum_BattleType dungeonBattleType, int level)
     {
-        base.ValidCheck();
+        switch (dungeonBattleType)
+        {
+            case Enum_BattleType.TreasureDungeon:
+                TreasureDungeonHighLevel = Mathf.Max(TreasureDungeonHighLevel, level);
+                break;
+            case Enum_BattleType.SmithDungeon:
+                SmithDungeonHighLevel = Mathf.Max(SmithDungeonHighLevel, level);
+                break;
+            case Enum_BattleType.BossDungeon:
+                BossDungeonHighLevel = Mathf.Max(BossDungeonHighLevel, level);
+                break;
+            
+            default:
+                Debug.LogError("던전 아니면 안됨");
+                return;
+        }
     }
 
-    public void GetDungeonReward(Enum_BattleType _dungeonBattleType, int count = 1)
+    public void RecordDungeonScore(Enum_BattleType dungeonBattleType, double score)
     {
-        switch (_dungeonBattleType)
+        switch (dungeonBattleType)
+        {
+            case Enum_BattleType.TreasureDungeon:
+                TreasureDungeonKillCount = (int)score;
+                break;
+            case Enum_BattleType.BossDungeon:
+                BossDungeonHighestDamage = score;
+                break;
+            
+            default:
+                Debug.LogError("던전 아니면 안됨");
+                return;
+        }
+    }
+
+    public void GetDungeonReward(Enum_BattleType dungeonBattleType, int count = 1)
+    {
+        switch (dungeonBattleType)
         {
             case Enum_BattleType.TreasureDungeon:
                 break;
@@ -30,18 +66,18 @@ public class DungeonData : SaveDataBase
         }
     }
 
-    public void TryChallenge(Enum_BattleType _dungeonBattleType)
+    public void TryChallenge(Enum_BattleType dungeonBattleType)
     {
         Enum_CurrencyType ticket = Enum_CurrencyType.Count;
         int level = 0;
-        switch (_dungeonBattleType)
+        switch (dungeonBattleType)
         {
             case Enum_BattleType.TreasureDungeon:
                 ticket = Enum_CurrencyType.Ticket_Treasure;
                 break;
             case Enum_BattleType.SmithDungeon:
                 ticket = Enum_CurrencyType.Ticket_Smith;
-                level = SmithDungeonLevel;
+                level = SmithDungeonHighLevel;
                 break;
             case Enum_BattleType.BossDungeon:
                 ticket = Enum_CurrencyType.Ticket_Boss;
@@ -54,7 +90,7 @@ public class DungeonData : SaveDataBase
         
         if (DataManager.CurrencyData.IsEnough(ticket, 1))
         {
-            BattleManager.Instance.BattleStart(_dungeonBattleType, level);
+            BattleManager.Instance.BattleStart(dungeonBattleType, level);
         }
     }
 

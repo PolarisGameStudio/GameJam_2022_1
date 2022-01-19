@@ -2800,6 +2800,39 @@ public partial class TBL_DUNGEON_SMITH : BGEntity
 			_HealthFactor[Index] = value;
 		}
 	}
+	public System.Int32 WaveCount
+	{
+		get
+		{
+			return _WaveCount[Index];
+		}
+		set
+		{
+			_WaveCount[Index] = value;
+		}
+	}
+	public System.Int32 WaveMonsterCount
+	{
+		get
+		{
+			return _WaveMonsterCount[Index];
+		}
+		set
+		{
+			_WaveMonsterCount[Index] = value;
+		}
+	}
+	public System.Collections.Generic.List<System.Int32> SpawnMonsterList
+	{
+		get
+		{
+			return _SpawnMonsterList[Index];
+		}
+		set
+		{
+			_SpawnMonsterList[Index] = value;
+		}
+	}
 	public RewardType RewardType1
 	{
 		get
@@ -2924,6 +2957,33 @@ public partial class TBL_DUNGEON_SMITH : BGEntity
 		{
 			if(_ufle12jhs77_HealthFactor==null || _ufle12jhs77_HealthFactor.IsDeleted) _ufle12jhs77_HealthFactor=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5490233892788364966,10778048376551878298));
 			return _ufle12jhs77_HealthFactor;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_WaveCount;
+	public static BansheeGz.BGDatabase.BGFieldInt _WaveCount
+	{
+		get
+		{
+			if(_ufle12jhs77_WaveCount==null || _ufle12jhs77_WaveCount.IsDeleted) _ufle12jhs77_WaveCount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4814569014434136832,14983216085539622036));
+			return _ufle12jhs77_WaveCount;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_WaveMonsterCount;
+	public static BansheeGz.BGDatabase.BGFieldInt _WaveMonsterCount
+	{
+		get
+		{
+			if(_ufle12jhs77_WaveMonsterCount==null || _ufle12jhs77_WaveMonsterCount.IsDeleted) _ufle12jhs77_WaveMonsterCount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5409023324193887559,9146759237815853209));
+			return _ufle12jhs77_WaveMonsterCount;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldListInt _ufle12jhs77_SpawnMonsterList;
+	public static BansheeGz.BGDatabase.BGFieldListInt _SpawnMonsterList
+	{
+		get
+		{
+			if(_ufle12jhs77_SpawnMonsterList==null || _ufle12jhs77_SpawnMonsterList.IsDeleted) _ufle12jhs77_SpawnMonsterList=(BansheeGz.BGDatabase.BGFieldListInt) MetaDefault.GetField(new BGId(5641927696521657572,2326086774187394458));
+			return _ufle12jhs77_SpawnMonsterList;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType1;
@@ -3863,6 +3923,39 @@ public partial class TBL_DUNGEON_TREASURE : BGEntity
 			_HealthFactor[Index] = value;
 		}
 	}
+	public System.Int32 WaveCount
+	{
+		get
+		{
+			return _WaveCount[Index];
+		}
+		set
+		{
+			_WaveCount[Index] = value;
+		}
+	}
+	public System.Int32 WaveMonsterCount
+	{
+		get
+		{
+			return _WaveMonsterCount[Index];
+		}
+		set
+		{
+			_WaveMonsterCount[Index] = value;
+		}
+	}
+	public System.Collections.Generic.List<System.Int32> SpawnMonsterList
+	{
+		get
+		{
+			return _SpawnMonsterList[Index];
+		}
+		set
+		{
+			_SpawnMonsterList[Index] = value;
+		}
+	}
 	public RewardType RewardType1
 	{
 		get
@@ -3987,6 +4080,33 @@ public partial class TBL_DUNGEON_TREASURE : BGEntity
 		{
 			if(_ufle12jhs77_HealthFactor==null || _ufle12jhs77_HealthFactor.IsDeleted) _ufle12jhs77_HealthFactor=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5136407063992421476,2496065042748632484));
 			return _ufle12jhs77_HealthFactor;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_WaveCount;
+	public static BansheeGz.BGDatabase.BGFieldInt _WaveCount
+	{
+		get
+		{
+			if(_ufle12jhs77_WaveCount==null || _ufle12jhs77_WaveCount.IsDeleted) _ufle12jhs77_WaveCount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5439422700174761930,10294035160312309430));
+			return _ufle12jhs77_WaveCount;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_WaveMonsterCount;
+	public static BansheeGz.BGDatabase.BGFieldInt _WaveMonsterCount
+	{
+		get
+		{
+			if(_ufle12jhs77_WaveMonsterCount==null || _ufle12jhs77_WaveMonsterCount.IsDeleted) _ufle12jhs77_WaveMonsterCount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5149401194317625985,9480165741055640474));
+			return _ufle12jhs77_WaveMonsterCount;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldListInt _ufle12jhs77_SpawnMonsterList;
+	public static BansheeGz.BGDatabase.BGFieldListInt _SpawnMonsterList
+	{
+		get
+		{
+			if(_ufle12jhs77_SpawnMonsterList==null || _ufle12jhs77_SpawnMonsterList.IsDeleted) _ufle12jhs77_SpawnMonsterList=(BansheeGz.BGDatabase.BGFieldListInt) MetaDefault.GetField(new BGId(4932540187692546365,10655979164921129400));
+			return _ufle12jhs77_SpawnMonsterList;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType1;
