@@ -15,15 +15,22 @@ public class PromotionData : StatData
         
         _diceStatData.Init(TBL_PROMOTION.CountEntities + 1);
 
+        CheckDiceUnlock();
         CalculateStat();
 
         _currentPromotionIndex = Mathf.Max(0, _currentPromotionIndex);
+    }
+    
+    private void CheckDiceUnlock()
+    {
+        _diceStatData.ActiveDiceSlot(_currentPromotionIndex);
     }
 
     public void OnClearPromotionBattle()
     {
         _currentPromotionIndex++;
-
+        
+        CheckDiceUnlock();
         CalculateStat();
     }
 
@@ -66,7 +73,6 @@ public class PromotionData : StatData
     {
         return _currentPromotionIndex >= index;
     }
-
 
     public bool TryChallenge(int index)
     {

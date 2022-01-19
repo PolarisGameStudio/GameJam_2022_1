@@ -4,7 +4,6 @@ public enum Enum_RefreshEventType
     Battle,
     Berserk,
     Buff,
-    Weapon,
     Currency,
     
     
@@ -12,6 +11,9 @@ public enum Enum_RefreshEventType
     StatChange,
     StatCalculate,
     LevelUp,
+    
+    Follower,
+    Equipment,
 }
 
 public struct RefreshEvent

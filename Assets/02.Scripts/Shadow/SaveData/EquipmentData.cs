@@ -78,7 +78,8 @@ public class EquipmentData : StatData
             }
         }
 
-        RefreshEvent.Trigger(Enum_RefreshEventType.StatChange);
+        RefreshEvent.Trigger(Enum_RefreshEventType.StatChange);        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
     }
 
     public void AddEquipment(Enum_EquipmentType type, int index, int count = 1)

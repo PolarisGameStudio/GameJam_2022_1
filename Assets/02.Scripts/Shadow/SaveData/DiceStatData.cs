@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class DiceStatData : StatData
 {
-    public List<DiceStat> DiceStatList;
+    public List<DiceStat> DiceSlotList;
 
     public void Init(int diceCount)
     {
@@ -15,24 +15,32 @@ public class DiceStatData : StatData
         //todo: 승급이면 승급 갯수 만큼 일반
         var gachaTypeCount = diceCount;
 
-        var saveCount = DiceStatList.Count;
+        var saveCount = DiceSlotList.Count;
 
         if (gachaTypeCount > saveCount)
         {
             for (int i = saveCount; i < gachaTypeCount; i++)
             {
-                DiceStatList.Add(new DiceStat());
+                DiceSlotList.Add(new DiceStat());
             }
         }
 
         CalculateStat();
     }
 
+    public void ActiveDiceSlot(int activeCount)
+    {
+        for (var i = 0; i < DiceSlotList.Count; i++)
+        {
+            DiceSlotList[i].SetActivation(i > activeCount);
+        }
+    }
+
     protected override void CalculateStat()
     {
         Stat.Init();
 
-        foreach (var diceStat in DiceStatList)
+        foreach (var diceStat in DiceSlotList)
         {
             var data = TBL_UPGRADE_DICE.GetEntity(diceStat.Index);
             Stat[data.StatType] += diceStat.AddValue + data.MinStatValue;
@@ -43,7 +51,7 @@ public class DiceStatData : StatData
     {
         int price = 0;
 
-        DiceStatList.ForEach(diceStat =>
+        DiceSlotList.ForEach(diceStat =>
         {
             if (diceStat.IsLock)
             {
@@ -61,14 +69,14 @@ public class DiceStatData : StatData
     public bool IsEnableRoll()
     {
         return DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Dice, GetRollPrice()) &&
-               DiceStatList.Find(diceStat => !diceStat.IsLock) != null;
+               DiceSlotList.Find(diceStat => !diceStat.IsLock) != null;
     }
 
     public void TryRoll()
     {
         if (IsEnableRoll())
         {
-            var result = GachaManager.Instance.Gacha(GachaType.Dice, DiceStatList.Count);
+            var result = GachaManager.Instance.Gacha(GachaType.Dice, DiceSlotList.Count);
 
             for (int i = 0; i < result.Count; i++)
             {
@@ -80,7 +88,7 @@ public class DiceStatData : StatData
 
                 var addValue = Random.Range(0, (targetData.MaxStatValue + 1) - targetData.MinStatValue);
 
-                DiceStatList[i].InitStat(targetData.Index, addValue);
+                DiceSlotList[i].InitStat(targetData.Index, addValue);
             }
         }
     }
