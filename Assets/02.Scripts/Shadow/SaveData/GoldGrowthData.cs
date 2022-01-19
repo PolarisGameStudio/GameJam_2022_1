@@ -63,12 +63,36 @@ public class GoldGrowthData : StatData
     ///
     /// 
 
-
+    // 레벨 N이 되기 위해 필요한 골드 량 데미지~ 크뎀
+    // IncreaseGoldCost*(N*(N-1)/2) +GoldCost
+    //
+    // 회심의 일격 레벨 N이 되기 위해 필요한 골드 량
+    // N^4
+    
     public double GetPrice(TBL_UPGRADE_GOLD type)
     {
         var level = _levels[type.Index];
 
-        return level * type.IncreaseGoldCost + type.GoldCost;
+        switch (type.StatType)
+        {
+            case Enum_StatType.Damage:
+            case Enum_StatType.MaxHealth:
+            case Enum_StatType.CriticalChance:
+            case Enum_StatType.CriticalDamage:
+                return type.IncreaseGoldCost * (level * (level - 1) / 2) + type.GoldCost;
+                break;
+            
+            
+            case Enum_StatType.SuperCriticalChance:
+            case Enum_StatType.SuperCriticalDamage:
+                return level * level * level * level;
+                break;
+            
+            default:
+                Debug.LogError($"{type.StatType} 얘는 공식 없음");
+                return double.MaxValue;
+                break;
+        }
     }    
         
     public int GetLevel(TBL_UPGRADE_GOLD type)
