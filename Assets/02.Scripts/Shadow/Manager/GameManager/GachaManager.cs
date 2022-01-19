@@ -8,8 +8,7 @@ using UnityEngine;
 
 public class GachaManager : SingletonBehaviour<GachaManager>
 {
-    private Dictionary<GachaType, GachaHandler<int>> _artifactGacha;
-    private Dictionary<GachaType, GachaHandler<int>> _skillGacha;
+    private Dictionary<GachaType, GachaHandler> _gachaHandlers;
 
     public GachaType LastGachaType { get; set; }
 
@@ -26,23 +25,25 @@ public class GachaManager : SingletonBehaviour<GachaManager>
         //
     }
 
-    public void Gacha(GachaType type)
+    public List<int> Gacha(GachaType type, int count = 1)
     {
         bool skipChest = LastGachaType == type;
         
         LastGachaType = type;
+
+        return _gachaHandlers[type].Gacha(count);
     }
 
     public int GetRandomIndex(GachaType type)
     {
-        if (_artifactGacha.ContainsKey(type))
-        {
-            return _artifactGacha[type].GetRandomIndex();
-        }
-        else if (_skillGacha.ContainsKey(type))
-        {
-            return _skillGacha[type].GetRandomIndex();
-        }
+        // if (_artifactGacha.ContainsKey(type))
+        // {
+        //     return _artifactGacha[type].GetRandomIndex();
+        // }
+        // else if (_skillGacha.ContainsKey(type))
+        // {
+        //     return _skillGacha[type].GetRandomIndex();
+        // }
 
         return 0;
     }

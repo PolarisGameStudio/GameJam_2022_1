@@ -5,11 +5,15 @@ public class PromotionData : StatData
 {
     [SerializeField] private int _currentPromotionIndex;
 
+    [SerializeField] private DiceStatData _diceStatData;
+
     [NonSerialized] public bool IsMaxPromotion;
 
     public override void ValidCheck()
     {
         base.ValidCheck();
+        
+        _diceStatData.Init(TBL_PROMOTION.CountEntities + 1);
 
         CalculateStat();
 
