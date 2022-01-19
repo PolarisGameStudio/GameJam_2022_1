@@ -8469,6 +8469,28 @@ public partial class TBL_STAGE : BGEntity
 			_UpgradeStonePercent[Index] = value;
 		}
 	}
+	public Enum_ItemGrade EquipmentGrade
+	{
+		get
+		{
+			return (Enum_ItemGrade) _EquipmentGrade[Index];
+		}
+		set
+		{
+			_EquipmentGrade[Index] = value;
+		}
+	}
+	public System.Single EquipmentPercent
+	{
+		get
+		{
+			return _EquipmentPercent[Index];
+		}
+		set
+		{
+			_EquipmentPercent[Index] = value;
+		}
+	}
 	public System.Collections.Generic.List<System.Int32> SpawnMonsterIndex
 	{
 		get
@@ -8546,6 +8568,50 @@ public partial class TBL_STAGE : BGEntity
 			_TimeLimit[Index] = value;
 		}
 	}
+	public System.Double GoldPerMin
+	{
+		get
+		{
+			return _GoldPerMin[Index];
+		}
+		set
+		{
+			_GoldPerMin[Index] = value;
+		}
+	}
+	public System.Double ExpPerMin
+	{
+		get
+		{
+			return _ExpPerMin[Index];
+		}
+		set
+		{
+			_ExpPerMin[Index] = value;
+		}
+	}
+	public System.Double UpgradeStonePerMin
+	{
+		get
+		{
+			return _UpgradeStonePerMin[Index];
+		}
+		set
+		{
+			_UpgradeStonePerMin[Index] = value;
+		}
+	}
+	public System.Single EquipmentPerMin
+	{
+		get
+		{
+			return _EquipmentPerMin[Index];
+		}
+		set
+		{
+			_EquipmentPerMin[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -8598,6 +8664,24 @@ public partial class TBL_STAGE : BGEntity
 		{
 			if(_ufle12jhs77_UpgradeStonePercent==null || _ufle12jhs77_UpgradeStonePercent.IsDeleted) _ufle12jhs77_UpgradeStonePercent=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(4648007001227616488,17389314393272073615));
 			return _ufle12jhs77_UpgradeStonePercent;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_EquipmentGrade;
+	public static BansheeGz.BGDatabase.BGFieldEnum _EquipmentGrade
+	{
+		get
+		{
+			if(_ufle12jhs77_EquipmentGrade==null || _ufle12jhs77_EquipmentGrade.IsDeleted) _ufle12jhs77_EquipmentGrade=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4686561043438326488,17755573055315339937));
+			return _ufle12jhs77_EquipmentGrade;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_EquipmentPercent;
+	public static BansheeGz.BGDatabase.BGFieldFloat _EquipmentPercent
+	{
+		get
+		{
+			if(_ufle12jhs77_EquipmentPercent==null || _ufle12jhs77_EquipmentPercent.IsDeleted) _ufle12jhs77_EquipmentPercent=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5200635584483349751,1928036262900666760));
+			return _ufle12jhs77_EquipmentPercent;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldListInt _ufle12jhs77_SpawnMonsterIndex;
@@ -8661,6 +8745,42 @@ public partial class TBL_STAGE : BGEntity
 		{
 			if(_ufle12jhs77_TimeLimit==null || _ufle12jhs77_TimeLimit.IsDeleted) _ufle12jhs77_TimeLimit=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5002216049008151573,17352007991509666947));
 			return _ufle12jhs77_TimeLimit;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_GoldPerMin;
+	public static BansheeGz.BGDatabase.BGFieldDouble _GoldPerMin
+	{
+		get
+		{
+			if(_ufle12jhs77_GoldPerMin==null || _ufle12jhs77_GoldPerMin.IsDeleted) _ufle12jhs77_GoldPerMin=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5097779047666979211,2438958459962780044));
+			return _ufle12jhs77_GoldPerMin;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_ExpPerMin;
+	public static BansheeGz.BGDatabase.BGFieldDouble _ExpPerMin
+	{
+		get
+		{
+			if(_ufle12jhs77_ExpPerMin==null || _ufle12jhs77_ExpPerMin.IsDeleted) _ufle12jhs77_ExpPerMin=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5361097767256940910,5334999133586946471));
+			return _ufle12jhs77_ExpPerMin;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_UpgradeStonePerMin;
+	public static BansheeGz.BGDatabase.BGFieldDouble _UpgradeStonePerMin
+	{
+		get
+		{
+			if(_ufle12jhs77_UpgradeStonePerMin==null || _ufle12jhs77_UpgradeStonePerMin.IsDeleted) _ufle12jhs77_UpgradeStonePerMin=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(4982131201298780407,17855554612185053611));
+			return _ufle12jhs77_UpgradeStonePerMin;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_EquipmentPerMin;
+	public static BansheeGz.BGDatabase.BGFieldFloat _EquipmentPerMin
+	{
+		get
+		{
+			if(_ufle12jhs77_EquipmentPerMin==null || _ufle12jhs77_EquipmentPerMin.IsDeleted) _ufle12jhs77_EquipmentPerMin=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(4626443621318263635,2054240231137870216));
+			return _ufle12jhs77_EquipmentPerMin;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
@@ -8866,6 +8986,17 @@ public partial class TBL_EQUIPMENT : BGEntity
 			_OnEquipVaue[Index] = value;
 		}
 	}
+	public System.Double OnEquipIncreaseValue
+	{
+		get
+		{
+			return _OnEquipIncreaseValue[Index];
+		}
+		set
+		{
+			_OnEquipIncreaseValue[Index] = value;
+		}
+	}
 	public Enum_StatType OnOwnStat1
 	{
 		get
@@ -8886,6 +9017,17 @@ public partial class TBL_EQUIPMENT : BGEntity
 		set
 		{
 			_OnOwnValue1[Index] = value;
+		}
+	}
+	public System.Double OnOwnIncreaseValue1
+	{
+		get
+		{
+			return _OnOwnIncreaseValue1[Index];
+		}
+		set
+		{
+			_OnOwnIncreaseValue1[Index] = value;
 		}
 	}
 	public Enum_StatType OnOwnStat2
@@ -8910,6 +9052,17 @@ public partial class TBL_EQUIPMENT : BGEntity
 			_OnOwnValue2[Index] = value;
 		}
 	}
+	public System.Double OnOwnIncreaseValue2
+	{
+		get
+		{
+			return _OnOwnIncreaseValue2[Index];
+		}
+		set
+		{
+			_OnOwnIncreaseValue2[Index] = value;
+		}
+	}
 	public Enum_StatType OnOwnStat3
 	{
 		get
@@ -8930,6 +9083,17 @@ public partial class TBL_EQUIPMENT : BGEntity
 		set
 		{
 			_OnOwnValue3[Index] = value;
+		}
+	}
+	public System.Double OnOwnIncreaseValue3
+	{
+		get
+		{
+			return _OnOwnIncreaseValue3[Index];
+		}
+		set
+		{
+			_OnOwnIncreaseValue3[Index] = value;
 		}
 	}
 	public System.Double LevelUpCost
@@ -9019,6 +9183,15 @@ public partial class TBL_EQUIPMENT : BGEntity
 			return _ufle12jhs77_OnEquipVaue;
 		}
 	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_OnEquipIncreaseValue;
+	public static BansheeGz.BGDatabase.BGFieldDouble _OnEquipIncreaseValue
+	{
+		get
+		{
+			if(_ufle12jhs77_OnEquipIncreaseValue==null || _ufle12jhs77_OnEquipIncreaseValue.IsDeleted) _ufle12jhs77_OnEquipIncreaseValue=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5370216102287277305,7603025701466642058));
+			return _ufle12jhs77_OnEquipIncreaseValue;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_OnOwnStat1;
 	public static BansheeGz.BGDatabase.BGFieldEnum _OnOwnStat1
 	{
@@ -9035,6 +9208,15 @@ public partial class TBL_EQUIPMENT : BGEntity
 		{
 			if(_ufle12jhs77_OnOwnValue1==null || _ufle12jhs77_OnOwnValue1.IsDeleted) _ufle12jhs77_OnOwnValue1=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5305095625080272493,14680406056079064196));
 			return _ufle12jhs77_OnOwnValue1;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_OnOwnIncreaseValue1;
+	public static BansheeGz.BGDatabase.BGFieldDouble _OnOwnIncreaseValue1
+	{
+		get
+		{
+			if(_ufle12jhs77_OnOwnIncreaseValue1==null || _ufle12jhs77_OnOwnIncreaseValue1.IsDeleted) _ufle12jhs77_OnOwnIncreaseValue1=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5679895688097719840,16584972145910071447));
+			return _ufle12jhs77_OnOwnIncreaseValue1;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_OnOwnStat2;
@@ -9055,6 +9237,15 @@ public partial class TBL_EQUIPMENT : BGEntity
 			return _ufle12jhs77_OnOwnValue2;
 		}
 	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_OnOwnIncreaseValue2;
+	public static BansheeGz.BGDatabase.BGFieldDouble _OnOwnIncreaseValue2
+	{
+		get
+		{
+			if(_ufle12jhs77_OnOwnIncreaseValue2==null || _ufle12jhs77_OnOwnIncreaseValue2.IsDeleted) _ufle12jhs77_OnOwnIncreaseValue2=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5193073186221444969,1627856029846835091));
+			return _ufle12jhs77_OnOwnIncreaseValue2;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_OnOwnStat3;
 	public static BansheeGz.BGDatabase.BGFieldEnum _OnOwnStat3
 	{
@@ -9071,6 +9262,15 @@ public partial class TBL_EQUIPMENT : BGEntity
 		{
 			if(_ufle12jhs77_OnOwnValue3==null || _ufle12jhs77_OnOwnValue3.IsDeleted) _ufle12jhs77_OnOwnValue3=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5537239482162224481,3442142695647196545));
 			return _ufle12jhs77_OnOwnValue3;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_OnOwnIncreaseValue3;
+	public static BansheeGz.BGDatabase.BGFieldDouble _OnOwnIncreaseValue3
+	{
+		get
+		{
+			if(_ufle12jhs77_OnOwnIncreaseValue3==null || _ufle12jhs77_OnOwnIncreaseValue3.IsDeleted) _ufle12jhs77_OnOwnIncreaseValue3=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(4849273358813394977,5399297790511353012));
+			return _ufle12jhs77_OnOwnIncreaseValue3;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_LevelUpCost;
