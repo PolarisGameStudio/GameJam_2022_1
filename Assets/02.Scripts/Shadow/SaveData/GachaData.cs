@@ -12,13 +12,15 @@ public enum GachaType
     Ring,
     Neckless,
     
+    Dice,
+    
     Count,
 }
 
 [Serializable]
 public class GachaData : SaveDataBase
 {
-    [NonSerialized] private Dictionary<GachaType, GachaHandler<int>> _gachaHandlers;
+    [NonSerialized] private Dictionary<GachaType, GachaHandler> _gachaHandlers;
 
     public List<int> GachaCount = new List<int>();
 
@@ -38,7 +40,9 @@ public class GachaData : SaveDataBase
             }
         }
 
-        _gachaHandlers = new Dictionary<GachaType, GachaHandler<int>>();
+        _gachaHandlers = new Dictionary<GachaType, GachaHandler>();
+        
+        _gachaHandlers.Add(GachaType.Dice,new DiceGachaHandler());
         
         //_gachaHandlers.Add(GachaType, new Weapon_L_GachaHandler());
         //_gachaHandlers.Add(GachaType, new Weapon_R_GachaHandler());

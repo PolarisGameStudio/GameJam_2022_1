@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SerializeField]
-public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<RefreshEvent>
+public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<StatEvent>
 {
     private DataContainer _container;
     public static DataContainer Container => Instance._container;
@@ -25,6 +25,8 @@ public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<Re
     {
         base.Awake();
         
+        this.AddGameEventListening<StatEvent>();
+        
         Load();
     }
 
@@ -37,7 +39,7 @@ public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<Re
 
     public void Save()
     {
-        ES3.Save(saveKey, _container);
+        //ES3.Save(saveKey, _container);
     }
 
     public void Load()
@@ -50,11 +52,12 @@ public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<Re
         IsReady = true;
     }
 
-    public void OnGameEvent(RefreshEvent e)
+    public void OnGameEvent(StatEvent e)
     {
-        if (e.Type == Enum_RefreshEventType.StatChange)
+        if (e.Type == Enum_StatEventType.StatChange)
         {
             _container.CalculateStat();
+            StatEvent.Trigger(Enum_StatEventType.StatCalculate);
         }
     }
 }

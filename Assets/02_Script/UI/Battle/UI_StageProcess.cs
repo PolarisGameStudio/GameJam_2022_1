@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_StageProcess : GameBehaviour, GameEventListener<RefreshEvent> , GameEventListener<StageWaveEvent>
+public class UI_StageProcess : GameBehaviour, GameEventListener<RefreshEvent> 
 {
     [SerializeField] private Slider _processGauge;
 
@@ -39,13 +39,5 @@ public class UI_StageProcess : GameBehaviour, GameEventListener<RefreshEvent> , 
         SafeSetActive(true);
 
         _processGauge.value = _stageBattle.StageProcess;
-    }
-
-    public void OnGameEvent(StageWaveEvent e)
-    {
-        if (e.Type == Enum_StageWaveEventType.Exit)
-        {
-            Refresh();
-        }
     }
 }

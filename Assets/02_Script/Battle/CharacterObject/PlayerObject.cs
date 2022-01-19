@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , GameEventListener<BattleEvent>
+public class PlayerObject : CharacterObject, GameEventListener<StatEvent> , GameEventListener<BattleEvent>
 {
     private FSMAbility _fsmAbility;
 
@@ -30,7 +30,7 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
 
         GetAbility<ShadowAbility>().SetSize(GetAbility<AnimationAbility>().Width);
 
-        this.AddGameEventListening<RefreshEvent>();
+        this.AddGameEventListening<StatEvent>();
         this.AddGameEventListening<BattleEvent>();
 
         CalculateStat();
@@ -114,9 +114,9 @@ public class PlayerObject : CharacterObject, GameEventListener<RefreshEvent> , G
         GetAbility<PlayerSkillAbility>().RefreshSkill();
     }
 
-    public void OnGameEvent(RefreshEvent e)
+    public void OnGameEvent(StatEvent e)
     {
-        if (e.Type == Enum_RefreshEventType.StatCalculate)
+        if (e.Type == Enum_StatEventType.StatCalculate)
         {
             CalculateStat();
         }

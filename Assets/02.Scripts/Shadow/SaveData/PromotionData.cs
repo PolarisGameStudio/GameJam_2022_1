@@ -5,21 +5,39 @@ public class PromotionData : StatData
 {
     [SerializeField] private int _currentPromotionIndex;
 
-    [NonSerialized] public bool IsMaxPromotion;
+    [SerializeField] private DiceStatData _diceStatData;
+    
+    public PromotionData()
+    {
+        _diceStatData = new DiceStatData();
+    }
 
     public override void ValidCheck()
     {
         base.ValidCheck();
 
+        if (_diceStatData == null)
+        {
+            _diceStatData = new DiceStatData();
+        }
+        _diceStatData.Init(TBL_PROMOTION.CountEntities + 1);
+
+        CheckDiceUnlock();
         CalculateStat();
 
-        _currentPromotionIndex = Mathf.Max(0, _currentPromotionIndex);
+        _currentPromotionIndex = Mathf.Clamp(_currentPromotionIndex, 0, TBL_PROMOTION.CountEntities);
+    }
+    
+    private void CheckDiceUnlock()
+    {
+        _diceStatData.ActiveDiceSlot(_currentPromotionIndex);
     }
 
-    public void OnClearPromotionBattle()
+    public void OnClearPromotionBattle(int level)
     {
-        _currentPromotionIndex++;
-
+        _currentPromotionIndex = Mathf.Max(_currentPromotionIndex, level);
+        
+        CheckDiceUnlock();
         CalculateStat();
     }
 
@@ -50,7 +68,8 @@ public class PromotionData : StatData
             }
         }
 
-        RefreshEvent.Trigger(Enum_RefreshEventType.StatChange);
+        StatEvent.Trigger(Enum_StatEventType.StatChange);
+        RefreshEvent.Trigger(Enum_RefreshEventType.Promotion);
     }
 
     public bool IsEnableChallenge(int index)
@@ -62,7 +81,6 @@ public class PromotionData : StatData
     {
         return _currentPromotionIndex >= index;
     }
-
 
     public bool TryChallenge(int index)
     {

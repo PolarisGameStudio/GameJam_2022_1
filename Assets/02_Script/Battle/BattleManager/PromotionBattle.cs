@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class StageBattle : Battle, GameEventListener<MonsterEvent>
+public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 {
     [SerializeField] [Header("캐릭터 시작 위치")] private Transform _startTransform;
 
@@ -13,15 +13,15 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
     [SerializeField] [Header("웨이브 오프셋(x)")]  private float _waveOffsetX;
     [SerializeField] [Header("몬스터 오프셋(x)")]  private float _monsterOffestX;
 
-    private TBL_STAGE _stageData;
+    private TBL_PROMOTION _promotionBattleData;
 
     private bool _inited = false;
     public bool IsInited => _inited;
 
     private int waveLevel = 0;
 
-    public float StageProcess => waveLevel / (float) _stageData.WaveCount;
-    public string StageTitle => $"Stage {_stageData.name}";
+    public float StageProcess => waveLevel / (float) _promotionBattleData.WaveCount;
+    public string StageTitle => $"승급 {_promotionBattleData.name}";
 
     private void Awake()
     {
@@ -37,14 +37,12 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
-        _level = Mathf.Min(TBL_STAGE.CountEntities - 1, _level);
+        _level = Mathf.Min(TBL_PROMOTION.CountEntities - 1, _level);
         
-        _stageData = TBL_STAGE.GetEntity(_level);
+        _promotionBattleData = TBL_PROMOTION.GetEntity(_level);
 
-        DamageFactor = _stageData.DamageFactor;
-        HealthFactor = _stageData.HealthFactor;
-        GoldAmount = _stageData.Gold;
-        ExpAmount = _stageData.Exp;
+        DamageFactor = _promotionBattleData.DamageFactor;
+        HealthFactor = _promotionBattleData.HealthFactor;
 
         _inited = true;
     }
@@ -53,17 +51,32 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
     {
         Vector3 objPosition = _player.Position + Vector3.right * _waveOffsetX;
 
-        var spawnCount = _stageData.WaveMonsterCount;
-
-        for (int i = 0; i < spawnCount; i++)
+        if (waveLevel == _promotionBattleData.WaveCount - 1)
         {
-            int monsterIndex = _stageData.SpawnMonsterIndex[(Random.Range(0, _stageData.SpawnMonsterIndex.Count))];
+            // 보스 소환
 
-            var spawnPosition = objPosition + (i * _monsterOffestX) * Vector3.right;
-            MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageNormalMonster, spawnPosition,
-                monsterIndex, _battleType, (i == spawnCount - 1) && waveLevel == _stageData.WaveCount - 1);
+            int monsterIndex = _promotionBattleData.BossMonsterIndex;
+
+            var spawnPosition = objPosition;
+            MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageBossMonster, spawnPosition,
+                monsterIndex, _battleType);
 
             _monsterObjects.Add(obj);
+        }
+        else
+        {
+            var spawnCount = _promotionBattleData.WaveMonsterCount;
+
+            for (int i = 0; i < spawnCount; i++)
+            {
+                int monsterIndex = _promotionBattleData.SpawnMonsterList[(Random.Range(0, _promotionBattleData.SpawnMonsterList.Count))];
+
+                var spawnPosition = objPosition + (i * _monsterOffestX) * Vector3.right;
+                MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.StageNormalMonster, spawnPosition,
+                    monsterIndex, _battleType);
+
+                _monsterObjects.Add(obj);
+            }
         }
     }
 
@@ -78,14 +91,12 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleClear()
     {
-        BattleManager.Instance.BattleClear(Enum_BattleType.Stage, _level);
+        BattleManager.Instance.BattleClear(Enum_BattleType.PromotionBattle, _level);
     }
 
     protected override void OnBattleOver()
     {
-       // PlayerStatManager.Instance.InitHealth();
-
-        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, _level);
+        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
     }
 
     protected override void OnBattleEnd()
@@ -103,6 +114,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         switch (e.Type)
         {
             case Enum_MonsterEventType.NormalMonsterDeath:
+            case Enum_MonsterEventType.BossMonsterDeath:
             {
                 CheckWaveClear();
                 break;
@@ -115,7 +127,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         waveLevel++;
         _monsterObjects.Clear();
 
-        if (waveLevel >= _stageData.WaveCount)
+        if (waveLevel >= _promotionBattleData.WaveCount)
         {
             BattleClear();
         }
