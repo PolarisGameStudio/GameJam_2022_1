@@ -7,6 +7,13 @@ public class PlayerData : StatData
     public int Level = 0;
     public double Exp = 0;
 
+    public override void ValidCheck()
+    {
+	    base.ValidCheck();
+	    
+	    InitStat();
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public double GetRequireExp()

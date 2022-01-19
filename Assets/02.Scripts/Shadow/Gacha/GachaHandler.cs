@@ -4,9 +4,10 @@ using UnityEngine;
 
 public abstract class GachaHandler<T>
 {
+    public int GachaCount;
     
     // 가챠 시작부터 끝까지
-    public abstract void Gacha(bool skipChest = false);
+    public abstract void Gacha(int count, bool skipChest = false);
     
     // 가챠 확률처리
     public abstract int GetRandomIndex();
