@@ -82,6 +82,14 @@ public class FollowerData : StatData
 
         CalculateStat();
     }
+    
+    public void AddFoloower(int rewardValue, int rewardCount)
+    {
+        if (Counts.Count < rewardValue)
+        {
+            Counts[rewardValue] += rewardCount;
+        }
+    }
 
     public void TryUnEquip(int index)
     {
@@ -126,4 +134,5 @@ public class FollowerData : StatData
         StatEvent.Trigger(Enum_StatEventType.StatChange);
         RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
     }
+
 }

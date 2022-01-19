@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using EnhancedScrollerDemos.Chat;
+using NPOI.SS.Formula.Functions;
 using UnityEngine;
 
 
@@ -8,7 +10,20 @@ using UnityEngine;
 public enum RewardType
 {
     None,
-    
+
+    Currency,
+
+    Skill,
+
+    Equipment_Left,
+    Equipment_Right,
+    Equipment_Mouth,
+    Equipment_Ring,
+
+    Follower,
+
+    Costume,
+
     Count,
 }
 
@@ -39,62 +54,53 @@ public class Reward
 
 public static class RewardManager
 {
-    public static RewardType StringToRewardType(string typeString)
-    {
-        return (RewardType) Enum.Parse(typeof(RewardType), typeString);
-    }
-    
-    public static Sprite GetSprite(RewardType type, int value)
-    {
-        switch (type)
-        {
-     
-
-            default:
-                return null;
-        }
-    }
-
-    public static void Get(List<Reward> rewards)
-    {
-        List<Reward> rewardsForUI = new List<Reward>();
-        foreach (var reward in rewards)
-        {
-            rewardsForUI.Add(reward);
-            Get(reward, rewardsForUI);
-        }
-    }  
-    public static void Get(Reward reward)
-    {
-        List<Reward> rewardsForUI = new List<Reward>();
-        
-        rewardsForUI.Add(reward);
-        Get(reward, rewardsForUI);
-    }
-
     public static void Get(Reward reward, List<Reward> rewardsForUI)
     {
-        int count = (int)reward.Count;
+        int count = (int) reward.Count;
         int value = reward.Value;
 
         switch (reward.RewardType)
         {
-   
+            case RewardType.Currency:
+                DataManager.CurrencyData.Add((Enum_CurrencyType) value, count);
+                break;
+
+            case RewardType.Skill:
+                break;
+
+            case RewardType.Equipment_Left:
+                DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Left, value, count);
+                break;
+            case RewardType.Equipment_Right:
+                DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Right, value, count);
+                break;
+            case RewardType.Equipment_Mouth:
+                DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Mouth, value, count);
+                break;
+            case RewardType.Equipment_Ring:
+                DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Ring, value, count);
+                break;
+
+            case RewardType.Follower:
+                DataManager.FollowerData.AddFoloower(value, count);
+                break;
+
+            case RewardType.Costume:
+                break;
+
+            default:
+                Debug.LogError($"{reward.RewardType}이 없습니다.");
+                break;
         }
-    }
-
-    public static void GetWithRewardUI(Reward reward)
-    {
-        List<Reward> rewardsForUI = new List<Reward>(1);
-
-        rewardsForUI.Add(reward);
-
-        Get(reward, rewardsForUI);
     }
 
     public static void GetWithRewardUI(List<Reward> rewards)
     {
         List<Reward> rewardsForUI = new List<Reward>();
 
+        foreach (var reward in rewards)
+        {
+            Get(reward, rewardsForUI);
+        }
     }
 }
