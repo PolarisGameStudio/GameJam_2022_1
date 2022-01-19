@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using EnhancedScrollerDemos.Chat;
 
 public class BattleManager : SingletonBehaviour<BattleManager>
 {
@@ -168,6 +169,10 @@ public class BattleManager : SingletonBehaviour<BattleManager>
                 BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
                 break;
             case Enum_BattleType.Dungeon:
+                break;     
+            
+            case Enum_BattleType.PromotionBattle:
+                DataManager.PromotionData.OnClearPromotionBattle();
                 break;
             
             
