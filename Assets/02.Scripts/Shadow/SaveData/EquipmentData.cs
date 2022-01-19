@@ -77,8 +77,8 @@ public class EquipmentData : StatData
                 }
             }
         }
-
-        RefreshEvent.Trigger(Enum_RefreshEventType.StatChange);        
+        
+        StatEvent.Trigger(Enum_StatEventType.StatChange);
         RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
     }
 

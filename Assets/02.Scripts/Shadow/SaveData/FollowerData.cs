@@ -123,7 +123,7 @@ public class FollowerData : StatData
             Stat[data.StatType2] += data.DefaultValue2 + (data.IncreaseValue2 * level);
         }
 
-        RefreshEvent.Trigger(Enum_RefreshEventType.StatChange);
+        StatEvent.Trigger(Enum_StatEventType.StatChange);
         RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
     }
 }

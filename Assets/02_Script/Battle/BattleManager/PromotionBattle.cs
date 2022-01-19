@@ -96,9 +96,7 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleOver()
     {
-       // PlayerStatManager.Instance.InitHealth();
-
-        BattleManager.Instance.BattleStart(Enum_BattleType.PromotionBattle, _level);
+        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
     }
 
     protected override void OnBattleEnd()
@@ -116,6 +114,7 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
         switch (e.Type)
         {
             case Enum_MonsterEventType.NormalMonsterDeath:
+            case Enum_MonsterEventType.BossMonsterDeath:
             {
                 CheckWaveClear();
                 break;
@@ -128,16 +127,14 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
         waveLevel++;
         _monsterObjects.Clear();
 
-        if (waveLevel > _promotionBattleData.WaveCount)
+        if (waveLevel >= _promotionBattleData.WaveCount)
         {
-            BattleManager.Instance.BattleClear(Enum_BattleType.PromotionBattle, _level);
+            BattleClear();
         }
         else
         {
             SpawnWaveMonsters();
         }
-        
-        StageWaveEvent.Trigger(Enum_StageWaveEventType.Exit, waveLevel);
     }
     
 

@@ -151,7 +151,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
     //todo: 반복이 아닌 던전 or 기타컨텐츠에서는 Stage Start 호출
     // 던전 별 클리어 연출이 다르다면, 각 Battle 스크립트에서 처리 후
     // 해당 메소드 수정
-    public async void BattleClear(Enum_BattleType battleType, int level)
+    public async void BattleClear(Enum_BattleType battleType, int battleLevel)
     {
         BattleEvent.Trigger(Enum_BattleEventType.BattleClear, Enum_BattleType.Stage);
 
@@ -174,7 +174,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
                 break;     
             
             case Enum_BattleType.PromotionBattle:
-                DataManager.PromotionData.OnClearPromotionBattle();
+                DataManager.PromotionData.OnClearPromotionBattle(battleLevel);
                 BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
                 break;
         }

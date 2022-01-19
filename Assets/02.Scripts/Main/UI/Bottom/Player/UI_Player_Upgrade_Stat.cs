@@ -56,7 +56,7 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
 
     public void OnGameEvent(RefreshEvent e)
     {
-        if (e.Type == Enum_RefreshEventType.StatChange)
+        if (e.Type == Enum_RefreshEventType.StatGrowth)
         {
             Refresh();
         }

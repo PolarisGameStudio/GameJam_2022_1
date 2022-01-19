@@ -53,7 +53,8 @@ public class StatGrowthData : StatData
             Stat[data.StatType] += _levels[i] * data.IncreaseValue;
         }
         
-        RefreshEvent.Trigger(Enum_RefreshEventType.StatChange);
+        StatEvent.Trigger(Enum_StatEventType.StatChange);
+        RefreshEvent.Trigger(Enum_RefreshEventType.StatGrowth);
     }
 
     public void CalculateStatPoint()

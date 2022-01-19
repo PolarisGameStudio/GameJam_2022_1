@@ -33,9 +33,9 @@ public class PromotionData : StatData
         _diceStatData.ActiveDiceSlot(_currentPromotionIndex);
     }
 
-    public void OnClearPromotionBattle()
+    public void OnClearPromotionBattle(int level)
     {
-        _currentPromotionIndex++;
+        _currentPromotionIndex = Mathf.Max(_currentPromotionIndex, level);
         
         CheckDiceUnlock();
         CalculateStat();
@@ -68,7 +68,8 @@ public class PromotionData : StatData
             }
         }
 
-        RefreshEvent.Trigger(Enum_RefreshEventType.StatChange);
+        StatEvent.Trigger(Enum_StatEventType.StatChange);
+        RefreshEvent.Trigger(Enum_RefreshEventType.Promotion);
     }
 
     public bool IsEnableChallenge(int index)

@@ -117,14 +117,12 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
         if (waveLevel >= _stageData.WaveCount)
         {
-            BattleManager.Instance.BattleClear(Enum_BattleType.Stage, _level);
+            BattleClear();
         }
         else
         {
             SpawnWaveMonsters();
         }
-        
-        StageWaveEvent.Trigger(Enum_StageWaveEventType.Exit, waveLevel);
     }
     
 

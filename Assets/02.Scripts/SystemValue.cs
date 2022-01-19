@@ -15,5 +15,5 @@ public static class SystemValue
     public static Color ENABLE_TEXT_COLOR => new Color(1, 1, 1);
 
 
-    public static int FOLLOWER_MAX_LEVEL  = (int) SYSTEM_VALUE.GetEntity("FOLLOWER_MAX_LEVEL").Value;
+    public static int FOLLOWER_MAX_LEVEL  = (int) SYSTEM_VALUE.GetEntity("FOLLWER_MAX_LEVEL").Value;
 }

@@ -8,12 +8,14 @@ public enum Enum_RefreshEventType
     
     
     Skill,
-    StatChange,
-    StatCalculate,
     LevelUp,
     
     Follower,
     Equipment,
+    
+    GoldGrowth,
+    StatGrowth,
+    Promotion,
 }
 
 public struct RefreshEvent

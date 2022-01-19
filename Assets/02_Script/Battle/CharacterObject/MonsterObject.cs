@@ -110,8 +110,6 @@ public class MonsterObject : CharacterObject
         
         DataManager.CurrencyData.Add(Enum_CurrencyType.Gold, BattleManager.Instance.CurrentBattle.GoldAmount);
         DataManager.PlayerData.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount);
-        
-        MonsterEvent.Trigger(Enum_MonsterEventType.NormalMonsterDeath);
 
         switch (CharacterType)
         {
@@ -121,6 +119,10 @@ public class MonsterObject : CharacterObject
             
             case Enum_CharacterType.StageBossMonster:
                 MonsterEvent.Trigger(Enum_MonsterEventType.BossMonsterDeath);
+                break;
+            
+            default:
+                MonsterEvent.Trigger(Enum_MonsterEventType.NormalMonsterDeath);
                 break;
         }
     }
