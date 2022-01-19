@@ -160,6 +160,8 @@ public class BattleManager : SingletonBehaviour<BattleManager>
         switch (battleType)
         {
             case Enum_BattleType.None:
+                Debug.LogError("None 타입 배틀 호출");
+                BattleStart(battleType, DataManager.StageData.StageLevel);
                 break;
             case Enum_BattleType.Stage:
                 BattleStart(battleType, DataManager.StageData.StageLevel);
@@ -173,9 +175,8 @@ public class BattleManager : SingletonBehaviour<BattleManager>
             
             case Enum_BattleType.PromotionBattle:
                 DataManager.PromotionData.OnClearPromotionBattle();
+                BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
                 break;
-            
-            
         }
     }
 }
