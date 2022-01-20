@@ -20,12 +20,10 @@ public class UI_StageProcess : GameBehaviour, GameEventListener<RefreshEvent>
     
     public void OnGameEvent(RefreshEvent e)
     {
-        if (e.Type != Enum_RefreshEventType.Battle)
+        if (e.Type == Enum_RefreshEventType.Battle)
         {
-            return;
+            Refresh();
         }
-
-        Refresh();
     }
 
     private void Refresh()

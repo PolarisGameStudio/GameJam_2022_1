@@ -151,6 +151,8 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         {
             SpawnWaveMonsters();
         }
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Battle);
     }
     
 
