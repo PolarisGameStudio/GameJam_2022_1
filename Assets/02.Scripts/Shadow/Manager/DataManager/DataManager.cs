@@ -24,6 +24,7 @@ public class DataManager : SingletonBehaviour<DataManager>, GameEventListener<St
     public static ShopData ShopData => Container.ShopData;
     public static AcheievmentData AcheievmentData => Container.AcheievmentData;
     public static OptionData OptionData => Container.OptionData;
+    public static QuestData QuestData => Container.QuestData;
 
     public bool IsReady { get; set; }
 

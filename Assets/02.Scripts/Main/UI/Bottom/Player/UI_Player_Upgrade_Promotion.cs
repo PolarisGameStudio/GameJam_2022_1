@@ -36,4 +36,9 @@ public class UI_Player_Upgrade_Promotion : UI_BaseContent<UI_Player_Upgrade_Prom
     {
         
     }
+
+    public void OnClickDiceStatButton()
+    {
+        
+    }
 }

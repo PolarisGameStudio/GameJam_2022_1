@@ -8,10 +8,10 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
     [SerializeField] private Image _imgStatIcon;
     
     [SerializeField] private Text _txtStatName;
-    [SerializeField] private Text _txtStatMaxLevel;
+    //[SerializeField] private Text _txtStatMaxLevel;
     [SerializeField] private Text _txtStatValue;
     [SerializeField] private Text _txtStatCurrenctLevel;
-    [SerializeField] private Text _txtStatPrice;
+    //[SerializeField] private Text _txtStatPrice;
 
     [SerializeField] private Button _btnLevelUp;
 
@@ -41,8 +41,7 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
     {
         _imgStatIcon.sprite = null;
 
-        _txtStatName.text = $"{_data.StatType}";
-        _txtStatMaxLevel.text = $"Max Lv.{_data.MaxLevel}";
+        _txtStatName.text = $"{_data.StatType} Max Lv.{_data.MaxLevel}";
 
         if (_data.StatType == Enum_StatType.CriticalChance || _data.StatType == Enum_StatType.SuperCriticalChance)
         {
@@ -56,7 +55,7 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
         }
 
         _txtStatCurrenctLevel.text = $"Lv.{DataManager.StatGrowthData.GetLevel(_data)}";
-        _txtStatPrice.text = $"{_data.Price}";
+      //  _txtStatPrice.text = $"{_data.Price}";
 
         CheckEnableLevelUp();
     }
