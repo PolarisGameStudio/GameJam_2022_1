@@ -444,6 +444,17 @@ public partial class TBL_SKILL : BGEntity
 			_SkillType[Index] = value;
 		}
 	}
+	public Enum_ItemGrade Grade
+	{
+		get
+		{
+			return (Enum_ItemGrade) _Grade[Index];
+		}
+		set
+		{
+			_Grade[Index] = value;
+		}
+	}
 	public System.Single Value
 	{
 		get
@@ -493,6 +504,15 @@ public partial class TBL_SKILL : BGEntity
 		{
 			if(_ufle12jhs77_SkillType==null || _ufle12jhs77_SkillType.IsDeleted) _ufle12jhs77_SkillType=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4906265187218299320,8256477299138777984));
 			return _ufle12jhs77_SkillType;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_Grade;
+	public static BansheeGz.BGDatabase.BGFieldEnum _Grade
+	{
+		get
+		{
+			if(_ufle12jhs77_Grade==null || _ufle12jhs77_Grade.IsDeleted) _ufle12jhs77_Grade=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5131888396718360431,11746754230977427384));
+			return _ufle12jhs77_Grade;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_Value;
