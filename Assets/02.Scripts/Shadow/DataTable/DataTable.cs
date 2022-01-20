@@ -6097,6 +6097,15 @@ public partial class TBL_EQUIPMENT : BGEntity
 			return _edeht3sdad33_WithEquipmentType;
 		}
 	}
+	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithGrade;
+	public static BansheeGz.BGDatabase.BGKey _WithGrade
+	{
+		get
+		{
+			if(_edeht3sdad33_WithGrade==null || _edeht3sdad33_WithGrade.IsDeleted) _edeht3sdad33_WithGrade= MetaDefault.GetKey(new BGId(5473118586204359070,3964928243982586758));
+			return _edeht3sdad33_WithGrade;
+		}
+	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
 	private static readonly TBL_MONSTER.Factory _factory1_PFS = new TBL_MONSTER.Factory();
 	private static readonly TBL_SKILL.Factory _factory2_PFS = new TBL_SKILL.Factory();
@@ -6179,6 +6188,18 @@ public partial class TBL_EQUIPMENT : BGEntity
 	public static List<TBL_EQUIPMENT> GetEntitiesByKeyWithEquipmentType(Enum_EquipmentType Type)
 	{
 		var result = _WithEquipmentType.GetEntitiesByKey(Type);
+		if(result==null || result.Count==0) return null;
+		var list = new List<TBL_EQUIPMENT>(result.Count);
+		for(var i = 0 ; i < result.Count ; i++) list.Add((TBL_EQUIPMENT) result[i]);
+		return list;
+	}
+	public static TBL_EQUIPMENT GetEntityByKeyWithGrade(Enum_ItemGrade Grade)
+	{
+		return (TBL_EQUIPMENT) _WithGrade.GetEntityByKey(Grade);
+	}
+	public static List<TBL_EQUIPMENT> GetEntitiesByKeyWithGrade(Enum_ItemGrade Grade)
+	{
+		var result = _WithGrade.GetEntitiesByKey(Grade);
 		if(result==null || result.Count==0) return null;
 		var list = new List<TBL_EQUIPMENT>(result.Count);
 		for(var i = 0 ; i < result.Count ; i++) list.Add((TBL_EQUIPMENT) result[i]);
