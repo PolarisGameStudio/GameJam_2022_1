@@ -67,6 +67,18 @@ public class DataContainer
         Stat[Enum_StatType.SuperCriticalDamage] = GetSuperCriticalDamage();
         Stat[Enum_StatType.AttackRange] = 2;
         Stat[Enum_StatType.DetectRange] = 2;
+        Stat[Enum_StatType.MoreGold] = GetMoreGold();
+        Stat[Enum_StatType.MoreExp] = GetMoreExp();
+    }
+
+    private double GetMoreGold()
+    {
+        return 100 + StatGrowthData.Stat[Enum_StatType.MoreGold];
+    }
+
+    private double GetMoreExp()
+    {
+        return 100 + StatGrowthData.Stat[Enum_StatType.MoreExp];
     }
 
     public double GetDamage()
