@@ -123,10 +123,11 @@ public class GoldGrowthData : StatData
     {
         if (data.IsLock)
         {
-            //var conditionData = TBL_UPGRADE_GOLD.FindEntity(x => x.StatType == data.Condition);
-            if (GetLevel(conditionData) < data.Condition)
-            {
+            var conditionData = TBL_UPGRADE_GOLD.GetEntity(data.ConditionIndex);
                 
+            if (GetLevel(conditionData) < conditionData.MaxLevel)
+            {
+                return false;
             }
         }
         
