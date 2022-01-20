@@ -16,7 +16,8 @@ public enum Enum_RefreshEventType
     GoldGrowth,
     StatGrowth,
     Promotion,
-    Rune
+    Rune,
+    Acheieve,
 }
 
 public struct RefreshEvent

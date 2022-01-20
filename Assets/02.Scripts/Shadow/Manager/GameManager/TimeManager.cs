@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TimeManager : SingletonBehaviour<TimeManager>
 {
-    private Action _onNextDay;
     private Action _onTick;
 
     private Coroutine _timerCoroutine;
@@ -29,12 +28,6 @@ public class TimeManager : SingletonBehaviour<TimeManager>
 
         _timerCoroutine = StartCoroutine(CheckDateTime_Coroutine());
         _tickerCoroutine = StartCoroutine(Ticket_Coroutine());
-    }
-
-    public void AddOnNextDayCallback(Action callback)
-    {
-        _onNextDay -= callback;
-        _onNextDay += callback;
     }
 
     public void AddOnTickCallback(Action callback)
@@ -111,11 +104,7 @@ public class TimeManager : SingletonBehaviour<TimeManager>
 
         if (diff.TotalDays >= 1)
         {
-            DataManager.Container.LastDateTime = today;
-
-            _onNextDay?.Invoke();
-
-            DataManager.Instance.Save();
+            DataManager.Instance.OnNextDay();
         }
     }
 }

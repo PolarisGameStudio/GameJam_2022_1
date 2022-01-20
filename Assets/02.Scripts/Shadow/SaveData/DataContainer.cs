@@ -47,6 +47,24 @@ public class DataContainer
         RuneData.ValidCheck();
         ShopData.ValidCheck();
     }
+    
+    public void OnNextDay()
+    {
+        PlayerData.OnNextDay();
+        StageData.OnNextDay();
+        CurrencyData.OnNextDay();
+        GoldGrowthData.OnNextDay();
+        StatGrowthData.OnNextDay();
+        EquipmentData.OnNextDay();
+        PromotionData.OnNextDay();
+        GachaData.OnNextDay();
+        FollowerData.OnNextDay();
+        DungeonData.OnNextDay();
+        RuneData.OnNextDay();
+        ShopData.OnNextDay();
+        
+        LastDateTime = DateTime.Today;
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// 스탯/////////////////////////////////////////////////////////////////////////////////////////////////////////////

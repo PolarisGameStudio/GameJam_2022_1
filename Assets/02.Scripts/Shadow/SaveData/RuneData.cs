@@ -44,8 +44,7 @@ public class RuneData : StatData
         }
 
         CalculateStat();
-
-        TimeManager.Instance.AddOnNextDayCallback(OnNextDay);
+        
         TimeManager.Instance.AddOnTickCallback(OnTick);
     }
 
@@ -108,7 +107,7 @@ public class RuneData : StatData
         }
     }
 
-    private void OnNextDay()
+    public override void OnNextDay()
     {
         for (int i = 0; i < RuneLimitCount.Count; i++)
         {
