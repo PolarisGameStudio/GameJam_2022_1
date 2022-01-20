@@ -101,6 +101,11 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
         DataManager.DungeonData.OnDungeonBattleEnd(_battleType, _level);
     }
 
+    protected override void OnMonsterDeathReward()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void OnGameEvent(MonsterEvent e)
     {
         if (BattleManager.Instance.CurrentBattleType != _battleType)

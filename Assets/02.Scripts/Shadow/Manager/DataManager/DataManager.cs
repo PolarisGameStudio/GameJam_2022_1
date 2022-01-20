@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SerializeField]
-public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<StatEvent>
+public class DataManager : SingletonBehaviour<DataManager>, GameEventListener<StatEvent>
 {
     private DataContainer _container;
     public static DataContainer Container => Instance._container;
@@ -19,16 +19,18 @@ public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<St
     public static GachaData GachaData => Container.GachaData;
     public static FollowerData FollowerData => Container.FollowerData;
     public static DungeonData DungeonData => Container.DungeonData;
-    
+    public static RuneData RuneData => Container.RuneData;
+    public static ShopData ShopData => Container.ShopData;
+
     public bool IsReady { get; set; }
 
 
     protected override void Awake()
     {
         base.Awake();
-        
+
         this.AddGameEventListening<StatEvent>();
-        
+
         Load();
     }
 
@@ -36,7 +38,7 @@ public class DataManager : SingletonBehaviour<DataManager> ,GameEventListener<St
     {
         Save();
     }
-    
+
     private const string saveKey = "UserData";
 
     public void Save()

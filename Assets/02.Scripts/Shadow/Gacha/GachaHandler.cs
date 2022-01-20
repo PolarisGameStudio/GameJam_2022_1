@@ -16,4 +16,9 @@ public abstract class GachaHandler
     public abstract List<int> GetGachaResultList(int gachaCount);
 
     public abstract void GachaResultAction(List<int> resultList);
+
+    public virtual int GachaByGrade(Enum_ItemGrade grade)
+    {
+        return -1;
+    }
 }

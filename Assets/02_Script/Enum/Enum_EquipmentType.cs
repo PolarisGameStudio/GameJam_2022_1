@@ -9,7 +9,6 @@ public enum Enum_EquipmentType
     Mouth,
     
     Ring,
-    Neckless,
     
     Count
 }

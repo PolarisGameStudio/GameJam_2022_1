@@ -112,10 +112,6 @@ public class SpriteMonsterObject : MonsterObject
             _fsmAbility.ChangeState(Enum_MonsterStateType.Death);
         }
 
-
-        DataManager.CurrencyData.Add(Enum_CurrencyType.Gold, BattleManager.Instance.CurrentBattle.GoldAmount);
-        DataManager.PlayerData.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount);
-
         switch (_characterType)
         {
             case Enum_CharacterType.StageNormalMonster:
@@ -125,7 +121,7 @@ public class SpriteMonsterObject : MonsterObject
             case Enum_CharacterType.StageBossMonster:
                 MonsterEvent.Trigger(Enum_MonsterEventType.BossMonsterDeath);
                 break;
-            
+
             case Enum_CharacterType.BossDungeonMonster:
                 MonsterEvent.Trigger(Enum_MonsterEventType.BossMonsterDeath);
                 DataManager.DungeonData.RecordDungeonScore(Enum_BattleType.BossDungeon, _damageHit);

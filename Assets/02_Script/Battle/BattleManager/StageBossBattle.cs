@@ -78,6 +78,24 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
         UI_BossHealthbar.Instance.Hide();
     }
 
+    protected override void OnMonsterDeathReward()
+    {
+        var goldMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Gold) ? 2 : 1;
+        var expMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Exp) ? 2 : 1;
+
+        DataManager.CurrencyData.Add(Enum_CurrencyType.Gold,
+            BattleManager.Instance.CurrentBattle.GoldAmount * goldMultiply);
+        DataManager.PlayerData.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount * expMultiply);
+        
+
+        if (UtilCode.GetChance(10))
+        {
+            DataManager.CurrencyData.Add(Enum_CurrencyType.EquipmentStone,
+                BattleManager.Instance.CurrentBattle.StoneAmount);
+        }
+        //아이템 로그 여기서 찍기
+    }
+
     public void OnGameEvent(MonsterEvent e)
     {
         if (BattleManager.Instance.CurrentBattleType != _battleType)
