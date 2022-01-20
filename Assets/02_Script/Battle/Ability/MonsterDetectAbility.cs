@@ -39,7 +39,7 @@ public class MonsterDetectAbility : DetectAbility
         
         foreach (var monster in monsters)
         {
-            if (monster.IsDeath)
+            if ( !monster.isActiveAndEnabled || monster.IsDeath)
             {
                 continue;
             }

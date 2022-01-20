@@ -78,6 +78,7 @@ public abstract class Battle : MonoBehaviour
     public virtual void BattleEnd()
     {
         MonsterObjectFactory.Instance.HideAll();
+        MonsterObjectFactory.Instance.ClearPool();
 
         _monsterObjects.Clear();
 

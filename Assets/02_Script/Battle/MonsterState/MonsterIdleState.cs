@@ -39,7 +39,7 @@ public class MonsterIdleState : NormalState
         //
         //_animationAbility.PlayAnimation("idle", true);
         
-        _animationAbility.PlayMoveAnimation();
+      //  _animationAbility.PlayMoveAnimation();
     }
 
     public override void LogicUpdate(float deltaTime)

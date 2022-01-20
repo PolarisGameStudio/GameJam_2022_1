@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public abstract class CharacterObject : GameBehaviour
+public abstract class CharacterObject : MultiPoolItem
 {
     protected Enum_CharacterType _characterType;
     public Enum_CharacterType CharacterType => _characterType;
@@ -40,7 +41,7 @@ public abstract class CharacterObject : GameBehaviour
 
         _alive = true;
     }
-    
+
     protected virtual void OnInit() {}
 
     protected virtual void CacheAbilities()

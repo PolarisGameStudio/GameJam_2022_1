@@ -8,12 +8,7 @@ public class SpriteMonsterObject : MonsterObject
     private Monster _monster;
     public Monster Monster => _monster;
 
-    private FSMAbility _fsmAbility;
-    private bool _fsmInited = false;
-
     private const int BossAbilityMultiple = 10;
-
-    private double _damageHit; // 보스 던전용 변수
 
     private void InitFSM()
     {
@@ -47,14 +42,12 @@ public class SpriteMonsterObject : MonsterObject
         Stat[Enum_StatType.DetectRange] += Random.Range(0, 2f);
     }
 
-    public void Init(Enum_CharacterType characterType, Vector3 initPosition, Monster monster , List<Sprite> sprites)
+    public void Init(Enum_CharacterType characterType, Vector3 initPosition, Monster monster)
     {
         // _monster = MonsterManager.Instance.GetMonster(monsterIndex);
         _monster = monster;
 
         _characterType = characterType;
-        
-        GetAbility<SpriteAnimationAbility>().SetMonsterModel(sprites);
 
         InitFSM();
         InitStat();
