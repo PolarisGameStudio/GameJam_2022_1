@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NPOI.OpenXmlFormats.Wordprocessing;
 using UnityEngine;
 
 public class MonsterIdleState : NormalState
