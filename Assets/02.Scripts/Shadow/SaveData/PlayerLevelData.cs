@@ -51,7 +51,7 @@ public class PlayerData : StatData
     public void AddExp(double exp)
     {
 	    Exp += exp;
-	    //CheckLevelUp();
+	    CheckLevelUp();
 	    
 	    PlayerEvent.Trigger(Enum_PlayerEventType.Exp);
     }
