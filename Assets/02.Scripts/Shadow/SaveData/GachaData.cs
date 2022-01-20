@@ -8,6 +8,8 @@ public enum GachaType
     Weapon,
     Ring,
     
+    Skill,
+    
     Dice,
     
     Count,
@@ -16,8 +18,6 @@ public enum GachaType
 [Serializable]
 public class GachaData : SaveDataBase
 {
-    [NonSerialized] private Dictionary<GachaType, GachaHandler> _gachaHandlers;
-
     public List<int> GachaCount = new List<int>();
 
     public override void ValidCheck()
@@ -35,13 +35,6 @@ public class GachaData : SaveDataBase
                 GachaCount.Add(0);
             }
         }
-
-        _gachaHandlers = new Dictionary<GachaType, GachaHandler>();
-        
-        _gachaHandlers.Add(GachaType.Dice,new DiceGachaHandler());
-        
-        _gachaHandlers.Add(GachaType.Weapon, new WeaponGachaHandler());
-        _gachaHandlers.Add(GachaType.Ring, new RingGachaHandler());
     }
     
     
@@ -55,7 +48,22 @@ public class GachaData : SaveDataBase
     {
         List<int> levelConditions = new List<int>();
 
-        TBL_GACHA_EQUIPMENT.ForEachEntity(data => levelConditions.Add(data.RequireCount));
+        switch (type)
+        {
+            case GachaType.Weapon:
+            case GachaType.Ring:
+                TBL_GACHA_EQUIPMENT.ForEachEntity(data => levelConditions.Add(data.RequireCount));
+                break;
+            
+            case GachaType.Skill:
+                TBL_GACHA_SKILL.ForEachEntity(data => levelConditions.Add(data.RequireCount));
+                break;
+        }
+
+        if (levelConditions.Count == 0)
+        {
+            return 0;
+        }
 
         var currenctGachaCount = GetGachaCount(type);
 
