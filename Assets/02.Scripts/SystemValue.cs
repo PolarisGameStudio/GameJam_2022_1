@@ -21,4 +21,5 @@ public static class SystemValue
     public static int RUNE_DURATUIN = 360 * 1;
 
     public static int SKILL_DISTANCE_BLOCK_SIZE = 1;
+    public static int SKILL_MAX_SLOT_COUNT = 6;
 }

@@ -1,18 +1,23 @@
-using System.Collections;
+
 using System.Collections.Generic;
-using UnityEngine;
-
-public class SkillData : MonoBehaviour
+public class SkillData : SaveDataBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<int> EquippedIndex = new List<int>();
 
-    // Update is called once per frame
-    void Update()
+    public override void ValidCheck()
     {
+        base.ValidCheck();
         
+        int slotCount = SystemValue.SKILL_MAX_SLOT_COUNT;
+        int saveCount = EquippedIndex.Count;
+
+        if (slotCount > saveCount)
+        {
+            for (int i = saveCount; i < slotCount; i++)
+            {
+                EquippedIndex.Add(0);
+            }
+        }
+
     }
 }

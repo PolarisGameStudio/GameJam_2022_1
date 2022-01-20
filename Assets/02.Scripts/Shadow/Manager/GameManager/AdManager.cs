@@ -92,6 +92,7 @@ public class AdManager : SingletonBehaviour<AdManager>
         m_RewardedAdComplete = null;
         
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_AdWatch);
+        DataManager.QuestData.OnAdWatch();
     }
 
     

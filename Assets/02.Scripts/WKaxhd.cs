@@ -54,9 +54,6 @@ public enum SkillType
 {
 }
 
-public enum QuestType
-{
-}
 public enum CurrencyType
 {
 }

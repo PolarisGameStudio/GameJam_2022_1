@@ -4,6 +4,7 @@ using UnityEngine;
 public class PromotionData : StatData
 {
     [SerializeField] private int _currentPromotionIndex;
+    public int CurrentPromotionIndex => _currentPromotionIndex;
 
     [SerializeField] private DiceStatData _diceStatData;
     

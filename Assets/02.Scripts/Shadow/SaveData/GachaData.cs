@@ -9,8 +9,6 @@ public enum GachaType
     Ring,
 
     Skill,
-    
-    Costume,
 
     Dice,
 

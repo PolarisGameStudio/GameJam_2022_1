@@ -19,6 +19,7 @@ public class DataContainer
     [SerializeField] public AcheievmentData AcheievmentData { get; set; }
     [SerializeField] public OptionData OptionData { get; set; }
     [SerializeField] public QuestData QuestData { get; set; }
+    [SerializeField] public SkillData SkillData { get; set; }
 
     public DateTime LastDateTime = DateTime.Today;
 
@@ -39,6 +40,7 @@ public class DataContainer
         AcheievmentData ??= new AcheievmentData();
         OptionData ??= new OptionData();
         QuestData ??= new QuestData();
+        SkillData ??= new SkillData();
 
         PlayerData.ValidCheck();
         StageData.ValidCheck();
@@ -55,6 +57,7 @@ public class DataContainer
         AcheievmentData.ValidCheck();
         OptionData.ValidCheck();
         QuestData.ValidCheck();
+        SkillData.ValidCheck();
     }
     
     public void OnNextDay()
@@ -74,6 +77,7 @@ public class DataContainer
         AcheievmentData.OnNextDay();
         OptionData.OnNextDay();
         QuestData.OnNextDay();
+        SkillData.OnNextDay();
         
         LastDateTime = DateTime.Today;
     }

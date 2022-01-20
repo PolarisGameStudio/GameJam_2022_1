@@ -18,6 +18,7 @@ public enum Enum_RefreshEventType
     Promotion,
     Rune,
     Acheieve,
+    Quest,
 }
 
 public struct RefreshEvent
