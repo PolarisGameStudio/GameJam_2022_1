@@ -69,7 +69,7 @@ public class PlayerData : StatData
 	        
 	        LevelUp();
         	
-        	CheckLevelUp();	// 재귀로 다시 검사. : TODO : 레벨업 여러단계 한 번에 되게 하려면 수정 필요.
+        	//CheckLevelUp();	// 재귀로 다시 검사. : TODO : 레벨업 여러단계 한 번에 되게 하려면 수정 필요.
         }
     }
 

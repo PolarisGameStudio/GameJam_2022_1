@@ -68,18 +68,18 @@ public static class RewardManager
             case RewardType.Skill:
                 break;
 
-            case RewardType.Equipment_Left:
-                DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Left, value, count);
-                break;
-            case RewardType.Equipment_Right:
-                DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Right, value, count);
-                break;
-            case RewardType.Equipment_Mouth:
-                DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Mouth, value, count);
-                break;
-            case RewardType.Equipment_Ring:
-                DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Ring, value, count);
-                break;
+            // case RewardType.Equipment_Left:
+            //     DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Left, value, count);
+            //     break;
+            // case RewardType.Equipment_Right:
+            //     DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Right, value, count);
+            //     break;
+            // case RewardType.Equipment_Mouth:
+            //     DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Mouth, value, count);
+            //     break;
+            // case RewardType.Equipment_Ring:
+            //     DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Ring, value, count);
+            //     break;
 
             case RewardType.Follower:
                 DataManager.FollowerData.AddFoloower(value, count);

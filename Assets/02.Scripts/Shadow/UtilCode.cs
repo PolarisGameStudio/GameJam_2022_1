@@ -304,25 +304,4 @@ public class UtilCode
     }
    
     
-    public int GetRandomStarCount()
-    {
-        int random = Random.Range(0, 100);
-
-        if (random < 40)
-        {
-            return 0;
-        }
-        else if (random < 70)
-        {
-            return 1;   
-        }        
-        else if (random < 90)
-        {
-            return 2;   
-        }
-        else
-        {
-            return 3;
-        }
-    }
 }

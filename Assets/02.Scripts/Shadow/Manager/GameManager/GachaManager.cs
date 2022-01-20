@@ -14,9 +14,14 @@ public class GachaManager : SingletonBehaviour<GachaManager>
 
     private void Awake()
     {
+        _gachaHandlers = new Dictionary<GachaType, GachaHandler>();
+        _gachaHandlers.Add(GachaType.Weapon, new WeaponGachaHandler());
+        _gachaHandlers.Add(GachaType.Ring, new RingGachaHandler());
+        //_gachaHandlers.Add(GachaType.Skill, new SkillGachaHandler());
+        
+        _gachaHandlers.Add(GachaType.Dice, new DiceGachaHandler());
+        
         // _artifactGacha = new Dictionary<GachaType, GachaHandler<int>>();
-        // _artifactGacha.Add(GachaType.ArtifactSmall, new ArtifactSmallGachaHandler());
-        // _artifactGacha.Add(GachaType.ArtifactBig, new ArtifactBigGachaHandler());
         //
         // _skillGacha = new Dictionary<GachaType, GachaHandler<int>>();
         // _skillGacha.Add(GachaType.SkillSmall, new SkillSmallGachaHandler());
@@ -50,6 +55,31 @@ public class GachaManager : SingletonBehaviour<GachaManager>
     }
     
     
+    public int GetRandomStarCount()
+    {
+        int random = UnityEngine.Random.Range(0, 100);
+
+        if (random < 40)
+        {
+            return 0;
+        }
+        else if (random < 70)
+        {
+            return 1;   
+        }        
+        else if (random < 90)
+        {
+            return 2;   
+        }
+        else if(random < 95)
+        {
+            return 3;
+        }    
+        else
+        {
+            return 4;
+        }
+    }
     
     
     

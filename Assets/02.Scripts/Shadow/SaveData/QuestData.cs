@@ -76,15 +76,12 @@ public class QuestData : SaveDataBase
             case QuestType.EquipmentLevel:
             {
                 int highestLevel = 0;
-                DataManager.EquipmentData.EquipmentGroups.ForEach((group) =>
+                DataManager.EquipmentData.Levels.ForEach(level =>
                 {
-                    group.Levels.ForEach(level =>
+                    if (level > highestLevel)
                     {
-                        if (level > highestLevel)
-                        {
-                            highestLevel = level;
-                        }
-                    });
+                        highestLevel = level;
+                    }
                 });
                 return highestLevel;
             }

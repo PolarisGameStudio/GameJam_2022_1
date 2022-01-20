@@ -107,14 +107,14 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         
         if (UtilCode.GetChance(_stageData.EquipmentPercent))
         {
-            int random = UnityEngine.Random.Range(0, (int) Enum_EquipmentType.Count);
+            int random = Random.Range(0, (int) Enum_EquipmentType.Count);
             Enum_EquipmentType equipmentType = (Enum_EquipmentType) random;
 
             GachaType gachaType = equipmentType == Enum_EquipmentType.Ring ? GachaType.Ring : GachaType.Weapon;
 
             var equipmentIndex = GachaManager.Instance.GachaByGrade(gachaType, _stageData.EquipmentGrade);
 
-            DataManager.EquipmentData.AddEquipment(equipmentType, equipmentIndex, 1);
+            DataManager.EquipmentData.AddEquipment(equipmentIndex, 1);
         }
         
         //아이템 로그 여기서 찍기

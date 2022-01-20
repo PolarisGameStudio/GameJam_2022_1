@@ -7,6 +7,8 @@ public enum ADType
 {
     Rune,
     
+    Gacha,
+    
     None,
 }
 

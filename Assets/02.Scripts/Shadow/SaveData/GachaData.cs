@@ -43,6 +43,55 @@ public class GachaData : SaveDataBase
         return GachaCount[(int) type];
     }
 
+    public int GetPreRequireExp(GachaType type)
+    {
+        var level = GetGachaLevel(type);
+
+        if (level <= 0)
+        {
+            return 0;
+        }
+
+        switch (type)
+        {
+            case GachaType.Weapon:
+            case GachaType.Ring:
+                return TBL_GACHA_EQUIPMENT.GetEntity(level).RequireCount;
+
+            case GachaType.Skill:
+                return TBL_GACHA_SKILL.GetEntity(level).RequireCount;
+        }
+
+        return 0;
+    }
+
+    public int GetNextRequireExp(GachaType type)
+    {
+        var level = GetGachaLevel(type);
+
+        switch (type)
+        {
+            case GachaType.Weapon:
+            case GachaType.Ring:
+                if (level >= TBL_GACHA_EQUIPMENT.CountEntities - 1)
+                {
+                    return int.MaxValue;
+                }
+
+                return TBL_GACHA_EQUIPMENT.GetEntity(level).RequireCount;
+
+            case GachaType.Skill:
+                if (level >= TBL_GACHA_SKILL.CountEntities - 1)
+                {
+                    return int.MaxValue;
+                }
+
+                return TBL_GACHA_SKILL.GetEntity(level).RequireCount;
+        }
+
+        return 0;
+    }
+
     public int GetGachaLevel(GachaType type)
     {
         List<int> levelConditions = new List<int>();
@@ -89,5 +138,7 @@ public class GachaData : SaveDataBase
         {
             GachaCount[index] += count;
         }
+
+        RefreshEvent.Trigger(Enum_RefreshEventType.Gacha);
     }
 }

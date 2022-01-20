@@ -43,18 +43,13 @@ public class WeaponGachaHandler : GachaHandler
     public override int GachaByGrade(Enum_ItemGrade grade)
     {
         var list = TBL_EQUIPMENT.GetEntitiesByKeyWithGrade(grade);
+        var randomStar = GachaManager.Instance.GetRandomStarCount();
+        
+        var filterList = list.FindAll(x => x.Type != Enum_EquipmentType.Ring && x.Star == randomStar);
+        
+        int randomIndex = Random.Range(0, filterList.Count);
 
-        int randomIndex = Random.Range(0, list.Count);
-
-        var data = list[randomIndex];
-
-        while (true)
-        {
-            if (data.Type != Enum_EquipmentType.Ring)
-            {
-                break;
-            }
-        }
+        var data = filterList[randomIndex];
 
         return data.Index;
     }
@@ -73,6 +68,17 @@ public class WeaponGachaHandler : GachaHandler
 
     public override void GachaResultAction(List<int> resultList)
     {
+        List<TBL_EQUIPMENT> equipmentList = new List<TBL_EQUIPMENT>();
+        for (int i = 0; i< resultList.Count; i++)
+        {
+            var result = GachaByGrade((Enum_ItemGrade) resultList[i]);
+            var equipment = TBL_EQUIPMENT.GetEntity(result);
+            
+            equipmentList.Add(equipment);
+        }
+        
+        DataManager.EquipmentData.AddEquipmentList(equipmentList);
+        
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_GachaEquipment, resultList.Count);
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_GachaEquipment, resultList.Count);
     }

@@ -7,6 +7,7 @@ using UnityEngine;
 public class GoldGrowthData : StatData
 {
     [SerializeField] private List<int> _levels = new List<int>();
+    
     public override void ValidCheck()
     {
         base.ValidCheck();

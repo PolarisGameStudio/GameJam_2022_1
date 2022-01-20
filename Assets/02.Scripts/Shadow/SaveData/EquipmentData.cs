@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class EquipmentData : StatData
 {
-    public List<EquipmentGroup> EquipmentGroups = new List<EquipmentGroup>();
+     public List<int> Levels = new List<int>();
+     public List<int> Counts = new List<int>();
 
-
-    private Dictionary<Enum_EquipmentType, List<TBL_EQUIPMENT>> _dataDict =
-        new Dictionary<Enum_EquipmentType, List<TBL_EQUIPMENT>>();
+     public List<int> EquippedIndex = new List<int>() {-1, -1, -1, -1};
 
     public override void ValidCheck()
     {
@@ -17,26 +16,17 @@ public class EquipmentData : StatData
 
         var typeCount = (int) Enum_EquipmentType.Count;
 
-        var saveCount = EquipmentGroups.Count;
+        var saveCount = Levels.Count;
 
         if (typeCount > saveCount)
         {
             for (int i = saveCount; i < typeCount; i++)
             {
-                var group = new EquipmentGroup();
-                group.InitEquipmentGroup((Enum_EquipmentType) i);
-                EquipmentGroups.Add(group);
+                Levels.Add(0);
+                Counts.Add(0);
             }
         }
-
-        for (int i = 0; i < typeCount; i++)
-        {
-            var type = (Enum_EquipmentType) i;
-
-            _dataDict.Add(type, TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(type));
-        }
-
-
+        
         CalculateStat();
     }
 
@@ -46,35 +36,24 @@ public class EquipmentData : StatData
 
     protected override void CalculateStat()
     {
-        var typeCount = (int) Enum_EquipmentType.Count;
-
         Stat.Init();
 
-        for (int i = 0; i < typeCount; i++)
+        for (int i = 0; i < Levels.Count; i++)
         {
-            var type = (Enum_EquipmentType) i;
-
-            var group = GetGroupByType(type);
-
-            var dataList = _dataDict[type];
-
-            for (int j = 0; i < group.Levels.Count; i++)
+            var level = Levels[i];
+            var data = TBL_EQUIPMENT.GetEntity(i);
+            if (level <= 0)
             {
-                var level = group.Levels[i];
+                continue;
+            }
 
-                if (level <= 0)
-                {
-                    continue;
-                }
+            Stat[data.OnOwnStat1] += data.OnOwnValue1 + data.OnOwnIncreaseValue1 * (level - 1);
+            Stat[data.OnOwnStat2] += data.OnOwnValue2 + data.OnOwnIncreaseValue2 * (level - 1);
+            Stat[data.OnOwnStat3] += data.OnOwnValue3 + data.OnOwnIncreaseValue3 * (level - 1);
 
-                Stat[dataList[i].OnOwnStat1] = dataList[i].OnOwnValue1;
-                Stat[dataList[i].OnOwnStat2] = dataList[i].OnOwnValue2;
-                Stat[dataList[i].OnOwnStat3] = dataList[i].OnOwnValue3;
-
-                if (group.EquippedIndex == i)
-                {
-                    Stat[dataList[i].OnEquipStat] += dataList[i].OnEquipVaue;
-                }
+            if (i == EquippedIndex[(int) data.Type])
+            {
+                Stat[data.OnEquipStat] += data.OnEquipVaue + data.OnEquipIncreaseValue * (level - 1);
             }
         }
 
@@ -82,74 +61,53 @@ public class EquipmentData : StatData
         RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
     }
 
-    public void AddEquipment(Enum_EquipmentType type, int index, int count = 1)
+    public void AddEquipment(int index, int count = 1)
     {
-        var group = GetGroupByType(type);
+        Counts[index] += count;
 
-        if (group == null || index >= group.Levels.Count)
+        if (Levels[index] == 0)
         {
-            return;
+            Levels[index] = 1;
         }
 
-        group.Counts[index] += count;
+        var typeIndex = (int)TBL_EQUIPMENT.GetEntity(index).Type;
 
-        if (group.Levels[index] == 0)
+        if (EquippedIndex[typeIndex] == -1)
         {
-            group.Levels[index] = 1;
-        }
-
-        if (group.EquippedIndex == -1)
-        {
-            TryEquip(type, index);
+            TryEquip(typeIndex, index);
         }
         else
         {
             CalculateStat();
         }
     }
-
-    public EquipmentGroup GetGroupByType(Enum_EquipmentType type)
+    
+    public void AddEquipmentList(List<TBL_EQUIPMENT> list)
     {
-        var group = EquipmentGroups.Find(x => x.Type == type);
-
-        return group;
+        CalculateStat();
     }
 
-    public void TryEquip(Enum_EquipmentType type, int index)
+    public void TryEquip(int typeIndex, int index)
     {
-        var group = GetGroupByType(type);
-
-        if (group == null || index >= group.Levels.Count || group.Levels[index] <= 0)
-        {
-            return;
-        }
-
-        group.EquippedIndex = index;
+        EquippedIndex[typeIndex] = index;
 
         CalculateStat();
     }
 
-    public bool TryGradeUp(Enum_EquipmentType type, int index)
+    public bool TryGradeUp(int index)
     {
-        var group = GetGroupByType(type);
-
-        if (group == null || index >= group.Levels.Count)
+        if (!IsEnableGradeUp(index))
         {
             return false;
         }
 
-        if (!IsEnableGradeUp(type, index))
-        {
-            return false;
-        }
+        var data = TBL_EQUIPMENT.GetEntity(index);
+        
+        var gradeUpCount = (int) (Counts[index] / data.GradeUpCost);
 
-        var dataList = _dataDict[type];
+        Counts[index] -= data.GradeUpCost * gradeUpCount;
 
-        var gradeUpCount = (int) (group.Counts[index] / dataList[index].GradeUpCost);
-
-        group.Counts[index] -= dataList[index].GradeUpCost * gradeUpCount;
-
-        AddEquipment(type, index + 1, gradeUpCount);
+        AddEquipment(GetNextEquipment(index).Index, gradeUpCount);
 
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_MergeEquipment, gradeUpCount);
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_MergeEquipment, gradeUpCount);
@@ -157,27 +115,16 @@ public class EquipmentData : StatData
         return true;
     }
 
-    public bool TryLevelUp(Enum_EquipmentType type, int index)
+    public bool TryLevelUp(int index)
     {
-        var group = GetGroupByType(type);
-
-        if (group == null || index >= group.Levels.Count)
+        if (!IsEnableLevelUp(index))
         {
             return false;
         }
 
-        if (!IsEnableLevelUp(type, index))
+        if (DataManager.CurrencyData.TryConsume(Enum_CurrencyType.EquipmentStone, GetCost(index)))
         {
-            return false;
-        }
-
-        var dataList = _dataDict[type];
-
-        var cost = dataList[index].LevelUpCost + dataList[index].LevelUpIncreaseCost * group.Levels[index];
-
-        if (DataManager.CurrencyData.TryConsume(Enum_CurrencyType.EquipmentStone, cost))
-        {
-            group.Levels[index] += 1;
+            Levels[index] += 1;
             CalculateStat();
 
             DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_LevelUpEquipment, 1);
@@ -189,72 +136,100 @@ public class EquipmentData : StatData
         }
     }
 
-
-    public bool IsEnableLevelUp(Enum_EquipmentType type, int index)
+    public double GetCost(int index)
     {
-        var group = GetGroupByType(type);
+        var data = TBL_EQUIPMENT.GetEntity(index);
 
-        if (group == null || index >= group.Levels.Count)
-        {
-            return false;
-        }
-
-        var dataList = _dataDict[type];
-
-        var cost = dataList[index].LevelUpCost + dataList[index].LevelUpIncreaseCost * group.Levels[index];
-
-        return DataManager.CurrencyData.IsEnough(Enum_CurrencyType.EquipmentStone, cost);
+        var cost = data.LevelUpCost + data.LevelUpIncreaseCost * (Levels[index] - 1);
+        
+        return cost;
     }
 
-    public bool IsEnableGradeUp(Enum_EquipmentType type, int index)
-    {
-        var group = GetGroupByType(type);
-
-        if (group == null || index >= group.Levels.Count)
+    public bool IsEnableLevelUp(int index)
+    {  
+        if (Levels.Count <= index || index < 0)
         {
             return false;
         }
 
-        if (group.Levels.Count <= index - 1)
-        {
-            return false;
-        }
-
-        var dataList = _dataDict[type];
-
-        return group.Counts[index] >= dataList[index].GradeUpCost;
+        return DataManager.CurrencyData.IsEnough(Enum_CurrencyType.EquipmentStone, GetCost(index));
     }
-}
 
-
-public class EquipmentGroup
-{
-    public Enum_EquipmentType Type;
-
-    public List<int> Levels = new List<int>();
-    public List<int> Counts = new List<int>();
-
-    public int EquippedIndex = -1;
-
-    public void InitEquipmentGroup(Enum_EquipmentType type)
+    public bool IsEnableGradeUp(int index)
     {
-        var equipmentList = TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(type);
-        if (equipmentList == null || equipmentList.Count == 0)
+        if (Levels.Count <= index || index < 0)
         {
-            return;
+            return false;
         }
 
-        var equipmentCount = equipmentList.Count;
-
-        var saveCount = Levels.Count;
-
-        if (equipmentCount > saveCount)
+        if (Counts[index] < 5)
         {
-            for (int i = saveCount; i < equipmentCount; i++)
-            {
-                Levels.Add(0);
-                Counts.Add(0);
-            }
+            return false;
         }
+
+        if (GetNextEquipment(index) == null)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public TBL_EQUIPMENT GetNextEquipment(int index)
+    {
+        var data = TBL_EQUIPMENT.GetEntity(index);
+
+        var typeList = TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(data.Type);
+        
+        Enum_ItemGrade targetGrade = Enum_ItemGrade.Common;
+        int targetStar = 0;
+        
+        if (data.Star == 4)
+        {
+            targetGrade = (data.Grade + 1);
+            targetStar = 0;
+        }
+        else
+        {
+            targetGrade = data.Grade;
+            targetStar = data.Star + 1;
+        }
+
+        var targetEquipment = typeList.Find(x => x.Grade == targetGrade && x.Star == targetStar);
+
+        return targetEquipment;
     }
 }
+
+//
+// public class EquipmentGroup
+// {
+//     public Enum_EquipmentType Type;
+//
+//     public List<int> Levels = new List<int>();
+//     public List<int> Counts = new List<int>();
+//
+//     public int EquippedIndex = -1;
+//
+//     public void InitEquipmentGroup(Enum_EquipmentType type)
+//     {
+//         var equipmentList = TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(type);
+//         if (equipmentList == null || equipmentList.Count == 0)
+//         {
+//             return;
+//         }
+//
+//         var equipmentCount = equipmentList.Count;
+//
+//         var saveCount = Levels.Count;
+//
+//         if (equipmentCount > saveCount)
+//         {
+//             for (int i = saveCount; i < equipmentCount; i++)
+//             {
+//                 Levels.Add(0);
+//                 Counts.Add(0);
+//             }
+//         }
+//     }
+// }
