@@ -9,7 +9,7 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD> ,GameEv
     [SerializeField] private Image _imgStatIcon;
 
     [SerializeField] private Text _txtStatName;
-    [SerializeField] private Text _txtStatMaxLevel;
+    //[SerializeField] private Text _txtStatMaxLevel;
     [SerializeField] private Text _txtStatValue;
     [SerializeField] private Text _txtStatCurrenctLevel;
     [SerializeField] private Text _txtStatPrice;
@@ -42,8 +42,8 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD> ,GameEv
     {
         _imgStatIcon.sprite = null;
         
-        _txtStatName.text = $"{_data.StatType}";
-        _txtStatMaxLevel.text = $"Max Lv.{_data.MaxLevel}";
+        _txtStatName.text = $"{_data.StatType} Max Lv.{_data.MaxLevel}";
+        //_txtStatMaxLevel.text = $"Max Lv.{_data.MaxLevel}";
 
         if (_data.StatType == Enum_StatType.CriticalChance || _data.StatType == Enum_StatType.SuperCriticalChance)
         {
@@ -64,9 +64,7 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD> ,GameEv
 
     public void CheckEnableLevelUp()
     {
-        var price = DataManager.GoldGrowthData.GetPrice(_data);
-        
-        _btnLevelUp.interactable = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Gold, price);
+        _btnLevelUp.interactable =  DataManager.GoldGrowthData.IsEnableLevelUp(_data);
     }
 
     public void OnGameEvent(RefreshEvent e)
