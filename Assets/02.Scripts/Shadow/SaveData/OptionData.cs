@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OptionData : MonoBehaviour
+public class OptionData : SaveDataBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool AutoSleep;
+
+    public float BGMVolume;
+    public float SFXVolume;
+
+    public void ToggleAutoSleep(bool isOn)
     {
-        
+        AutoSleep = isOn;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetBGMVolume(float value)
     {
-        
+        BGMVolume = value;
+    }    
+    
+    public void SetSFXVolume(float value)
+    {
+        SFXVolume = value;
     }
 }
