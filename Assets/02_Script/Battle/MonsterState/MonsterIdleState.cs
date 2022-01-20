@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NPOI.OpenXmlFormats.Wordprocessing;
 using UnityEngine;
 
 public class MonsterIdleState : NormalState
 {
-   // private AnimationAbility _animationAbility;
-    private SpriteAnimationAbility _animationAbility;
+    private AnimationAbility _animationAbility;
     private PlayerDetectAbility _playerDetectAbility;
     private MonsterAttackAbility _monsterAttackAbility;
 
@@ -18,7 +16,7 @@ public class MonsterIdleState : NormalState
     {
         base.Init();
 
-        _animationAbility = _owner.GetAbility<SpriteAnimationAbility>();
+        _animationAbility = _owner.GetAbility<AnimationAbility>();
         //_playerDetectAbility = _owner.GetAbility<PlayerDetectAbility>();
         //_monsterAttackAbility = _owner.GetAbility<MonsterAttackAbility>();
     }
@@ -37,9 +35,7 @@ public class MonsterIdleState : NormalState
         //     return;
         // }
         //
-        //_animationAbility.PlayAnimation("idle", true);
-        
-        _animationAbility.PlayMoveAnimation();
+        _animationAbility.PlayAnimation("idle", true);
     }
 
     public override void LogicUpdate(float deltaTime)
