@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerObject : CharacterObject, GameEventListener<StatEvent> , GameEventListener<BattleEvent>
+public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameEventListener<RefreshEvent>
 {
     private FSMAbility _fsmAbility;
 
@@ -12,6 +12,8 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent> , Game
     private HealthbarObject _healthbarObject;
 
     public Transform SkillEffectPos;
+
+    [SerializeField] private List<FollowerObject> _followers;
 
     private void Awake()
     {
@@ -31,7 +33,9 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent> , Game
         GetAbility<ShadowAbility>().SetSize(GetAbility<AnimationAbility>().Width);
 
         this.AddGameEventListening<StatEvent>();
-        this.AddGameEventListening<BattleEvent>();
+        this.AddGameEventListening<RefreshEvent>();
+
+        RefreshFollowers();
 
         CalculateStat();
     }
@@ -121,8 +125,40 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent> , Game
             CalculateStat();
         }
     }
-
-    public void OnGameEvent(BattleEvent gameEventType)
+  public void OnGameEvent(RefreshEvent e)
     {
+        if (e.Type == Enum_RefreshEventType.Follower)
+        {
+            RefreshFollowers();
+        }
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///
+    // 동료 제어
+
+    private void RefreshFollowers()
+    {
+        for (var i = 0; i < _followers.Count; i++)
+        {
+            //_followers[i].ChangeFollowerModel(DataManager.FollowerData.EquippedIndex[i]);
+        }
+    }
+
+    public void SetFollowersMove(float moveScale)
+    {
+        for (var i = 0; i < _followers.Count; i++)
+        {
+            _followers[i].PlayMoveAnimation(moveScale);
+        }
+    }
+        
+    public void SetFollowersIdle()
+    {
+        for (var i = 0; i < _followers.Count; i++)
+        {
+            _followers[i].PlayIdleAnimation();
+        }
+    }
+    
 }

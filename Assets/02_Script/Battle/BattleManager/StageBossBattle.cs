@@ -15,12 +15,22 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
 
     private TBL_STAGE _stageData;
 
-    private bool _inited = false;
-    public bool IsInited => _inited;
 
     private void Awake()
     {
         this.AddGameEventListening<MonsterEvent>();
+    }
+
+    protected override void InitBattleData()
+    {
+        BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
+
+        _stageData = TBL_STAGE.GetEntity(_level);
+
+        DamageFactor = _stageData.DamageFactor * 10;
+        HealthFactor = _stageData.HealthFactor * 10;
+        GoldAmount = _stageData.Gold * 10;
+        ExpAmount = _stageData.Exp * 10;
     }
 
     protected override void OnBattleInit()
@@ -30,14 +40,6 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
         MonsterObjectFactory.Instance.HideAll();
         HealthbarFactory.Instance.HideAll();
 
-        BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
-
-        _stageData = TBL_STAGE.GetEntity(_level);
-
-        DamageFactor = _stageData.DamageFactor * 10;
-        HealthFactor = _stageData.HealthFactor * 10;
-        GoldAmount = _stageData.Gold * 10;
-        ExpAmount = _stageData.Exp * 10;
 
         _inited = true;
     }
@@ -69,9 +71,6 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleOver()
     {
-        //PlayerStatManager.Instance.InitHealth();
-
-        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, _level);
     }
 
     protected override void OnBattleEnd()

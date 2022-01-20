@@ -13,6 +13,7 @@ public class DataContainer
     [SerializeField] public PromotionData PromotionData { get; set; }
     [SerializeField] public GachaData GachaData { get; set; }
     [SerializeField] public FollowerData FollowerData { get; set; }
+    [SerializeField] public DungeonData DungeonData { get; set; }
 
     public void ValidCheck()
     {
@@ -25,6 +26,7 @@ public class DataContainer
         PromotionData ??= new PromotionData();
         GachaData ??= new GachaData();
         FollowerData ??= new FollowerData();
+        DungeonData ??= new DungeonData();
 
         PlayerData.ValidCheck();
         StageData.ValidCheck();
@@ -35,6 +37,7 @@ public class DataContainer
         PromotionData.ValidCheck();
         GachaData.ValidCheck();
         FollowerData.ValidCheck();
+        DungeonData.ValidCheck();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

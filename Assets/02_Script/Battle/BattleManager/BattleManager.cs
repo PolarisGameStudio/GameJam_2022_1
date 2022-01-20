@@ -170,12 +170,19 @@ public class BattleManager : SingletonBehaviour<BattleManager>
                 DataManager.StageData.BossStageClear();
                 BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
                 break;
-            case Enum_BattleType.Dungeon:
-                break;     
-            
             case Enum_BattleType.PromotionBattle:
                 DataManager.PromotionData.OnClearPromotionBattle(battleLevel);
                 BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
+                break;
+            
+            case Enum_BattleType.SmithDungeon:
+                DataManager.DungeonData.OnDungeonBattleEnd(Enum_BattleType.SmithDungeon, battleLevel);
+                BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
+                break;
+
+            case Enum_BattleType.TreasureDungeon:
+            case Enum_BattleType.BossDungeon:
+                Debug.LogError($"{battleType}얘네는 Clear 호출하면 안됨");
                 break;
         }
     }
