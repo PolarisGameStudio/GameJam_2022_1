@@ -5,25 +5,18 @@ using System.Diagnostics;
 using Spine.Unity;
 using UnityEngine;
 
-[Serializable]
-public class MonsterSpriteSet
+public class MonsterObjectFactory : ObjectMultiPool<MonsterObjectFactory, SpriteMonsterObject>
 {
-    public List<Sprite> Set;
-}
-
-public class MonsterObjectFactory : ObjectPool<MonsterObjectFactory, SpriteMonsterObject>
-{
-    public List<MonsterSpriteSet> MonsterSpriteSet;
-
     public const int MAX_WAVE_COUNT = 3;
     
     public SpriteMonsterObject Make(Enum_CharacterType characterType, Vector3 position, int monsterIndex, Enum_BattleType battleType , bool IsSpecialType = false)
     {
-        SpriteMonsterObject monsterObject = GetPooledObject();
+      //  SpriteMonsterObject monsterObject = GetPooledObject( x=> x.Monster._data.Index == monsterIndex);
+        SpriteMonsterObject monsterObject = GetPooledObject(monsterIndex);
         
         Monster monster = new Monster(TBL_MONSTER.GetEntity(monsterIndex));
         
-        monsterObject.Init(characterType, position, monster, MonsterSpriteSet[monsterIndex].Set);
+        monsterObject.Init(characterType, position, monster);
 
         monsterObject.transform.localScale = IsSpecialType ? Vector3.one * 1.5f : Vector3.one;
 

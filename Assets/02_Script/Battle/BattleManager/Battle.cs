@@ -17,6 +17,7 @@ public abstract class Battle : MonoBehaviour
     public double HealthFactor;
     public double GoldAmount;
     public double ExpAmount;
+    public double StoneAmount;
 
     protected PlayerObject _player;
 
@@ -78,6 +79,7 @@ public abstract class Battle : MonoBehaviour
     public virtual void BattleEnd()
     {
         MonsterObjectFactory.Instance.HideAll();
+        MonsterObjectFactory.Instance.ClearPool();
 
         _monsterObjects.Clear();
 
@@ -87,4 +89,6 @@ public abstract class Battle : MonoBehaviour
     }
 
     protected abstract void OnBattleEnd();
+    
+    protected abstract void OnMonsterDeathReward();
 }

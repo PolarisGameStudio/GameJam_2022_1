@@ -112,4 +112,9 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
         
         InitBattleData();
     }
+
+    protected override void OnMonsterDeathReward()
+    {
+        throw new NotImplementedException();
+    }
 }

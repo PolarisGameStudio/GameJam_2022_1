@@ -103,12 +103,59 @@ public class ObjectMultiPool<ObjPool, ObjPrefab> : SingletonBehaviour<ObjPool> w
         return null;
     }
     
+    public ObjPrefab GetPooledObject(int index)
+    {
+        if (!m_Init && m_PoolInitOption == PoolInitOption.Lazy)
+        {
+            InitPool();
+        }
+
+        bool Selector(ObjPrefab item)
+        {
+            return item.name.Contains(m_ItemsToPool[index].name);
+        }
+
+        foreach (var obj in m_PooledObjects)
+        {
+            if (!obj.isActiveAndEnabled && Selector(obj))
+            {
+                return obj;
+            }
+        }
+
+        if (m_PoolExpansion)
+        {
+            foreach (var item in m_ItemsToPool)
+            {
+                if (Selector(item))
+                {
+                    var newObj = Instantiate(item, transform).GetComponent<ObjPrefab>();
+                    m_PooledObjects.Add(newObj);
+
+                    return newObj;
+                }
+            }
+        }
+        
+        return null;
+    }
+    
     public void HideAll()
     {
         foreach (var obj in m_PooledObjects)
         {
             obj.SafeSetActive(false);
         }
+    }
+
+    public void ClearPool()
+    {
+        for (int i = m_PooledObjects.Count - 1; i >= 0; i--)
+        {
+            Destroy(m_PooledObjects[i].gameObject);
+        }
+        
+        m_PooledObjects.Clear();
     }
 
 }

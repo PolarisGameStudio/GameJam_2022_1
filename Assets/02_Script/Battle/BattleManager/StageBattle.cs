@@ -91,6 +91,34 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         UI_BossHealthbar.Instance.Hide();
     }
 
+    protected override void OnMonsterDeathReward()
+    {
+        var goldMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Gold) ? 2 : 1;
+        var expMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Exp) ? 2 : 1;
+
+        DataManager.CurrencyData.Add(Enum_CurrencyType.Gold, _stageData.Gold * goldMultiply);
+        DataManager.PlayerData.AddExp(_stageData.Exp * expMultiply);
+        
+        if (UtilCode.GetChance(_stageData.UpgradeStonePercent))
+        {
+            DataManager.CurrencyData.Add(Enum_CurrencyType.EquipmentStone,
+                BattleManager.Instance.CurrentBattle.StoneAmount);
+        }
+        
+        if (UtilCode.GetChance(_stageData.EquipmentPercent))
+        {
+            int random = UnityEngine.Random.Range(0, (int) Enum_EquipmentType.Count);
+            Enum_EquipmentType equipmentType = (Enum_EquipmentType)random;
+            
+            var index = GachaManager.Instance.GachaByGrade((GachaType)random, _stageData.EquipmentGrade);
+            
+            DataManager.CurrencyData.Add(Enum_CurrencyType.EquipmentStone,
+                BattleManager.Instance.CurrentBattle.StoneAmount);
+        }
+        
+        //아이템 로그 여기서 찍기
+    }
+
     public void OnGameEvent(MonsterEvent e)
     {
         if (BattleManager.Instance.CurrentBattleType != _battleType)
@@ -102,6 +130,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         {
             case Enum_MonsterEventType.NormalMonsterDeath:
             {
+                OnMonsterDeathReward();
                 CheckWaveClear();
                 break;
             }

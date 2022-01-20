@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class SpriteAnimationAbility : CharacterAbility
 {
-    private Animation _animation;
-   // private Animator _animator;
-
-    public List<SpriteRenderer> _sprtieRenderer;
+    private Animator _animator;
 
     public float Height = 0;
 
@@ -15,34 +12,12 @@ public class SpriteAnimationAbility : CharacterAbility
     {
         base.Init();
 
-        _animation = GetComponentInChildren<Animation>();
-    }
-
-    public void SetMonsterModel(List<Sprite> sprites)
-    {
-        // if (_animation.skeletonDataAsset == skeletonDataAsset)
-        // {
-        //     return;
-        // }
-
-        for (var i = 0; i < _sprtieRenderer.Count; i++)
-        {
-            _sprtieRenderer[i].sprite = sprites[i];
-        }
-    }
-
-    public void PlayMoveAnimation()
-    {
-        SpriteMonsterObject spriteMonsterObject = _onwerObject as SpriteMonsterObject;
-
-        _animation.Stop();
-        _animation.Play($"Zombie_{spriteMonsterObject.Monster._data.Index + 1:D3}_Move");
+        _animator = GetComponentInChildren<Animator>();
     }
 
     public float PlayDeathAnimation()
     {
-        _animation.Stop();
-        _animation.Play($"Zombie_Death");
+        _animator.SetTrigger("Death");
 
         return 0.8f;
     }

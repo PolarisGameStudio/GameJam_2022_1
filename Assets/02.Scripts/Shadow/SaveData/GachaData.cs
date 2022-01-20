@@ -5,12 +5,8 @@ using Random = UnityEngine.Random;
 
 public enum GachaType
 {
-    Weapon_L,
-    Weapon_R,
-    Weapon_M,
-    
+    Weapon,
     Ring,
-    Neckless,
     
     Dice,
     
@@ -44,23 +40,11 @@ public class GachaData : SaveDataBase
         
         _gachaHandlers.Add(GachaType.Dice,new DiceGachaHandler());
         
-        //_gachaHandlers.Add(GachaType, new Weapon_L_GachaHandler());
-        //_gachaHandlers.Add(GachaType, new Weapon_R_GachaHandler());
-        //_gachaHandlers.Add(GachaType, new Weapon_M_GachaHandler());
-        //_gachaHandlers.Add(GachaType, new Ring_GachaHandler());
-        //_gachaHandlers.Add(GachaType, new Weapon_M_GachaHandler());
-        
-        
-        //_gachaHandlers.Add(GachaType, new Skill_GachaHandler());
-        //_gachaHandlers.Add(GachaType, new Rune_GachaHandler());
+        _gachaHandlers.Add(GachaType.Weapon, new WeaponGachaHandler());
+        _gachaHandlers.Add(GachaType.Ring, new RingGachaHandler());
     }
-
-    public void Gacha(GachaType type, int count)
-    {
-        _gachaHandlers[type].Gacha(count);
-
-        GachaCount[(int) type] += count;
-    }
+    
+    
 
     public int GetGachaCount(GachaType type)
     {
@@ -89,27 +73,14 @@ public class GachaData : SaveDataBase
 
         return level;
     }
-    
-    
-    public int GetRandomStarCount()
-    {
-        int random = Random.Range(0, 100);
 
-        if (random < 40)
+    public void AddGachaCount(GachaType type, int count)
+    {
+        int index = (int) type;
+        
+        if (GachaCount.Count > index && index >= 0)
         {
-            return 0;
-        }
-        else if (random < 70)
-        {
-            return 1;   
-        }        
-        else if (random < 90)
-        {
-            return 2;   
-        }
-        else
-        {
-            return 3;
+            GachaCount[index] += count;
         }
     }
 }

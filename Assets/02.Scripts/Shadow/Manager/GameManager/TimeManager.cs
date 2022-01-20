@@ -5,142 +5,117 @@ using UnityEngine;
 
 public class TimeManager : SingletonBehaviour<TimeManager>
 {
-    //private TimeInfo _timeInfo;
-    
-    public Action OnNextDay;
+    private Action _onNextDay;
+    private Action _onTick;
 
-    private Coroutine m_Timer;
-    private bool m_IsPaused;
+    private Coroutine _timerCoroutine;
+    private Coroutine _tickerCoroutine;
 
-    private bool _dirty;
-    
-    private void Init()
+    private bool _isPaused;
+
+    private void Start()
     {
         CheckDateTime();
-        
-        if (m_Timer != null)
+
+        if (_timerCoroutine != null)
         {
-            StopCoroutine(m_Timer);
+            StopCoroutine(_timerCoroutine);
         }
-        
-        m_Timer = StartCoroutine(CheckDateTime_Coroutine());
+
+        if (_tickerCoroutine != null)
+        {
+            StopCoroutine(_tickerCoroutine);
+        }
+
+        _timerCoroutine = StartCoroutine(CheckDateTime_Coroutine());
+        _tickerCoroutine = StartCoroutine(Ticket_Coroutine());
     }
 
-    public void AddOnNextCallback(Action callback)
+    public void AddOnNextDayCallback(Action callback)
     {
-        OnNextDay -= callback;
-        OnNextDay += callback;
+        _onNextDay -= callback;
+        _onNextDay += callback;
+    }
+
+    public void AddOnTickCallback(Action callback)
+    {
+        _onTick -= callback;
+        _onTick += callback;
     }
 
     private void OnApplicationPause(bool pause)
     {
         if (pause)
         {
-            m_IsPaused = true;
+            _isPaused = true;
 
-            if (m_Timer != null)
+            if (_timerCoroutine != null)
             {
-                Debug.LogErrorDev($"타임매니저 일시정지");
-                StopCoroutine(m_Timer);
+                StopCoroutine(_timerCoroutine);
+            }
+
+            if (_tickerCoroutine != null)
+            {
+                StopCoroutine(_tickerCoroutine);
             }
         }
         else
         {
-            if (m_IsPaused)
+            if (_isPaused)
             {
-                m_IsPaused = false;
+                _isPaused = false;
 
                 CheckDateTime();
-                m_Timer = StartCoroutine(CheckDateTime_Coroutine());
+                _timerCoroutine = StartCoroutine(CheckDateTime_Coroutine());
+                _tickerCoroutine = StartCoroutine(Ticket_Coroutine());
             }
         }
     }
-    
+
     private IEnumerator CheckDateTime_Coroutine()
     {
         while (true)
         {
-            // var now = ServerManager.ServerDateTimeNow;
-            // var tomorrow = ServerManager.ServerDateTimeToday.AddDays(1).AddMinutes(1);
-            // var diff = tomorrow - now;
-            // var second = (int)diff.TotalSeconds;
-            //
-            // second = Mathf.Max(0, second);
-            //
-            // Debug.LogErrorDev($"다음날 까지 남은시간 : {second / 60}분");
-            //
-            // yield return new WaitForSecondsRealtime(second);
-            
+            var now = DateTime.Now;
+            var tomorrow = DateTime.Today.AddDays(1).AddMinutes(1);
+            var diff = tomorrow - now;
+            var second = (int) diff.TotalSeconds;
+
+            second = Mathf.Max(0, second);
+
+            Debug.LogErrorDev($"다음날 까지 남은시간 : {second / 60}분");
+
+            yield return new WaitForSecondsRealtime(second);
+
             CheckDateTime();
         }
     }
-    
-    
+
+    private IEnumerator Ticket_Coroutine()
+    {
+        var second = new WaitForSecondsRealtime(1f);
+        while (true)
+        {
+            yield return second;
+
+            _onTick?.Invoke();
+        }
+    }
+
+
     private void CheckDateTime()
     {
-        // if (_timeInfo == null)
-        // {
-        //     return;
-        // }
-        // else
-        // {
-        //     DateTime today = ServerManager.ServerDateTimeToday;
-        //
-        //     var diff = today - _timeInfo.LastDateTime; // 0
-        //
-        //     if (diff.TotalDays >= 1)
-        //     {
-        //         _timeInfo.LastDateTime = today;
-        //
-        //         _timeInfo.DayCount += 1;
-        //
-        //         OnNextDay?.Invoke();
-        //
-        //         _dirty = true;
-        //         Save();
-        //     }
-        // }
-    }
-    
-    private const string SaveKey = "TimeInfo";
-    
-    private long m_LastSaveTime;
-    private Coroutine m_SaveCoroutine;
-    
-    public void Save(bool force = false)
-    {
-        if (!_dirty && !force) return;
-        //
-        // if (ServerManager.ServerUnixTimeInterpolation - m_LastSaveTime < 1 && !force)
-        // {
-        //     if (m_SaveCoroutine != null)
-        //     {
-        //         m_SaveCoroutine = StartCoroutine(Save_Coroutine());
-        //     }
-        //     
-        //     return;
-        // }
-        //
-        // m_LastSaveTime = ServerManager.ServerUnixTimeInterpolation;
-        // _dirty = false;
-        //
-        //
-        // ServerManager.Instance.Save(_timeInfo.ToNetData(SaveKey));
-    }
-    //
-    // public void Load(TimeInfo info)
-    // {
-    //     // _timeInfo = info;
-    //     //
-    //     // if (_timeInfo == null)
-    //     // {
-    //     //     Debug.LogErrorDev("DailyRewardInfo: 새로 만듬");
-    //     //     _timeInfo = new TimeInfo();
-    //     // }
-    //     //
-    //     // _timeInfo.ValidCheck();
-    //
-    //     Init();
-    // }
+        DateTime today = DateTime.Today;
 
+        var diff = today - DataManager.Container.LastDateTime;
+
+        if (diff.TotalDays >= 1)
+        {
+            DataManager.Container.LastDateTime = today;
+
+            _onNextDay?.Invoke();
+
+            DataManager.Instance.Save();
+        }
+    }
 }

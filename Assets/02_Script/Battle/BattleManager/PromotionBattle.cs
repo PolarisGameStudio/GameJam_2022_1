@@ -108,6 +108,11 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
         UI_BossHealthbar.Instance.Hide();
     }
 
+    protected override void OnMonsterDeathReward()
+    {
+        throw new NotImplementedException();
+    }
+
     public void OnGameEvent(MonsterEvent e)
     {
         if (BattleManager.Instance.CurrentBattleType != _battleType)

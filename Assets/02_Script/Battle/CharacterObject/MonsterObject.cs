@@ -8,12 +8,10 @@ public class MonsterObject : CharacterObject
     private Monster _monster;
     public Monster Monster => _monster;
 
-    private FSMAbility _fsmAbility;
-    private bool _fsmInited = false;
-
-    private const int BossAbilityMultiple = 10;
-
-    private double _damageHit; // 보스 던전용 변수
+    protected FSMAbility _fsmAbility;
+    protected bool _fsmInited = false;
+    
+    protected double _damageHit; // 보스 던전용 변수
 
     private void InitFSM()
     {

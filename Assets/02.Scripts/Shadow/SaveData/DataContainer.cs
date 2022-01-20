@@ -14,6 +14,10 @@ public class DataContainer
     [SerializeField] public GachaData GachaData { get; set; }
     [SerializeField] public FollowerData FollowerData { get; set; }
     [SerializeField] public DungeonData DungeonData { get; set; }
+    [SerializeField] public RuneData RuneData { get; set; }
+    [SerializeField] public ShopData ShopData { get; set; }
+
+    public DateTime LastDateTime = DateTime.Today;
 
     public void ValidCheck()
     {
@@ -27,6 +31,8 @@ public class DataContainer
         GachaData ??= new GachaData();
         FollowerData ??= new FollowerData();
         DungeonData ??= new DungeonData();
+        RuneData ??= new RuneData();
+        ShopData ??= new ShopData();
 
         PlayerData.ValidCheck();
         StageData.ValidCheck();
@@ -38,6 +44,8 @@ public class DataContainer
         GachaData.ValidCheck();
         FollowerData.ValidCheck();
         DungeonData.ValidCheck();
+        RuneData.ValidCheck();
+        ShopData.ValidCheck();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -71,6 +79,8 @@ public class DataContainer
         damage *= (1 + EquipmentData.Stat[Enum_StatType.Damage]);
 
         damage *= PromotionData.Stat[Enum_StatType.Damage];
+        
+        damage *= RuneData.Stat[Enum_StatType.Damage];
 
         return damage;
     }

@@ -27,12 +27,33 @@ public class GachaManager : SingletonBehaviour<GachaManager>
 
     public List<int> Gacha(GachaType type, int count = 1)
     {
-        bool skipChest = LastGachaType == type;
-        
-        LastGachaType = type;
+        if (!_gachaHandlers.ContainsKey(type))
+        {
+            Debug.LogError($"{type} 가챠가 없습니다.");
+            return null;
+        }
+
+        DataManager.GachaData.AddGachaCount(type, count);
 
         return _gachaHandlers[type].Gacha(count);
     }
+
+    public int GachaByGrade(GachaType type, Enum_ItemGrade grade)
+    {
+        if (_gachaHandlers.ContainsKey(type))
+        {
+
+            return _gachaHandlers[type].GachaByGrade(grade);
+        }
+
+        return -1;
+    }
+    
+    
+    
+    
+    
+    
 
     public int GetRandomIndex(GachaType type)
     {
