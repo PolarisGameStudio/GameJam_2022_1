@@ -10,7 +10,6 @@ public class UI_TopBar : MonoBehaviour , GameEventListener<RefreshEvent>, GameEv
     public Text TxtStoneAmount;
     
     public Text TxtPlayerLevel;
-    public Text TxtPlayerExp;
     public Slider SliderPlayerExp;
 
     public void OnGameEvent(RefreshEvent e)
@@ -37,7 +36,7 @@ public class UI_TopBar : MonoBehaviour , GameEventListener<RefreshEvent>, GameEv
 
     private void RefreshPlayer()
     {
-        TxtPlayerLevel.text = $"Lv.{DataManager.PlayerData.Level}";
+        TxtPlayerLevel.text = $"Lv. {DataManager.PlayerData.Level}";
         //TxtPlayerExp.text = $"Lv.{DataManager.PlayerData.Level}";
         SliderPlayerExp.value = DataManager.PlayerData.GetExpPercents();
     }
