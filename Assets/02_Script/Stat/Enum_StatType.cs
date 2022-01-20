@@ -18,6 +18,11 @@ public enum Enum_StatType
     MoreGold,
     MoreExp,
     
+    
+    Accuracy,
+    Evasion,
+    HealthRecovery,
+    
     Count
 }
 
