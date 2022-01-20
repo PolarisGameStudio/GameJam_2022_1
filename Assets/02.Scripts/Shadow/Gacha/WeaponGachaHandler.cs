@@ -43,11 +43,11 @@ public class WeaponGachaHandler : GachaHandler
     public override int GachaByGrade(Enum_ItemGrade grade)
     {
         var list = TBL_EQUIPMENT.GetEntitiesByKeyWithGrade(grade);
-
+        
         int randomIndex = Random.Range(0, list.Count);
-
+        
         var data = list[randomIndex];
-
+        
         while (true)
         {
             if (data.Type != Enum_EquipmentType.Ring)
@@ -55,7 +55,7 @@ public class WeaponGachaHandler : GachaHandler
                 break;
             }
         }
-
+        
         return data.Index;
     }
 

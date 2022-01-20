@@ -64,4 +64,10 @@ public class DataManager : SingletonBehaviour<DataManager>, GameEventListener<St
             StatEvent.Trigger(Enum_StatEventType.StatCalculate);
         }
     }
+
+    public void OnNextDay()
+    {
+        Container.OnNextDay();
+        Save();
+    }
 }

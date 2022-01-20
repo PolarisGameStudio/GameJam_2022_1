@@ -28,6 +28,11 @@ public class GoldGrowthData : StatData
     
     public void LevelUp(TBL_UPGRADE_GOLD type)
     {
+        if (!IsEnableLevelUp(type))
+        {
+            return;
+        }
+        
         _levels[type.Index]++;
 
         CalculateStat();
@@ -114,4 +119,20 @@ public class GoldGrowthData : StatData
         return (level + 1) * type.IncreaseValue;
     }
 
+    public bool IsEnableLevelUp(TBL_UPGRADE_GOLD data)
+    {
+        if (data.IsLock)
+        {
+            var conditionData = TBL_UPGRADE_GOLD.GetEntity(data.ConditionIndex);
+                
+            if (GetLevel(conditionData) < conditionData.MaxLevel)
+            {
+                return false;
+            }
+        }
+        
+        var price = GetPrice(data);
+
+        return DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Gold, price);
+    }
 }

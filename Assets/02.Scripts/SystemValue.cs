@@ -19,4 +19,6 @@ public static class SystemValue
 
     public static int RUNE_DAILY_LIMIT = 3;
     public static int RUNE_DURATUIN = 360 * 1;
+
+    public static int SKILL_DISTANCE_BLOCK_SIZE = 1;
 }

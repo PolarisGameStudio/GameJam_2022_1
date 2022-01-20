@@ -43,11 +43,11 @@ public class RingGachaHandler : GachaHandler
     public override int GachaByGrade(Enum_ItemGrade grade)
     {
         var list = TBL_EQUIPMENT.GetEntitiesByKeyWithGrade(grade);
-
+        
         int randomIndex = Random.Range(0, list.Count);
-
+        
         var data = list[randomIndex];
-
+        
         while (true)
         {
             if (data.Type == Enum_EquipmentType.Ring)
@@ -56,7 +56,7 @@ public class RingGachaHandler : GachaHandler
             }
         }
 
-        return data.Index;
+       return data.Index;
     }
 
     public override List<int> GetGachaResultList(int gachaCount)

@@ -84,6 +84,11 @@ public class SpriteMonsterObject : MonsterObject
     protected override void OnTakeHit(double damage, Enum_DamageType damageType)
     {
         //GetAbility<MeshRendererAbility>().Flash();
+        
+        if(!isActiveAndEnabled)
+        {
+            return;
+        }
 
         var height = 0;
         var width = 0;

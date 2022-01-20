@@ -47,6 +47,24 @@ public class DataContainer
         RuneData.ValidCheck();
         ShopData.ValidCheck();
     }
+    
+    public void OnNextDay()
+    {
+        PlayerData.OnNextDay();
+        StageData.OnNextDay();
+        CurrencyData.OnNextDay();
+        GoldGrowthData.OnNextDay();
+        StatGrowthData.OnNextDay();
+        EquipmentData.OnNextDay();
+        PromotionData.OnNextDay();
+        GachaData.OnNextDay();
+        FollowerData.OnNextDay();
+        DungeonData.OnNextDay();
+        RuneData.OnNextDay();
+        ShopData.OnNextDay();
+        
+        LastDateTime = DateTime.Today;
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// 스탯/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,6 +85,18 @@ public class DataContainer
         Stat[Enum_StatType.SuperCriticalDamage] = GetSuperCriticalDamage();
         Stat[Enum_StatType.AttackRange] = 2;
         Stat[Enum_StatType.DetectRange] = 2;
+        Stat[Enum_StatType.MoreGold] = GetMoreGold();
+        Stat[Enum_StatType.MoreExp] = GetMoreExp();
+    }
+
+    private double GetMoreGold()
+    {
+        return 100 + StatGrowthData.Stat[Enum_StatType.MoreGold];
+    }
+
+    private double GetMoreExp()
+    {
+        return 100 + StatGrowthData.Stat[Enum_StatType.MoreExp];
     }
 
     public double GetDamage()

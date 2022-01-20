@@ -13,13 +13,8 @@ public enum Enum_RuneBuffType
 
 public class RuneData : StatData
 {
-    private double DamageRuneRemainTime = 0;
-    private double GoldRuneRemainTime = 0;
-    private double ExpRuneRemainTime = 0;
-    private double StoneRuneRemainTime = 0;
-
-    private List<int> RuneRemainTime = new List<int>();
-    private List<int> RuneLimitCount = new List<int>();
+    public List<int> RuneRemainTime = new List<int>();
+    public List<int> RuneLimitCount = new List<int>();
 
     protected override void CalculateStat()
     {
@@ -49,8 +44,7 @@ public class RuneData : StatData
         }
 
         CalculateStat();
-
-        TimeManager.Instance.AddOnNextDayCallback(OnNextDay);
+        
         TimeManager.Instance.AddOnTickCallback(OnTick);
     }
 
@@ -59,7 +53,7 @@ public class RuneData : StatData
         bool isRuneFinish = false;
         for (int i = 0; i < RuneRemainTime.Count; i++)
         {
-            RuneRemainTime[i] -= 1;
+            RuneRemainTime[i] -= 60;
 
             if (RuneRemainTime[i] <= 0)
             {
@@ -113,7 +107,7 @@ public class RuneData : StatData
         }
     }
 
-    private void OnNextDay()
+    public override void OnNextDay()
     {
         for (int i = 0; i < RuneLimitCount.Count; i++)
         {
