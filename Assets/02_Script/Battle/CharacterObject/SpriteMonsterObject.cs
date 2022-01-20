@@ -136,5 +136,7 @@ public class SpriteMonsterObject : MonsterObject
                 MonsterEvent.Trigger(Enum_MonsterEventType.NormalMonsterDeath);
                 break;
         }
+        
+        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_KillMonster);
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 [SerializeField]
 public class DataManager : SingletonBehaviour<DataManager>, GameEventListener<StatEvent>
@@ -21,6 +22,9 @@ public class DataManager : SingletonBehaviour<DataManager>, GameEventListener<St
     public static DungeonData DungeonData => Container.DungeonData;
     public static RuneData RuneData => Container.RuneData;
     public static ShopData ShopData => Container.ShopData;
+    public static AcheievmentData AcheievmentData => Container.AcheievmentData;
+    public static OptionData OptionData => Container.OptionData;
+    public static QuestData QuestData => Container.QuestData;
 
     public bool IsReady { get; set; }
 

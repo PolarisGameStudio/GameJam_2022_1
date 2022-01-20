@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Player_TopInfo_Level : MonoBehaviour, GameEventListener<PlayerEvent>
+public class UI_Player_Level : MonoBehaviour, GameEventListener<PlayerEvent>
 {
     [SerializeField] private Text _txtLevel;
     [SerializeField] private Text _txtExp;
@@ -37,7 +37,7 @@ public class UI_Player_TopInfo_Level : MonoBehaviour, GameEventListener<PlayerEv
 
         var expPercent = Mathf.Min(1,DataManager.PlayerData.GetExpPercents());
         
-        _txtExpPercent.text = $"{expPercent * 100:N2}%";
+        _txtExpPercent.text = $"{expPercent * 100:N0}%";
         _sliderExp.value = expPercent;
     }
 

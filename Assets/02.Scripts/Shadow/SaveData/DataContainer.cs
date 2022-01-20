@@ -16,6 +16,9 @@ public class DataContainer
     [SerializeField] public DungeonData DungeonData { get; set; }
     [SerializeField] public RuneData RuneData { get; set; }
     [SerializeField] public ShopData ShopData { get; set; }
+    [SerializeField] public AcheievmentData AcheievmentData { get; set; }
+    [SerializeField] public OptionData OptionData { get; set; }
+    [SerializeField] public QuestData QuestData { get; set; }
 
     public DateTime LastDateTime = DateTime.Today;
 
@@ -33,6 +36,9 @@ public class DataContainer
         DungeonData ??= new DungeonData();
         RuneData ??= new RuneData();
         ShopData ??= new ShopData();
+        AcheievmentData ??= new AcheievmentData();
+        OptionData ??= new OptionData();
+        QuestData ??= new QuestData();
 
         PlayerData.ValidCheck();
         StageData.ValidCheck();
@@ -46,6 +52,9 @@ public class DataContainer
         DungeonData.ValidCheck();
         RuneData.ValidCheck();
         ShopData.ValidCheck();
+        AcheievmentData.ValidCheck();
+        OptionData.ValidCheck();
+        QuestData.ValidCheck();
     }
     
     public void OnNextDay()
@@ -62,6 +71,9 @@ public class DataContainer
         DungeonData.OnNextDay();
         RuneData.OnNextDay();
         ShopData.OnNextDay();
+        AcheievmentData.OnNextDay();
+        OptionData.OnNextDay();
+        QuestData.OnNextDay();
         
         LastDateTime = DateTime.Today;
     }
