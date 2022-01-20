@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MonsterDeathState : CoroutineState
 {
-    private AnimationAbility _animationAbility;
+    //private AnimationAbility _animationAbility;
+    private SpriteAnimationAbility _animationAbility;
 
     private const string DeathAnimationName = "death";
 
@@ -20,17 +21,22 @@ public class MonsterDeathState : CoroutineState
     {
         base.Init();
 
-        _animationAbility = _owner.GetAbility<AnimationAbility>();
+        _animationAbility = _owner.GetAbility<SpriteAnimationAbility>();
 
-        _deathAnimationDuration = _animationAbility.GetDuration(DeathAnimationName);
-        _deathAnimationWaitForSeconds = new WaitForSeconds(_deathAnimationDuration);
+        //_deathAnimationDuration = _animationAbility.GetDuration(DeathAnimationName);
+        //_deathAnimationWaitForSeconds = new WaitForSeconds(_deathAnimationDuration);
     }
     
     public override IEnumerator Enter_Coroutine()
     {
         _owner.SetAlive(false);
 
-        _animationAbility.PlayAnimation(DeathAnimationName, false);
+        var duration = _animationAbility.PlayDeathAnimation();
+
+        if (_deathAnimationWaitForSeconds == null)
+        {
+            _deathAnimationWaitForSeconds = new WaitForSeconds(duration);
+        }
 
         yield return _deathAnimationWaitForSeconds;
 
