@@ -93,10 +93,10 @@ public class TimeManager : SingletonBehaviour<TimeManager>
 
     private IEnumerator Ticket_Coroutine()
     {
-        var second = new WaitForSecondsRealtime(1f);
+        var minute = new WaitForSecondsRealtime(60f);
         while (true)
         {
-            yield return second;
+            yield return minute;
 
             _onTick?.Invoke();
         }
