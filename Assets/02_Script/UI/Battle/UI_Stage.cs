@@ -3,16 +3,16 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Stage : SingletonBehaviour<UI_Stage> , GameEventListener<BattleEvent>
+public class UI_Stage : SingletonBehaviour<UI_Stage> , GameEventListener<RefreshEvent>
 {
     [SerializeField] private Text _txtStageTitle;
 
     private StageBattle _stage;
     
-    private void Start()
+    private void Awake()
     {
         _stage = FindObjectOfType<StageBattle>();
-        this.AddGameEventListening<BattleEvent>();
+        this.AddGameEventListening<RefreshEvent>();
     }
 
     public void Refresh()
@@ -28,9 +28,9 @@ public class UI_Stage : SingletonBehaviour<UI_Stage> , GameEventListener<BattleE
         _txtStageTitle.text = _stage.StageTitle;
     }
 
-    public void OnGameEvent(BattleEvent e)
+    public void OnGameEvent(RefreshEvent e)
     {
-        if (e.Type == Enum_BattleEventType.BattleStart)
+        if (e.Type == Enum_RefreshEventType.Battle)
         {
             Refresh();
         }

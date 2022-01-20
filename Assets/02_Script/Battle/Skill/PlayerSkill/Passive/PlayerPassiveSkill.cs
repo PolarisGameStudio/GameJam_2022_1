@@ -53,7 +53,7 @@ public class PlayerPassiveSkill : PlayerSkill
         _coolTimer = 0;
     }
 
-    protected void AddPlayerBuff(float duration)
+    protected virtual void AddPlayerBuff(float duration)
     {
         _playerObject.AddBuff(new Buff(_stat, duration));
     }

@@ -4,13 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_TopBar : MonoBehaviour , GameEventListener<RefreshEvent>, GameEventListener<PlayerEvent>
+public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEventListener<PlayerEvent>
 {
     public Text TxtGemAmount;
     public Text TxtStoneAmount;
     
     public Text TxtPlayerLevel;
     public Slider SliderPlayerExp;
+
+    private void Awake()
+    {
+        this.AddGameEventListening<RefreshEvent>();
+        this.AddGameEventListening<PlayerEvent>();
+    }
+
+    private void Start()
+    {
+        RefreshCurrency();
+        RefreshPlayer();
+    }
 
     public void OnGameEvent(RefreshEvent e)
     {

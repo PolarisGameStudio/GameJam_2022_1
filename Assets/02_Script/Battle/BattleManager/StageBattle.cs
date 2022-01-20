@@ -19,7 +19,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
     private int waveLevel = 0;
 
     public float StageProcess => waveLevel / (float) _stageData.WaveCount;
-    public string StageTitle => $"Stage {_stageData.name}";
+    public string StageTitle => $"{_stageData.World.name} {_stageData.Index % 20 + 1}";
 
     private void Awake()
     {

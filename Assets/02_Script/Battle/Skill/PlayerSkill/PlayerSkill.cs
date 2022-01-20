@@ -44,4 +44,27 @@ public class PlayerSkill : GameBehaviour
     {
         return false;
     }
+
+    public List<CharacterObject> FindTargetByDistance(int distance)
+    {
+        if (_playerObject == null)
+        {
+            Debug.LogError("플레이어가 없슴");
+            return null;
+        }
+        
+        List<CharacterObject> targets = new List<CharacterObject>();
+
+        foreach (var monsterObject in BattleManager.Instance.CurrentBattle.MonsterObjects)
+        {
+            float x = monsterObject.Position.x - _playerObject.Position.x;
+
+            if (x <= distance * SystemValue.SKILL_DISTANCE_BLOCK_SIZE)
+            {
+                targets.Add(monsterObject);
+            }
+        }
+
+        return targets;
+    }
 }
