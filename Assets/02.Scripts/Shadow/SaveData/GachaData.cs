@@ -7,11 +7,13 @@ public enum GachaType
 {
     Weapon,
     Ring,
-    
+
     Skill,
     
+    Costume,
+
     Dice,
-    
+
     Count,
 }
 
@@ -36,12 +38,11 @@ public class GachaData : SaveDataBase
             }
         }
     }
-    
-    
+
 
     public int GetGachaCount(GachaType type)
     {
-        return GachaCount[(int)type];
+        return GachaCount[(int) type];
     }
 
     public int GetGachaLevel(GachaType type)
@@ -54,7 +55,7 @@ public class GachaData : SaveDataBase
             case GachaType.Ring:
                 TBL_GACHA_EQUIPMENT.ForEachEntity(data => levelConditions.Add(data.RequireCount));
                 break;
-            
+
             case GachaType.Skill:
                 TBL_GACHA_SKILL.ForEachEntity(data => levelConditions.Add(data.RequireCount));
                 break;
@@ -85,7 +86,7 @@ public class GachaData : SaveDataBase
     public void AddGachaCount(GachaType type, int count)
     {
         int index = (int) type;
-        
+
         if (GachaCount.Count > index && index >= 0)
         {
             GachaCount[index] += count;
