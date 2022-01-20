@@ -27,7 +27,7 @@ public enum Enum_AchivementMission
     Loop_SessionTime, // 게임 플레이 시간
     Loop_LevelUpSkill, // 스킬 레벨 업
     Loop_LevelUpGoldGrowth, // 골드 성장 (아무 골드 성장 버튼)
-    
+
     Count,
 }
 
@@ -39,10 +39,9 @@ public class AcheievmentData : SaveDataBase
     // // 반복 업적
     // public List<int> Loop_Progress = new List<int>();
     // public List<bool> Loop_IsClear = new List<bool>();
-    
+
     public List<int> Progress = new List<int>();
     public List<bool> IsClear = new List<bool>();
-    public List<bool> IsDaily = new List<bool>();
 
 
     public override void ValidCheck()
@@ -50,56 +49,21 @@ public class AcheievmentData : SaveDataBase
         base.ValidCheck();
 
         var acheiveCount = TBL_ACHIEVEMENT.CountEntities;
-        
         var saveCount = Progress.Count;
-        
+
+        if (acheiveCount != (int) Enum_AchivementMission.Count)
+        {
+            Debug.LogError("업적 숫자가 안맞음");
+        }
+
         if (acheiveCount > saveCount)
         {
             for (int i = saveCount; i < acheiveCount; i++)
             {
                 Progress.Add(0);
                 IsClear.Add(false);
-                IsDaily.Add(false);
             }
         }
-    }
-
-    private void InitLoopAcheievement()
-    {
-        // var dataList = TBL_ACHIEVEMENT.GetEntitiesByKeyWithAchievementKind(Enum_AchivementType.Loop);
-        // if (dataList == null) return;
-        //
-        // var typeCount = dataList.Count;
-        //
-        // var saveCount = Daily_Progress.Count;
-        //
-        // if (typeCount > saveCount)
-        // {
-        //     for (int i = saveCount; i < typeCount; i++)
-        //     {
-        //         Loop_Progress.Add(0);
-        //         Loop_IsClear.Add(false);
-        //     }
-        // }
-    }
-
-    private void InitDailyAcheievement()
-    {
-        // var dataList = TBL_ACHIEVEMENT.GetEntitiesByKeyWithAchievementKind(Enum_AchivementType.Daily);
-        // if (dataList == null) return;
-        //
-        // var typeCount = dataList.Count;
-        //
-        // var saveCount = Daily_Progress.Count;
-        //
-        // if (typeCount > saveCount)
-        // {
-        //     for (int i = saveCount; i < typeCount; i++)
-        //     {
-        //         Daily_Progress.Add(0);
-        //         Daily_IsClear.Add(false);
-        //     }
-        // }
     }
 
     public void ProgressAchievement(Enum_AchivementMission mission, int count = 1)
@@ -110,7 +74,7 @@ public class AcheievmentData : SaveDataBase
         {
             Progress[index] += count;
         }
-        
+
         RefreshEvent.Trigger(Enum_RefreshEventType.Acheieve);
     }
 
@@ -118,14 +82,34 @@ public class AcheievmentData : SaveDataBase
     {
         int index = (int) mission;
 
-        var data = TBL_ACHIEVEMENT.GetEntity(index);
-        
-        return true;
+        var data = TBL_ACHIEVEMENT.GetEntityByKeyWithMission(mission);
+
+        if (GetAchivementType(mission) == Enum_AchivementType.Daily)
+        {
+            return Progress[index] >= data.CompleteCount && !IsClear[index];
+        }
+        else
+        {
+            return Progress[index] >= data.CompleteCount;
+        }
     }
 
     public void ClearAchieve(Enum_AchivementMission mission)
     {
-        
+        if (IsEnableClear(mission))
+        {
+            int index = (int) mission;
+
+            var data = TBL_ACHIEVEMENT.GetEntityByKeyWithMission(mission);
+
+            DataManager.CurrencyData.Add(data.RewardCurrency, data.RewardCount);
+
+            if (GetAchivementType(mission) == Enum_AchivementType.Daily)
+            {
+                ProgressAchievement(Enum_AchivementMission.Daily_ClearAllDailyAchievement);
+                IsClear[index] = true;
+            }
+        }
     }
 
     public Enum_AchivementType GetAchivementType(Enum_AchivementMission mission)
@@ -158,10 +142,13 @@ public class AcheievmentData : SaveDataBase
 
     public override void OnNextDay()
     {
-        // for (var i = 0; i < Daily_Progress.Count; i++)
-        // {
-        //     Daily_Progress[i] = 0;
-        //     Daily_IsClear[i] = false;
-        // }
+        for (var i = 0; i < Progress.Count; i++)
+        {
+            if (GetAchivementType((Enum_AchivementMission) i) == Enum_AchivementType.Daily)
+            {
+                Progress[i] = 0;
+                IsClear[i] = false;
+            }
+        }
     }
 }
