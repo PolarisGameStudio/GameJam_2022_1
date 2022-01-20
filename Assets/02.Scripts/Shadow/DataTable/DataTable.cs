@@ -479,6 +479,17 @@ public partial class TBL_SKILL : BGEntity
 			_CoolTime[Index] = value;
 		}
 	}
+	public System.Single Distance
+	{
+		get
+		{
+			return _Distance[Index];
+		}
+		set
+		{
+			_Distance[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -522,6 +533,15 @@ public partial class TBL_SKILL : BGEntity
 		{
 			if(_ufle12jhs77_CoolTime==null || _ufle12jhs77_CoolTime.IsDeleted) _ufle12jhs77_CoolTime=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5232186021110550383,8926376847671037837));
 			return _ufle12jhs77_CoolTime;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_Distance;
+	public static BansheeGz.BGDatabase.BGFieldFloat _Distance
+	{
+		get
+		{
+			if(_ufle12jhs77_Distance==null || _ufle12jhs77_Distance.IsDeleted) _ufle12jhs77_Distance=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5714345102842817747,2024253243253655729));
+			return _ufle12jhs77_Distance;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
@@ -1188,37 +1208,26 @@ public partial class TBL_ACHIEVEMENT : BGEntity
 			_name[Index] = value;
 		}
 	}
-	public AchievementKind AchievementKind
+	public Enum_AchivementType AchievementType
 	{
 		get
 		{
-			return (AchievementKind) _AchievementKind[Index];
-		}
-		set
-		{
-			_AchievementKind[Index] = value;
-		}
-	}
-	public System.Int32 Order
-	{
-		get
-		{
-			return _Order[Index];
-		}
-		set
-		{
-			_Order[Index] = value;
-		}
-	}
-	public AchievementType AchievementType
-	{
-		get
-		{
-			return (AchievementType) _AchievementType[Index];
+			return (Enum_AchivementType) _AchievementType[Index];
 		}
 		set
 		{
 			_AchievementType[Index] = value;
+		}
+	}
+	public Enum_AchivementMission AchievementMission
+	{
+		get
+		{
+			return (Enum_AchivementMission) _AchievementMission[Index];
+		}
+		set
+		{
+			_AchievementMission[Index] = value;
 		}
 	}
 	public System.Double CompleteCount
@@ -1230,6 +1239,17 @@ public partial class TBL_ACHIEVEMENT : BGEntity
 		set
 		{
 			_CompleteCount[Index] = value;
+		}
+	}
+	public Enum_CurrencyType RewardCurrency
+	{
+		get
+		{
+			return (Enum_CurrencyType) _RewardCurrency[Index];
+		}
+		set
+		{
+			_RewardCurrency[Index] = value;
 		}
 	}
 	public System.Int32 RewardCount
@@ -1252,31 +1272,22 @@ public partial class TBL_ACHIEVEMENT : BGEntity
 			return _ufle12jhs77_name;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_AchievementKind;
-	public static BansheeGz.BGDatabase.BGFieldEnum _AchievementKind
-	{
-		get
-		{
-			if(_ufle12jhs77_AchievementKind==null || _ufle12jhs77_AchievementKind.IsDeleted) _ufle12jhs77_AchievementKind=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4733953057463769264,14408357974958245531));
-			return _ufle12jhs77_AchievementKind;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_Order;
-	public static BansheeGz.BGDatabase.BGFieldInt _Order
-	{
-		get
-		{
-			if(_ufle12jhs77_Order==null || _ufle12jhs77_Order.IsDeleted) _ufle12jhs77_Order=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4629272143882213731,16698501600695322299));
-			return _ufle12jhs77_Order;
-		}
-	}
 	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_AchievementType;
 	public static BansheeGz.BGDatabase.BGFieldEnum _AchievementType
 	{
 		get
 		{
-			if(_ufle12jhs77_AchievementType==null || _ufle12jhs77_AchievementType.IsDeleted) _ufle12jhs77_AchievementType=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4929253528140667737,8282060114930064776));
+			if(_ufle12jhs77_AchievementType==null || _ufle12jhs77_AchievementType.IsDeleted) _ufle12jhs77_AchievementType=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4733953057463769264,14408357974958245531));
 			return _ufle12jhs77_AchievementType;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_AchievementMission;
+	public static BansheeGz.BGDatabase.BGFieldEnum _AchievementMission
+	{
+		get
+		{
+			if(_ufle12jhs77_AchievementMission==null || _ufle12jhs77_AchievementMission.IsDeleted) _ufle12jhs77_AchievementMission=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4929253528140667737,8282060114930064776));
+			return _ufle12jhs77_AchievementMission;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_CompleteCount;
@@ -1288,6 +1299,15 @@ public partial class TBL_ACHIEVEMENT : BGEntity
 			return _ufle12jhs77_CompleteCount;
 		}
 	}
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardCurrency;
+	public static BansheeGz.BGDatabase.BGFieldEnum _RewardCurrency
+	{
+		get
+		{
+			if(_ufle12jhs77_RewardCurrency==null || _ufle12jhs77_RewardCurrency.IsDeleted) _ufle12jhs77_RewardCurrency=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4787323674608768560,12971887731619749768));
+			return _ufle12jhs77_RewardCurrency;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount;
 	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount
 	{
@@ -1297,22 +1317,22 @@ public partial class TBL_ACHIEVEMENT : BGEntity
 			return _ufle12jhs77_RewardCount;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithAchievementType;
-	public static BansheeGz.BGDatabase.BGKey _WithAchievementType
+	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithMission;
+	public static BansheeGz.BGDatabase.BGKey _WithMission
 	{
 		get
 		{
-			if(_edeht3sdad33_WithAchievementType==null || _edeht3sdad33_WithAchievementType.IsDeleted) _edeht3sdad33_WithAchievementType= MetaDefault.GetKey(new BGId(5266385704596959266,12708790514198179226));
-			return _edeht3sdad33_WithAchievementType;
+			if(_edeht3sdad33_WithMission==null || _edeht3sdad33_WithMission.IsDeleted) _edeht3sdad33_WithMission= MetaDefault.GetKey(new BGId(5002465172436519514,766936958467521408));
+			return _edeht3sdad33_WithMission;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithAchievementKind;
-	public static BansheeGz.BGDatabase.BGKey _WithAchievementKind
+	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithType;
+	public static BansheeGz.BGDatabase.BGKey _WithType
 	{
 		get
 		{
-			if(_edeht3sdad33_WithAchievementKind==null || _edeht3sdad33_WithAchievementKind.IsDeleted) _edeht3sdad33_WithAchievementKind= MetaDefault.GetKey(new BGId(5533217581247026311,5037882815249944455));
-			return _edeht3sdad33_WithAchievementKind;
+			if(_edeht3sdad33_WithType==null || _edeht3sdad33_WithType.IsDeleted) _edeht3sdad33_WithType= MetaDefault.GetKey(new BGId(4998920529574958263,1613759724319339654));
+			return _edeht3sdad33_WithType;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
@@ -1391,25 +1411,25 @@ public partial class TBL_ACHIEVEMENT : BGEntity
 	{
 		return (TBL_ACHIEVEMENT) MetaDefault.NewEntity();
 	}
-	public static TBL_ACHIEVEMENT GetEntityByKeyWithAchievementType(AchievementType AchievementType)
+	public static TBL_ACHIEVEMENT GetEntityByKeyWithMission(Enum_AchivementMission AchievementMission)
 	{
-		return (TBL_ACHIEVEMENT) _WithAchievementType.GetEntityByKey(AchievementType);
+		return (TBL_ACHIEVEMENT) _WithMission.GetEntityByKey(AchievementMission);
 	}
-	public static List<TBL_ACHIEVEMENT> GetEntitiesByKeyWithAchievementType(AchievementType AchievementType)
+	public static List<TBL_ACHIEVEMENT> GetEntitiesByKeyWithMission(Enum_AchivementMission AchievementMission)
 	{
-		var result = _WithAchievementType.GetEntitiesByKey(AchievementType);
+		var result = _WithMission.GetEntitiesByKey(AchievementMission);
 		if(result==null || result.Count==0) return null;
 		var list = new List<TBL_ACHIEVEMENT>(result.Count);
 		for(var i = 0 ; i < result.Count ; i++) list.Add((TBL_ACHIEVEMENT) result[i]);
 		return list;
 	}
-	public static TBL_ACHIEVEMENT GetEntityByKeyWithAchievementKind(AchievementKind AchievementKind)
+	public static TBL_ACHIEVEMENT GetEntityByKeyWithType(Enum_AchivementType AchievementType)
 	{
-		return (TBL_ACHIEVEMENT) _WithAchievementKind.GetEntityByKey(AchievementKind);
+		return (TBL_ACHIEVEMENT) _WithType.GetEntityByKey(AchievementType);
 	}
-	public static List<TBL_ACHIEVEMENT> GetEntitiesByKeyWithAchievementKind(AchievementKind AchievementKind)
+	public static List<TBL_ACHIEVEMENT> GetEntitiesByKeyWithType(Enum_AchivementType AchievementType)
 	{
-		var result = _WithAchievementKind.GetEntitiesByKey(AchievementKind);
+		var result = _WithType.GetEntitiesByKey(AchievementType);
 		if(result==null || result.Count==0) return null;
 		var list = new List<TBL_ACHIEVEMENT>(result.Count);
 		for(var i = 0 ; i < result.Count ; i++) list.Add((TBL_ACHIEVEMENT) result[i]);
