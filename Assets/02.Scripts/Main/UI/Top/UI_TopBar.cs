@@ -40,4 +40,24 @@ public class UI_TopBar : MonoBehaviour , GameEventListener<RefreshEvent>, GameEv
         //TxtPlayerExp.text = $"Lv.{DataManager.PlayerData.Level}";
         SliderPlayerExp.value = DataManager.PlayerData.GetExpPercents();
     }
+
+
+    public void OnClickOption()
+    {
+        
+    }
+
+    public void OnClickQuest()
+    {
+        
+    }
+
+    public void OnClickAchieve()
+    {
+        
+    }   
+    public void OnClickPackage()
+    {
+        
+    }
 }
