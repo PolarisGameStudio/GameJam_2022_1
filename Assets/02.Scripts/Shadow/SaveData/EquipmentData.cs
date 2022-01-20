@@ -66,7 +66,7 @@ public class EquipmentData : StatData
                 {
                     continue;
                 }
-                
+
                 Stat[dataList[i].OnOwnStat1] = dataList[i].OnOwnValue1;
                 Stat[dataList[i].OnOwnStat2] = dataList[i].OnOwnValue2;
                 Stat[dataList[i].OnOwnStat3] = dataList[i].OnOwnValue3;
@@ -77,7 +77,7 @@ public class EquipmentData : StatData
                 }
             }
         }
-        
+
         StatEvent.Trigger(Enum_StatEventType.StatChange);
         RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
     }
@@ -85,7 +85,7 @@ public class EquipmentData : StatData
     public void AddEquipment(Enum_EquipmentType type, int index, int count = 1)
     {
         var group = GetGroupByType(type);
-        
+
         if (group == null || index >= group.Levels.Count)
         {
             return;
@@ -104,7 +104,7 @@ public class EquipmentData : StatData
         }
         else
         {
-            CalculateStat();   
+            CalculateStat();
         }
     }
 
@@ -145,9 +145,14 @@ public class EquipmentData : StatData
 
         var dataList = _dataDict[type];
 
-        group.Counts[index] -= dataList[index].GradeUpCost;
-        
-        AddEquipment(type,index + 1, 1);
+        var gradeUpCount = (int) (group.Counts[index] / dataList[index].GradeUpCost);
+
+        group.Counts[index] -= dataList[index].GradeUpCost * gradeUpCount;
+
+        AddEquipment(type, index + 1, gradeUpCount);
+
+        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_MergeEquipment, gradeUpCount);
+        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_MergeEquipment, gradeUpCount);
 
         return true;
     }
@@ -175,6 +180,7 @@ public class EquipmentData : StatData
             group.Levels[index] += 1;
             CalculateStat();
 
+            DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_LevelUpEquipment, 1);
             return true;
         }
         else
@@ -237,7 +243,7 @@ public class EquipmentGroup
         {
             return;
         }
-        
+
         var equipmentCount = equipmentList.Count;
 
         var saveCount = Levels.Count;

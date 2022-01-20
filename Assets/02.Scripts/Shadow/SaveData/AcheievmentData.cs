@@ -64,6 +64,8 @@ public class AcheievmentData : SaveDataBase
                 IsClear.Add(false);
             }
         }
+        
+        TimeManager.Instance.AddOnTickCallback(OnTick);
     }
 
     public void ProgressAchievement(Enum_AchivementMission mission, int count = 1)
@@ -150,5 +152,11 @@ public class AcheievmentData : SaveDataBase
                 IsClear[i] = false;
             }
         }
+    }
+
+    public void OnTick()
+    {
+        ProgressAchievement(Enum_AchivementMission.Daily_SessionTime, 1);
+        ProgressAchievement(Enum_AchivementMission.Loop_SessionTime, 1);
     }
 }

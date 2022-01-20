@@ -62,6 +62,12 @@ public class AdManager : SingletonBehaviour<AdManager>
 
     public bool TryShowRequest(ADType adType, Action rewardedAdComplete, Action rewardedAdFail = null)
     {
+        if (DataManager.ShopData.IsAdRemove)
+        {
+            m_RewardedAdComplete = rewardedAdComplete;
+            RewardedAdCompletedHandler();
+        }
+        
         if (!admobModule.CheckRewardAdLoaded())
         {
             // string title = LocalizeText.GetText("UI_Popup_Title");
@@ -72,45 +78,20 @@ public class AdManager : SingletonBehaviour<AdManager>
             return false;
         }
         
-        m_LastADType = adType;
-        
         m_RewardedAdComplete = rewardedAdComplete;
         m_RewardedAdFail = rewardedAdFail;
 
         admobModule.TryShowRewardAd(RewardedAdCompletedHandler,RewardedAdSkippedHandler);
 
         return true;
-
-        // if (!Advertising.IsRewardedAdReady(AdPlacement.PlacementWithName(m_PlacementName)))
-        // {
-        //     //Advertising.LoadRewardedAd(AdPlacement.PlacementWithName("CookApps"));
-        //
-        //     return false;
-        // }
-        // else
-        // {
-        //     m_LastADType = adType;
-        //     
-        //     m_RewardedAdComplete = rewardedAdComplete;
-        //     m_RewardedAdFail = rewardedAdFail;
-        //     Advertising.ShowRewardedAd(AdPlacement.PlacementWithName(m_PlacementName));
-        //
-        //     return true;
-        // }
     }
     
     void RewardedAdCompletedHandler()
     {
-        Debug.Log("Rewarded ad has completed. The user should be rewarded now.");
-
-        // FirebaseLogManager.Instance.LogAdSpent(m_LastADType);
-        //
-        // ShopManager.Instance.OnADWatch(m_LastADType);
-        //
-        // m_RewardedAdComplete?.Invoke();
-        // m_RewardedAdComplete = null;
-        //
-        // MainScene.Instance.SetTimeScale();
+        m_RewardedAdComplete?.Invoke();
+        m_RewardedAdComplete = null;
+        
+        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_AdWatch);
     }
 
     

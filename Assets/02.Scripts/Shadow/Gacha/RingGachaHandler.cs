@@ -73,5 +73,7 @@ public class RingGachaHandler : GachaHandler
 
     public override void GachaResultAction(List<int> resultList)
     {
+        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_GachaEquipment, resultList.Count);
+        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_GachaEquipment, resultList.Count);
     }
 }
