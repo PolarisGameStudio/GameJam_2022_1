@@ -53,7 +53,7 @@ public class PlayerData : StatData
 	    exp *= (DataManager.Container.Stat[Enum_StatType.MoreExp] / 100f);
 
 	    Exp += exp;
-	    CheckLevelUp();
+	 //   CheckLevelUp();
 	    
 	    PlayerEvent.Trigger(Enum_PlayerEventType.Exp);
     }

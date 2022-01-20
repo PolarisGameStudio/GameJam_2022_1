@@ -51,7 +51,7 @@ public class UI_Player_Upgrade_Promotion_Slot : UI_BaseSlot<TBL_PROMOTION>,GameE
     {
         _onDisableObject.gameObject.SetActive(!DataManager.PromotionData.IsAlreadyClear(_data.Index));
 
-        _btnChallange.interactable = DataManager.PromotionData.IsEnableChallenge(_data.Index);
+        _btnChallange.gameObject.SetActive(DataManager.PromotionData.IsEnableChallenge(_data.Index));
     }
 
     public void OnGameEvent(RefreshEvent e)
