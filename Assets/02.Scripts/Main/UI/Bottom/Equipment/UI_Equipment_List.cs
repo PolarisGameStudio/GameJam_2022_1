@@ -17,31 +17,31 @@ public class UI_Equipment_List : UI_BaseContent<UI_Equipment_List, UI_Equipment_
 
     private void ExpandSlot()
     {
-        var dataCount = TBL_UPGRADE_GOLD.CountEntities;
+       
+    }
+
+    protected override void Refresh()
+    { 
+        var equipments = DataManager.EquipmentData.GetEquipmentListByType(_currentEquipmentType);
+        
+        var dataCount = equipments.Count;
         var slotCount = m_SlotList.Count;
 
         if (dataCount > slotCount)
         {
             Expand(dataCount - slotCount);
         }
-    }
-
-    protected override void Refresh()
-    {
-        ExpandSlot();
-
-        // var equipmentGroup = DataManager.EquipmentData.GetEquipments(_currentEquipmentType);
-        //
-        // for (int i = 0; i < m_SlotList.Count; i++)
-        // {
-        //     if (dataCount <= i)
-        //     {
-        //         m_SlotList[i].SafeSetActive(false);
-        //     }
-        //
-        //     m_SlotList[i].SafeSetActive(true);
-        //     m_SlotList[i].Init(new Equipment());
-        // }
+        
+        for (int i = 0; i < m_SlotList.Count; i++)
+        {
+            if (m_SlotList.Count >= i)
+            {
+                m_SlotList[i].SafeSetActive(false);
+            }
+        
+            m_SlotList[i].SafeSetActive(true);
+            m_SlotList[i].Init(equipments[i]);
+        }
     }
 
     public void OnToggleClick(int i)

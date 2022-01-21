@@ -10,6 +10,11 @@ public class EquipmentData : StatData
 
      public List<int> EquippedIndex = new List<int>() {-1, -1, -1, -1};
 
+     public List<TBL_EQUIPMENT> GetEquipmentListByType(Enum_EquipmentType type)
+     {
+         return TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(type);
+     }
+
     public override void ValidCheck()
     {
         base.ValidCheck();
@@ -89,6 +94,11 @@ public class EquipmentData : StatData
 
     public void TryEquip(int typeIndex, int index)
     {
+        if (Levels[index] <= 0)
+        {
+            return;
+        }
+        
         EquippedIndex[typeIndex] = index;
 
         CalculateStat();
