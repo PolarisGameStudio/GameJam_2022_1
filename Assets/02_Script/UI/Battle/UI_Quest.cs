@@ -13,6 +13,7 @@ public class UI_Quest : MonoBehaviour , GameEventListener<RefreshEvent>
 
     private void Start()
     {
+        this.AddGameEventListening<RefreshEvent>();
         Refresh();
     }
 

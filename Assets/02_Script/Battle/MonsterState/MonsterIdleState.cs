@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterIdleState : NormalState
 {
-   // private AnimationAbility _animationAbility;
+   // // private AnimationAbility _animationAbility;
     private SpriteAnimationAbility _animationAbility;
     private PlayerDetectAbility _playerDetectAbility;
     private MonsterAttackAbility _monsterAttackAbility;
@@ -18,8 +18,8 @@ public class MonsterIdleState : NormalState
         base.Init();
 
         _animationAbility = _owner.GetAbility<SpriteAnimationAbility>();
-        //_playerDetectAbility = _owner.GetAbility<PlayerDetectAbility>();
-        //_monsterAttackAbility = _owner.GetAbility<MonsterAttackAbility>();
+        _playerDetectAbility = _owner.GetAbility<PlayerDetectAbility>();
+        _monsterAttackAbility = _owner.GetAbility<MonsterAttackAbility>();
     }
     
     public override void Enter()
@@ -30,7 +30,7 @@ public class MonsterIdleState : NormalState
         //     return;
         // }
         //
-        // if (_monsterAttackAbility.IsAttackPossible && _owner.IsAlive)
+        // if (_monsterAttackAbility.IsAttackPossible && !_playerDetectAbility.HaveTarget && _owner.IsAlive)
         // {
         //     _owner.GetAbility<FSMAbility>().ChangeState(Enum_MonsterStateType.Attack);
         //     return;
@@ -38,7 +38,7 @@ public class MonsterIdleState : NormalState
         //
         //_animationAbility.PlayAnimation("idle", true);
         
-      //  _animationAbility.PlayMoveAnimation();
+        _animationAbility.PlayMoveAnimation();
     }
 
     public override void LogicUpdate(float deltaTime)
@@ -49,11 +49,17 @@ public class MonsterIdleState : NormalState
         //     return;
         // }
         //
-        // if (_monsterAttackAbility.IsAttackPossible)
-        // {
-        //     _owner.GetAbility<FSMAbility>().ChangeState(Enum_MonsterStateType.Attack);
-        //     return;
-        // }
+        if (_owner.CharacterType != Enum_CharacterType.BossDungeonMonster 
+            && _owner.CharacterType != Enum_CharacterType.StageBossMonster)
+        {
+            return;
+        }
+        
+        if (_monsterAttackAbility.IsAttackPossible && _playerDetectAbility.HaveTarget && _owner.IsAlive)
+        {
+            _owner.GetAbility<FSMAbility>().ChangeState(Enum_MonsterStateType.Attack);
+            return;
+        }
     }
 
     public override void Exit()

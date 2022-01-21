@@ -41,11 +41,6 @@ public class MonsterAttackState : CoroutineState
             yield break;
         }
 
-        var timeScale = 1f;
-        var realTimeScale = 1f;
-
-        var attackSpeed = (float) _owner.Stat[Enum_StatType.AttackSpeed];
-
         var duration = _animationAbility.PlayAttackAnimation();
         
         var waitForHalf = new WaitForSeconds(duration / 2f);

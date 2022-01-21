@@ -39,10 +39,14 @@ public class StateMachine : MonoBehaviour
     {
         if (_enterCoroutine != null && _runEnterCoroutine)
         {
-            StopCoroutine(_innerEnterCoroutine);
             StopCoroutine(_enterCoroutine);
             _enterCoroutine = null;
             _runEnterCoroutine = false;
+        }
+
+        if (_innerEnterCoroutine != null)
+        {
+            StopCoroutine(_innerEnterCoroutine);
         }
         
         _currentState.Exit();

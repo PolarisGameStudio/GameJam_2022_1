@@ -6,32 +6,32 @@ public class PromotionData : StatData
     [SerializeField] private int _currentPromotionIndex;
     public int CurrentPromotionIndex => _currentPromotionIndex;
 
-    [SerializeField] private DiceStatData _diceStatData;
+    [SerializeField] public DiceStatData DiceStatData;
     
     public PromotionData()
     {
-        _diceStatData = new DiceStatData();
+        DiceStatData = new DiceStatData();
     }
 
     public override void ValidCheck()
     {
         base.ValidCheck();
 
-        if (_diceStatData == null)
+        if (DiceStatData == null)
         {
-            _diceStatData = new DiceStatData();
+            DiceStatData = new DiceStatData();
         }
-        _diceStatData.Init(TBL_PROMOTION.CountEntities + 1);
+        DiceStatData.Init(TBL_PROMOTION.CountEntities + 1);
 
         CheckDiceUnlock();
         CalculateStat();
 
-        _currentPromotionIndex = Mathf.Clamp(_currentPromotionIndex, 0, TBL_PROMOTION.CountEntities);
+        _currentPromotionIndex = Mathf.Clamp(_currentPromotionIndex, 0, TBL_PROMOTION.CountEntities - 1);
     }
     
     private void CheckDiceUnlock()
     {
-        _diceStatData.ActiveDiceSlot(_currentPromotionIndex);
+        DiceStatData.ActiveDiceSlot(_currentPromotionIndex + 1);
     }
 
     public void OnClearPromotionBattle(int level)

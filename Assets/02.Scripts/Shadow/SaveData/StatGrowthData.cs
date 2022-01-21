@@ -100,4 +100,15 @@ public class StatGrowthData : StatData
 
         return (level + 1) * type.IncreaseValue;
     }
+
+    public void TryRollback()
+    {
+        for (var i = 0; i < _levels.Count; i++)
+        {
+            _levels[i] = 0;
+        }
+        
+        CalculateStat();
+        CalculateStatPoint();
+    }
 }

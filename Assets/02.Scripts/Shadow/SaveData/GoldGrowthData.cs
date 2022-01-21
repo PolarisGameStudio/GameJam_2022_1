@@ -27,18 +27,25 @@ public class GoldGrowthData : StatData
         CalculateStat();
     }
     
-    public void LevelUp(TBL_UPGRADE_GOLD type)
+    public bool TryLevelUp(TBL_UPGRADE_GOLD type)
     {
         if (!IsEnableLevelUp(type))
         {
-            return;
+            return false;
+        }
+
+        if (DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Gold, GetPrice(type)))
+        {
+            _levels[type.Index]++;
+        
+            DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_LevelUpGoldGrowth);
+
+            CalculateStat();
+
+            return true;
         }
         
-        _levels[type.Index]++;
-        
-        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_LevelUpGoldGrowth);
-
-        CalculateStat();
+        return false;
     }
     
 
@@ -60,6 +67,7 @@ public class GoldGrowthData : StatData
 
         StatEvent.Trigger(Enum_StatEventType.StatChange);
         RefreshEvent.Trigger(Enum_RefreshEventType.GoldGrowth);
+        RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
     }
 
     

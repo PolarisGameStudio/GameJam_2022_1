@@ -20,4 +20,8 @@ public class SkillData : SaveDataBase
         }
 
     }
+
+    public void AddSkillList(List<TBL_SKILL> skillList)
+    {
+    }
 }

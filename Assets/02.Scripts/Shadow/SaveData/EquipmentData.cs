@@ -10,11 +10,12 @@ public class EquipmentData : StatData
 
      public List<int> EquippedIndex = new List<int>() {-1, -1, -1, -1};
 
+
     public override void ValidCheck()
     {
         base.ValidCheck();
 
-        var typeCount = (int) Enum_EquipmentType.Count;
+        var typeCount = TBL_EQUIPMENT.CountEntities;
 
         var saveCount = Levels.Count;
 
@@ -89,6 +90,11 @@ public class EquipmentData : StatData
 
     public void TryEquip(int typeIndex, int index)
     {
+        if (Levels[index] <= 0)
+        {
+            return;
+        }
+        
         EquippedIndex[typeIndex] = index;
 
         CalculateStat();

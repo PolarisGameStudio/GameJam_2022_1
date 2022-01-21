@@ -132,7 +132,7 @@ public class QuestData : SaveDataBase
         _adWatch = false;
         DataManager.CurrencyData.Add(Enum_CurrencyType.Gem, CurrentQuest.RewardCount);
         
-        CurrentQuestIndex = Mathf.Min(CurrentQuestIndex, TBL_QUEST.CountEntities - 1);
+        CurrentQuestIndex = Mathf.Min(CurrentQuestIndex + 1, TBL_QUEST.CountEntities - 1);
         
         return true;
     }

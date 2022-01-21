@@ -35,7 +35,7 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
 
     protected override void Refresh()
     {
-        _txtRemainPoint.text = $"{DataManager.StatGrowthData.RemainPoint}";
+        _txtRemainPoint.text = $"남은 포인트 : {DataManager.StatGrowthData.RemainPoint}";
     }
 
     public void CheckEnableLevelUpSlot()

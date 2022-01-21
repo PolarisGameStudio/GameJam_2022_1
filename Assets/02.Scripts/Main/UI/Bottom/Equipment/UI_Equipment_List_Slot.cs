@@ -16,14 +16,34 @@ public class UI_Equipment_List_Slot : UI_BaseSlot<TBL_EQUIPMENT>
     
     public override void Init(TBL_EQUIPMENT data)
     {
+        _data = data;
         Refresh();
     }
 
     private void Refresh()
     {
-        _imgFrame.sprite = null;
-        _imgIcon.sprite = null;
-        
-        
+        _imgFrame.sprite = AssetManager.Instance.ItemFrameIcon[(int)_data.Grade];
+        _imgIcon.sprite = AssetManager.Instance.EquipmentIcon[_data.Index];
+
+        var level = DataManager.EquipmentData.Levels[_data.Index];
+
+        if (level == 0)
+        {
+            _txtLevel.text = $"";
+        }
+        else
+        {
+            _txtLevel.text = $"+{level}";
+        }
+
+        _txtGrade.text = $"{_data.Star + 1} 등급";
+
+        _sliderGauge.value = DataManager.EquipmentData.Counts[_data.Index] / 5f;
+        _txtAmount.text = $"{DataManager.EquipmentData.Counts[_data.Index]}/5";
+    }
+
+    public void OnClickSlot()
+    {
+        UI_Popup_Equipment.Instance.Open(_data);
     }
 }

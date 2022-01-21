@@ -8,7 +8,7 @@ public class DiceStat
 
     public bool IsLock;
 
-    private bool IsActive = false;
+    public bool IsActive = false;
 
     public void SetActivation(bool isActive)
     {

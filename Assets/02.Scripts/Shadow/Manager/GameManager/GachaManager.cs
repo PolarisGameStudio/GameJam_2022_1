@@ -17,7 +17,7 @@ public class GachaManager : SingletonBehaviour<GachaManager>
         _gachaHandlers = new Dictionary<GachaType, GachaHandler>();
         _gachaHandlers.Add(GachaType.Weapon, new WeaponGachaHandler());
         _gachaHandlers.Add(GachaType.Ring, new RingGachaHandler());
-        //_gachaHandlers.Add(GachaType.Skill, new SkillGachaHandler());
+        _gachaHandlers.Add(GachaType.Skill, new SkillGachaHandler());
         
         _gachaHandlers.Add(GachaType.Dice, new DiceGachaHandler());
         

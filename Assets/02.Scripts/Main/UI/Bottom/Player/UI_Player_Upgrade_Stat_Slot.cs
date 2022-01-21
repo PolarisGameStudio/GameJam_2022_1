@@ -82,4 +82,9 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
             Refresh();
         }
     }
+    
+    public void OnClickStatRollback()
+    {
+        DataManager.StatGrowthData.TryRollback();
+    }
 }

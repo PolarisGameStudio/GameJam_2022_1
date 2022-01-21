@@ -23,6 +23,12 @@ public class KnockbackAbility : CharacterAbility
     private TweenerCore<Vector3, Vector3, VectorOptions> _tweener;
     public void Knockback()
     {
+        if (_onwerObject.CharacterType == Enum_CharacterType.BossDungeonMonster ||
+            _onwerObject.CharacterType == Enum_CharacterType.StageBossMonster)
+        {
+            return;
+        }
+        
         _tweener.Kill();
 
         // 모델 타입인 경우에는 모델만 넉백

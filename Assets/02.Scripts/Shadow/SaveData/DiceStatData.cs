@@ -37,7 +37,7 @@ public class DiceStatData : StatData
     {
         for (var i = 0; i < DiceSlotList.Count; i++)
         {
-            DiceSlotList[i].SetActivation(i > activeCount);
+            DiceSlotList[i].SetActivation(i < activeCount);
         }
     }
 
@@ -77,11 +77,15 @@ public class DiceStatData : StatData
 
     public bool IsEnableRoll()
     {
+        #if UNITY_EDITOR
+        return true;
+        #endif
+        
         return DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Dice, GetRollPrice()) &&
                DiceSlotList.Find(diceStat => !diceStat.IsLock) != null;
     }
 
-    public void TryRoll()
+    public bool TryRoll()
     {
         if (IsEnableRoll())
         {
@@ -99,6 +103,10 @@ public class DiceStatData : StatData
 
                 DiceSlotList[i].InitStat(targetData.Index, addValue);
             }
+
+            return true;
         }
+        
+        return false;
     }
 }
