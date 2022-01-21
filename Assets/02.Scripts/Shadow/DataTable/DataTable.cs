@@ -488,6 +488,39 @@ public partial class TBL_SKILL : BGEntity
 			_Distance[Index] = value;
 		}
 	}
+	public System.Single SubValue
+	{
+		get
+		{
+			return _SubValue[Index];
+		}
+		set
+		{
+			_SubValue[Index] = value;
+		}
+	}
+	public System.Int32 Time
+	{
+		get
+		{
+			return _Time[Index];
+		}
+		set
+		{
+			_Time[Index] = value;
+		}
+	}
+	public Enum_ItemGrade ItemGrade
+	{
+		get
+		{
+			return (Enum_ItemGrade) _ItemGrade[Index];
+		}
+		set
+		{
+			_ItemGrade[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -540,6 +573,33 @@ public partial class TBL_SKILL : BGEntity
 		{
 			if(_ufle12jhs77_Distance==null || _ufle12jhs77_Distance.IsDeleted) _ufle12jhs77_Distance=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5714345102842817747,2024253243253655729));
 			return _ufle12jhs77_Distance;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_SubValue;
+	public static BansheeGz.BGDatabase.BGFieldFloat _SubValue
+	{
+		get
+		{
+			if(_ufle12jhs77_SubValue==null || _ufle12jhs77_SubValue.IsDeleted) _ufle12jhs77_SubValue=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5206824803532726762,14428645699114318006));
+			return _ufle12jhs77_SubValue;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_Time;
+	public static BansheeGz.BGDatabase.BGFieldInt _Time
+	{
+		get
+		{
+			if(_ufle12jhs77_Time==null || _ufle12jhs77_Time.IsDeleted) _ufle12jhs77_Time=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4635391439271035019,14069714938626843536));
+			return _ufle12jhs77_Time;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_ItemGrade;
+	public static BansheeGz.BGDatabase.BGFieldEnum _ItemGrade
+	{
+		get
+		{
+			if(_ufle12jhs77_ItemGrade==null || _ufle12jhs77_ItemGrade.IsDeleted) _ufle12jhs77_ItemGrade=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5506270248972697800,13197890497968910502));
+			return _ufle12jhs77_ItemGrade;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
