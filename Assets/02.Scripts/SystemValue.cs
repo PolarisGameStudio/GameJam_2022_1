@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,4 +32,37 @@ public static class SystemValue
     
     public static int GACHA_SKILL_SMALL_PRICE = 1000;
     public static int GACHA_SKILL_BIG_PRICE = 3000;
+}
+
+public static class ColorValue
+{
+    public static Color GRADE_GREEN_COLOR => new Color(74f / 256, 233f / 256, 24f / 256);
+    public static Color GRADE_BLUE_COLOR => new Color(38f / 256, 129f / 256, 254f / 256);
+    public static Color GRADE_PURPLE_COLOR => new Color(184f / 256, 17f / 256, 255f / 256);
+    public static Color GRADE_RED_COLOR => new Color(234f / 256, 51f / 256, 24f / 256);
+    public static Color GRADE_GOLD_COLOR => new Color(255f / 256, 213f / 256, 39f / 256);
+    public static Color GRADE_SKY_COLOR => new Color(41f / 256, 243f / 256, 255f / 256);
+    public static Color GRADE_PINK_COLOR => new Color(255f / 256, 39f / 256, 177f / 256);
+    
+    public static Color GetColorByGrade(Enum_ItemGrade grade)
+    {
+        switch(grade)
+        {
+            case Enum_ItemGrade.Common:
+                return GRADE_GREEN_COLOR;
+            case Enum_ItemGrade.Uncommon:
+                return GRADE_BLUE_COLOR;
+                
+            case Enum_ItemGrade.Rare:
+                return GRADE_PURPLE_COLOR;
+            case Enum_ItemGrade.Epic:
+                return GRADE_RED_COLOR;
+            case Enum_ItemGrade.Legendary:
+                return GRADE_GOLD_COLOR;
+            case Enum_ItemGrade.Myth:
+                return GRADE_SKY_COLOR;
+        }
+
+        return GRADE_GREEN_COLOR;
+    }
 }

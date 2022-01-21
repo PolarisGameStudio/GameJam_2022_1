@@ -24,14 +24,7 @@ public class UI_Player_Upgrade_Promotion : UI_BaseContent<UI_Player_Upgrade_Prom
             m_SlotList[i].Init(TBL_PROMOTION.GetEntity(i));
         }
     }
-
-    // public void CheckEnableLevelUpSlot()
-    // {
-    //     foreach (var slot in m_SlotList)
-    //     {
-    //         slot.CheckEnableLevelUp();
-    //     }
-    // }
+    
     protected override void Refresh()
     {
         
