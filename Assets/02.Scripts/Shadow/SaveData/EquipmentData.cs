@@ -116,6 +116,8 @@ public class EquipmentData : StatData
         }
         
         EquippedIndex[typeIndex] = index;
+        
+        WeaponEvent.Trigger(Enum_WeaponEventType.Equip);
 
         CalculateStat();
     }
@@ -224,6 +226,12 @@ public class EquipmentData : StatData
         var targetEquipment = typeList.Find(x => x.Grade == targetGrade && x.Star == targetStar);
 
         return targetEquipment;
+    }
+
+    public int GetSkinName(Enum_EquipmentType type)
+    {
+        int index = EquippedIndex[(int) type];
+        return TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(type).FindIndex(x => x.Index == index) + 1;
     }
 }
 

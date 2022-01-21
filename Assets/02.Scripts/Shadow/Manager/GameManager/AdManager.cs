@@ -70,7 +70,18 @@ public class AdManager : SingletonBehaviour<AdManager>
             Debug.LogError("광고 요청 무시");
             m_RewardedAdComplete = rewardedAdComplete;
             RewardedAdCompletedHandler();
+            
+            return true;
         }
+        
+        #if UNITY_EDITOR  
+        Debug.LogError("에디터 광고무시");
+        m_RewardedAdComplete = rewardedAdComplete;
+        RewardedAdCompletedHandler();
+        
+        return true;
+        
+        #endif
         
         if (!admobModule.CheckRewardAdLoaded())
         {

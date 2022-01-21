@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameEventListener<RefreshEvent>
+public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameEventListener<FollowerEvent>,GameEventListener<WeaponEvent>
 {
     private FSMAbility _fsmAbility;
 
@@ -33,9 +33,12 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
         GetAbility<ShadowAbility>().SetSize(GetAbility<AnimationAbility>().Width);
 
         this.AddGameEventListening<StatEvent>();
-        this.AddGameEventListening<RefreshEvent>();
+        this.AddGameEventListening<FollowerEvent>();
+        this.AddGameEventListening<WeaponEvent>();
+        // this.AddGameEventListening<RefreshEvent>();
 
         RefreshFollowers();
+        RefreshWeaponSkin();
 
         CalculateStat();
     }
@@ -125,17 +128,15 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
             CalculateStat();
         }
     }
-  public void OnGameEvent(RefreshEvent e)
-    {
-        if (e.Type == Enum_RefreshEventType.Follower)
-        {
-            RefreshFollowers();
-        }
-    }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///
-    // 동료 제어
+    // 동료
+
+    public void OnGameEvent(FollowerEvent e)
+    {
+        RefreshFollowers();
+    }
 
     private void RefreshFollowers()
     {
@@ -160,5 +161,17 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
             _followers[i].PlayIdleAnimation();
         }
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///
+    //  무기 스킨
+
+    public void OnGameEvent(WeaponEvent e)
+    {
+        RefreshWeaponSkin();
+    } 
     
+    private void RefreshWeaponSkin()
+    {
+        GetAbility<MultiSkinAnimationAbility>().RefreshSkins();
+    }
 }

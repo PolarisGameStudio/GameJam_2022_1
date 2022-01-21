@@ -41,6 +41,12 @@ public class UI_Popup_Equipment : SingletonBehaviour<UI_Popup_Equipment>
         _isGradeToggle = isOn;
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+        gameObject.SetActive(false);
+    }
+
     public void OnNextEquipmentClick()
     {
         if (_data.Index >= TBL_EQUIPMENT.CountEntities - 1)
