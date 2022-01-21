@@ -8,8 +8,10 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
 {
     public Text TxtGemAmount;
     public Text TxtStoneAmount;
+    public Text TxtNickname;
     
     public Text TxtPlayerLevel;
+    public Text TxtPlayerExp;
     public Slider SliderPlayerExp;
 
     private void Awake()
@@ -36,6 +38,7 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
     {
         TxtGemAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Gem).ToPriceString();
         TxtStoneAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.EquipmentStone).ToPriceString();
+        TxtNickname.text = "승급명";
     }
 
     public void OnGameEvent(PlayerEvent e)
@@ -48,8 +51,8 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
 
     private void RefreshPlayer()
     {
-        TxtPlayerLevel.text = $"Lv. {DataManager.PlayerData.Level}";
-        //TxtPlayerExp.text = $"Lv.{DataManager.PlayerData.Level}";
+        TxtPlayerLevel.text = $"Lv. {DataManager.PlayerData.Level + 1}";
+        TxtPlayerExp.text = $"{DataManager.PlayerData.GetExpPercents() * 100:N0}%";
         SliderPlayerExp.value = DataManager.PlayerData.GetExpPercents();
     }
 

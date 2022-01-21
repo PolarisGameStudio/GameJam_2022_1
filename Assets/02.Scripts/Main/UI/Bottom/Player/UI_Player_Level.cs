@@ -32,7 +32,7 @@ public class UI_Player_Level : MonoBehaviour, GameEventListener<PlayerEvent>
 
     private void Refresh()
     {
-        _txtLevel.text = $"Lv.{DataManager.PlayerData.Level}";
+        _txtLevel.text = $"Lv.{DataManager.PlayerData.Level + 1}";
         _txtExp.text =  $"{DataManager.PlayerData.Exp} / {DataManager.PlayerData.GetRequireExp()}";
 
         var expPercent = Mathf.Min(1,DataManager.PlayerData.GetExpPercents());
