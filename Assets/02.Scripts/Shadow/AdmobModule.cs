@@ -12,12 +12,10 @@ public class AdmobModule : MonoBehaviour
     private Action onRewardAdSuccessCallback;
     private Action onRewardAdSkippedCallback;
 
-#if !UNITY_IOS
-    private string adUnitId = "ca-app-pub-1076272347919893/1172881253";
-#elif UNITY_IOS
-    private string adUnitId = "ca-app-pub-1076272347919893/4916800748";
-#endif
 
+
+    //private string adUnitId = "ca-app-pub-1076272347919893/1172881253";
+    private string adUnitId = "ca-app-pub-3940256099942544/5224354917";
 
     private bool isAdComplete;
 
@@ -25,7 +23,7 @@ public class AdmobModule : MonoBehaviour
 
     public void Initialize()
     {
-        MobileAds.Initialize(initStatus => { Debug.Log("애드몹 초기화 완료"); });
+        MobileAds.Initialize(initStatus => { Debug.LogError("애드몹 초기화 완료"); });
 
         onRewardAdSuccessCallback = null;
         onRewardAdSkippedCallback = null;
@@ -50,6 +48,7 @@ public class AdmobModule : MonoBehaviour
         this.rewardedAd.OnAdClosed += HandleOnAdClosed;
 
         this.rewardedAd.OnUserEarnedReward += HandleOnEarnReward;
+        this.rewardedAd.OnAdFailedToLoad += OnAdFailedToLoad;
         
 
         AdRequest request = new AdRequest.Builder()
@@ -57,6 +56,39 @@ public class AdmobModule : MonoBehaviour
         
         // Load the interstitial with the request.
         this.rewardedAd.LoadAd(request);
+    }
+
+    private void OnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+    {
+        LoadAdError loadAdError = args.LoadAdError;
+
+        // Gets the domain from which the error came.
+        string domain = loadAdError.GetDomain();
+        Debug.LogError(domain); 
+
+        // Gets the error code. See
+        // https://developers.google.com/android/reference/com/google/android/gms/ads/AdRequest
+        // and https://developers.google.com/admob/ios/api/reference/Enums/GADErrorCode
+        // for a list of possible codes.
+        int code = loadAdError.GetCode();
+        Debug.LogError(code); 
+
+        // Gets an error message.
+        // For example "Account not approved yet". See
+        // https://support.google.com/admob/answer/9905175 for explanations of
+        // common errors.
+        string message = loadAdError.GetMessage();
+        Debug.LogError(message); 
+
+        // Gets the cause of the error, if available.
+        AdError underlyingError = loadAdError.GetCause();
+
+        // All of this information is available via the error's toString() method.
+        Debug.LogError("Load error string: " + loadAdError.ToString());
+
+        // Get response information, which may include results of mediation requests.
+        ResponseInfo responseInfo = loadAdError.GetResponseInfo();
+        Debug.LogError("Response info: " + responseInfo.ToString());
     }
 
     private void HandleOnEarnReward(object sender, GoogleMobileAds.Api.Reward e)
