@@ -76,7 +76,9 @@ public class DungeonData : SaveDataBase
     public void TryChallenge(Enum_BattleType dungeonBattleType)
     {
         Enum_CurrencyType ticket = Enum_CurrencyType.Count;
+        
         int level = 0;
+        
         switch (dungeonBattleType)
         {
             case Enum_BattleType.TreasureDungeon:

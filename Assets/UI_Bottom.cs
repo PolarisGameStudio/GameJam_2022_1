@@ -12,6 +12,7 @@ public class UI_Bottom : MonoBehaviour
     [SerializeField] private UI_Player _player;
     [SerializeField] private UI_Follower _follower;
     [SerializeField] private UI_Equipment _equipment;
+    [SerializeField] private UI_Dungeon _dungeon;
     [SerializeField] private UI_Shop _shop;
 
 
@@ -26,6 +27,7 @@ public class UI_Bottom : MonoBehaviour
         _player.Close();
         _follower.Close();
         _equipment.Close();
+        _dungeon.Close();
         _shop.Close();
 
         switch (index)
@@ -42,6 +44,7 @@ public class UI_Bottom : MonoBehaviour
             case 3:
                 break;
             case 4:
+                _dungeon.Open();
                 break;
             case 5:
                 _shop.Open();

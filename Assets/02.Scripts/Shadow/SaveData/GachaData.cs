@@ -56,10 +56,10 @@ public class GachaData : SaveDataBase
         {
             case GachaType.Weapon:
             case GachaType.Ring:
-                return TBL_GACHA_EQUIPMENT.GetEntity(level).RequireCount;
+                return TBL_GACHA_EQUIPMENT.GetEntity(level - 1).RequireCount;
 
             case GachaType.Skill:
-                return TBL_GACHA_SKILL.GetEntity(level).RequireCount;
+                return TBL_GACHA_SKILL.GetEntity(level - 1).RequireCount;
         }
 
         return 0;

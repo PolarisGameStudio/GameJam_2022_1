@@ -137,6 +137,7 @@ public class EquipmentData : StatData
 
         AddEquipment(GetNextEquipment(index).Index, gradeUpCount);
 
+        RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_MergeEquipment, gradeUpCount);
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_MergeEquipment, gradeUpCount);
 
@@ -154,6 +155,8 @@ public class EquipmentData : StatData
         {
             Levels[index] += 1;
             CalculateStat();
+            
+            RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
 
             DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_LevelUpEquipment, 1);
             return true;

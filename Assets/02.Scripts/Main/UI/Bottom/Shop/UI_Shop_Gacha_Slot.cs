@@ -25,12 +25,12 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
         _txtLevel.text = $"소환 레벨{DataManager.GachaData.GetGachaLevel(_data.GachaType)}";
 
         var curExp = DataManager.GachaData.GetGachaCount(_data.GachaType);
-        var preRequreExp = DataManager.GachaData.GetPreRequireExp(_data.GachaType);
+        var preRequireExp = DataManager.GachaData.GetPreRequireExp(_data.GachaType);
         var requireExp = DataManager.GachaData.GetNextRequireExp(_data.GachaType);
         
         _txtExp.text = $"{curExp} / {requireExp}";
 
-        _sliderGauge.minValue = preRequreExp;
+        _sliderGauge.minValue = preRequireExp;
         _sliderGauge.maxValue = requireExp;
         _sliderGauge.value = curExp;
 

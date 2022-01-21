@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public enum UIType
 {
+    Popup_Equipment,
     Null
 }
 

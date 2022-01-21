@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Popup_Equipment : SingletonBehaviour<UI_Popup_Equipment>
+public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>
 {
     public UI_Equipment_List_Slot selectEquipmentSlot;
     public UI_Equipment_List_Slot nextEquipmentSlot;
@@ -39,6 +39,7 @@ public class UI_Popup_Equipment : SingletonBehaviour<UI_Popup_Equipment>
     public void Toggle(bool isOn)
     {
         _isGradeToggle = isOn;
+        Init(_data);
     }
 
     protected override void Awake()
@@ -53,8 +54,15 @@ public class UI_Popup_Equipment : SingletonBehaviour<UI_Popup_Equipment>
         {
             return;
         }
+
+        var next = TBL_EQUIPMENT.GetEntity(_data.Index + 1);
+
+        if (next.Type != _data.Type)
+        {
+            return;
+        }
         
-        Init(TBL_EQUIPMENT.GetEntity(_data.Index + 1));
+        Init(next);
     }
 
     public void OnPreEquipmentClick()
@@ -63,8 +71,15 @@ public class UI_Popup_Equipment : SingletonBehaviour<UI_Popup_Equipment>
         {
             return;
         }
+
+        var next = TBL_EQUIPMENT.GetEntity(_data.Index - 1);
+
+        if (next.Type != _data.Type)
+        {
+            return;
+        }
         
-        Init(TBL_EQUIPMENT.GetEntity(_data.Index - 1));
+        Init(next);
     }
 
     public void Open(TBL_EQUIPMENT data)
@@ -130,7 +145,16 @@ public class UI_Popup_Equipment : SingletonBehaviour<UI_Popup_Equipment>
 
     public void InitGradeUpPanel()
     {
-        nextEquipmentSlot.Init(_data);
+        var next = DataManager.EquipmentData.GetNextEquipment(_data.Index);
+        if (next == null)
+        {
+            nextEquipmentSlot.SafeSetActive(false);
+        }
+        else
+        {
+            nextEquipmentSlot.SafeSetActive(true);
+            nextEquipmentSlot.Init(next);
+        }
         _btnGradeUp.interactable = DataManager.EquipmentData.IsEnableGradeUp(_data.Index);
     }
 
@@ -184,5 +208,11 @@ public class UI_Popup_Equipment : SingletonBehaviour<UI_Popup_Equipment>
         _btnLevelUp.interactable = DataManager.EquipmentData.IsEnableLevelUp(_data.Index);
         
         _btnEquip.interactable = DataManager.EquipmentData.Levels[_data.Index] > 0;
+    }
+    
+
+    protected override void Refresh()
+    {
+        throw new System.NotImplementedException();
     }
 }

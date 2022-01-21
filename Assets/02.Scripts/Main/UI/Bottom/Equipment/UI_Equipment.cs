@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Equipment : UI_BaseContent<UI_Equipment, UI_Equipment_List_Slot>
+public class UI_Equipment : UI_BaseContent<UI_Equipment, UI_Equipment_List_Slot>, GameEventListener<RefreshEvent>
 {
     private Enum_EquipmentType _currentEquipmentType;
 
@@ -40,5 +40,13 @@ public class UI_Equipment : UI_BaseContent<UI_Equipment, UI_Equipment_List_Slot>
         _currentEquipmentType = (Enum_EquipmentType) i;
 
         Refresh();
+    }
+
+    public void OnGameEvent(RefreshEvent e)
+    {
+        if (e.Type == Enum_RefreshEventType.Equipment)
+        {
+            Refresh();
+        }
     }
 }
