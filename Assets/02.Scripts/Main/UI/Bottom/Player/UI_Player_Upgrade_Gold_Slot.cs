@@ -41,7 +41,7 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD>, GameEv
 
     private void Refresh()
     {
-        _imgStatIcon.sprite = null;
+        _imgStatIcon.sprite = AssetManager.Instance.StatIcon[(int)_data.StatType];
 
         _txtStatName.text = $"{_data.StatType} Max Lv.{_data.MaxLevel}";
         //_txtStatMaxLevel.text = $"Max Lv.{_data.MaxLevel}";

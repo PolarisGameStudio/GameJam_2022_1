@@ -38,9 +38,8 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
     }
 
     private void Refresh()
-    {
-        _imgStatIcon.sprite = null;
-
+    { 
+        _imgStatIcon.sprite = AssetManager.Instance.StatIcon[(int)_data.StatType];
         _txtStatName.text = $"{_data.StatType} Max Lv.{_data.MaxLevel}";
 
         if (_data.StatType == Enum_StatType.CriticalChance || _data.StatType == Enum_StatType.SuperCriticalChance)

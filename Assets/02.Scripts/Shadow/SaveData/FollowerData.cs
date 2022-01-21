@@ -8,7 +8,7 @@ public class FollowerData : StatData
 
     public List<int> EquippedIndex = new List<int>() {-1, -1, -1, -1};
 
-    public List<DiceStatData> DiceStatList = new List<DiceStatData>();
+    public List<DiceStatData> DiceDatas = new List<DiceStatData>();
 
     public override void ValidCheck()
     {
@@ -29,7 +29,7 @@ public class FollowerData : StatData
 
                 var diceStat = new DiceStatData();
                 diceStat.Init(maxLevel);
-                DiceStatList.Add(diceStat);
+                DiceDatas.Add(diceStat);
             }
         }
 
@@ -60,11 +60,11 @@ public class FollowerData : StatData
         ;
     }
 
-    public void TryLevelUp(int index)
+    public bool TryLevelUp(int index)
     {
-        if (IsEnableLevelUp(index))
+        if (!IsEnableLevelUp(index))
         {
-            return;
+            return false;
         }
 
         var data = TBL_FOLLOWER.GetEntity(index);
@@ -74,6 +74,8 @@ public class FollowerData : StatData
         Levels[index] += 1;
 
         CalculateStat();
+
+        return true;
     }
 
     public void TryEquip(int index, int changeSlotIndex)
@@ -106,9 +108,9 @@ public class FollowerData : StatData
 
     private void CheckDiceUnlock()
     {
-        for (int i = 0; i < DiceStatList.Count; i++)
+        for (int i = 0; i < DiceDatas.Count; i++)
         {
-            DiceStatList[i].ActiveDiceSlot(Levels[i]);
+            DiceDatas[i].ActiveDiceSlot(Levels[i]);
         }
     }
 
@@ -135,4 +137,8 @@ public class FollowerData : StatData
         RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
     }
 
+    public bool TryRoll(int dataIndex)
+    {
+        throw new System.NotImplementedException();
+    }
 }
