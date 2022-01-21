@@ -10,16 +10,12 @@ public class EquipmentData : StatData
 
      public List<int> EquippedIndex = new List<int>() {-1, -1, -1, -1};
 
-     public List<TBL_EQUIPMENT> GetEquipmentListByType(Enum_EquipmentType type)
-     {
-         return TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(type);
-     }
 
     public override void ValidCheck()
     {
         base.ValidCheck();
 
-        var typeCount = (int) Enum_EquipmentType.Count;
+        var typeCount = TBL_EQUIPMENT.CountEntities;
 
         var saveCount = Levels.Count;
 

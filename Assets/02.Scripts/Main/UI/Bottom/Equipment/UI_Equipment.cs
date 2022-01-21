@@ -8,15 +8,11 @@ public class UI_Equipment : UI_BaseContent<UI_Equipment, UI_Equipment_List_Slot>
     private Enum_EquipmentType _currentEquipmentType;
 
     [SerializeField] private List<Toggle> _toggles;
-
-    private void Start()
-    {
-        OnToggleClick(0);
-    }
+    
     protected override void Refresh()
     { 
-        var equipments = DataManager.EquipmentData.GetEquipmentListByType(_currentEquipmentType);
-        
+        var equipments = TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(_currentEquipmentType);
+
         var dataCount = equipments.Count;
         var slotCount = m_SlotList.Count;
 
