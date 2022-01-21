@@ -602,6 +602,15 @@ public partial class TBL_SKILL : BGEntity
 			return _ufle12jhs77_ItemGrade;
 		}
 	}
+	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithGrade;
+	public static BansheeGz.BGDatabase.BGKey _WithGrade
+	{
+		get
+		{
+			if(_edeht3sdad33_WithGrade==null || _edeht3sdad33_WithGrade.IsDeleted) _edeht3sdad33_WithGrade= MetaDefault.GetKey(new BGId(4726563990756152767,9100663477020578185));
+			return _edeht3sdad33_WithGrade;
+		}
+	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
 	private static readonly TBL_MONSTER.Factory _factory1_PFS = new TBL_MONSTER.Factory();
 	private static readonly TBL_SKILL.Factory _factory2_PFS = new TBL_SKILL.Factory();
@@ -676,6 +685,18 @@ public partial class TBL_SKILL : BGEntity
 	public static TBL_SKILL NewEntity()
 	{
 		return (TBL_SKILL) MetaDefault.NewEntity();
+	}
+	public static TBL_SKILL GetEntityByKeyWithGrade(Enum_ItemGrade ItemGrade)
+	{
+		return (TBL_SKILL) _WithGrade.GetEntityByKey(ItemGrade);
+	}
+	public static List<TBL_SKILL> GetEntitiesByKeyWithGrade(Enum_ItemGrade ItemGrade)
+	{
+		var result = _WithGrade.GetEntitiesByKey(ItemGrade);
+		if(result==null || result.Count==0) return null;
+		var list = new List<TBL_SKILL>(result.Count);
+		for(var i = 0 ; i < result.Count ; i++) list.Add((TBL_SKILL) result[i]);
+		return list;
 	}
 }
 
