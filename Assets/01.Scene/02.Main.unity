@@ -417,6 +417,11 @@ Transform:
   m_Father: {fileID: 1876679664}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &622168317 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8925031657192060157, guid: f120dc43e82c01140b62cdb85d9c0309, type: 3}
+  m_PrefabInstance: {fileID: 3830215888325647149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &695065435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1558,7 +1563,31 @@ PrefabInstance:
     - target: {fileID: 3362579548698141451, guid: e2e60f59eac0b42e584872f5bc74a803, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 2071583765}
+      objectReference: {fileID: 622168317}
+    - target: {fileID: 4539733324433101153, guid: e2e60f59eac0b42e584872f5bc74a803, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 822.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539733324433101153, guid: e2e60f59eac0b42e584872f5bc74a803, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 194.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539733324433101153, guid: e2e60f59eac0b42e584872f5bc74a803, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542466578595716850, guid: e2e60f59eac0b42e584872f5bc74a803, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542466578595716850, guid: e2e60f59eac0b42e584872f5bc74a803, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542466578595716850, guid: e2e60f59eac0b42e584872f5bc74a803, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e60f59eac0b42e584872f5bc74a803, type: 3}
 --- !u!224 &2063510906 stripped
@@ -2393,25 +2422,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925031657192060156, guid: f120dc43e82c01140b62cdb85d9c0309, type: 3}
-      propertyPath: CameraTargets.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925031657192060156, guid: f120dc43e82c01140b62cdb85d9c0309, type: 3}
-      propertyPath: CameraTargets.Array.data[0].TargetOffset.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925031657192060156, guid: f120dc43e82c01140b62cdb85d9c0309, type: 3}
       propertyPath: CameraTargets.Array.data[0].TargetTransform
       value: 
       objectReference: {fileID: 168110128}
-    - target: {fileID: 8925031657192060156, guid: f120dc43e82c01140b62cdb85d9c0309, type: 3}
-      propertyPath: CameraTargets.Array.data[0].TargetInfluenceH
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925031657192060156, guid: f120dc43e82c01140b62cdb85d9c0309, type: 3}
-      propertyPath: CameraTargets.Array.data[0].TargetInfluenceV
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8925031657192060158, guid: f120dc43e82c01140b62cdb85d9c0309, type: 3}
       propertyPath: m_Name
       value: BattleCamera

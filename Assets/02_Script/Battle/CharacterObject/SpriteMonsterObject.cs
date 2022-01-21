@@ -91,7 +91,7 @@ public class SpriteMonsterObject : MonsterObject
             return;
         }
 
-        var height = 0;
+        var height = transform.localScale.y * 2f;
         var width = 0;
 
         _damageHit += damage;
