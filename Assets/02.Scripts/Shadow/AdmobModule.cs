@@ -14,8 +14,8 @@ public class AdmobModule : MonoBehaviour
 
 
 
-    //private string adUnitId = "ca-app-pub-1076272347919893/1172881253";
-    private string adUnitId = "ca-app-pub-3940256099942544/5224354917";
+    private string adUnitId = "ca-app-pub-1076272347919893/1172881253";
+    //private string adUnitId = "ca-app-pub-3940256099942544/5224354917";
 
     private bool isAdComplete;
 

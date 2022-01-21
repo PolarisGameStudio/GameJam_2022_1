@@ -22,8 +22,10 @@ public class SpriteAnimationAbility : CharacterAbility
         return 0.8f;
     }
 
-    public void PlayAttackAnimation()
+    public float PlayAttackAnimation()
     {
-        // _animator.Play($"Zombie_Attack");
+         _animator.SetTrigger("Attack");
+
+         return 1f;
     }
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MonsterAttackState : CoroutineState
 {
-    private AnimationAbility _animationAbility;
+    private SpriteAnimationAbility _animationAbility;
     private MonsterAttackAbility _monsterAttackAbility;
     private PlayerDetectAbility _playerDetectAbility;
-
-    private const string AttackAnimationName = "attack";
     
-    private PlayerObject _playerObject;
+    private PlayerObject _playerObject;    
+    private const string DeathAnimationName = "death";
+
     
     public MonsterAttackState(CharacterObject owner, StateMachine stateMachine) : base(owner, stateMachine)
     {
@@ -21,7 +21,7 @@ public class MonsterAttackState : CoroutineState
     {
         base.Init();
 
-        _animationAbility = _owner.GetAbility<AnimationAbility>();
+        _animationAbility = _owner.GetAbility<SpriteAnimationAbility>();
         _monsterAttackAbility = _owner.GetAbility<MonsterAttackAbility>();
         _playerDetectAbility = _owner.GetAbility<PlayerDetectAbility>();
 
@@ -45,19 +45,9 @@ public class MonsterAttackState : CoroutineState
         var realTimeScale = 1f;
 
         var attackSpeed = (float) _owner.Stat[Enum_StatType.AttackSpeed];
-        var duration = _animationAbility.GetDuration(AttackAnimationName, timeScale);
 
-        float diff = (1f / attackSpeed) - duration;
-        if (diff < 0) // 공속이 애니메이션 속도보다 빠르다면 애니메이션 속도를 빠르게한다.
-        {
-            realTimeScale = duration / (1f / attackSpeed);
-            timeScale = Mathf.Min(realTimeScale, _animationAbility.MaxAttackAnimationSpeedScale);
-            
-            duration = _animationAbility.GetDuration(AttackAnimationName, realTimeScale);
-        }
-
-        _animationAbility.PlayAnimation(AttackAnimationName, false, realTimeScale);
-
+        var duration = _animationAbility.PlayAttackAnimation();
+        
         var waitForHalf = new WaitForSeconds(duration / 2f);
 
         yield return waitForHalf;
@@ -66,7 +56,7 @@ public class MonsterAttackState : CoroutineState
 
         yield return waitForHalf;
 
-        _monsterAttackAbility.SetAttackCoolTime(diff < 0 ? 0 : (1f / attackSpeed) - duration);
+        _monsterAttackAbility.SetAttackCoolTime(1f);
 
         _owner.GetAbility<FSMAbility>().ChangeState(Enum_MonsterStateType.Idle);
     }
