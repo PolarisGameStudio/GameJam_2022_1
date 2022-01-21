@@ -81,7 +81,7 @@ public static class RewardManager
             //     break;
 
             case RewardType.Follower:
-                DataManager.FollowerData.AddFoloower(value, count);
+                DataManager.FollowerData.AddFollower(value, count);
                 break;
 
             case RewardType.Costume:

@@ -42,18 +42,13 @@ public class SkillGachaHandler : GachaHandler
 
     public override int GachaByGrade(Enum_ItemGrade grade)
     {
-        // var list = TBL_SKILL.GetEntitiesByKeyWithGrade(grade);
-        // var randomStar = GachaManager.Instance.GetRandomStarCount();
-        //
-        // var filterList = list.FindAll(x => x.Type != Enum_EquipmentType.Ring && x.Star == randomStar);
-        //
-        // int randomIndex = Random.Range(0, filterList.Count);
-        //
-        // var data = filterList[randomIndex];
-        //
-        // return data.Index;
-
-        return 0;
+        var list = TBL_SKILL.GetEntitiesByKeyWithGrade(grade);
+        
+        int randomIndex = Random.Range(0, list.Count);
+        
+        var data = list[randomIndex];
+        
+        return data.Index;
     }
 
     public override List<int> GetGachaResultList(int gachaCount)
@@ -70,14 +65,13 @@ public class SkillGachaHandler : GachaHandler
 
     public override void GachaResultAction(List<int> resultList)
     {
-        List<TBL_SKILL> skillList = new List<TBL_SKILL>();
+        List<int> skillList = new List<int>();
         
         for (int i = 0; i< resultList.Count; i++)
         {
             var result = GachaByGrade((Enum_ItemGrade) resultList[i]);
-            var skill = TBL_EQUIPMENT.GetEntity(0);
             
-            skillList.Add(skill =);
+            skillList.Add(result);
         }
         
         DataManager.SkillData.AddSkillList(skillList);

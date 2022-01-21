@@ -83,8 +83,28 @@ public class EquipmentData : StatData
         }
     }
     
-    public void AddEquipmentList(List<TBL_EQUIPMENT> list)
+    public void AddEquipmentList(List<int> list)
     {
+        for (int i = 0; i < list.Count; i++)
+        {
+            int index = list[i];
+            int count = 1;
+
+            Counts[index] += count;
+
+            if (Levels[index] == 0)
+            {
+                Levels[index] = 1;
+            }
+
+            var typeIndex = (int) TBL_EQUIPMENT.GetEntity(index).Type;
+
+            if (EquippedIndex[typeIndex] == -1)
+            {
+                TryEquip(typeIndex, index);
+            }
+        }
+        
         CalculateStat();
     }
 

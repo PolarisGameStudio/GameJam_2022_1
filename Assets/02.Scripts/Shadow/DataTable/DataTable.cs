@@ -521,6 +521,39 @@ public partial class TBL_SKILL : BGEntity
 			_ItemGrade[Index] = value;
 		}
 	}
+	public System.Int32 UnlockCost
+	{
+		get
+		{
+			return _UnlockCost[Index];
+		}
+		set
+		{
+			_UnlockCost[Index] = value;
+		}
+	}
+	public System.Int32 LevelUpCost
+	{
+		get
+		{
+			return _LevelUpCost[Index];
+		}
+		set
+		{
+			_LevelUpCost[Index] = value;
+		}
+	}
+	public System.Int32 IncreaseCost
+	{
+		get
+		{
+			return _IncreaseCost[Index];
+		}
+		set
+		{
+			_IncreaseCost[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -600,6 +633,33 @@ public partial class TBL_SKILL : BGEntity
 		{
 			if(_ufle12jhs77_ItemGrade==null || _ufle12jhs77_ItemGrade.IsDeleted) _ufle12jhs77_ItemGrade=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5506270248972697800,13197890497968910502));
 			return _ufle12jhs77_ItemGrade;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_UnlockCost;
+	public static BansheeGz.BGDatabase.BGFieldInt _UnlockCost
+	{
+		get
+		{
+			if(_ufle12jhs77_UnlockCost==null || _ufle12jhs77_UnlockCost.IsDeleted) _ufle12jhs77_UnlockCost=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5609547954331427584,9877948512641227650));
+			return _ufle12jhs77_UnlockCost;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_LevelUpCost;
+	public static BansheeGz.BGDatabase.BGFieldInt _LevelUpCost
+	{
+		get
+		{
+			if(_ufle12jhs77_LevelUpCost==null || _ufle12jhs77_LevelUpCost.IsDeleted) _ufle12jhs77_LevelUpCost=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4690378727695504091,13807780207674611871));
+			return _ufle12jhs77_LevelUpCost;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_IncreaseCost;
+	public static BansheeGz.BGDatabase.BGFieldInt _IncreaseCost
+	{
+		get
+		{
+			if(_ufle12jhs77_IncreaseCost==null || _ufle12jhs77_IncreaseCost.IsDeleted) _ufle12jhs77_IncreaseCost=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5601871659401339280,5820943641376042924));
+			return _ufle12jhs77_IncreaseCost;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithGrade;

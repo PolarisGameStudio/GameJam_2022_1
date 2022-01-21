@@ -69,17 +69,16 @@ public class RingGachaHandler : GachaHandler
 
     public override void GachaResultAction(List<int> resultList)
     {
-        List<TBL_EQUIPMENT> equipmentList = new List<TBL_EQUIPMENT>();
+        List<int> indexList = new List<int>();
         
         for (int i = 0; i< resultList.Count; i++)
         {
             var result = GachaByGrade((Enum_ItemGrade) resultList[i]);
-            var equipment = TBL_EQUIPMENT.GetEntity(result);
             
-            equipmentList.Add(equipment);
+            indexList.Add(result);
         }
         
-        DataManager.EquipmentData.AddEquipmentList(equipmentList);
+        DataManager.EquipmentData.AddEquipmentList(indexList);
         
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_GachaEquipment, resultList.Count);
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_GachaEquipment, resultList.Count);

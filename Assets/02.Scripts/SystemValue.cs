@@ -23,6 +23,7 @@ public static class SystemValue
 
     public static int SKILL_DISTANCE_BLOCK_SIZE = 1;
     public static int SKILL_MAX_SLOT_COUNT = 6;
+    public static int SKILL_MAX_LEVEL = 10;
 
     public static int GACHA_EQUIPMENT_SMALL_PRICE = 1000;
     public static int GACHA_EQUIPMENT_BIG_PRICE = 3000;    
