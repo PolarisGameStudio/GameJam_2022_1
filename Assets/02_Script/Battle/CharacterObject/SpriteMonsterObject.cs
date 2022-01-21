@@ -22,7 +22,7 @@ public class SpriteMonsterObject : MonsterObject
         _fsmAbility.Register(Enum_MonsterStateType.Init, new MonsterInitState(this, _fsmAbility.StateMachine));
         _fsmAbility.Register(Enum_MonsterStateType.Idle, new MonsterIdleState(this, _fsmAbility.StateMachine));
         // _fsmAbility.Register(Enum_MonsterStateType.Run,  new MonsterRunState(this, _fsmAbility.StateMachine));
-        //_fsmAbility.Register(Enum_MonsterStateType.Attack, new MonsterAttackState(this, _fsmAbility.StateMachine));
+        _fsmAbility.Register(Enum_MonsterStateType.Attack, new MonsterAttackState(this, _fsmAbility.StateMachine));
         _fsmAbility.Register(Enum_MonsterStateType.Death, new MonsterDeathState(this, _fsmAbility.StateMachine));
 
         _fsmAbility.Initialize(Enum_MonsterStateType.Init);
@@ -39,7 +39,8 @@ public class SpriteMonsterObject : MonsterObject
         _currentHealth = Stat[Enum_StatType.MaxHealth];
 
         // todo: 매직넘버 + 거리 느낌을 주기 의해 들어간건가? 이런 애들때문에 예측 계산이 맞지 않음.
-        Stat[Enum_StatType.DetectRange] += Random.Range(0, 2f);
+        Stat[Enum_StatType.DetectRange] = 2;
+        Stat[Enum_StatType.AttackRange] = 2;
     }
 
     public void Init(Enum_CharacterType characterType, Vector3 initPosition, Monster monster)

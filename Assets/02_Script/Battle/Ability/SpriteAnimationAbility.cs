@@ -28,4 +28,9 @@ public class SpriteAnimationAbility : CharacterAbility
 
          return 1f;
     }
+
+    public void PlayMoveAnimation()
+    {
+        _animator.SetTrigger("Move");
+    }
 }
