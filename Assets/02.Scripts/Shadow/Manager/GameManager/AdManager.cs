@@ -64,8 +64,10 @@ public class AdManager : SingletonBehaviour<AdManager>
 
     public bool TryShowRequest(ADType adType, Action rewardedAdComplete, Action rewardedAdFail = null)
     {
+        Debug.LogError("광고 요청");
         if (DataManager.ShopData.IsAdRemove)
         {
+            Debug.LogError("광고 요청 무시");
             m_RewardedAdComplete = rewardedAdComplete;
             RewardedAdCompletedHandler();
         }

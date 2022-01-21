@@ -11,7 +11,7 @@ public static class Debug
         get { return UnityEngine.Debug.isDebugBuild; }
     }
 
-    [System.Diagnostics.Conditional("UNITY_EDITOR"), System.Diagnostics.Conditional("__DEV")]
+    //[System.Diagnostics.Conditional("UNITY_EDITOR"), System.Diagnostics.Conditional("__DEV")]
     public static void Log(object message)
     {
         UnityEngine.Debug.Log(message);
