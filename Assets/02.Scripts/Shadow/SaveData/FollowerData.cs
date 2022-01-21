@@ -83,7 +83,7 @@ public class FollowerData : StatData
         CalculateStat();
     }
     
-    public void AddFoloower(int rewardValue, int rewardCount)
+    public void AddFollower(int rewardValue, int rewardCount)
     {
         if (Counts.Count < rewardValue)
         {
