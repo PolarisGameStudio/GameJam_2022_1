@@ -60,6 +60,7 @@ public class GoldGrowthData : StatData
 
         StatEvent.Trigger(Enum_StatEventType.StatChange);
         RefreshEvent.Trigger(Enum_RefreshEventType.GoldGrowth);
+        RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
     }
 
     

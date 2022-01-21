@@ -265,9 +265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ceea44bc58e6e743b24b888b45bea0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _txtTitle: {fileID: 0}
-  _txtRewardAmount: {fileID: 0}
-  _objOnClear: {fileID: 0}
+  _txtTitle: {fileID: 6612908097096388071}
+  _txtRewardAmount: {fileID: 7093074510659033260}
+  _objOnClear: {fileID: 688176938437218809}
 --- !u!1 &2224751223747768603
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +574,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8312073241702941803}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1293920247020748454}
+        m_TargetAssemblyTypeName: UI_Quest, Assembly-CSharp
+        m_MethodName: OnClickClaim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5363026303416122643
 GameObject:
   m_ObjectHideFlags: 0
