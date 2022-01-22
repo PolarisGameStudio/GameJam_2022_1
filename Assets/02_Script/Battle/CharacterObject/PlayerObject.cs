@@ -78,7 +78,7 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
         if (!_healthbarObject || !_healthbarObject.isActiveAndEnabled)
         {
             // Todo: 플레이어 캐릭터 적절한 위치
-            _healthbarObject = HealthbarFactory.Instance.Show(this, GetAbility<AnimationAbility>().Height);
+            _healthbarObject = HealthbarFactory.Instance.Show(this, 0);
         }
     }
 

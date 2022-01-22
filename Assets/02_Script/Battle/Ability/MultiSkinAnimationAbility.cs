@@ -9,26 +9,6 @@ using UnityEngine.Serialization;
 public class MultiSkinAnimationAbility : AnimationAbility
 {
     private SkeletonAnimation _animation;
-
-    private float _height;
-    public float Height => _height;
-
-    public float _width;
-    public float Width => _width;
-
-    [Header("공격 애니메이션")]
-    public float MaxAttackAnimationSpeedScale = 5;
-    
-    [Header("이동 애니메이션")]
-    public bool UseMovmentSpeed;
-    public float StartMovementAnimationSpeed = 2f;
-    public float MovementAnimationSpeedFactor = 1.1f;
-    public float MaxMovementAnimationSpeedScale = 3f;
-
-
-    private string _currentAnimationName = string.Empty;
-    private bool _currentAnimationLoop;
-    private float _currentAnimationSpeed;
     
 
     public override void Init()
@@ -36,11 +16,6 @@ public class MultiSkinAnimationAbility : AnimationAbility
         base.Init();
         
         _animation = GetComponentInChildren<SkeletonAnimation>();
-
-        var data = _animation.skeletonDataAsset.GetSkeletonData(false);
-        var scale = _animation.skeletonDataAsset.scale;
-        _height = data.Height * scale;
-        _width = data.Width * scale;
     }
 
     public void RefreshSkins()
@@ -58,16 +33,17 @@ public class MultiSkinAnimationAbility : AnimationAbility
         {
             newSkin.AddSkin(mouthSkin); 
         } 
-        if (leftSkin != null)
-        {
-            newSkin.AddSkin(leftSkin); 
-        }  
         if (rightSkin != null)
         {
             newSkin.AddSkin(rightSkin); 
         }
+        if (leftSkin != null)
+        {
+            newSkin.AddSkin(leftSkin); 
+        }  
         
         _animation.skeleton.SetSkin(newSkin);
+        _animation.skeleton.SetSlotsToSetupPose();
     }
 
 }
