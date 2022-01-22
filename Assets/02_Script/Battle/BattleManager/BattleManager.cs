@@ -116,6 +116,8 @@ public class BattleManager : SingletonBehaviour<BattleManager>
         _currentBattleType = Enum_BattleType.None;
 
         RefreshEvent.Trigger(Enum_RefreshEventType.Battle);
+        
+        DataManager.Instance.Save();
     }
 
     private void CurrentBattleInitAndStart(int level)

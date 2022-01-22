@@ -33,6 +33,8 @@ public static class SystemValue
     
     public static int GACHA_SKILL_SMALL_PRICE = 1000;
     public static int GACHA_SKILL_BIG_PRICE = 3000;
+    
+    public static int MINIMUM_SAVE_PERIOD = 1;
 }
 
 public static class ColorValue

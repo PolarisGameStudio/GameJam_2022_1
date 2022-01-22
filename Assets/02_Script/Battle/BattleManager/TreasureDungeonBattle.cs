@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 {
-    [SerializeField] [Header("캐릭터 시작 위치")] private Transform _startTransform;
-
-    [SerializeField] [Header("카메라 시작 위치")] private Vector3 _startCameraPosition;
-
-    [SerializeField] [Header("웨이브 오프셋(x)")]
-    private float _waveOffsetX;
-
-    [SerializeField] [Header("몬스터 오프셋(x)")]
-    private float _monsterOffestX;
-
     private TBL_DUNGEON_TREASURE _treasureDungeonData;
-
 
     public float RemainTime => _treasureDungeonData.TimeLimit - _timer;
     private float _timer;
@@ -29,8 +18,13 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     private void Update()
     {
+        if (_treasureDungeonData == null)
+        {
+            return;
+        }
+        
         _timer += Time.deltaTime;
-
+        
         if (RemainTime < 0)
         {
             BattleOver();
@@ -55,9 +49,6 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
         DamageFactor = _treasureDungeonData.DamageFactor;
         HealthFactor = _treasureDungeonData.HealthFactor;
-
-        GoldAmount = _treasureDungeonData.GoldAmount;
-        ExpAmount = _treasureDungeonData.ExpAmount;
     }
 
     private void SpawnWaveMonsters()

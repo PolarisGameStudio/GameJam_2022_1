@@ -6,16 +6,7 @@ using Random = UnityEngine.Random;
 
 public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 {
-    [SerializeField] [Header("캐릭터 시작 위치")] private Transform _startTransform;
-
-    [SerializeField] [Header("카메라 시작 위치")] private Vector3 _startCameraPosition;
-
-    [SerializeField] [Header("웨이브 오프셋(x)")]  private float _waveOffsetX;
-    [SerializeField] [Header("몬스터 오프셋(x)")]  private float _monsterOffestX;
-
     private TBL_PROMOTION _promotionBattleData;
-
-    private int waveLevel = 0;
 
     public float StageProcess => waveLevel / (float) _promotionBattleData.WaveCount;
     public string StageTitle => $"승급 {_promotionBattleData.name}";
@@ -33,9 +24,6 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 
         DamageFactor = _promotionBattleData.DamageFactor;
         HealthFactor = _promotionBattleData.HealthFactor;
-
-        GoldAmount = 0;
-        ExpAmount = 0;
     }
 
     protected override void OnBattleInit()

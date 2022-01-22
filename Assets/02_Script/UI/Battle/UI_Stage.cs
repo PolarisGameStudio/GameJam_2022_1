@@ -43,8 +43,6 @@ public class UI_Stage : SingletonBehaviour<UI_Stage> , GameEventListener<Refresh
 
     public void OnClickWorldButton()
     {
-        throw new Exception("UI 없슴");
+        UI_Popup_World.Instance.Open();
     }
-    
-    
 }

@@ -21,7 +21,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
     public Text _txtOwnStatValue3;
 
     public Text _txtPrice;
-    
+
     public Button _btnLevelUp;
     public Button _btnEquip;
     public Button _btnGradeUp;
@@ -41,21 +41,10 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
         Init(_data);
     }
 
-    protected override void Awake()
-    {
-        base.Awake();
-        gameObject.SetActive(false);
-    }
-    
     public void Open(TBL_FOLLOWER data)
     {
-        SafeSetActive(true);
+        base.Open();
         Init(data);
-    }
-
-    public void Close()
-    {
-        SafeSetActive(false);
     }
 
     private void Init(TBL_FOLLOWER data)
@@ -97,9 +86,8 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
         // equipUI 추가
         DataManager.FollowerData.TryEquip(_data.Index, 0);
     }
-    
-    
-    
+
+
     public Text _txtDiceAmount;
     public Text _txtDiceCost;
 
@@ -117,7 +105,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
                 DiceSlotList[i].gameObject.SetActive(false);
                 continue;
             }
-            
+
             DiceSlotList[i].gameObject.SetActive(true);
             DiceSlotList[i].Init(diceStat.DiceSlotList[i]);
         }
@@ -125,34 +113,38 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
         _txtDiceAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Dice).ToCurrencyString();
         _txtDiceCost.text = diceStat.GetRollPrice().ToString();
     }
-    
+
     public void TryRoll()
     {
         if (DataManager.FollowerData.TryRoll(_data.Index))
         {
-            Refresh();
+            InitDicePanel();
         }
+    }
+
+    protected override void Refresh()
+    {
     }
 
     public void InitLevelUpPanel()
     {
         var level = DataManager.EquipmentData.Levels[_data.Index];
-        //
-        // _txtEquipStat.text = $"{_data.Stat}";
-        // _txtEquipStatValue.text =
-        //     $"{_data.OnEquipVaue + _data.OnEquipIncreaseValue * (level - 1)} -> {_data.OnEquipVaue + _data.OnEquipIncreaseValue * (level)}";
-        //
-        // if (_data.OnOwnValue1 == 0)
-        // {
-        //     _txtOwnStat1.text = "";
-        //     _txtOwnStatValue1.text = "";
-        // }
-        // else
-        // {
-        //     _txtOwnStat1.text = $"{_data.OnOwnStat1}";
-        //     _txtOwnStatValue1.text =
-        //         $"{_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level - 1)} -> {_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level)}";
-        // }
+
+        _txtEquipStat.text = $"{_data.StatType1}";
+        _txtEquipStatValue.text =
+            $"{_data.DefaultValue1 + _data.IncreaseValue1 * (level - 1)} -> {_data.DefaultValue1 + _data.IncreaseValue1 * (level)}";
+
+        if (_data.DefaultValue2 == 0)
+        {
+            _txtOwnStat1.text = "";
+            _txtOwnStatValue1.text = "";
+        }
+        else
+        {
+            _txtOwnStat1.text = $"{_data.StatType2}";
+            _txtOwnStatValue1.text =
+                $"{_data.DefaultValue2 + _data.IncreaseValue2 * (level - 1)} -> {_data.DefaultValue2 + _data.IncreaseValue2 * (level)}";
+        }
         //
         // if (_data.OnOwnValue2 == 0)
         // {
@@ -177,18 +169,11 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
         //     _txtOwnStatValue3.text =
         //         $"{_data.OnOwnValue3 + _data.OnOwnIncreaseValue3 * (level - 1)} -> {_data.OnOwnValue3 + _data.OnOwnIncreaseValue3 * (level)}";
         // }
-
-        var price = DataManager.FollowerData.GetLevelUpCost(_data.Index);
         
-        _txtPrice.text = price.ToString();
+        _txtPrice.text = $"({DataManager.FollowerData.Counts[_data.Index]}/{DataManager.FollowerData.GetLevelUpCost(_data.Index)})";
         _btnLevelUp.interactable = DataManager.EquipmentData.IsEnableLevelUp(_data.Index);
-        
+
         _btnEquip.interactable = DataManager.EquipmentData.Levels[_data.Index] > 0;
     }
-    
 
-    protected override void Refresh()
-    {
-        throw new System.NotImplementedException();
-    }
 }

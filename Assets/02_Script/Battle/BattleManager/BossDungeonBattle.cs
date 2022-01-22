@@ -5,18 +5,7 @@ using UnityEngine;
 
 public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 {
-    [SerializeField] [Header("캐릭터 시작 위치")] private Transform _startTransform;
-
-    [SerializeField] [Header("카메라 시작 위치")] private Vector3 _startCameraPosition;
-
-    [SerializeField] [Header("웨이브 오프셋(x)")]
-    private float _waveOffsetX;
-
-    [SerializeField] [Header("몬스터 오프셋(x)")]
-    private float _monsterOffestX;
-
     private TBL_DUNGEON_BOSS _bossDungeonData;
-    
     public float RemainTime => _bossDungeonData.TimeLimit - _timer;
     private float _timer;
 
@@ -27,7 +16,11 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     private void Update()
     {
-        _timer += Time.deltaTime;
+        if (_bossDungeonData == null)
+        {
+            return;
+        }
+        _timer += Time.deltaTime;      
 
         if (RemainTime < 0)
         {
@@ -51,10 +44,8 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
     {
         _bossDungeonData = TBL_DUNGEON_BOSS.GetEntity(_level);
 
-        DamageFactor = _bossDungeonData.DamageFactor * 10;
-        HealthFactor = _bossDungeonData.HealthFactor * 10;
-        GoldAmount = 0;
-        ExpAmount = 0;
+        DamageFactor = _bossDungeonData.DamageFactor;
+        HealthFactor = _bossDungeonData.HealthFactor;
     }
 
     private void SpawnBossMonster()

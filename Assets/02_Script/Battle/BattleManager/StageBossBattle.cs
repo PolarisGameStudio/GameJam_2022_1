@@ -6,13 +6,6 @@ using Random = UnityEngine.Random;
 
 public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
 {
-    [SerializeField] [Header("캐릭터 시작 위치")] private Transform _startTransform;
-
-    [SerializeField] [Header("카메라 시작 위치")] private Vector3 _startCameraPosition;
-
-    [SerializeField] [Header("웨이브 오프셋(x)")]  private float _waveOffsetX;
-    [SerializeField] [Header("몬스터 오프셋(x)")]  private float _monsterOffestX;
-
     private TBL_STAGE _stageData;
 
 
@@ -29,8 +22,6 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
 
         DamageFactor = _stageData.DamageFactor * 10;
         HealthFactor = _stageData.HealthFactor * 10;
-        GoldAmount = _stageData.Gold * 10;
-        ExpAmount = _stageData.Exp * 10;
     }
 
     protected override void OnBattleInit()
@@ -83,16 +74,26 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
         var goldMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Gold) ? 2 : 1;
         var expMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Exp) ? 2 : 1;
 
-        DataManager.CurrencyData.Add(Enum_CurrencyType.Gold,
-            BattleManager.Instance.CurrentBattle.GoldAmount * goldMultiply);
-        DataManager.PlayerData.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount * expMultiply);
+        DataManager.CurrencyData.Add(Enum_CurrencyType.Gold, _stageData.Gold * goldMultiply * 10);
+        DataManager.PlayerData.AddExp(_stageData.Exp * expMultiply * 10);
         
-
-        if (UtilCode.GetChance(10))
+        if (UtilCode.GetChance(_stageData.UpgradeStonePercent))
         {
-            DataManager.CurrencyData.Add(Enum_CurrencyType.EquipmentStone,
-                BattleManager.Instance.CurrentBattle.StoneAmount);
+            DataManager.CurrencyData.Add(Enum_CurrencyType.EquipmentStone, _stageData.UpgradeStone);
         }
+        
+        if (UtilCode.GetChance(_stageData.EquipmentPercent))
+        {
+            int random = Random.Range(0, (int) Enum_EquipmentType.Count);
+            Enum_EquipmentType equipmentType = (Enum_EquipmentType) random;
+
+            GachaType gachaType = equipmentType == Enum_EquipmentType.Ring ? GachaType.Ring : GachaType.Weapon;
+
+            var equipmentIndex = GachaManager.Instance.GachaByGrade(gachaType, _stageData.EquipmentGrade);
+
+            DataManager.EquipmentData.AddEquipment(equipmentIndex, 1);
+        }
+
         //아이템 로그 여기서 찍기
     }
 

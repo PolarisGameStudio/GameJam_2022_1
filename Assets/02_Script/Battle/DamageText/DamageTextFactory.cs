@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageTextFactory : ObjectPool<DamageTextFactory, DamageText>
+public class DamageTextFactory : ObjectMultiPool<DamageTextFactory, DamageText>
 {
     private bool _useRandomPosition = true;
     public void ToggleRandomPosition(bool isOn)
@@ -13,13 +13,13 @@ public class DamageTextFactory : ObjectPool<DamageTextFactory, DamageText>
     
     public void Show(Vector3 startPosition, float height, float width ,double damage, Enum_DamageType damageType)
     {
-        var pooledDamageText = GetPooledObject();
+        var pooledDamageText = GetPooledObject( x=>x.Type == damageType);
 
         if (pooledDamageText == null)
         {
             return;
         }
         
-        pooledDamageText.Show(startPosition, height, width, damage, damageType, _useRandomPosition);
+        pooledDamageText.Show(startPosition, height, width, damage, damageType, true);
     }
 }

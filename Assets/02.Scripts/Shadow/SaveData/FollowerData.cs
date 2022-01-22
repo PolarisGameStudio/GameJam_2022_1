@@ -57,8 +57,7 @@ public class FollowerData : StatData
         var level = Levels[index];
 
         return level == 0 ? data.UnlockCost : data.LevelUpCost + data.IncreaseCost * (level - 1);
-        ;
-    }
+    } 
 
     public bool TryLevelUp(int index)
     {

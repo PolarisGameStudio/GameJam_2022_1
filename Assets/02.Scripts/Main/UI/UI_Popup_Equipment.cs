@@ -84,13 +84,8 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>
 
     public void Open(TBL_EQUIPMENT data)
     {
-        SafeSetActive(true);
+        base.Open();
         Init(data);
-    }
-
-    public void Close()
-    {
-        SafeSetActive(false);
     }
 
     private void Init(TBL_EQUIPMENT data)

@@ -69,14 +69,27 @@ public class PlayerAttackAbility : CharacterAbility
 
     public Damage GetDamage()
     {
-        var isCritical = IsCritical();
-        var damageType = isCritical ? Enum_DamageType.Critical : Enum_DamageType.Normal;
+        Enum_DamageType damageType = Enum_DamageType.Normal;
+        var isSuperCritical = IsSuperCritical();
         
-       
+        if (isSuperCritical)
+        {
+            damageType = Enum_DamageType.SuperCritical;
+        }
+        else
+        {
+            var isCritical = IsCritical();
+            damageType = isCritical ? Enum_DamageType.Critical : Enum_DamageType.Normal;
+        }
+        
 
         var value = 0d;
         
-        if (damageType == Enum_DamageType.Critical)
+        if (damageType == Enum_DamageType.SuperCritical)
+        {
+            value = GetSuperCriticalDamage();
+        }
+        else if (damageType == Enum_DamageType.Critical)
         {
             value = GetCriticalDamage();
         }
@@ -94,7 +107,14 @@ public class PlayerAttackAbility : CharacterAbility
 
     public bool IsCritical()
     {
-        return Random.Range(0, 1000f) <= _onwerObject.Stat[Enum_StatType.CriticalChance] * 1000;
+        return Random.Range(0, 100f) <= 50;
+        return Random.Range(0, 100f) <= _onwerObject.Stat[Enum_StatType.CriticalChance];
+    }
+
+    public bool IsSuperCritical()
+    {
+        return Random.Range(0, 100f) <= 30;
+        return Random.Range(0, 100f) <= _onwerObject.Stat[Enum_StatType.SuperCriticalChance];
     }
 
 
@@ -105,7 +125,12 @@ public class PlayerAttackAbility : CharacterAbility
 
     public double GetCriticalDamage()
     {
-        return _onwerObject.Stat[Enum_StatType.CriticalDamage];//GetNormalDamage() * _onwerObject.StatChange[Enum_StatType.CriticalDamage] / 100f;
+        return GetNormalDamage() * _onwerObject.Stat[Enum_StatType.CriticalDamage] / 100f;
+    }
+    
+    public double GetSuperCriticalDamage()
+    {
+        return GetNormalDamage() * _onwerObject.Stat[Enum_StatType.SuperCriticalDamage] / 100f;
     }
 
     public void SetAttackCoolTime(float time)

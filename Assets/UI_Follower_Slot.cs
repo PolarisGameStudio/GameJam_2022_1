@@ -30,7 +30,6 @@ public class UI_Follower_Slot : UI_BaseSlot<TBL_FOLLOWER>
         }
 
         _imgIcon.enabled = true;
-
         _imgIcon.sprite = AssetManager.Instance.FollowerIcon[_data.Index];
 
         var level = DataManager.FollowerData.Levels[_data.Index];
@@ -38,10 +37,12 @@ public class UI_Follower_Slot : UI_BaseSlot<TBL_FOLLOWER>
         if (level == 0)
         {
             _txtLevel.text = $"";
+            _imgIcon.color = Color.black;
         }
         else
         {
             _txtLevel.text = $"{level}등급";
+            _imgIcon.color = Color.white;
         }
 
         _sliderGauge.gameObject.SetActive(true);
@@ -56,5 +57,6 @@ public class UI_Follower_Slot : UI_BaseSlot<TBL_FOLLOWER>
 
     public void OnClickSlot()
     {
+        UI_Popup_Follower.Instance.Open(_data);
     }
 }

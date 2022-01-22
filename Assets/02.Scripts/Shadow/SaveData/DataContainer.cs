@@ -153,7 +153,7 @@ public class DataContainer
 
     public double GetCriticalDamage()
     {
-        return GoldGrowthData.Stat[Enum_StatType.CriticalDamage];
+        return  PlayerData.Stat[Enum_StatType.CriticalDamage] +GoldGrowthData.Stat[Enum_StatType.CriticalDamage];
     }
 
     public double GetMovementSpeed()
@@ -173,6 +173,6 @@ public class DataContainer
 
     public double GetSuperCriticalDamage()
     {
-        return GoldGrowthData.Stat[Enum_StatType.SuperCriticalDamage];
+        return PlayerData.Stat[Enum_StatType.SuperCriticalDamage] + GoldGrowthData.Stat[Enum_StatType.SuperCriticalDamage];
     }
 }

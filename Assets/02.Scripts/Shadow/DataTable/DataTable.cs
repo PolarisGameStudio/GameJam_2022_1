@@ -5726,6 +5726,15 @@ public partial class TBL_STAGE : BGEntity
 			return _ufle12jhs77_EquipmentPerMin;
 		}
 	}
+	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithWorld;
+	public static BansheeGz.BGDatabase.BGKey _WithWorld
+	{
+		get
+		{
+			if(_edeht3sdad33_WithWorld==null || _edeht3sdad33_WithWorld.IsDeleted) _edeht3sdad33_WithWorld= MetaDefault.GetKey(new BGId(5685349806839517060,7540872830342219446));
+			return _edeht3sdad33_WithWorld;
+		}
+	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
 	private static readonly TBL_MONSTER.Factory _factory1_PFS = new TBL_MONSTER.Factory();
 	private static readonly TBL_SKILL.Factory _factory2_PFS = new TBL_SKILL.Factory();
@@ -5800,6 +5809,18 @@ public partial class TBL_STAGE : BGEntity
 	public static TBL_STAGE NewEntity()
 	{
 		return (TBL_STAGE) MetaDefault.NewEntity();
+	}
+	public static TBL_STAGE GetEntityByKeyWithWorld(TBL_WORLD World)
+	{
+		return (TBL_STAGE) _WithWorld.GetEntityByKey(World);
+	}
+	public static List<TBL_STAGE> GetEntitiesByKeyWithWorld(TBL_WORLD World)
+	{
+		var result = _WithWorld.GetEntitiesByKey(World);
+		if(result==null || result.Count==0) return null;
+		var list = new List<TBL_STAGE>(result.Count);
+		for(var i = 0 ; i < result.Count ; i++) list.Add((TBL_STAGE) result[i]);
+		return list;
 	}
 }
 

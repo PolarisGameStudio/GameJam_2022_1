@@ -12,6 +12,7 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
     {
         InitSlot();
 
+        this.AddGameEventListening<RefreshEvent>();
         this.AddGameEventListening<PlayerEvent>();
     }
 

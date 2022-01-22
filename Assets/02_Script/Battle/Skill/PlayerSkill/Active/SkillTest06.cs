@@ -33,8 +33,7 @@ public class SkillTest06 : PlayerActiveSkill
                 {
                     continue;
                 }
-
-                targets[j].TryTakeHit(damage / _hitCount, Enum_DamageType.Skill06);
+                
             }
 
             yield return interval;

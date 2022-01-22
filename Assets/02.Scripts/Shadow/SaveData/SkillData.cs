@@ -11,14 +11,14 @@ public class SkillData : SaveDataBase
     {
         base.ValidCheck();
 
-        int maximumslotCount = SystemValue.SKILL_MAX_SLOT_COUNT;
+        int maximumSlotCount = SystemValue.SKILL_MAX_SLOT_COUNT;
         int saveSlotCount = EquippedIndex.Count;
 
-        if (maximumslotCount > saveSlotCount)
+        if (maximumSlotCount > saveSlotCount)
         {
-            for (int i = saveSlotCount; i < maximumslotCount; i++)
+            for (int i = saveSlotCount; i < maximumSlotCount; i++)
             {
-                EquippedIndex.Add(0);
+                EquippedIndex.Add(-1);
             }
         }
 
@@ -29,7 +29,8 @@ public class SkillData : SaveDataBase
         {
             for (int i = saveCount; i < skillCount; i++)
             {
-                EquippedIndex.Add(0);
+                Levels.Add(0);
+                Counts.Add(0);
             }
         }
     }

@@ -6,18 +6,8 @@ using Random = UnityEngine.Random;
 
 public class StageBattle : Battle, GameEventListener<MonsterEvent>
 {
-    [SerializeField] [Header("캐릭터 시작 위치")] private Transform _startTransform;
-
-    [SerializeField] [Header("카메라 시작 위치")] private Vector3 _startCameraPosition;
-
-    [SerializeField] [Header("웨이브 오프셋(x)")]  private float _waveOffsetX;
-    [SerializeField] [Header("몬스터 오프셋(x)")]  private float _monsterOffestX;
-
     private TBL_STAGE _stageData;
-
-
-    private int waveLevel = 0;
-
+    
     public float StageProcess => waveLevel / (float) _stageData.WaveCount;
     public string StageTitle => $"{_stageData.World.name} {_stageData.Index % 20 + 1}";
 
@@ -34,8 +24,6 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
         DamageFactor = _stageData.DamageFactor;
         HealthFactor = _stageData.HealthFactor;
-        GoldAmount = _stageData.Gold;
-        ExpAmount = _stageData.Exp;
     }
 
     protected override void OnBattleInit()
@@ -101,8 +89,7 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
         
         if (UtilCode.GetChance(_stageData.UpgradeStonePercent))
         {
-            DataManager.CurrencyData.Add(Enum_CurrencyType.EquipmentStone,
-                BattleManager.Instance.CurrentBattle.StoneAmount);
+            DataManager.CurrencyData.Add(Enum_CurrencyType.EquipmentStone, _stageData.UpgradeStone);
         }
         
         if (UtilCode.GetChance(_stageData.EquipmentPercent))

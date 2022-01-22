@@ -9,6 +9,10 @@ using UnityEngine.SceneManagement;
 public enum UIType
 {
     Popup_Equipment,
+    Popup_Follower,
+    Popup_World,
+    Popup_Dungeon,
+    Popup_Skill,
     Null
 }
 
@@ -31,7 +35,7 @@ public class UIManager : SingletonBehaviour<UIManager>
 
         m_Stack.Push(uiType);
 
-        SoundManager.Instance.PlayPopupOpen();
+      // SoundManager.Instance.PlayPopupOpen();
     }
 
     public void SetBackButtonEnable(bool enable)
@@ -53,7 +57,7 @@ public class UIManager : SingletonBehaviour<UIManager>
             // todo: 삭제 예정
             Debug.LogWarning(string.Format("[X] 현재: {0}, 시도: {1}", currentType, uiType));
         }
-        SoundManager.Instance.PlayPopupClose();
+    //    SoundManager.Instance.PlayPopupClose();
 
         m_Stack.Pop();
     }

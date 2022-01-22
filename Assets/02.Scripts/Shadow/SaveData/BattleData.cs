@@ -18,4 +18,15 @@ public class StageData : SaveDataBase
             HighestStageLevel = StageLevel;
         }
     }
+
+    public void TryStartStage(int index)
+    {
+        if (HighestStageLevel < index)
+        {
+            return;
+        }
+        
+        StageLevel = index;
+        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, StageLevel);
+    }
 }

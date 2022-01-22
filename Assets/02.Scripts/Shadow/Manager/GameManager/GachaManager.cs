@@ -20,14 +20,6 @@ public class GachaManager : SingletonBehaviour<GachaManager>
         _gachaHandlers.Add(GachaType.Skill, new SkillGachaHandler());
         
         _gachaHandlers.Add(GachaType.Dice, new DiceGachaHandler());
-        
-        // _artifactGacha = new Dictionary<GachaType, GachaHandler<int>>();
-        //
-        // _skillGacha = new Dictionary<GachaType, GachaHandler<int>>();
-        // _skillGacha.Add(GachaType.SkillSmall, new SkillSmallGachaHandler());
-        // _skillGacha.Add(GachaType.SkillBig, new SkillBigGachaHandler());
-        //
-        //
     }
 
     public List<int> Gacha(GachaType type, int count = 1)
@@ -40,7 +32,11 @@ public class GachaManager : SingletonBehaviour<GachaManager>
 
         DataManager.GachaData.AddGachaCount(type, count);
 
-        return _gachaHandlers[type].Gacha(count);
+        var list = _gachaHandlers[type].Gacha(count);
+
+        DataManager.Instance.Save();
+
+        return list;
     }
 
     public int GachaByGrade(GachaType type, Enum_ItemGrade grade)

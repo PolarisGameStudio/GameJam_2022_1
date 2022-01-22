@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class DamageText : GameBehaviour
+public class DamageText : MultiPoolItem
 {
-    [SerializeField] private string _animationName;
     [SerializeField] private Animator _animator;
     [SerializeField] private Text _damageText;
+    public Enum_DamageType Type;
 
     private void Awake()
     {
@@ -18,11 +18,6 @@ public class DamageText : GameBehaviour
 
     private void InitComponent()
     {
-        if (string.IsNullOrEmpty(_animationName))
-        {
-            Debug.LogError("DamageText.prefab의 애니메이션 이름이 비어있습니다. (채워주세요.)");
-        }
-
         if (!_animator)
         {
             _animator = GetComponent<Animator>();
@@ -60,34 +55,7 @@ public class DamageText : GameBehaviour
 
         _damageText.text = damage.ToDamageString();
 
-        SetAnimationName(damageType);
-
         SafeSetActive(true);
-
-        _animator.Play(_animationName, -1, 0f);
-    }
-
-    //todo: 프로토타입용 임시
-    private void SetAnimationName(Enum_DamageType damageType)
-    {
-        switch (damageType)
-        {
-            case Enum_DamageType.Normal:
-                _animationName = "NormalDamageTextAnim";
-                break;
-            case Enum_DamageType.Critical:
-                _animationName = "NormalDamageTextAnim";
-                break;
-            case Enum_DamageType.BerserkNormal:
-                _animationName = "BerserkNormalDamageTextAnim";
-                break;
-            case Enum_DamageType.BerserkCritical:
-                _animationName = "BerserkNormalDamageTextAnim";
-                break;
-            case Enum_DamageType.Random:
-                _animationName = "NormalDamageTextAnim";
-                break;
-        }
     }
 
     public void Hide()

@@ -34,5 +34,6 @@ public abstract class UI_BasePopup<T> : SingletonBehaviour<T> where T:  GameBeha
     public virtual void Close()
     {
         UIManager.Instance.Pop(UIType);
+        SafeSetActive(false);
     }
 }

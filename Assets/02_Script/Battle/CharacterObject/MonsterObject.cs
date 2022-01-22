@@ -121,9 +121,9 @@ public class MonsterObject : CharacterObject
             _fsmAbility.ChangeState(Enum_MonsterStateType.Death);
         }
 
-
-        DataManager.CurrencyData.Add(Enum_CurrencyType.Gold, BattleManager.Instance.CurrentBattle.GoldAmount);
-        DataManager.PlayerData.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount);
+        //
+        // DataManager.CurrencyData.Add(Enum_CurrencyType.Gold, BattleManager.Instance.CurrentBattle.GoldAmount);
+        // DataManager.PlayerData.AddExp(BattleManager.Instance.CurrentBattle.ExpAmount);
 
         switch (_characterType)
         {

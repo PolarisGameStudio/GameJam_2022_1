@@ -29,6 +29,8 @@ public class DataManager : SingletonBehaviour<DataManager>, GameEventListener<St
 
     public bool IsReady { get; set; }
 
+    private float _saveTimer = 0;
+
 
     protected override void Awake()
     {
@@ -46,9 +48,20 @@ public class DataManager : SingletonBehaviour<DataManager>, GameEventListener<St
 
     private const string saveKey = "UserData";
 
-    public void Save()
+    private void Update()
     {
-        //ES3.Save(saveKey, _container);
+        _saveTimer += Time.unscaledTime;
+    }
+
+    public void Save(bool force = false)
+    {
+        if ( !force && (!IsReady || _saveTimer <= SystemValue.MINIMUM_SAVE_PERIOD))
+        {
+            return;
+        }
+        
+        ES3.Save(saveKey, _container);
+        _saveTimer = 0;
     }
 
     public void Load()

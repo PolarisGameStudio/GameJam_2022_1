@@ -96,6 +96,11 @@ public class PlayerSkillAbility : CharacterAbility
 
     public void HideSkills()
     {
+        if (_activeSkills != null)
+        {
+            return;
+        }
+
         foreach (var activeSkill in _activeSkills)
         {
             activeSkill.Hide();

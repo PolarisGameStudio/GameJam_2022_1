@@ -46,6 +46,7 @@ public class SpriteMonsterObject : MonsterObject
     public void Init(Enum_CharacterType characterType, Vector3 initPosition, Monster monster)
     {
         // _monster = MonsterManager.Instance.GetMonster(monsterIndex);
+        
         _monster = monster;
 
         _characterType = characterType;
@@ -55,9 +56,11 @@ public class SpriteMonsterObject : MonsterObject
 
         base.Init(characterType);
 
+        Model.transform.localPosition = new Vector3(0, 0, Random.Range(1f,5f));
+
         InitScale();
 
-        transform.position = initPosition;
+        transform.position = initPosition + Vector3.right * Random.Range(-0.1f,0.1f);
 
         InitAbilities();
 
@@ -73,11 +76,11 @@ public class SpriteMonsterObject : MonsterObject
         switch (CharacterType)
         {
             case Enum_CharacterType.StageNormalMonster:
-                Model.localScale = new Vector3(1f, 1f, 1f);
+                Model.localScale = new Vector3(0.5f, 0.5f, 1f);
                 break;
 
             case Enum_CharacterType.StageBossMonster:
-                Model.localScale = new Vector3(2f, 2f, 1);
+                Model.localScale = new Vector3(1.5f, 1.5f, 1);
                 break;
         }
     }

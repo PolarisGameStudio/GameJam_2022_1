@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
 {
-    [SerializeField] [Header("캐릭터 시작 위치")] private Transform _startTransform;
-
-    [SerializeField] [Header("카메라 시작 위치")] private Vector3 _startCameraPosition;
-
-    [SerializeField] [Header("웨이브 오프셋(x)")] private float _waveOffsetX;
-
-    [SerializeField] [Header("몬스터 오프셋(x)")] private float _monsterOffestX;
-
     private TBL_DUNGEON_SMITH _smithDungeonData;
-    
-    private int waveLevel = 0;
     
 
     private void Awake()
@@ -29,9 +19,7 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
         _smithDungeonData = TBL_DUNGEON_SMITH.GetEntity(_level);
 
         DamageFactor = _smithDungeonData.DamageFactor;
-        HealthFactor = _smithDungeonData.HealthFactor;
-        GoldAmount = 0;
-        ExpAmount = 0;
+        HealthFactor = _smithDungeonData.HealthFactor; 
     }
 
     protected override void OnBattleInit()

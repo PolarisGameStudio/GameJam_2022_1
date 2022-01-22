@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ public abstract class Battle : MonoBehaviour
 {
     [SerializeField] [Header("전투 타입")] protected Enum_BattleType _battleType;
     public Enum_BattleType BattleType => _battleType;
+    
+    [SerializeField] [Header("캐릭터 시작 위치")] protected Transform _startTransform;
+
+    [SerializeField] [Header("카메라 시작 위치")] protected Vector3 _startCameraPosition;
 
     protected int _level;
     public int Level => _level;
@@ -13,11 +18,14 @@ public abstract class Battle : MonoBehaviour
     protected List<CharacterObject> _monsterObjects = new List<CharacterObject>(3);
     public List<CharacterObject> MonsterObjects => _monsterObjects;
 
-    public double DamageFactor;
-    public double HealthFactor;
-    public double GoldAmount;
-    public double ExpAmount;
-    public double StoneAmount;
+    [SerializeField] [Header("웨이브 오프셋(x)")]  protected float _waveOffsetX = 10;
+    [SerializeField] [Header("몬스터 오프셋(x)")]  protected float _monsterOffestX = 0.3f;
+    
+    protected int waveLevel = 0;
+
+
+    [NonSerialized] public double DamageFactor;
+    [NonSerialized] public double HealthFactor;
 
     protected PlayerObject _player;
 
