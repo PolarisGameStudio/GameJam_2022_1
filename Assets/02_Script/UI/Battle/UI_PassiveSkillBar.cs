@@ -21,19 +21,19 @@ public class UI_PassiveSkillBar : MonoBehaviour
 
     private void RefreshSkillBarIcons()
     {
-        var skillIndexList = PlayerSkillManager.Instance.EquippedPassiveSkillIndex;
-
-        if (skillIndexList.Count > _skillBarIcons.Count)
-        {
-            Debug.LogError("스킬 슬롯 갯수가 모자랍니다");
-        }
-        
-        for (var i = 0; i < skillIndexList.Count; i++)
-        {
-            var skill =  PlayerSkillManager.Instance.GetPassiveSkill(skillIndexList[i]);
-            
-            _skillBarIcons[i].InitSkill(skill);
-        }
+        // var skillIndexList = PlayerSkillManager.Instance.EquippedPassiveSkillIndex;
+        //
+        // if (skillIndexList.Count > _skillBarIcons.Count)
+        // {
+        //     Debug.LogError("스킬 슬롯 갯수가 모자랍니다");
+        // }
+        //
+        // for (var i = 0; i < skillIndexList.Count; i++)
+        // {
+        //     var skill =  PlayerSkillManager.Instance.GetPassiveSkill(skillIndexList[i]);
+        //     
+        //     _skillBarIcons[i].InitSkill(skill);
+        // }
     }
 
     public void TogglePasive(bool isOn)

@@ -118,7 +118,7 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
 
     private void RefreshSkillAbility()
     {
-        GetAbility<PlayerSkillAbility>().RefreshSkill();
+     //   GetAbility<PlayerSkillAbility>().RefreshSkill();
     }
 
     public void OnGameEvent(StatEvent e)

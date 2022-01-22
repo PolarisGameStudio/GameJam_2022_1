@@ -43,6 +43,6 @@ public class UI_Player_Level : MonoBehaviour, GameEventListener<PlayerEvent>
 
     public void OnClickLevelUp()
     {
-        DataManager.PlayerData.TryLevelUp();
+        Refresh();
     }
 }

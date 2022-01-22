@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>
+public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventListener<RefreshEvent>
 {
     public UI_Equipment_List_Slot selectEquipmentSlot;
     public UI_Equipment_List_Slot nextEquipmentSlot;
@@ -36,18 +36,22 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>
 
     private TBL_EQUIPMENT _data;
 
+    protected void OnEnable()
+    {
+        this.AddGameEventListening<RefreshEvent>();
+    }
+
+    protected void OnDisable()
+    {
+        this.RemoveGameEventListening<RefreshEvent>();
+    }
+    
     public void Toggle(bool isOn)
     {
         _isGradeToggle = isOn;
-        Init(_data);
+        Refresh();
     }
-
-    protected override void Awake()
-    {
-        base.Awake();
-        gameObject.SetActive(false);
-    }
-
+    
     public void OnNextEquipmentClick()
     {
         if (_data.Index >= TBL_EQUIPMENT.CountEntities - 1)
@@ -62,7 +66,7 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>
             return;
         }
         
-        Init(next);
+        _data = next;
     }
 
     public void OnPreEquipmentClick()
@@ -79,35 +83,13 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>
             return;
         }
         
-        Init(next);
+        _data = next;
     }
 
     public void Open(TBL_EQUIPMENT data)
     {
-        base.Open();
-        Init(data);
-    }
-
-    private void Init(TBL_EQUIPMENT data)
-    {
         _data = data;
-
-        selectEquipmentSlot.Init(_data);
-
-        _txtGrade.text = $"{_data.Grade}";
-        _txtName.text = $"{_data.name}";
-
-        OnLevelUpToggle.SetActive(!_isGradeToggle);
-        OnGradeUpToggle.SetActive(_isGradeToggle);
-
-        if (!_isGradeToggle)
-        {
-            InitLevelUpPanel();
-        }
-        else
-        {
-            InitGradeUpPanel();
-        }
+        base.Open();
     }
 
     public void OnClickLevelUp()
@@ -208,6 +190,29 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>
 
     protected override void Refresh()
     {
-        throw new System.NotImplementedException();
+        selectEquipmentSlot.Init(_data);
+
+        _txtGrade.text = $"{_data.Grade}";
+        _txtName.text = $"{_data.name}";
+
+        OnLevelUpToggle.SetActive(!_isGradeToggle);
+        OnGradeUpToggle.SetActive(_isGradeToggle);
+
+        if (!_isGradeToggle)
+        {
+            InitLevelUpPanel();
+        }
+        else
+        {
+            InitGradeUpPanel();
+        }
+    }
+
+    public void OnGameEvent(RefreshEvent e)
+    {
+        if (e.Type == Enum_RefreshEventType.Equipment)
+        {
+            Refresh();
+        }
     }
 }

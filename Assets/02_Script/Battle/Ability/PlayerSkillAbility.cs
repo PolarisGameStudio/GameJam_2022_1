@@ -21,22 +21,22 @@ public class PlayerSkillAbility : CharacterAbility
 
         _skillIntervalTimer += deltaTime;
 
-        if (_activeSkills != null)
-        {
-            for (var i = 0; i < _activeSkills.Count; i++)
-            {
-                _activeSkills[i]?.UpdateCoolTime(deltaTime);
-            }
-        }
-        
-         if (_passiveSkills != null)
-        {
-            for (var i = 0; i < _passiveSkills.Count; i++)
-            {
-                _passiveSkills[i]?.UpdateCoolTime(deltaTime);
-            }
-        }
-        
+        // if (_activeSkills != null)
+        // {
+        //     for (var i = 0; i < _activeSkills.Count; i++)
+        //     {
+        //         _activeSkills[i]?.UpdateCoolTime(deltaTime);
+        //     }
+        // }
+        //
+        //  if (_passiveSkills != null)
+        // {
+        //     for (var i = 0; i < _passiveSkills.Count; i++)
+        //     {
+        //         _passiveSkills[i]?.UpdateCoolTime(deltaTime);
+        //     }
+        // }
+        //
         
             
         
@@ -64,35 +64,35 @@ public class PlayerSkillAbility : CharacterAbility
         // }
     }
 
-    public void RefreshSkill()
-    {
-        RefreshActiveSkill();
-        RefreshPassiveSkill();
-    }
+    // public void RefreshSkill()
+    // {
+    //     RefreshActiveSkill();
+    //     RefreshPassiveSkill();
+    // }
 
-    public void RefreshActiveSkill()
-    {
-        var activeSkillIndex = PlayerSkillManager.Instance.EquippedActiveSkillIndex;
-        _activeSkills = new List<PlayerActiveSkill>(activeSkillIndex.Count);
-
-        foreach (var index in activeSkillIndex)
-        {
-            var skill = PlayerSkillManager.Instance.GetActiveSkill(index);
-            _activeSkills.Add(skill);
-        }
-    }
-
-    public void RefreshPassiveSkill()
-    {
-        var passiveSkillIndex = PlayerSkillManager.Instance.EquippedPassiveSkillIndex;
-        _passiveSkills = new List<PlayerPassiveSkill>(passiveSkillIndex.Count);
-
-        foreach (var index in passiveSkillIndex)
-        {
-            var skill = PlayerSkillManager.Instance.GetPassiveSkill(index);
-            _passiveSkills.Add(skill);
-        }
-    }
+    // public void RefreshActiveSkill()
+    // {
+    //     var activeSkillIndex = PlayerSkillManager.Instance.EquippedActiveSkillIndex;
+    //     _activeSkills = new List<PlayerActiveSkill>(activeSkillIndex.Count);
+    //
+    //     foreach (var index in activeSkillIndex)
+    //     {
+    //         var skill = PlayerSkillManager.Instance.GetActiveSkill(index);
+    //         _activeSkills.Add(skill);
+    //     }
+    // }
+    //
+    // public void RefreshPassiveSkill()
+    // {
+    //     var passiveSkillIndex = PlayerSkillManager.Instance.EquippedPassiveSkillIndex;
+    //     _passiveSkills = new List<PlayerPassiveSkill>(passiveSkillIndex.Count);
+    //
+    //     foreach (var index in passiveSkillIndex)
+    //     {
+    //         var skill = PlayerSkillManager.Instance.GetPassiveSkill(index);
+    //         _passiveSkills.Add(skill);
+    //     }
+    // }
 
     public void HideSkills()
     {
@@ -101,10 +101,10 @@ public class PlayerSkillAbility : CharacterAbility
             return;
         }
 
-        foreach (var activeSkill in _activeSkills)
-        {
-            activeSkill.Hide();
-        }
+        // foreach (var activeSkill in _activeSkills)
+        // {
+        //     activeSkill.Hide();
+        // }
     }
     
     

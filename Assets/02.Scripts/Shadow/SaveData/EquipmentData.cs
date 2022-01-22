@@ -73,7 +73,6 @@ public class EquipmentData : StatData
         }
 
         StatEvent.Trigger(Enum_StatEventType.StatChange);
-        RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
     }
 
     public void AddEquipment(int index, int count = 1)
@@ -132,6 +131,7 @@ public class EquipmentData : StatData
         EquippedIndex[typeIndex] = index;
         
         WeaponEvent.Trigger(Enum_WeaponEventType.Equip);
+        RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
 
         CalculateStat();
     }

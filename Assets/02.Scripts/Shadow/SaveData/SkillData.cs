@@ -56,31 +56,41 @@ public class SkillData : SaveDataBase
         return level == 0 ? data.UnlockCost : data.LevelUpCost + data.IncreaseCost * (level - 1);
     }
 
-    public void TryLevelUp(int index)
+    public bool TryLevelUp(int index)
     {
-        if (IsEnableLevelUp(index))
+        if (!IsEnableLevelUp(index))
         {
-            return;
+            return false;
         }
-
-        var data = TBL_SKILL.GetEntity(index);
-        var level = Levels[index];
 
         Counts[index] -= GetLevelUpCost(index);
         Levels[index] += 1;
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
+        
+        return true;
     }
 
     public void TryEquip(int index, int changeSlotIndex)
-    {
+    {     
+        var alreadyEquip = EquippedIndex.FindIndex(x => x == index);
+        if (alreadyEquip != -1)
+        {
+            EquippedIndex[alreadyEquip] = -1;
+        }
+        
         EquippedIndex[changeSlotIndex] = index;
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
     }
 
     public void AddSkill(int rewardValue, int rewardCount)
     {
-        if (Counts.Count < rewardValue)
+        if (Counts.Count > rewardValue)
         {
             Counts[rewardValue] += rewardCount;
         }
+        RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
     } 
     
     public void AddSkillList(List<int> list)
@@ -92,6 +102,7 @@ public class SkillData : SaveDataBase
 
             Counts[index] += count;
         }
+        RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
     }
 
     public void TryUnEquip(int index)
@@ -102,6 +113,12 @@ public class SkillData : SaveDataBase
         {
             EquippedIndex[equippedIndex] = -1;
         }
+        RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
     }
-   
+
+
+    public bool IsSlotUnlock(int slotIndex)
+    {
+        return  DataManager.PlayerData.Level >= (slotIndex - 1) * 10;
+    }
 }

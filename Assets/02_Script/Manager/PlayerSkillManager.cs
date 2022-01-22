@@ -32,58 +32,58 @@ public class PlayerSkillManager : SingletonBehaviour<PlayerSkillManager>
     public int ActiveSkillCount => _activeSkillList.Count;
 
 
-    protected override void Awake()
-    {
-        base.Awake();
-        InitActiveSkill();
-        InitPassiveSkill();
-    }
-
-    private void InitActiveSkill()
-    {
-        _activeSkillList = new List<PlayerActiveSkill>(_activeSkillParent.childCount);
-
-        _activeSkillList = _activeSkillParent.GetComponentsInChildren<PlayerActiveSkill>().ToList();
-
-        for (var i = 0; i < _activeSkillList.Count; i++)
-        {
-            _activeSkillList[i].InitSkill(new PlayerSkillData(index: i), BattleManager.Instance.PlayerObject);
-            _activeSkillList[i].gameObject.SetActive(false);
-        }
-    }
-
-    private void InitPassiveSkill()
-    {
-        _passiveSkillList = new List<PlayerPassiveSkill>(_passiveSkillParent.childCount);
-
-        _passiveSkillList = _passiveSkillParent.GetComponentsInChildren<PlayerPassiveSkill>().ToList();
-
-        for (var i = 0; i < _passiveSkillList.Count; i++)
-        {
-            _passiveSkillList[i].InitSkill(new PlayerSkillData(index: i), BattleManager.Instance.PlayerObject);
-            _passiveSkillList[i].gameObject.SetActive(false);
-        }
-    }
-
-    public PlayerActiveSkill GetActiveSkill(int index)
-    {
-        if (_activeSkillList.Count <= index || index < 0)
-        {
-            return null;
-        }
-
-        return _activeSkillList[index];
-    }
-
-    public PlayerPassiveSkill GetPassiveSkill(int index)
-    {
-        if (_passiveSkillList.Count <= index || index < 0)
-        {
-            return null;
-        }
-
-        return _passiveSkillList[index];
-    }
+    // protected override void Awake()
+    // {
+    //     base.Awake();
+    //     InitActiveSkill();
+    //     InitPassiveSkill();
+    // }
+    //
+    // private void InitActiveSkill()
+    // {
+    //     _activeSkillList = new List<PlayerActiveSkill>(_activeSkillParent.childCount);
+    //
+    //     _activeSkillList = _activeSkillParent.GetComponentsInChildren<PlayerActiveSkill>().ToList();
+    //
+    //     for (var i = 0; i < _activeSkillList.Count; i++)
+    //     {
+    //         _activeSkillList[i].InitSkill(new PlayerSkillData(index: i), BattleManager.Instance.PlayerObject);
+    //         _activeSkillList[i].gameObject.SetActive(false);
+    //     }
+    // }
+    //
+    // private void InitPassiveSkill()
+    // {
+    //     _passiveSkillList = new List<PlayerPassiveSkill>(_passiveSkillParent.childCount);
+    //
+    //     _passiveSkillList = _passiveSkillParent.GetComponentsInChildren<PlayerPassiveSkill>().ToList();
+    //
+    //     for (var i = 0; i < _passiveSkillList.Count; i++)
+    //     {
+    //         _passiveSkillList[i].InitSkill(new PlayerSkillData(index: i), BattleManager.Instance.PlayerObject);
+    //         _passiveSkillList[i].gameObject.SetActive(false);
+    //     }
+    // }
+    //
+    // public PlayerActiveSkill GetActiveSkill(int index)
+    // {
+    //     if (_activeSkillList.Count <= index || index < 0)
+    //     {
+    //         return null;
+    //     }
+    //
+    //     return _activeSkillList[index];
+    // }
+    //
+    // public PlayerPassiveSkill GetPassiveSkill(int index)
+    // {
+    //     if (_passiveSkillList.Count <= index || index < 0)
+    //     {
+    //         return null;
+    //     }
+    //
+    //     return _passiveSkillList[index];
+    // }
 
     public bool EnabelPassive;
 

@@ -4,31 +4,52 @@ using UnityEngine.UI;
 
 public class UI_SkillBarIcon : MonoBehaviour
 {
+    [SerializeField] private Image _imgFrameIcon;
     [SerializeField] private Image _imgSkillIcon;
     [SerializeField] private Image _imgSkillCooldown;
     [SerializeField] private Text _txtSkillCooldown;
 
-    [SerializeField] private Transform _onSkillEmpty;
-    [SerializeField] private Transform _onSkillLock;
+    [SerializeField] private GameObject _onSkillEmpty;
+    [SerializeField] private GameObject _onSkillLock;
     
-    private PlayerSkill _skill;
+    private TBL_SKILL _skill;
+   // private PlayerSkill _skill;
+    private bool _isUnlock;
 
-    public void InitSkill(PlayerSkill skill)
+    public void InitSkill(TBL_SKILL skill, bool isUnlock)
+   // public void InitSkill(PlayerSkill skill, bool isLock)
     {
-        if (_skill == skill)
+        if (_skill != null && _skill == skill)
         {
             return;
         }
         
         _skill = skill;
+        _isUnlock = isUnlock;
 
         Refresh();
     }
 
     private void Refresh()
     {
-        // todo: 리소스 나오면 추가
-        //_imgSkillIcon.sprite = null;
+        if (!_isUnlock)
+        {
+            _onSkillLock.SetActive(true);
+            return;
+        }
+        
+        if (_skill == null)
+        {
+            _onSkillEmpty.SetActive(true);
+            return;
+        }
+        
+        _onSkillEmpty.SetActive(false);
+        _onSkillLock.SetActive(false);
+        
+       // _imgSkillIcon.sprite = AssetManager.Instance.SkillIcon[_skill.Data.Index];
+        _imgSkillIcon.sprite = AssetManager.Instance.SkillIcon[_skill.Index];
+        _imgFrameIcon.enabled = AssetManager.Instance.ItemFrameIcon[(int)_skill.ItemGrade];
     }
 
     private void Update()
@@ -37,21 +58,20 @@ public class UI_SkillBarIcon : MonoBehaviour
         {
             return;
         }
+        //
+        // _imgSkillCooldown.enabled = isSkillDisable;
+        // _txtSkillCooldown.enabled = isSkillDisable;
 
-        var isSkillDisable = !_skill.IsSkillEnable();
-        
-        _imgSkillCooldown.enabled = isSkillDisable;
-        _txtSkillCooldown.enabled = isSkillDisable;
-
-        if (isSkillDisable)
-        {
-            _imgSkillCooldown.fillAmount = 1 - _skill.RemainCoolTimeNormalized;
-            _txtSkillCooldown.text = $"{_skill.RemainCoolTime:N1}";
-        }
+        // if (isSkillDisable)
+        // {
+        //     _imgSkillCooldown.fillAmount = 1 - _skill.RemainCoolTimeNormalized;
+        //     _txtSkillCooldown.text = $"{_skill.RemainCoolTime:N1}";
+        // }
+     //   _imgSkillCooldown.fillAmount = 1 - _skill.RemainCoolTimeNormalized;
     }
 
-    public void OnClickSlot()
-    {
-        _skill.TryUseSkill();
-    }
+    // public void OnClickSlot()
+    // {
+    //     _skill.TryUseSkill();
+    // }
 }

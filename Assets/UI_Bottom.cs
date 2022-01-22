@@ -12,9 +12,14 @@ public class UI_Bottom : MonoBehaviour
     [SerializeField] private UI_Player _player;
     [SerializeField] private UI_Follower _follower;
     [SerializeField] private UI_Equipment _equipment;
+    [SerializeField] private UI_Skill _skill;
     [SerializeField] private UI_Dungeon _dungeon;
     [SerializeField] private UI_Shop _shop;
 
+    private void Start()
+    {
+        OnClickButton(0);
+    }
 
     public void OnClickButton(int index)
     {
@@ -27,6 +32,7 @@ public class UI_Bottom : MonoBehaviour
         _player.Close();
         _follower.Close();
         _equipment.Close();
+        _skill.Close();
         _dungeon.Close();
         _shop.Close();
 
@@ -42,6 +48,7 @@ public class UI_Bottom : MonoBehaviour
                 _equipment.Open();
                 break;
             case 3:
+                _skill.Open();
                 break;
             case 4:
                 _dungeon.Open();

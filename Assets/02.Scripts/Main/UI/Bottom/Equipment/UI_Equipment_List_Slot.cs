@@ -13,6 +13,8 @@ public class UI_Equipment_List_Slot : UI_BaseSlot<TBL_EQUIPMENT>
     
     [SerializeField] private Slider _sliderGauge;
     [SerializeField] private Text _txtAmount;
+
+    [SerializeField] private GameObject _onEquip;
     
     public override void Init(TBL_EQUIPMENT data)
     {
@@ -42,6 +44,8 @@ public class UI_Equipment_List_Slot : UI_BaseSlot<TBL_EQUIPMENT>
 
         _sliderGauge.value = DataManager.EquipmentData.Counts[_data.Index] / 5f;
         _txtAmount.text = $"{DataManager.EquipmentData.Counts[_data.Index]}/5";
+        
+        _onEquip.SetActive(DataManager.EquipmentData.EquippedIndex[(int)_data.Type] == _data.Index);
     }
 
     public void OnClickSlot()
