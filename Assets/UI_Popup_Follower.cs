@@ -139,7 +139,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
 
     public void InitLevelUpPanel()
     {
-        var level = DataManager.EquipmentData.Levels[_data.Index];
+        var level = DataManager.FollowerData.Levels[_data.Index];
 
         _txtEquipStat.text = $"{_data.StatType1}";
         _txtEquipStatValue.text =
@@ -182,9 +182,9 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         // }
         
         _txtPrice.text = $"({DataManager.FollowerData.Counts[_data.Index]}/{DataManager.FollowerData.GetLevelUpCost(_data.Index)})";
-        _btnLevelUp.interactable = DataManager.EquipmentData.IsEnableLevelUp(_data.Index);
+        _btnLevelUp.interactable = DataManager.FollowerData.IsEnableLevelUp(_data.Index);
 
-        _btnEquip.interactable = DataManager.EquipmentData.Levels[_data.Index] > 0;
+        _btnEquip.interactable = DataManager.FollowerData.Levels[_data.Index] > 0;
     }
 
     public void OnGameEvent(RefreshEvent e)

@@ -82,6 +82,12 @@ public class FollowerData : StatData
 
     public void TryEquip(int index, int changeSlotIndex)
     {
+        var alreadyEquip = EquippedIndex.FindIndex(x => x == index);
+        if (alreadyEquip != -1)
+        {
+            EquippedIndex[alreadyEquip] = -1;
+        }
+        
         EquippedIndex[changeSlotIndex] = index;
 
         CalculateStat();
