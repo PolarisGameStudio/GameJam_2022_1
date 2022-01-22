@@ -29,14 +29,16 @@ public class UI_Equipment_List_Slot : UI_BaseSlot<TBL_EQUIPMENT>
 
         if (level == 0)
         {
-            _txtLevel.text = $"";
+            _txtGrade.text = $"";
+            _imgIcon.color = Color.black;
         }
         else
         {
-            _txtLevel.text = $"+{level}";
+            _txtGrade.text = $"+{level}";
+            _imgIcon.color = Color.white;
         }
 
-        _txtGrade.text = $"{_data.Star + 1} 등급";
+        _txtLevel.text = $"{_data.Star + 1} 등급";
 
         _sliderGauge.value = DataManager.EquipmentData.Counts[_data.Index] / 5f;
         _txtAmount.text = $"{DataManager.EquipmentData.Counts[_data.Index]}/5";

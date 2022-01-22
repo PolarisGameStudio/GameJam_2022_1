@@ -27,6 +27,20 @@ public class EquipmentData : StatData
                 Counts.Add(0);
             }
         }
+
+        if (Levels[0] <= 0)
+        {
+            Levels[0] = 1;
+
+            EquippedIndex[0] = 0;
+        }
+        
+        if (Levels[25] <= 0)
+        {
+            Levels[25] = 1;
+
+            EquippedIndex[1] = 25;
+        }
         
         CalculateStat();
     }
