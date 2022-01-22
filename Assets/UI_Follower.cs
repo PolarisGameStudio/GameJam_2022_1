@@ -3,13 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_Follower : UI_BaseContent<UI_Follower,UI_Follower_Slot>
+public class UI_Follower : UI_BaseContent<UI_Follower,UI_Follower_Slot> , GameEventListener<RefreshEvent>
 {
     public List<UI_Follower_Slot> EquippedSlots;
 
-    private void Start()
+    protected override void OnEnable()
     {
-        Refresh();
+        base.OnEnable();
+        
+        this.AddGameEventListening<RefreshEvent>();
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        
+        this.RemoveGameEventListening<RefreshEvent>();
     }
 
     protected override void Refresh()
@@ -46,6 +55,14 @@ public class UI_Follower : UI_BaseContent<UI_Follower,UI_Follower_Slot>
             }
             
             EquippedSlots[i].Init(TBL_FOLLOWER.GetEntity(equipped[i]));
+        }
+    }
+
+    public void OnGameEvent(RefreshEvent e)
+    {
+        if (e.Type == Enum_RefreshEventType.Follower)
+        {
+            Refresh();   
         }
     }
 }

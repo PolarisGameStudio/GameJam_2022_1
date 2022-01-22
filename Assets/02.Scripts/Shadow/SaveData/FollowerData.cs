@@ -72,7 +72,10 @@ public class FollowerData : StatData
         Counts[index] -= GetLevelUpCost(index);
         Levels[index] += 1;
 
+        CheckDiceUnlock();
+        
         CalculateStat();
+        RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
 
         return true;
     }
@@ -82,14 +85,17 @@ public class FollowerData : StatData
         EquippedIndex[changeSlotIndex] = index;
 
         CalculateStat();
+        RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
     }
     
     public void AddFollower(int rewardValue, int rewardCount)
     {
-        if (Counts.Count < rewardValue)
+        if (Counts.Count > rewardValue)
         {
             Counts[rewardValue] += rewardCount;
         }
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
     }
 
     public void TryUnEquip(int index)
@@ -102,6 +108,7 @@ public class FollowerData : StatData
         }
 
         CalculateStat();
+        RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
     }
 
 
@@ -138,6 +145,11 @@ public class FollowerData : StatData
 
     public bool TryRoll(int dataIndex)
     {
-        throw new System.NotImplementedException();
+        if (DiceDatas[dataIndex].TryRoll())
+        {
+            return true;
+        }
+
+        return false;
     }
 }

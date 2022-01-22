@@ -34,6 +34,7 @@ public class UI_Player_Upgrade_Promotion_Dice : UI_BaseContent<UI_Player_Upgrade
         for (int i = 0; i < m_SlotList.Count; i++)
         {
             m_SlotList[i].Init(diceStat.DiceSlotList[i]);
+            m_SlotList[i].SetDisableText($"{TBL_PROMOTION.GetEntity(i).name}에 해금");
         }
 
         _txtDiceAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Dice).ToCurrencyString();

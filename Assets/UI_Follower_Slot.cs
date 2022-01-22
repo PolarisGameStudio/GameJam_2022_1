@@ -12,6 +12,8 @@ public class UI_Follower_Slot : UI_BaseSlot<TBL_FOLLOWER>
     [SerializeField] private Slider _sliderGauge;
     [SerializeField] private Text _txtAmount;
 
+    public bool IgnoreSlider;
+
     public override void Init(TBL_FOLLOWER data)
     {
         _data = data;
@@ -45,14 +47,17 @@ public class UI_Follower_Slot : UI_BaseSlot<TBL_FOLLOWER>
             _imgIcon.color = Color.white;
         }
 
-        _sliderGauge.gameObject.SetActive(true);
+        if(!IgnoreSlider)
+        {
+            _sliderGauge.gameObject.SetActive(true);
 
-        var cost = DataManager.FollowerData.GetLevelUpCost(_data.Index);
-        _sliderGauge.minValue = 0;
-        _sliderGauge.maxValue = cost;
-        _sliderGauge.value = DataManager.FollowerData.Counts[_data.Index];
+            var cost = DataManager.FollowerData.GetLevelUpCost(_data.Index);
+            _sliderGauge.minValue = 0;
+            _sliderGauge.maxValue = cost;
+            _sliderGauge.value = DataManager.FollowerData.Counts[_data.Index];
 
-        _txtAmount.text = $"{DataManager.FollowerData.Counts[_data.Index]}/{cost}";
+            _txtAmount.text = $"{DataManager.FollowerData.Counts[_data.Index]}/{cost}";
+        }
     }
 
     public void OnClickSlot()

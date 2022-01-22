@@ -9,6 +9,20 @@ public class UI_Equipment : UI_BaseContent<UI_Equipment, UI_Equipment_List_Slot>
 
     [SerializeField] private List<Toggle> _toggles;
     
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        
+        this.AddGameEventListening<RefreshEvent>();
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        
+        this.RemoveGameEventListening<RefreshEvent>();
+    }
+    
     protected override void Refresh()
     { 
         var equipments = TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(_currentEquipmentType);

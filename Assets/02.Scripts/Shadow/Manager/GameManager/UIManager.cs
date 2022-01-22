@@ -13,6 +13,8 @@ public enum UIType
     Popup_World,
     Popup_Dungeon,
     Popup_Skill,
+    Popup_Skill_Select,
+    Popup_Follower_Select,
     Null
 }
 

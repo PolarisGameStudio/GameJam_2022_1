@@ -14,20 +14,15 @@ public partial class SROptions
     public void SendCreative()
     {
         ServerManager.Instance.SendCreative(5);
-    }
-        
-    [Category("크sadsa리에이티브 발사")]
-    public void SendCrsdaeative()
+    }    
+    
+    [Category("몸종")]
+    public void getfloower()
     {
-        DateTime t1 = DateTime.Now;
-        Debug.Log(Mathf.Pow(1.02f, 100));
-        DateTime t2 = DateTime.Now;
-        Debug.Log((t2 -t1).Milliseconds);
-        Debug.Log(Mathf.Pow(1.02f, 1000));
-        DateTime t3 = DateTime.Now;
-        Debug.Log((t3 -t2).Milliseconds);
-        Debug.Log(Mathf.Pow(1.02f, 10000));
-        DateTime t4 = DateTime.Now;
-        Debug.Log((t4 -t3).Milliseconds);
+        DataManager.FollowerData.AddFollower(0,10);
+        DataManager.FollowerData.AddFollower(1,10);
+        DataManager.FollowerData.AddFollower(2,10);
+        DataManager.FollowerData.AddFollower(3,10);
+        DataManager.FollowerData.AddFollower(4,10);
     }
 }

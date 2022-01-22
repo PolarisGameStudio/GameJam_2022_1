@@ -104,6 +104,8 @@ public class DiceStatData : StatData
                 DiceSlotList[i].InitStat(targetData.Index, addValue);
             }
 
+            CalculateStat();
+
             return true;
         }
         

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
+public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListener<RefreshEvent>
 {
     public Text _txtGrade;
     public Text _txtName;
@@ -35,37 +35,33 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
 
     private TBL_FOLLOWER _data;
 
+    
+    protected void OnEnable()
+    {
+        this.AddGameEventListening<RefreshEvent>();
+    }
+
+    protected void OnDisable()
+    {
+        this.RemoveGameEventListening<RefreshEvent>();
+    }
+    
     public void Toggle(bool isOn)
     {
         _isDiceToggle = isOn;
         Init(_data);
+        Refresh();
     }
 
     public void Open(TBL_FOLLOWER data)
     {
-        base.Open();
         Init(data);
+        base.Open();
     }
 
     private void Init(TBL_FOLLOWER data)
     {
         _data = data;
-
-        //_txtGrade.text = $"{_data}";
-        _txtGrade.text = "";
-        _txtName.text = $"{_data.name}";
-
-        OnLevelUpToggle.SetActive(!_isDiceToggle);
-        OnDiceToggle.SetActive(_isDiceToggle);
-
-        if (!_isDiceToggle)
-        {
-            InitLevelUpPanel();
-        }
-        else
-        {
-            InitDicePanel();
-        }
     }
 
     public void OnClickLevelUp()
@@ -83,8 +79,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
             return;
         }
 
-        // equipUI 추가
-        DataManager.FollowerData.TryEquip(_data.Index, 0);
+        UI_Popup_Follower_Equip.Instance.Open(_data);
     }
 
 
@@ -108,6 +103,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
 
             DiceSlotList[i].gameObject.SetActive(true);
             DiceSlotList[i].Init(diceStat.DiceSlotList[i]);
+            DiceSlotList[i].SetDisableText($"{i+1}등급에 해금");
         }
 
         _txtDiceAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Dice).ToCurrencyString();
@@ -124,6 +120,21 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
 
     protected override void Refresh()
     {
+        //_txtGrade.text = $"{_data}";
+        _txtGrade.text = $"{DataManager.FollowerData.Levels[_data.Index]}등급";
+        _txtName.text = $"{_data.name}";
+
+        OnLevelUpToggle.SetActive(!_isDiceToggle);
+        OnDiceToggle.SetActive(_isDiceToggle);
+
+        if (!_isDiceToggle)
+        {
+            InitLevelUpPanel();
+        }
+        else
+        {
+            InitDicePanel();
+        }
     }
 
     public void InitLevelUpPanel()
@@ -176,4 +187,11 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>
         _btnEquip.interactable = DataManager.EquipmentData.Levels[_data.Index] > 0;
     }
 
+    public void OnGameEvent(RefreshEvent e)
+    {
+        if (e.Type == Enum_RefreshEventType.Follower)
+        {
+            Refresh();
+        }
+    }
 }
