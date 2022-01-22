@@ -107,13 +107,11 @@ public class PlayerAttackAbility : CharacterAbility
 
     public bool IsCritical()
     {
-        return Random.Range(0, 100f) <= 50;
         return Random.Range(0, 100f) <= _onwerObject.Stat[Enum_StatType.CriticalChance];
     }
 
     public bool IsSuperCritical()
     {
-        return Random.Range(0, 100f) <= 30;
         return Random.Range(0, 100f) <= _onwerObject.Stat[Enum_StatType.SuperCriticalChance];
     }
 
