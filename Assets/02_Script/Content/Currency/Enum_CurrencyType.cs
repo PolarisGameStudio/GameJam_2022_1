@@ -11,5 +11,9 @@ public enum Enum_CurrencyType
     Ticket_Treasure,
     Ticket_Boss,
     
+    Key_Weapon,
+    Key_Ring,
+    Key_Skill,
+    
     Count
 }
