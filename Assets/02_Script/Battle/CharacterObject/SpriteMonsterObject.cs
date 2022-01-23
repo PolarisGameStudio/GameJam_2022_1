@@ -141,6 +141,6 @@ public class SpriteMonsterObject : MonsterObject
                 break;
         }
         
-        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_KillMonster);
+        DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Loop_KillMonster);
     }
 }

@@ -76,7 +76,7 @@ public class SkillGachaHandler : GachaHandler
         
         DataManager.SkillData.AddSkillList(skillList);
         
-        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_GachaSkill, resultList.Count);
+        DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Loop_GachaSkill, resultList.Count);
         
         List<Reward> rewards = new List<Reward>();
 

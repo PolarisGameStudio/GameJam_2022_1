@@ -16,7 +16,7 @@ public class DataContainer
     [SerializeField] public DungeonData DungeonData { get; set; }
     [SerializeField] public RuneData RuneData { get; set; }
     [SerializeField] public ShopData ShopData { get; set; }
-    [SerializeField] public AcheievmentData AcheievmentData { get; set; }
+    [SerializeField] public AchievementData AchievementData { get; set; }
     [SerializeField] public OptionData OptionData { get; set; }
     [SerializeField] public QuestData QuestData { get; set; }
     [SerializeField] public SkillData SkillData { get; set; }
@@ -37,7 +37,7 @@ public class DataContainer
         DungeonData ??= new DungeonData();
         RuneData ??= new RuneData();
         ShopData ??= new ShopData();
-        AcheievmentData ??= new AcheievmentData();
+        AchievementData ??= new AchievementData();
         OptionData ??= new OptionData();
         QuestData ??= new QuestData();
         SkillData ??= new SkillData();
@@ -54,7 +54,7 @@ public class DataContainer
         DungeonData.ValidCheck();
         RuneData.ValidCheck();
         ShopData.ValidCheck();
-        AcheievmentData.ValidCheck();
+        AchievementData.ValidCheck();
         OptionData.ValidCheck();
         QuestData.ValidCheck();
         SkillData.ValidCheck();
@@ -74,7 +74,7 @@ public class DataContainer
         DungeonData.OnNextDay();
         RuneData.OnNextDay();
         ShopData.OnNextDay();
-        AcheievmentData.OnNextDay();
+        AchievementData.OnNextDay();
         OptionData.OnNextDay();
         QuestData.OnNextDay();
         SkillData.OnNextDay();

@@ -69,7 +69,7 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
 
     public void OnClickAchieve()
     {
-        
+        UI_Popup_Achievement.Instance.Open();
     }   
     public void OnClickPackage()
     {

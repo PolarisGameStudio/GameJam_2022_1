@@ -152,8 +152,8 @@ public class EquipmentData : StatData
         AddEquipment(GetNextEquipment(index).Index, gradeUpCount);
 
         RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
-        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_MergeEquipment, gradeUpCount);
-        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_MergeEquipment, gradeUpCount);
+        DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Daily_MergeEquipment, gradeUpCount);
+        DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Loop_MergeEquipment, gradeUpCount);
 
         return true;
     }
@@ -172,7 +172,7 @@ public class EquipmentData : StatData
             
             RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
 
-            DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_LevelUpEquipment, 1);
+            DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Loop_LevelUpEquipment, 1);
             return true;
         }
         else

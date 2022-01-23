@@ -78,8 +78,8 @@ public class WeaponGachaHandler : GachaHandler
         
         DataManager.EquipmentData.AddEquipmentList(indexList);
         
-        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_GachaEquipment, resultList.Count);
-        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_GachaEquipment, resultList.Count);
+        DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Daily_GachaEquipment, resultList.Count);
+        DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Loop_GachaEquipment, resultList.Count);
 
         List<Reward> rewards = new List<Reward>();
 

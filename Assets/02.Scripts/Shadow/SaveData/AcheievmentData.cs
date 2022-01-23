@@ -31,7 +31,7 @@ public enum Enum_AchivementMission
     Count,
 }
 
-public class AcheievmentData : SaveDataBase
+public class AchievementData : SaveDataBase
 {
     // 일일 업적
     // public List<int> Daily_Progress = new List<int>();
@@ -104,13 +104,18 @@ public class AcheievmentData : SaveDataBase
 
             var data = TBL_ACHIEVEMENT.GetEntityByKeyWithMission(mission);
 
-            DataManager.CurrencyData.Add(data.RewardCurrency, data.RewardCount);
+           // DataManager.CurrencyData.Add(data.RewardCurrency, data.RewardCount);
+            DataManager.CurrencyData.Add(Enum_CurrencyType.Gem, data.RewardCount);
 
             if (GetAchivementType(mission) == Enum_AchivementType.Daily)
             {
                 ProgressAchievement(Enum_AchivementMission.Daily_ClearAllDailyAchievement);
                 IsClear[index] = true;
             }
+
+            Progress[index] -= (int)data.CompleteCount;
+            
+            RefreshEvent.Trigger(Enum_RefreshEventType.Acheieve);
         }
     }
 
@@ -151,6 +156,8 @@ public class AcheievmentData : SaveDataBase
                 Progress[i] = 0;
                 IsClear[i] = false;
             }
+            
+            RefreshEvent.Trigger(Enum_RefreshEventType.Acheieve);
         }
     }
 

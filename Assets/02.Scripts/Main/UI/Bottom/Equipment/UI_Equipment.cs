@@ -8,23 +8,23 @@ public class UI_Equipment : UI_BaseContent<UI_Equipment, UI_Equipment_List_Slot>
     private Enum_EquipmentType _currentEquipmentType;
 
     [SerializeField] private List<Toggle> _toggles;
-    
+
     protected override void OnEnable()
     {
         base.OnEnable();
-        
+
         this.AddGameEventListening<RefreshEvent>();
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        
+
         this.RemoveGameEventListening<RefreshEvent>();
     }
-    
+
     protected override void Refresh()
-    { 
+    {
         var equipments = TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(_currentEquipmentType);
 
         var dataCount = equipments.Count;
@@ -34,14 +34,15 @@ public class UI_Equipment : UI_BaseContent<UI_Equipment, UI_Equipment_List_Slot>
         {
             Expand(dataCount - slotCount);
         }
-        
+
         for (int i = 0; i < m_SlotList.Count; i++)
         {
-            if (m_SlotList.Count >= i)
+            if (i >= dataCount)
             {
                 m_SlotList[i].SafeSetActive(false);
+                continue;
             }
-        
+
             m_SlotList[i].SafeSetActive(true);
             m_SlotList[i].Init(equipments[i]);
         }

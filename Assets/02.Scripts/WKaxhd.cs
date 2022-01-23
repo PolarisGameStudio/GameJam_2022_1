@@ -38,10 +38,6 @@ public enum GuideType
 {
 }
 
-public enum AchievementType
-{
-}
-
 public enum AchievementKind
 {
 }

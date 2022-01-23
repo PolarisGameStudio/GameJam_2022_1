@@ -33,7 +33,7 @@ public class DungeonData : SaveDataBase
                 Debug.LogError("던전 아니면 안됨");
                 return;
         }
-        DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_EnterDungeon, 1);
+        DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Daily_EnterDungeon, 1);
     }
 
     public void RecordDungeonScore(Enum_BattleType dungeonBattleType, double score)

@@ -67,6 +67,7 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         }
         
         _data = next;
+        Refresh();
     }
 
     public void OnPreEquipmentClick()
@@ -84,6 +85,7 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         }
         
         _data = next;
+        Refresh();
     }
 
     public void Open(TBL_EQUIPMENT data)

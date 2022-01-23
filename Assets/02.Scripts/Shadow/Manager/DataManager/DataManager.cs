@@ -22,7 +22,7 @@ public class DataManager : SingletonBehaviour<DataManager>, GameEventListener<St
     public static DungeonData DungeonData => Container.DungeonData;
     public static RuneData RuneData => Container.RuneData;
     public static ShopData ShopData => Container.ShopData;
-    public static AcheievmentData AcheievmentData => Container.AcheievmentData;
+    public static AchievementData AchievementData => Container.AchievementData;
     public static OptionData OptionData => Container.OptionData;
     public static QuestData QuestData => Container.QuestData;
     public static SkillData SkillData => Container.SkillData;

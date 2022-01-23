@@ -20,7 +20,8 @@ public enum UIType
     Popup_Dungeon_Smith,
     Popup_Dungeon_Treasure,
     Popup_Gacha,
-    Null
+    Popup_Achieve,
+    Null,
 }
 
 

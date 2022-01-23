@@ -38,7 +38,7 @@ public class GoldGrowthData : StatData
         {
             _levels[type.Index]++;
         
-            DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_LevelUpGoldGrowth);
+            DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Loop_LevelUpGoldGrowth);
 
             CalculateStat();
 
