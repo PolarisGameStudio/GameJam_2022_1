@@ -15,6 +15,7 @@ public enum UIType
     Popup_Skill,
     Popup_Skill_Select,
     Popup_Follower_Select,
+    Popup_Reward,
     Null
 }
 

@@ -14,6 +14,7 @@ public enum RewardType
 
     Skill,
 
+    Equipment,
     Equipment_Left,
     Equipment_Right,
     Equipment_Mouth,
@@ -21,7 +22,6 @@ public enum RewardType
 
     Follower,
 
-    Costume,
 
     Count,
 }
@@ -65,26 +65,15 @@ public static class RewardManager
                 break;
 
             case RewardType.Skill:
+                DataManager.SkillData.AddSkill(value, count);
                 break;
 
-            // case RewardType.Equipment_Left:
-            //     DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Left, value, count);
-            //     break;
-            // case RewardType.Equipment_Right:
-            //     DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Right, value, count);
-            //     break;
-            // case RewardType.Equipment_Mouth:
-            //     DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Mouth, value, count);
-            //     break;
-            // case RewardType.Equipment_Ring:
-            //     DataManager.EquipmentData.AddEquipment(Enum_EquipmentType.Ring, value, count);
-            //     break;
+            case RewardType.Equipment:
+                DataManager.EquipmentData.AddEquipment(value, count);
+                break;
 
             case RewardType.Follower:
                 DataManager.FollowerData.AddFollower(value, count);
-                break;
-
-            case RewardType.Costume:
                 break;
 
             default:
@@ -93,13 +82,18 @@ public static class RewardManager
         }
     }
 
-    public static void GetWithRewardUI(List<Reward> rewards)
+    public static void Get(List<Reward> rewards, bool showPopup = false)
     {
         List<Reward> rewardsForUI = new List<Reward>();
 
         foreach (var reward in rewards)
         {
             Get(reward, rewardsForUI);
+        }
+
+        if (showPopup)
+        {
+            UI_Popup_Reward.Instance.Open(rewardsForUI);
         }
     }
 }

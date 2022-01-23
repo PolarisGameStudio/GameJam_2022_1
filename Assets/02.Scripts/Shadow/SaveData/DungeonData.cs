@@ -112,7 +112,7 @@ public class DungeonData : SaveDataBase
             count--;
         }
 
-        RewardManager.GetWithRewardUI(rewards);
+        RewardManager.Get(rewards, true);
     }
 
     public void GetRewardSmithDungeon(int count)
@@ -124,7 +124,7 @@ public class DungeonData : SaveDataBase
             count--;
         }
 
-        RewardManager.GetWithRewardUI(rewards);
+        RewardManager.Get(rewards, true);
     }
 
     public void GetRewardBossDungeon(int count)
@@ -136,6 +136,6 @@ public class DungeonData : SaveDataBase
             count--;
         }
 
-        RewardManager.GetWithRewardUI(rewards);
+        RewardManager.Get(rewards, true);
     }
 }
