@@ -89,7 +89,7 @@ public class DiceStatData : StatData
     {
         if (IsEnableRoll())
         {
-            var result = GachaManager.Instance.Gacha(GachaType.Dice, DiceSlotList.Count);
+            var result = GachaManager.Instance.Gacha(GachaType.Dice, 0, DiceSlotList.Count);
 
             for (int i = 0; i < result.Count; i++)
             {

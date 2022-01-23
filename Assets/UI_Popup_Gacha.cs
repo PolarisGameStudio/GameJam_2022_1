@@ -44,7 +44,7 @@ public class UI_Popup_Gacha : UI_BasePopup<UI_Popup_Gacha>
 
     IEnumerator OpenSlotCoroutine()
     {
-        var period = new WaitForSecondsRealtime(0.05f);
+        var period = new WaitForSecondsRealtime(0.02f);
 
         for (var i = 0; i < SlotList.Count; i++)
         {
@@ -61,7 +61,7 @@ public class UI_Popup_Gacha : UI_BasePopup<UI_Popup_Gacha>
             }
         }
         
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.3f);
         
         Buttons.SetActive(true);
     }
