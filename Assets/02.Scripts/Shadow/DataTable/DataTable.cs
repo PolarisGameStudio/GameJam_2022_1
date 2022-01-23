@@ -477,7 +477,7 @@ public partial class TBL_SKILL : BGEntity
 			_CoolTime[Index] = value;
 		}
 	}
-	public System.Single Distance
+	public System.Int32 Distance
 	{
 		get
 		{
@@ -599,12 +599,12 @@ public partial class TBL_SKILL : BGEntity
 			return _ufle12jhs77_CoolTime;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_Distance;
-	public static BansheeGz.BGDatabase.BGFieldFloat _Distance
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_Distance;
+	public static BansheeGz.BGDatabase.BGFieldInt _Distance
 	{
 		get
 		{
-			if(_ufle12jhs77_Distance==null || _ufle12jhs77_Distance.IsDeleted) _ufle12jhs77_Distance=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5714345102842817747,2024253243253655729));
+			if(_ufle12jhs77_Distance==null || _ufle12jhs77_Distance.IsDeleted) _ufle12jhs77_Distance=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5180104064091841017,3600726427609128860));
 			return _ufle12jhs77_Distance;
 		}
 	}

@@ -40,7 +40,7 @@ public class PlayerSkill : GameBehaviour
         return false;
     }
 
-    public List<CharacterObject> FindTargetByDistance(int distance)
+    public List<CharacterObject> FindTargetFromPlayer(int distance)
     {
         if (_playerObject == null)
         {
@@ -55,6 +55,31 @@ public class PlayerSkill : GameBehaviour
             float x = monsterObject.Position.x - _playerObject.Position.x;
 
             if (x <= distance * SystemValue.SKILL_DISTANCE_BLOCK_SIZE)
+            {
+                targets.Add(monsterObject);
+            }
+        }
+
+        return targets;
+    }    
+    
+    public List<CharacterObject> FindTargetFromRandomPoint(Vector3 target, int distance)
+    {
+        if (_playerObject == null)
+        {
+            Debug.LogError("플레이어가 없슴");
+            return null;
+        }
+        
+        List<CharacterObject> targets = new List<CharacterObject>();
+
+        var monsters = BattleManager.Instance.CurrentBattle.MonsterObjects;
+        
+        foreach (var monsterObject in monsters)
+        {
+            float x = monsterObject.Position.x - target.x;
+
+            if (Mathf.Abs(x) * 2 <= distance * SystemValue.SKILL_DISTANCE_BLOCK_SIZE)
             {
                 targets.Add(monsterObject);
             }

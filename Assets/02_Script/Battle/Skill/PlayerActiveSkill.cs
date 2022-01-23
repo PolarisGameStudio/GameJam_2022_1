@@ -12,7 +12,7 @@ public class PlayerActiveSkill : PlayerSkill
     protected ParticleSystem _skillVFX;
     protected Animator _animator;
 
-    private Coroutine _skillCoroutine;
+    protected Coroutine _skillCoroutine;
 
     public bool EffectOnPlayerPosition;
     public float DamageDelay;
@@ -35,7 +35,7 @@ public class PlayerActiveSkill : PlayerSkill
             return false;
         }
 
-        var targetMonsterList = FindTargetByDistance(_data.Distance);
+        var targetMonsterList = FindTargetFromPlayer(_data.Distance);
 
         var aliveTargetExist = targetMonsterList.Count(monster => monster.IsAlive) > 0;
 

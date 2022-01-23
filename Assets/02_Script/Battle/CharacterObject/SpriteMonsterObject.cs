@@ -60,7 +60,7 @@ public class SpriteMonsterObject : MonsterObject
 
         InitScale();
 
-        transform.position = initPosition + Vector3.right * Random.Range(-0.1f,0.1f);
+        transform.position = initPosition;// + Vector3.right * Random.Range(-0.1f,0.1f);
 
         InitAbilities();
 
