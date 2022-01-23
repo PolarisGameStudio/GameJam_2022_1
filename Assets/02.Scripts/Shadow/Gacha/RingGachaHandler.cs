@@ -82,5 +82,14 @@ public class RingGachaHandler : GachaHandler
         
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Daily_GachaEquipment, resultList.Count);
         DataManager.AcheievmentData.ProgressAchievement(Enum_AchivementMission.Loop_GachaEquipment, resultList.Count);
+        
+        List<Reward> rewards = new List<Reward>();
+
+        for (int i = 0; i < indexList.Count; i++)
+        {
+            rewards.Add(new Reward(RewardType.Equipment,indexList[i],1));
+        }
+        
+        UI_Popup_Gacha.Instance.Open(rewards);
     }
 }

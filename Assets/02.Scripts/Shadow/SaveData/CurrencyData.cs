@@ -52,10 +52,12 @@ public class CurrencyData : SaveDataBase
     
     public bool TryConsume(Enum_CurrencyType type, double amount)
     {
+#if !UNITY_EDITOR
         if (!IsEnough(type, amount))
         {
             return false;
         }
+#endif
         
         GetCurrency(type).Consume(amount);
 

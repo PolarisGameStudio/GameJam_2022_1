@@ -144,9 +144,14 @@ public class PlayerSkillAbility : CharacterAbility
     
     public void OnAttack(CharacterObject target)
     {
-        foreach (var passive in _passiveSkills)
+        foreach (var passive in _activeSkills)
         {
-            passive.OnAttack(target);
+            if (passive == null)
+            {
+                continue;
+            }
+
+            passive.OnPlayerAttack(target);
         }
     }
 

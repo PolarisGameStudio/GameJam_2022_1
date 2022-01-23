@@ -57,7 +57,7 @@ public class UI_SkillBarIcon : MonoBehaviour
 
         var coolTime = _skill.RemainCoolTime;
 
-        if (coolTime < 0)
+        if (coolTime <= 0)
         {
             _txtSkillCooldown.text = "";
             _imgSkillCooldown.fillAmount = 0;

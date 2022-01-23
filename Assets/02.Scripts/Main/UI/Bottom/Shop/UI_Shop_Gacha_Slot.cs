@@ -42,7 +42,7 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
     {
         if (DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Gem, _data.Price_Small))
         {
-            GachaManager.Instance.Gacha(_data.GachaType, _data.Count_Small);
+            GachaManager.Instance.Gacha(_data.GachaType, _data.Price_Small, _data.Count_Small);
         }
     }
 
@@ -50,7 +50,7 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
     {
         if (DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Gem, _data.Price_Big))
         {
-            GachaManager.Instance.Gacha(_data.GachaType, _data.Count_Big);
+            GachaManager.Instance.Gacha(_data.GachaType, _data.Price_Big, _data.Count_Big);
         }
     }
 
@@ -58,7 +58,7 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
     {
         AdManager.Instance.TryShowRequest(ADType.Gacha, () =>
         {
-            GachaManager.Instance.Gacha(_data.GachaType, _data.Count_Small);
+            GachaManager.Instance.Gacha(_data.GachaType,0 ,_data.Count_Small);
         });
     }
 }

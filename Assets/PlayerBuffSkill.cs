@@ -9,7 +9,35 @@ public class PlayerBuffSkill : PlayerActiveSkill
     private Stat _stat;
     
     private float _timer;
-   
+
+    public override bool TryUseSkill()
+    {
+        if (!CanUseSKill())
+        {
+            return false;
+        }
+
+        _coolTimer = 0;
+
+        SafeSetActive(true);
+
+        if (_skillVFX != null)
+        {
+            _skillVFX.Stop();
+            _skillVFX.Play();
+        }
+
+        if (_animator != null)
+        {
+            _animator.enabled = false;
+            _animator.enabled = true;
+        }
+
+        Active(null);
+
+        return true;
+    }
+
     protected override IEnumerator SkillActiveCoroutine(List<CharacterObject> targets)
     {
         _timer = 0;

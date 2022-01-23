@@ -16,7 +16,7 @@ public static class SystemValue
     public static Color ENABLE_TEXT_COLOR => new Color(1, 1, 1);
 
 
-    public static int FOLLOWER_MAX_LEVEL  = (int) SYSTEM_VALUE.GetEntity("FOLLWER_MAX_LEVEL").Value;
+    public static int FOLLOWER_MAX_LEVEL = (int) SYSTEM_VALUE.GetEntity("FOLLWER_MAX_LEVEL").Value;
 
     public static int RUNE_DAILY_LIMIT = 3;
     public static int RUNE_DURATUIN = 360 * 1;
@@ -26,14 +26,14 @@ public static class SystemValue
     public static int SKILL_MAX_LEVEL = 10;
 
     public static int GACHA_EQUIPMENT_SMALL_PRICE = 1000;
-    public static int GACHA_EQUIPMENT_BIG_PRICE = 3000;    
-    
+    public static int GACHA_EQUIPMENT_BIG_PRICE = 3000;
+
     public static int GACHA_RING_SMALL_PRICE = 1000;
-    public static int GACHA_RING_BIG_PRICE = 3000;    
-    
+    public static int GACHA_RING_BIG_PRICE = 3000;
+
     public static int GACHA_SKILL_SMALL_PRICE = 1000;
     public static int GACHA_SKILL_BIG_PRICE = 3000;
-    
+
     public static int MINIMUM_SAVE_PERIOD = 1;
     public static float BOSS_DUNGEON_LIMIT_TIME = 60f;
     public static float TREASURE_DUNGEON_LIMIT_TIME = 60f;
@@ -48,16 +48,16 @@ public static class ColorValue
     public static Color GRADE_GOLD_COLOR => new Color(255f / 256, 213f / 256, 39f / 256);
     public static Color GRADE_SKY_COLOR => new Color(41f / 256, 243f / 256, 255f / 256);
     public static Color GRADE_PINK_COLOR => new Color(255f / 256, 39f / 256, 177f / 256);
-    
+
     public static Color GetColorByGrade(Enum_ItemGrade grade)
     {
-        switch(grade)
+        switch (grade)
         {
             case Enum_ItemGrade.Common:
                 return GRADE_GREEN_COLOR;
             case Enum_ItemGrade.Uncommon:
                 return GRADE_BLUE_COLOR;
-                
+
             case Enum_ItemGrade.Rare:
                 return GRADE_PURPLE_COLOR;
             case Enum_ItemGrade.Epic:
@@ -69,5 +69,31 @@ public static class ColorValue
         }
 
         return GRADE_GREEN_COLOR;
+    }
+}
+
+public static class StringValue
+{
+    public static string GetGradeName(Enum_ItemGrade grade)
+    { 
+        switch (grade)
+        {
+            case Enum_ItemGrade.Common:
+                return "흔한";
+            case Enum_ItemGrade.Uncommon:
+                return "일반";
+
+            case Enum_ItemGrade.Rare:
+                return "희귀";
+            case Enum_ItemGrade.Epic:
+                return "영웅";
+            case Enum_ItemGrade.Legendary:
+                return "전설";
+            case Enum_ItemGrade.Myth:
+                return "신화";
+
+            default:
+                return "";
+        }
     }
 }

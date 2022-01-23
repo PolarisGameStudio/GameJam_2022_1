@@ -10,7 +10,9 @@ public class GachaManager : SingletonBehaviour<GachaManager>
 {
     private Dictionary<GachaType, GachaHandler> _gachaHandlers;
 
-    public GachaType LastGachaType { get; set; }
+    private GachaType _lastGachaType;
+    private int _lastPrice;
+    private int _lastCount;
 
     private void Awake()
     {
@@ -22,16 +24,27 @@ public class GachaManager : SingletonBehaviour<GachaManager>
         _gachaHandlers.Add(GachaType.Dice, new DiceGachaHandler());
     }
 
-    public List<int> Gacha(GachaType type, int count = 1)
+    public void ReGacha()
+    {        
+        if (DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Gem, _lastPrice))
+        {
+            Gacha(_lastGachaType, _lastPrice, _lastCount);
+        }
+    }
+
+    public List<int> Gacha(GachaType type, int price , int count = 1)
     {
         if (!_gachaHandlers.ContainsKey(type))
         {
             Debug.LogError($"{type} 가챠가 없습니다.");
             return null;
         }
+        
+        _lastGachaType = type;
+        _lastPrice = price;
+        _lastCount = count;
 
         DataManager.GachaData.AddGachaCount(type, count);
-
         var list = _gachaHandlers[type].Gacha(count);
 
         DataManager.Instance.Save();
@@ -95,4 +108,13 @@ public class GachaManager : SingletonBehaviour<GachaManager>
         return 0;
     }
 
+    public GachaType GetLastGachaType()
+    {
+        return _lastGachaType;
+    }
+    
+    public int GetLastGachaPrice()
+    {
+        return _lastPrice;
+    }
 }

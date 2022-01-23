@@ -12,7 +12,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
     private Battle[] _battles;
     private bool _battleCached = false;
 
-    [Header("플레이어 오브젝트")] private PlayerObject _playerObject;
+    [SerializeField][Header("플레이어 오브젝트")] private PlayerObject _playerObject;
 
     public PlayerObject PlayerObject => _playerObject;
 

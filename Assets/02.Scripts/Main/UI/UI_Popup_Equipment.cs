@@ -192,7 +192,7 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
     {
         selectEquipmentSlot.Init(_data);
 
-        _txtGrade.text = $"{_data.Grade}";
+        _txtGrade.text = StringValue.GetGradeName(_data.Grade);
         _txtName.text = $"{_data.name}";
 
         OnLevelUpToggle.SetActive(!_isGradeToggle);

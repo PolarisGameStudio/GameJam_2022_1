@@ -82,7 +82,7 @@ public class SkillData : SaveDataBase
         EquippedIndex[changeSlotIndex] = index;
         
         RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
-        PlayerEvent.Trigger(Enum_PlayerEventType.LevelUp);
+        PlayerEvent.Trigger(Enum_PlayerEventType.EquipSkill);
     }
 
     public void AddSkill(int rewardValue, int rewardCount)

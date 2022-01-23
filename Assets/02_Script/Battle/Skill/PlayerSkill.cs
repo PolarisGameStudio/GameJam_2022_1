@@ -87,4 +87,9 @@ public class PlayerSkill : GameBehaviour
 
         return targets;
     }
+
+    public virtual void OnPlayerAttack(CharacterObject target)
+    {
+        
+    }
 }
