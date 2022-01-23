@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameEventListener<FollowerEvent>,GameEventListener<WeaponEvent>
+public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameEventListener<PlayerEvent>
 {
     private FSMAbility _fsmAbility;
 
@@ -33,8 +34,7 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
         GetAbility<ShadowAbility>().SetSize(GetAbility<AnimationAbility>().Width);
 
         this.AddGameEventListening<StatEvent>();
-        this.AddGameEventListening<FollowerEvent>();
-        this.AddGameEventListening<WeaponEvent>();
+        this.AddGameEventListening<PlayerEvent>();
         // this.AddGameEventListening<RefreshEvent>();
 
         RefreshFollowers();
@@ -66,7 +66,7 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
         SafeSetActive(true);
 
         RefreshHealthbar();
-        RefreshSkillAbility();
+        RefreshSkill();
 
         GetAbility<PlayerSkillAbility>().HideSkills();
 
@@ -116,11 +116,6 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
     }
 
 
-    private void RefreshSkillAbility()
-    {
-     //   GetAbility<PlayerSkillAbility>().RefreshSkill();
-    }
-
     public void OnGameEvent(StatEvent e)
     {
         if (e.Type == Enum_StatEventType.StatCalculate)
@@ -128,15 +123,19 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
             CalculateStat();
         }
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///
+    // 스킬
+    
+    private void RefreshSkill()
+    {
+        GetAbility<PlayerSkillAbility>().RefreshSkill();
+    }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///
     // 동료
-
-    public void OnGameEvent(FollowerEvent e)
-    {
-        RefreshFollowers();
-    }
 
     private void RefreshFollowers()
     {
@@ -161,17 +160,29 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
             _followers[i].PlayIdleAnimation();
         }
     }
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///
     //  무기 스킨
-
-    public void OnGameEvent(WeaponEvent e)
-    {
-        RefreshWeaponSkin();
-    } 
     
     private void RefreshWeaponSkin()
     {
         GetAbility<MultiSkinAnimationAbility>().RefreshSkins();
+    }
+
+    public void OnGameEvent(PlayerEvent e)
+    {
+        switch (e.Type)
+        {
+            case Enum_PlayerEventType.EquipSkill:
+                RefreshSkill();
+                break;
+            case Enum_PlayerEventType.EquipFollower:
+                RefreshFollowers();
+                break;
+            case Enum_PlayerEventType.EquipWeapon:
+                RefreshWeaponSkin();
+                break;
+        }
     }
 }

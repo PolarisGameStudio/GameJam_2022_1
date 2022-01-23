@@ -31,7 +31,7 @@ public class UI_SkillBar : MonoBehaviour, GameEventListener<RefreshEvent>
                 continue;
             }
 
-            SkillSlots[i].InitSkill(TBL_SKILL.GetEntity(equipped[i]), DataManager.SkillData.IsSlotUnlock(i));
+            SkillSlots[i].InitSkill(PlayerSkillManager.Instance.GetSkillPrefab(equipped[i]), DataManager.SkillData.IsSlotUnlock(i));
         }
     }
 }

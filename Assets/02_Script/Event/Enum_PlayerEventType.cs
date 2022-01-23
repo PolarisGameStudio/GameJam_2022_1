@@ -6,4 +6,8 @@ public enum Enum_PlayerEventType
 {
     LevelUp,
     Exp,
+    
+    EquipSkill,
+    EquipFollower,
+    EquipWeapon,
 }

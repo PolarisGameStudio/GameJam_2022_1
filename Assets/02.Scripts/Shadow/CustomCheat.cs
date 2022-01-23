@@ -35,15 +35,20 @@ public partial class SROptions
 
     public void saf()
     {
-        List<Reward> rewards = new List<Reward>();
-        
-        rewards.Add(new Reward(RewardType.Skill,0,10));
-        rewards.Add(new Reward(RewardType.Skill,1,10));
-        rewards.Add(new Reward(RewardType.Skill,2,10));
-        rewards.Add(new Reward(RewardType.Skill,3,10));
-        rewards.Add(new Reward(RewardType.Skill,4,10));
-        rewards.Add(new Reward(RewardType.Skill,5,10));
-        
-        UI_Popup_Reward.Instance.Open(rewards);
+        // List<Reward> rewards = new List<Reward>();
+        //
+        // rewards.Add(new Reward(RewardType.Skill,0,10));
+        // rewards.Add(new Reward(RewardType.Skill,1,10));
+        // rewards.Add(new Reward(RewardType.Skill,2,10));
+        // rewards.Add(new Reward(RewardType.Skill,3,10));
+        // rewards.Add(new Reward(RewardType.Skill,4,10));
+        // rewards.Add(new Reward(RewardType.Skill,5,10));
+        //
+        // UI_Popup_Reward.Instance.Open(rewards);
+
+        for (var i = 0; i < DataManager.SkillData.Levels.Count; i++)
+        {
+            DataManager.SkillData.Levels[i] += 1;
+        }
     }
 }

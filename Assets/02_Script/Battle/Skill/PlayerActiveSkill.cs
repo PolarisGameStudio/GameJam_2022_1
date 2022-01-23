@@ -13,31 +13,29 @@ public class PlayerActiveSkill : PlayerSkill
     protected Animator _animator;
 
     private Coroutine _skillCoroutine;
-    protected WaitForSeconds _damageDelay;
 
     public bool EffectOnPlayerPosition;
+    public float DamageDelay;
     
-    // 연출 관련 변수
-    [InlineEditor(ObjectFieldMode = InlineEditorObjectFieldModes.Foldout)]
-    public AttackPreset AttackPreset;
-
+    protected WaitForSeconds _damageDelay;
+    
     protected virtual void Awake()
     {
-        _skillVFX = GetComponent<ParticleSystem>();
+        _skillVFX = transform.GetChild(0).GetComponent<ParticleSystem>();
         _animator = GetComponent<Animator>();
 
         //_damageDelay = new WaitForSeconds(AttackPreset.DamageDelay);
-        _damageDelay = new WaitForSeconds(0f);
+        _damageDelay = new WaitForSeconds(DamageDelay);
     }
     
     public override bool TryUseSkill()
     {
-        if (!IsSkillEnable())
+        if (!CanUseSKill())
         {
             return false;
         }
 
-        var targetMonsterList = BattleManager.Instance.GetMonsters();
+        var targetMonsterList = FindTargetByDistance(_data.Distance);
 
         var aliveTargetExist = targetMonsterList.Count(monster => monster.IsAlive) > 0;
 
@@ -123,9 +121,9 @@ public class PlayerActiveSkill : PlayerSkill
 
     protected virtual void PlaySkillEffect()
     {
-        AttackPreset.PlayBlackout();
-        AttackPreset.PlaySlow();
-        AttackPreset.PlayShake();
+        // AttackPreset.PlayBlackout();
+        // AttackPreset.PlaySlow();
+        // AttackPreset.PlayShake();
     }
 
     public void Hide()

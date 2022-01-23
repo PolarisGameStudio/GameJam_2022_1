@@ -35,10 +35,5 @@ public class UI_PassiveSkillBar : MonoBehaviour
         //     _skillBarIcons[i].InitSkill(skill);
         // }
     }
-
-    public void TogglePasive(bool isOn)
-    {
-        PlayerSkillManager.Instance.EnablePassive(isOn);
-    }
     
 }

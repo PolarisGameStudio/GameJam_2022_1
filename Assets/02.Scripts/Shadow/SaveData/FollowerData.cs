@@ -92,6 +92,7 @@ public class FollowerData : StatData
 
         CalculateStat();
         RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
+        PlayerEvent.Trigger(Enum_PlayerEventType.EquipFollower);
     }
     
     public void AddFollower(int rewardValue, int rewardCount)

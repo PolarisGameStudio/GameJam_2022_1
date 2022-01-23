@@ -23,10 +23,7 @@ public enum Enum_StatType
     Evasion,
     HealthRecovery,
     
+    ReduceCoolTime,
+    
     Count
-}
-
-public enum StatType
-{
-
 }

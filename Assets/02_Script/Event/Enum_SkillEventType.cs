@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum Enum_SkillEventType
 {
-    Use,
+    Equip
 }

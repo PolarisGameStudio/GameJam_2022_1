@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class PlayerSkillAbility : CharacterAbility
 {
-    private List<PlayerActiveSkill> _activeSkills;
-    private List<PlayerPassiveSkill> _passiveSkills;
+    private List<PlayerActiveSkill> _activeSkills = new List<PlayerActiveSkill>();
+    private List<PlayerPassiveSkill> _passiveSkills = new List<PlayerPassiveSkill>();
 
     private float _skillIntervalTime = 1f;
     private float _skillIntervalTimer = 0;
@@ -21,67 +21,71 @@ public class PlayerSkillAbility : CharacterAbility
 
         _skillIntervalTimer += deltaTime;
 
-        // if (_activeSkills != null)
-        // {
-        //     for (var i = 0; i < _activeSkills.Count; i++)
-        //     {
-        //         _activeSkills[i]?.UpdateCoolTime(deltaTime);
-        //     }
-        // }
-        //
-        //  if (_passiveSkills != null)
-        // {
-        //     for (var i = 0; i < _passiveSkills.Count; i++)
-        //     {
-        //         _passiveSkills[i]?.UpdateCoolTime(deltaTime);
-        //     }
-        // }
-        //
-        
-            
-        
+        if (_activeSkills != null)
+        {
+            for (var i = 0; i < _activeSkills.Count; i++)
+            {
+                _activeSkills[i]?.UpdateCoolTime(deltaTime);
+            }
+        }
 
-        // if (OptionManager.Instance.IsAutoSkill)
-        // {
-        //     if (!_onwerObject.GetAbility<MonsterDetectAbility>().HaveTarget)
-        //     {
-        //         return;
-        //     }
-        //
-        //     if (_skillIntervalTime > _skillIntervalTimer)
-        //     {
-        //         return;
-        //     }
-        //     
-        //     foreach (var activeSkill in _activeSkills)
-        //     {
-        //         if (activeSkill.TryUseSkill())
-        //         {
-        //             _skillIntervalTimer = 0;
-        //             break;
-        //         }
-        //     }
-        // }
+        if (_passiveSkills != null)
+        {
+            for (var i = 0; i < _passiveSkills.Count; i++)
+            {
+                _passiveSkills[i]?.UpdateCoolTime(deltaTime);
+            }
+        }
+
+        if (!_onwerObject.GetAbility<MonsterDetectAbility>().HaveTarget)
+        {
+            return;
+        }
+
+        if (_skillIntervalTime > _skillIntervalTimer)
+        {
+            return;
+        }
+
+        foreach (var activeSkill in _activeSkills)
+        {
+            if (activeSkill == null)
+            {
+                continue;
+            }
+            
+            if (activeSkill.TryUseSkill())
+            {
+                _skillIntervalTimer = 0;
+                break;
+            }
+        }
     }
 
-    // public void RefreshSkill()
-    // {
-    //     RefreshActiveSkill();
-    //     RefreshPassiveSkill();
-    // }
-
-    // public void RefreshActiveSkill()
-    // {
-    //     var activeSkillIndex = PlayerSkillManager.Instance.EquippedActiveSkillIndex;
-    //     _activeSkills = new List<PlayerActiveSkill>(activeSkillIndex.Count);
-    //
-    //     foreach (var index in activeSkillIndex)
-    //     {
-    //         var skill = PlayerSkillManager.Instance.GetActiveSkill(index);
-    //         _activeSkills.Add(skill);
-    //     }
-    // }
-    //
+    public void RefreshSkill()
+    {
+        RefreshActiveSkill();
+    }
+    
+    public void RefreshActiveSkill()
+    {
+        var activeSkillIndex = DataManager.SkillData.EquippedIndex;
+            
+        _activeSkills = new List<PlayerActiveSkill>(activeSkillIndex.Count);
+    
+        foreach (var index in activeSkillIndex)
+        {
+            if (index == -1)
+            {
+                _activeSkills.Add(null);
+                continue;
+            }
+            
+            var skill = PlayerSkillManager.Instance.GetSkillPrefab(index);
+            _activeSkills.Add(skill);
+        }
+    }
+    
     // public void RefreshPassiveSkill()
     // {
     //     var passiveSkillIndex = PlayerSkillManager.Instance.EquippedPassiveSkillIndex;
@@ -101,10 +105,10 @@ public class PlayerSkillAbility : CharacterAbility
             return;
         }
 
-        // foreach (var activeSkill in _activeSkills)
-        // {
-        //     activeSkill.Hide();
-        // }
+        foreach (var activeSkill in _activeSkills)
+        {
+            activeSkill.Hide();
+        }
     }
     
     
@@ -116,10 +120,6 @@ public class PlayerSkillAbility : CharacterAbility
     
     public void OnDeath(double damage)
     {
-        if (!PlayerSkillManager.Instance.EnabelPassive)
-        {
-            return;
-        }
         foreach (var passive in _passiveSkills)
         {
             passive.OnDeath(damage);
@@ -128,10 +128,6 @@ public class PlayerSkillAbility : CharacterAbility
 
     public void OnHit()
     {
-        if (!PlayerSkillManager.Instance.EnabelPassive)
-        {
-            return;
-        }
         foreach (var passive in _passiveSkills)
         {
             passive.OnHit();
@@ -140,10 +136,6 @@ public class PlayerSkillAbility : CharacterAbility
     
     public void OnEnemyKill()
     {
-        if (!PlayerSkillManager.Instance.EnabelPassive)
-        {
-            return;
-        }
         foreach (var passive in _passiveSkills)
         {
             passive.OnEnemyKill();
@@ -152,10 +144,6 @@ public class PlayerSkillAbility : CharacterAbility
     
     public void OnAttack(CharacterObject target)
     {
-        if (!PlayerSkillManager.Instance.EnabelPassive)
-        {
-            return;
-        }
         foreach (var passive in _passiveSkills)
         {
             passive.OnAttack(target);
@@ -164,10 +152,6 @@ public class PlayerSkillAbility : CharacterAbility
 
     public void OnBerserkStart()
     {
-        if (!PlayerSkillManager.Instance.EnabelPassive)
-        {
-            return;
-        }
         foreach (var passive in _passiveSkills)
         {
             passive.OnBerserkStart();

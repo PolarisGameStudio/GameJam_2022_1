@@ -82,6 +82,7 @@ public class SkillData : SaveDataBase
         EquippedIndex[changeSlotIndex] = index;
         
         RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
+        PlayerEvent.Trigger(Enum_PlayerEventType.LevelUp);
     }
 
     public void AddSkill(int rewardValue, int rewardCount)
@@ -119,6 +120,9 @@ public class SkillData : SaveDataBase
 
     public bool IsSlotUnlock(int slotIndex)
     {
+        #if UNITY_EDITOR
+        return true;
+        #endif
         return  DataManager.PlayerData.Level >= (slotIndex - 1) * 10;
     }
 }

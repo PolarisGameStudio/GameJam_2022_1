@@ -130,7 +130,7 @@ public class EquipmentData : StatData
         
         EquippedIndex[typeIndex] = index;
         
-        WeaponEvent.Trigger(Enum_WeaponEventType.Equip);
+        PlayerEvent.Trigger(Enum_PlayerEventType.EquipWeapon);
         RefreshEvent.Trigger(Enum_RefreshEventType.Equipment);
 
         CalculateStat();

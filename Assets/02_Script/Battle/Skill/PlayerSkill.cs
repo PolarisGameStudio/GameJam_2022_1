@@ -16,28 +16,23 @@ public class PlayerSkill : GameBehaviour
 
     public float RemainCoolTimeNormalized => _coolTimer / _data.CoolTime;
 
-    public float Value;
+    public float Value => _data.Value + _data.IncreaseValue * DataManager.SkillData.Levels[_data.Index];
     
     public virtual void InitSkill(TBL_SKILL data, PlayerObject playerObject)
     {
         _data = data;
         _playerObject = playerObject;
+        _coolTimer = _data.CoolTime;
     }
     
-    
-    public bool IsSkillEnable()
+    public bool CanUseSKill()
     {
         return _data.CoolTime <= _coolTimer;
     }
+    
     public void UpdateCoolTime(float deltaTime)
     {
         _coolTimer += deltaTime;
-    }
-
-    public void Calculate()
-    {
-        // todo: 어쩌고 공식
-        Value = _data.Value + _data.IncreaseValue * DataManager.SkillData.Levels[_data.Index];
     }
 
     public virtual bool TryUseSkill()
