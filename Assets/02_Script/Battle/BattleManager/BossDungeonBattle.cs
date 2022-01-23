@@ -6,7 +6,7 @@ using UnityEngine;
 public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 {
     private TBL_DUNGEON_BOSS _bossDungeonData;
-    public float RemainTime => _bossDungeonData.TimeLimit - _timer;
+    public float RemainTime => SystemValue.BOSS_DUNGEON_LIMIT_TIME - _timer;
     private float _timer;
 
     private void Awake()

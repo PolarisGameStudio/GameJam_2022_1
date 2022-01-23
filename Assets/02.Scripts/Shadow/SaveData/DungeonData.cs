@@ -54,26 +54,29 @@ public class DungeonData : SaveDataBase
         }
     }
 
-    public void SkipDungeon(Enum_BattleType dungeonBattleType, int count = 1)
+    public bool TrySkipDungeon(Enum_BattleType dungeonBattleType, int count = 1)
     {
         switch (dungeonBattleType)
         {
             case Enum_BattleType.TreasureDungeon:
                 DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Treasure, count);
-                break;
+                return true;
+            
             case Enum_BattleType.SmithDungeon:
                 DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Smith, count);
-                break;
+                return true;
+            
             case Enum_BattleType.BossDungeon:
                 DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Boss, count);
-                break;
+                return true;
 
             default:
-                break;
+                return false;
         }
+        
     }
 
-    public void TryChallenge(Enum_BattleType dungeonBattleType)
+    public bool TryChallenge(Enum_BattleType dungeonBattleType)
     {
         Enum_CurrencyType ticket = Enum_CurrencyType.Count;
         
@@ -94,13 +97,17 @@ public class DungeonData : SaveDataBase
 
             default:
                 Debug.LogError("던전 배틀타입만처리 가능");
-                return;
+                return false;
         }
 
-        if (DataManager.CurrencyData.IsEnough(ticket, 1))
+        if (DataManager.CurrencyData.IsEnough(ticket, 0))
         {
             BattleManager.Instance.BattleStart(dungeonBattleType, level);
+
+            return true;
         }
+
+        return false;
     }
 
     public void GetRewardTreasureDungeon(int count)

@@ -16,14 +16,14 @@ public class UI_Dungeon : SingletonBehaviour<UI_Dungeon>
 
     public void OnClickTreasureDungeon()
     {
-        DataManager.DungeonData.TryChallenge(Enum_BattleType.TreasureDungeon);
+        UI_Popup_Dungeon_Treasure.Instance.Open();
     }
     public void OnClickBossDungeon()
     {
-        DataManager.DungeonData.TryChallenge(Enum_BattleType.BossDungeon);
+        UI_Popup_Dungeon_Boss.Instance.Open();
     }
     public void OnClickSmithDungeon()
     {
-        DataManager.DungeonData.TryChallenge(Enum_BattleType.SmithDungeon);
+        UI_Popup_Dungeon_Smith.Instance.Open();
     }
 }

@@ -6,7 +6,7 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 {
     private TBL_DUNGEON_TREASURE _treasureDungeonData;
 
-    public float RemainTime => _treasureDungeonData.TimeLimit - _timer;
+    public float RemainTime => SystemValue.TREASURE_DUNGEON_LIMIT_TIME - _timer;
     private float _timer;
 
     private int _monsterKillCount = 0;
@@ -18,13 +18,13 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     private void Update()
     {
-        if (_treasureDungeonData == null)
+        if (_treasureDungeonData == null || BattleManager.Instance.CurrentBattle != this)
         {
             return;
         }
-        
+
         _timer += Time.deltaTime;
-        
+
         if (RemainTime < 0)
         {
             BattleOver();

@@ -2193,103 +2193,81 @@ public partial class TBL_DUNGEON_SMITH : BGEntity
 			_SpawnMonsterList[Index] = value;
 		}
 	}
-	public RewardType RewardType1
+	public Enum_ItemGrade EquipmentGrade1
 	{
 		get
 		{
-			return (RewardType) _RewardType1[Index];
+			return (Enum_ItemGrade) _EquipmentGrade1[Index];
 		}
 		set
 		{
-			_RewardType1[Index] = value;
+			_EquipmentGrade1[Index] = value;
 		}
 	}
-	public System.Int32 RewardValue1
+	public System.Int32 EquipmentMinCount1
 	{
 		get
 		{
-			return _RewardValue1[Index];
+			return _EquipmentMinCount1[Index];
 		}
 		set
 		{
-			_RewardValue1[Index] = value;
+			_EquipmentMinCount1[Index] = value;
 		}
 	}
-	public System.Int32 RewardCount1
+	public System.Int32 EquipmentMaxCount2
 	{
 		get
 		{
-			return _RewardCount1[Index];
+			return _EquipmentMaxCount2[Index];
 		}
 		set
 		{
-			_RewardCount1[Index] = value;
+			_EquipmentMaxCount2[Index] = value;
 		}
 	}
-	public RewardType RewardType2
+	public Enum_ItemGrade EquipmentGrade2
 	{
 		get
 		{
-			return (RewardType) _RewardType2[Index];
+			return (Enum_ItemGrade) _EquipmentGrade2[Index];
 		}
 		set
 		{
-			_RewardType2[Index] = value;
+			_EquipmentGrade2[Index] = value;
 		}
 	}
-	public System.Int32 RewardValue2
+	public System.Int32 EquipmentMinCount2
 	{
 		get
 		{
-			return _RewardValue2[Index];
+			return _EquipmentMinCount2[Index];
 		}
 		set
 		{
-			_RewardValue2[Index] = value;
+			_EquipmentMinCount2[Index] = value;
 		}
 	}
-	public System.Int32 RewardCount2
+	public System.Int32 EquipmentMaxCount1
 	{
 		get
 		{
-			return _RewardCount2[Index];
+			return _EquipmentMaxCount1[Index];
 		}
 		set
 		{
-			_RewardCount2[Index] = value;
+			_EquipmentMaxCount1[Index] = value;
 		}
 	}
-	public RewardType RewardType3
+	public System.Int32 EquipmentStonCount
 	{
 		get
 		{
-			return (RewardType) _RewardType3[Index];
+			return _EquipmentStonCount[Index];
 		}
 		set
 		{
-			_RewardType3[Index] = value;
-		}
-	}
-	public System.Int32 RewardValue3
-	{
-		get
-		{
-			return _RewardValue3[Index];
-		}
-		set
-		{
-			_RewardValue3[Index] = value;
-		}
-	}
-	public System.Int32 RewardCount3
-	{
-		get
-		{
-			return _RewardCount3[Index];
-		}
-		set
-		{
-			_RewardCount3[Index] = value;
+			_EquipmentStonCount[Index] = value;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
@@ -2346,85 +2324,67 @@ public partial class TBL_DUNGEON_SMITH : BGEntity
 			return _ufle12jhs77_SpawnMonsterList;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType1;
-	public static BansheeGz.BGDatabase.BGFieldEnum _RewardType1
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_EquipmentGrade1;
+	public static BansheeGz.BGDatabase.BGFieldEnum _EquipmentGrade1
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardType1==null || _ufle12jhs77_RewardType1.IsDeleted) _ufle12jhs77_RewardType1=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4881246462456801585,583567233064479153));
-			return _ufle12jhs77_RewardType1;
+			if(_ufle12jhs77_EquipmentGrade1==null || _ufle12jhs77_EquipmentGrade1.IsDeleted) _ufle12jhs77_EquipmentGrade1=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5608396087494404761,3653755299244473513));
+			return _ufle12jhs77_EquipmentGrade1;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardValue1;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardValue1
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_EquipmentMinCount1;
+	public static BansheeGz.BGDatabase.BGFieldInt _EquipmentMinCount1
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardValue1==null || _ufle12jhs77_RewardValue1.IsDeleted) _ufle12jhs77_RewardValue1=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5654360020189625332,7938425482056000186));
-			return _ufle12jhs77_RewardValue1;
+			if(_ufle12jhs77_EquipmentMinCount1==null || _ufle12jhs77_EquipmentMinCount1.IsDeleted) _ufle12jhs77_EquipmentMinCount1=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5589806182299122735,841887899780217475));
+			return _ufle12jhs77_EquipmentMinCount1;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount1;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount1
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_EquipmentMaxCount2;
+	public static BansheeGz.BGDatabase.BGFieldInt _EquipmentMaxCount2
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardCount1==null || _ufle12jhs77_RewardCount1.IsDeleted) _ufle12jhs77_RewardCount1=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5302646650517658393,12886959592162150035));
-			return _ufle12jhs77_RewardCount1;
+			if(_ufle12jhs77_EquipmentMaxCount2==null || _ufle12jhs77_EquipmentMaxCount2.IsDeleted) _ufle12jhs77_EquipmentMaxCount2=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5417011992830182757,12948767949630281622));
+			return _ufle12jhs77_EquipmentMaxCount2;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType2;
-	public static BansheeGz.BGDatabase.BGFieldEnum _RewardType2
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_EquipmentGrade2;
+	public static BansheeGz.BGDatabase.BGFieldEnum _EquipmentGrade2
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardType2==null || _ufle12jhs77_RewardType2.IsDeleted) _ufle12jhs77_RewardType2=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4990925159826686484,7007344521368193420));
-			return _ufle12jhs77_RewardType2;
+			if(_ufle12jhs77_EquipmentGrade2==null || _ufle12jhs77_EquipmentGrade2.IsDeleted) _ufle12jhs77_EquipmentGrade2=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4896404436352818408,8628194645857572019));
+			return _ufle12jhs77_EquipmentGrade2;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardValue2;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardValue2
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_EquipmentMinCount2;
+	public static BansheeGz.BGDatabase.BGFieldInt _EquipmentMinCount2
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardValue2==null || _ufle12jhs77_RewardValue2.IsDeleted) _ufle12jhs77_RewardValue2=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5761031958498060688,8795651300765017525));
-			return _ufle12jhs77_RewardValue2;
+			if(_ufle12jhs77_EquipmentMinCount2==null || _ufle12jhs77_EquipmentMinCount2.IsDeleted) _ufle12jhs77_EquipmentMinCount2=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4685799764546301104,2562535330797900460));
+			return _ufle12jhs77_EquipmentMinCount2;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount2;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount2
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_EquipmentMaxCount1;
+	public static BansheeGz.BGDatabase.BGFieldInt _EquipmentMaxCount1
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardCount2==null || _ufle12jhs77_RewardCount2.IsDeleted) _ufle12jhs77_RewardCount2=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4980964314662225057,5914093812312404402));
-			return _ufle12jhs77_RewardCount2;
+			if(_ufle12jhs77_EquipmentMaxCount1==null || _ufle12jhs77_EquipmentMaxCount1.IsDeleted) _ufle12jhs77_EquipmentMaxCount1=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5399321671885868810,14774802633498654399));
+			return _ufle12jhs77_EquipmentMaxCount1;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType3;
-	public static BansheeGz.BGDatabase.BGFieldEnum _RewardType3
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_EquipmentStonCount;
+	public static BansheeGz.BGDatabase.BGFieldInt _EquipmentStonCount
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardType3==null || _ufle12jhs77_RewardType3.IsDeleted) _ufle12jhs77_RewardType3=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5029948474078744911,763345216210468287));
-			return _ufle12jhs77_RewardType3;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardValue3;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardValue3
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardValue3==null || _ufle12jhs77_RewardValue3.IsDeleted) _ufle12jhs77_RewardValue3=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4817955213349701887,10786307860230072215));
-			return _ufle12jhs77_RewardValue3;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount3;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount3
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardCount3==null || _ufle12jhs77_RewardCount3.IsDeleted) _ufle12jhs77_RewardCount3=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5523503387366752600,9674165624526946690));
-			return _ufle12jhs77_RewardCount3;
+			if(_ufle12jhs77_EquipmentStonCount==null || _ufle12jhs77_EquipmentStonCount.IsDeleted) _ufle12jhs77_EquipmentStonCount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4870142969143096700,6304537412240428186));
+			return _ufle12jhs77_EquipmentStonCount;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
@@ -3036,117 +2996,7 @@ public partial class TBL_DUNGEON_TREASURE : BGEntity
 			_SpawnMonsterList[Index] = value;
 		}
 	}
-	public RewardType RewardType1
-	{
-		get
-		{
-			return (RewardType) _RewardType1[Index];
-		}
-		set
-		{
-			_RewardType1[Index] = value;
-		}
-	}
-	public System.Int32 RewardValue1
-	{
-		get
-		{
-			return _RewardValue1[Index];
-		}
-		set
-		{
-			_RewardValue1[Index] = value;
-		}
-	}
-	public System.Int32 RewardCount1
-	{
-		get
-		{
-			return _RewardCount1[Index];
-		}
-		set
-		{
-			_RewardCount1[Index] = value;
-		}
-	}
-	public RewardType RewardType2
-	{
-		get
-		{
-			return (RewardType) _RewardType2[Index];
-		}
-		set
-		{
-			_RewardType2[Index] = value;
-		}
-	}
-	public System.Int32 RewardValue2
-	{
-		get
-		{
-			return _RewardValue2[Index];
-		}
-		set
-		{
-			_RewardValue2[Index] = value;
-		}
-	}
-	public System.Int32 RewardCount2
-	{
-		get
-		{
-			return _RewardCount2[Index];
-		}
-		set
-		{
-			_RewardCount2[Index] = value;
-		}
-	}
-	public RewardType RewardType3
-	{
-		get
-		{
-			return (RewardType) _RewardType3[Index];
-		}
-		set
-		{
-			_RewardType3[Index] = value;
-		}
-	}
-	public System.Int32 RewardValue3
-	{
-		get
-		{
-			return _RewardValue3[Index];
-		}
-		set
-		{
-			_RewardValue3[Index] = value;
-		}
-	}
-	public System.Int32 RewardCount3
-	{
-		get
-		{
-			return _RewardCount3[Index];
-		}
-		set
-		{
-			_RewardCount3[Index] = value;
-		}
-	}
-	public System.Int32 TimeLimit
-	{
-		get
-		{
-			return _TimeLimit[Index];
-		}
-		set
-		{
-			_TimeLimit[Index] = value;
-		}
-	}
-	public System.Double GoldAmount
+	public System.Int32 GoldAmount
 	{
 		get
 		{
@@ -3157,15 +3007,26 @@ public partial class TBL_DUNGEON_TREASURE : BGEntity
 			_GoldAmount[Index] = value;
 		}
 	}
-	public System.Double ExpAmount
+	public System.Int32 GemAmount
 	{
 		get
 		{
-			return _ExpAmount[Index];
+			return _GemAmount[Index];
 		}
 		set
 		{
-			_ExpAmount[Index] = value;
+			_GemAmount[Index] = value;
+		}
+	}
+	public System.Int32 DiceAmount
+	{
+		get
+		{
+			return _DiceAmount[Index];
+		}
+		set
+		{
+			_DiceAmount[Index] = value;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
@@ -3222,112 +3083,31 @@ public partial class TBL_DUNGEON_TREASURE : BGEntity
 			return _ufle12jhs77_SpawnMonsterList;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType1;
-	public static BansheeGz.BGDatabase.BGFieldEnum _RewardType1
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_GoldAmount;
+	public static BansheeGz.BGDatabase.BGFieldInt _GoldAmount
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardType1==null || _ufle12jhs77_RewardType1.IsDeleted) _ufle12jhs77_RewardType1=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5114083065806356278,16588361836305368979));
-			return _ufle12jhs77_RewardType1;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardValue1;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardValue1
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardValue1==null || _ufle12jhs77_RewardValue1.IsDeleted) _ufle12jhs77_RewardValue1=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5130197298250498829,6621661635682574216));
-			return _ufle12jhs77_RewardValue1;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount1;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount1
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardCount1==null || _ufle12jhs77_RewardCount1.IsDeleted) _ufle12jhs77_RewardCount1=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4989758571034891102,7723225735589732756));
-			return _ufle12jhs77_RewardCount1;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType2;
-	public static BansheeGz.BGDatabase.BGFieldEnum _RewardType2
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardType2==null || _ufle12jhs77_RewardType2.IsDeleted) _ufle12jhs77_RewardType2=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5035082688024725442,12347956982776867980));
-			return _ufle12jhs77_RewardType2;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardValue2;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardValue2
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardValue2==null || _ufle12jhs77_RewardValue2.IsDeleted) _ufle12jhs77_RewardValue2=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4721822413701354907,17900173840077698724));
-			return _ufle12jhs77_RewardValue2;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount2;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount2
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardCount2==null || _ufle12jhs77_RewardCount2.IsDeleted) _ufle12jhs77_RewardCount2=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4956878518461231650,11227827091925718195));
-			return _ufle12jhs77_RewardCount2;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType3;
-	public static BansheeGz.BGDatabase.BGFieldEnum _RewardType3
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardType3==null || _ufle12jhs77_RewardType3.IsDeleted) _ufle12jhs77_RewardType3=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4668707637734245306,1568437518940391812));
-			return _ufle12jhs77_RewardType3;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardValue3;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardValue3
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardValue3==null || _ufle12jhs77_RewardValue3.IsDeleted) _ufle12jhs77_RewardValue3=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5175115112216621467,2977889237919881864));
-			return _ufle12jhs77_RewardValue3;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount3;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount3
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardCount3==null || _ufle12jhs77_RewardCount3.IsDeleted) _ufle12jhs77_RewardCount3=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5138319355546418507,437790168549954215));
-			return _ufle12jhs77_RewardCount3;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_TimeLimit;
-	public static BansheeGz.BGDatabase.BGFieldInt _TimeLimit
-	{
-		get
-		{
-			if(_ufle12jhs77_TimeLimit==null || _ufle12jhs77_TimeLimit.IsDeleted) _ufle12jhs77_TimeLimit=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5241799325609298296,9744513042652544129));
-			return _ufle12jhs77_TimeLimit;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_GoldAmount;
-	public static BansheeGz.BGDatabase.BGFieldDouble _GoldAmount
-	{
-		get
-		{
-			if(_ufle12jhs77_GoldAmount==null || _ufle12jhs77_GoldAmount.IsDeleted) _ufle12jhs77_GoldAmount=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5548323324085006372,702313621255606679));
+			if(_ufle12jhs77_GoldAmount==null || _ufle12jhs77_GoldAmount.IsDeleted) _ufle12jhs77_GoldAmount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5336862992886084209,6077783946648804021));
 			return _ufle12jhs77_GoldAmount;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_ExpAmount;
-	public static BansheeGz.BGDatabase.BGFieldDouble _ExpAmount
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_GemAmount;
+	public static BansheeGz.BGDatabase.BGFieldInt _GemAmount
 	{
 		get
 		{
-			if(_ufle12jhs77_ExpAmount==null || _ufle12jhs77_ExpAmount.IsDeleted) _ufle12jhs77_ExpAmount=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5248113970105791377,1961267476911320962));
-			return _ufle12jhs77_ExpAmount;
+			if(_ufle12jhs77_GemAmount==null || _ufle12jhs77_GemAmount.IsDeleted) _ufle12jhs77_GemAmount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4867926276661312104,1794175104149378));
+			return _ufle12jhs77_GemAmount;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_DiceAmount;
+	public static BansheeGz.BGDatabase.BGFieldInt _DiceAmount
+	{
+		get
+		{
+			if(_ufle12jhs77_DiceAmount==null || _ufle12jhs77_DiceAmount.IsDeleted) _ufle12jhs77_DiceAmount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5430714053336327102,12945581731031110043));
+			return _ufle12jhs77_DiceAmount;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();
@@ -3486,114 +3266,37 @@ public partial class TBL_DUNGEON_BOSS : BGEntity
 			_HealthFactor[Index] = value;
 		}
 	}
-	public RewardType RewardType1
+	public System.Int32 FollowerMinCount
 	{
 		get
 		{
-			return (RewardType) _RewardType1[Index];
+			return _FollowerMinCount[Index];
 		}
 		set
 		{
-			_RewardType1[Index] = value;
+			_FollowerMinCount[Index] = value;
 		}
 	}
-	public System.Int32 RewardValue1
+	public System.Int32 FollowerMaxCount
 	{
 		get
 		{
-			return _RewardValue1[Index];
+			return _FollowerMaxCount[Index];
 		}
 		set
 		{
-			_RewardValue1[Index] = value;
+			_FollowerMaxCount[Index] = value;
 		}
 	}
-	public System.Int32 RewardCount1
+	public System.Int32 DiceCount
 	{
 		get
 		{
-			return _RewardCount1[Index];
+			return _DiceCount[Index];
 		}
 		set
 		{
-			_RewardCount1[Index] = value;
-		}
-	}
-	public RewardType RewardType2
-	{
-		get
-		{
-			return (RewardType) _RewardType2[Index];
-		}
-		set
-		{
-			_RewardType2[Index] = value;
-		}
-	}
-	public System.Int32 RewardValue2
-	{
-		get
-		{
-			return _RewardValue2[Index];
-		}
-		set
-		{
-			_RewardValue2[Index] = value;
-		}
-	}
-	public System.Int32 RewardCount2
-	{
-		get
-		{
-			return _RewardCount2[Index];
-		}
-		set
-		{
-			_RewardCount2[Index] = value;
-		}
-	}
-	public RewardType RewardType3
-	{
-		get
-		{
-			return (RewardType) _RewardType3[Index];
-		}
-		set
-		{
-			_RewardType3[Index] = value;
-		}
-	}
-	public System.Int32 RewardValue3
-	{
-		get
-		{
-			return _RewardValue3[Index];
-		}
-		set
-		{
-			_RewardValue3[Index] = value;
-		}
-	}
-	public System.Int32 RewardCount3
-	{
-		get
-		{
-			return _RewardCount3[Index];
-		}
-		set
-		{
-			_RewardCount3[Index] = value;
-		}
-	}
-	public System.Int32 TimeLimit
-	{
-		get
-		{
-			return _TimeLimit[Index];
-		}
-		set
-		{
-			_TimeLimit[Index] = value;
+			_DiceCount[Index] = value;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
@@ -3623,94 +3326,31 @@ public partial class TBL_DUNGEON_BOSS : BGEntity
 			return _ufle12jhs77_HealthFactor;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType1;
-	public static BansheeGz.BGDatabase.BGFieldEnum _RewardType1
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_FollowerMinCount;
+	public static BansheeGz.BGDatabase.BGFieldInt _FollowerMinCount
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardType1==null || _ufle12jhs77_RewardType1.IsDeleted) _ufle12jhs77_RewardType1=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5661534834134744057,12053900482965564049));
-			return _ufle12jhs77_RewardType1;
+			if(_ufle12jhs77_FollowerMinCount==null || _ufle12jhs77_FollowerMinCount.IsDeleted) _ufle12jhs77_FollowerMinCount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5477559331073635508,5997076853714125451));
+			return _ufle12jhs77_FollowerMinCount;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardValue1;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardValue1
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_FollowerMaxCount;
+	public static BansheeGz.BGDatabase.BGFieldInt _FollowerMaxCount
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardValue1==null || _ufle12jhs77_RewardValue1.IsDeleted) _ufle12jhs77_RewardValue1=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4783779082162433265,15375698367642182297));
-			return _ufle12jhs77_RewardValue1;
+			if(_ufle12jhs77_FollowerMaxCount==null || _ufle12jhs77_FollowerMaxCount.IsDeleted) _ufle12jhs77_FollowerMaxCount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4644474972995393916,9945635743843524772));
+			return _ufle12jhs77_FollowerMaxCount;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount1;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount1
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_DiceCount;
+	public static BansheeGz.BGDatabase.BGFieldInt _DiceCount
 	{
 		get
 		{
-			if(_ufle12jhs77_RewardCount1==null || _ufle12jhs77_RewardCount1.IsDeleted) _ufle12jhs77_RewardCount1=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5160864236023321980,16496374847152525970));
-			return _ufle12jhs77_RewardCount1;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType2;
-	public static BansheeGz.BGDatabase.BGFieldEnum _RewardType2
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardType2==null || _ufle12jhs77_RewardType2.IsDeleted) _ufle12jhs77_RewardType2=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5109126910428121304,4117877581991882669));
-			return _ufle12jhs77_RewardType2;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardValue2;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardValue2
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardValue2==null || _ufle12jhs77_RewardValue2.IsDeleted) _ufle12jhs77_RewardValue2=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5671093788063650179,11540248224280440492));
-			return _ufle12jhs77_RewardValue2;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount2;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount2
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardCount2==null || _ufle12jhs77_RewardCount2.IsDeleted) _ufle12jhs77_RewardCount2=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5446618917784353131,42668663672793986));
-			return _ufle12jhs77_RewardCount2;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_RewardType3;
-	public static BansheeGz.BGDatabase.BGFieldEnum _RewardType3
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardType3==null || _ufle12jhs77_RewardType3.IsDeleted) _ufle12jhs77_RewardType3=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(5468011244066307404,4397482136338162087));
-			return _ufle12jhs77_RewardType3;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardValue3;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardValue3
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardValue3==null || _ufle12jhs77_RewardValue3.IsDeleted) _ufle12jhs77_RewardValue3=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4899615703510799406,16064060357273127600));
-			return _ufle12jhs77_RewardValue3;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_RewardCount3;
-	public static BansheeGz.BGDatabase.BGFieldInt _RewardCount3
-	{
-		get
-		{
-			if(_ufle12jhs77_RewardCount3==null || _ufle12jhs77_RewardCount3.IsDeleted) _ufle12jhs77_RewardCount3=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5631409697231884716,6467665368241204112));
-			return _ufle12jhs77_RewardCount3;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_TimeLimit;
-	public static BansheeGz.BGDatabase.BGFieldInt _TimeLimit
-	{
-		get
-		{
-			if(_ufle12jhs77_TimeLimit==null || _ufle12jhs77_TimeLimit.IsDeleted) _ufle12jhs77_TimeLimit=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5317894059697346539,16227419070252353677));
-			return _ufle12jhs77_TimeLimit;
+			if(_ufle12jhs77_DiceCount==null || _ufle12jhs77_DiceCount.IsDeleted) _ufle12jhs77_DiceCount=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4921655011590442919,9786063642900357520));
+			return _ufle12jhs77_DiceCount;
 		}
 	}
 	private static readonly TBL_PLAYER.Factory _factory0_PFS = new TBL_PLAYER.Factory();

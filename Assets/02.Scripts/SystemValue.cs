@@ -35,6 +35,8 @@ public static class SystemValue
     public static int GACHA_SKILL_BIG_PRICE = 3000;
     
     public static int MINIMUM_SAVE_PERIOD = 1;
+    public static float BOSS_DUNGEON_LIMIT_TIME = 60f;
+    public static float TREASURE_DUNGEON_LIMIT_TIME = 60f;
 }
 
 public static class ColorValue

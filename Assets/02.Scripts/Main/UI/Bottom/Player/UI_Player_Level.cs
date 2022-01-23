@@ -24,7 +24,7 @@ public class UI_Player_Level : MonoBehaviour, GameEventListener<PlayerEvent>
 
     public void OnGameEvent(PlayerEvent e)
     {
-        if (e.Type == Enum_PlayerEventType.Exp)
+        if (e.Type == Enum_PlayerEventType.Exp || e.Type == Enum_PlayerEventType.LevelUp)
         {
             Refresh();
         }
@@ -37,12 +37,12 @@ public class UI_Player_Level : MonoBehaviour, GameEventListener<PlayerEvent>
 
         var expPercent = Mathf.Min(1,DataManager.PlayerData.GetExpPercents());
         
-        _txtExpPercent.text = $"{expPercent * 100:N0}%";
+        _txtExpPercent.text = $"{expPercent * 100:N1}%";
         _sliderExp.value = expPercent;
     }
 
     public void OnClickLevelUp()
     {
-        Refresh();
+        DataManager.PlayerData.TryLevelUp();
     }
 }

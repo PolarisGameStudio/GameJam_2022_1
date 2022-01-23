@@ -16,6 +16,9 @@ public enum UIType
     Popup_Skill_Select,
     Popup_Follower_Select,
     Popup_Reward,
+    Popup_Dungeon_Boss,
+    Popup_Dungeon_Smith,
+    Popup_Dungeon_Treasure,
     Null
 }
 
