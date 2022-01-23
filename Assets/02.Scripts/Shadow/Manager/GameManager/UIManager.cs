@@ -21,6 +21,8 @@ public enum UIType
     Popup_Dungeon_Treasure,
     Popup_Gacha,
     Popup_Achieve,
+    Popup_Rune,
+    Popup_Option,
     Null,
 }
 

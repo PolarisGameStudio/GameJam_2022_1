@@ -59,7 +59,7 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
 
     public void OnClickOption()
     {
-        
+        UI_Popup_Option.Instance.Open();
     }
 
     public void OnClickQuest()
@@ -71,8 +71,8 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
     {
         UI_Popup_Achievement.Instance.Open();
     }   
-    public void OnClickPackage()
+    public void OnClickPassive()
     {
-        
+        UI_Popup_Passive.Instance.Open();
     }
 }

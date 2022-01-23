@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CodeStage.AntiCheat.Detectors;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,8 @@ using UnityEngine.UI;
 public class UI_Popup_Achievement : UI_BaseContent<UI_Popup_Achievement, UI_Popup_Achievement_Slot>, GameEventListener<RefreshEvent>
 {
     private Enum_AchivementType _type;
+
+    public Text _remainTime;
     
     protected override void Awake()
     {
@@ -70,11 +73,19 @@ public class UI_Popup_Achievement : UI_BaseContent<UI_Popup_Achievement, UI_Popu
     private void OnEnable()
     {
         this.AddGameEventListening<RefreshEvent>();
+        TimeManager.Instance.AddOnTickCallback(SetRemainTime);
+    }
+
+    private void SetRemainTime()
+    {
+        var remainTime = TimeManager.Instance.GetNextDayRemainTime();
+        _remainTime.text = $"{remainTime.Hours}시간 {remainTime.Minutes}분 후 초기화";
     }
 
     private void OnDisable()
     {
         this.RemoveGameEventListening<RefreshEvent>();
+        TimeManager.Instance.RemoveOnTickCallback(Refresh);
     }
 
     public override void Close()
@@ -87,7 +98,7 @@ public class UI_Popup_Achievement : UI_BaseContent<UI_Popup_Achievement, UI_Popu
     public override void Open()
     {
         base.Open();
-        
+        SetRemainTime();
         UIManager.Instance.Push(UIType.Popup_Achieve);
     }
 }

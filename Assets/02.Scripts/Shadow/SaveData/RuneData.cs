@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public enum Enum_RuneBuffType
 {
@@ -20,7 +21,7 @@ public class RuneData : StatData
     {
         Stat.Init();
 
-        Stat[Enum_StatType.Damage] = IsRuneActivate(Enum_RuneBuffType.Damage) ? 2 : 1; 
+        Stat[Enum_StatType.Damage] = IsRuneActivate(Enum_RuneBuffType.Damage) ? 2 : 1;
 
         StatEvent.Trigger(Enum_StatEventType.StatChange);
         RefreshEvent.Trigger(Enum_RefreshEventType.Rune);
@@ -44,7 +45,7 @@ public class RuneData : StatData
         }
 
         CalculateStat();
-        
+
         TimeManager.Instance.AddOnTickCallback(OnTick);
     }
 
@@ -53,7 +54,7 @@ public class RuneData : StatData
         bool isRuneFinish = false;
         for (int i = 0; i < RuneRemainTime.Count; i++)
         {
-            RuneRemainTime[i] -= 60;
+            RuneRemainTime[i] -= 1;
 
             if (RuneRemainTime[i] <= 0)
             {
@@ -63,11 +64,8 @@ public class RuneData : StatData
 
         if (isRuneFinish)
         {
-            CalculateStat();
-        }
-        else
-        {
             RefreshEvent.Trigger(Enum_RefreshEventType.Rune);
+            CalculateStat();
         }
     }
 
@@ -84,7 +82,15 @@ public class RuneData : StatData
     private void StartRune(Enum_RuneBuffType type)
     {
         RuneLimitCount[(int) type] += 1;
+
+        if (RuneRemainTime[(int) type] < 0)
+        {
+            RuneRemainTime[(int) type] = 0;
+        }
+
         RuneRemainTime[(int) type] += SystemValue.RUNE_DURATUIN;
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Rune);
 
         CalculateStat();
     }

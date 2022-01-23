@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class OptionData : SaveDataBase
 {
-    public bool AutoSleep;
+    public bool Sleep;
+    public bool BGM;
+    public bool SFX;
+    public bool VFX;
 
-    public float BGMVolume;
-    public float SFXVolume;
 
-    public void ToggleAutoSleep(bool isOn)
+    public void ToggleMusic(bool value)
     {
-        AutoSleep = isOn;
+        BGM = value;
     }
 
-    public void SetBGMVolume(float value)
+    public void ToggleSfx(bool value)
     {
-        BGMVolume = value;
-    }    
-    
-    public void SetSFXVolume(float value)
+        SFX = value;
+    }
+
+    public void ToggleSleep(bool value)
     {
-        SFXVolume = value;
+        Sleep = value;
+    }
+
+    public void ToggleVfx(bool value)
+    {
+        VFX = value;
     }
 }

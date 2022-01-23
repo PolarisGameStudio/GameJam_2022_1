@@ -34,6 +34,11 @@ public class TimeManager : SingletonBehaviour<TimeManager>
     {
         _onTick -= callback;
         _onTick += callback;
+    }    
+    
+    public void RemoveOnTickCallback(Action callback)
+    {
+        _onTick -= callback;
     }
 
     private void OnApplicationPause(bool pause)
@@ -86,10 +91,10 @@ public class TimeManager : SingletonBehaviour<TimeManager>
 
     private IEnumerator Ticket_Coroutine()
     {
-        var minute = new WaitForSecondsRealtime(60f);
+        var second = new WaitForSecondsRealtime(1f);
         while (true)
         {
-            yield return minute;
+            yield return second;
 
             _onTick?.Invoke();
         }
@@ -106,5 +111,10 @@ public class TimeManager : SingletonBehaviour<TimeManager>
         {
             DataManager.Instance.OnNextDay();
         }
+    }
+
+    public TimeSpan GetNextDayRemainTime()
+    {
+        return DateTime.Today.AddDays(1).AddMinutes(1) - DateTime.Now;
     }
 }

@@ -246,8 +246,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Option, Assembly-CSharp
+      - m_Target: {fileID: -4473256733243656982}
+        m_TargetAssemblyTypeName: UI_Popup_Option, Assembly-CSharp
         m_MethodName: OnSFXValueChanged
         m_Mode: 0
         m_Arguments:
@@ -784,8 +784,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Option, Assembly-CSharp
+      - m_Target: {fileID: -4473256733243656982}
+        m_TargetAssemblyTypeName: UI_BasePopup`1[[UI_Popup_Option, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1372,6 +1372,7 @@ GameObject:
   - component: {fileID: 974959499966370353}
   - component: {fileID: 974959499966370351}
   - component: {fileID: 974959499966370350}
+  - component: {fileID: -4473256733243656982}
   m_Layer: 5
   m_Name: UI_Popup_Option
   m_TagString: Untagged
@@ -1416,10 +1417,31 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974959499966370354}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-4473256733243656982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974959499966370354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646f14dcedb78064fac259d2dae25ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIType: 14
+  _bgmOn: {fileID: 649079340000245455}
+  _bgmOff: {fileID: 4047988607425390216}
+  _sfxOn: {fileID: 2511117946811428703}
+  _sfxOff: {fileID: 5910793143744194500}
+  _sleepOn: {fileID: 1750026744458733566}
+  _sleepOff: {fileID: 4101564504450270329}
+  _vfxOn: {fileID: 3394513139303958219}
+  _vfxOff: {fileID: 7328489743287171547}
 --- !u!1 &974959499972373876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,8 +1865,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Option, Assembly-CSharp
+      - m_Target: {fileID: -4473256733243656982}
+        m_TargetAssemblyTypeName: UI_BasePopup`1[[UI_Popup_Option, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -2976,8 +2998,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Option, Assembly-CSharp
+      - m_Target: {fileID: -4473256733243656982}
+        m_TargetAssemblyTypeName: UI_Popup_Option, Assembly-CSharp
         m_MethodName: OnBGMValueChanged
         m_Mode: 0
         m_Arguments:
@@ -3545,8 +3567,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Option, Assembly-CSharp
+      - m_Target: {fileID: -4473256733243656982}
+        m_TargetAssemblyTypeName: UI_Popup_Option, Assembly-CSharp
         m_MethodName: OnEffectValueChanged
         m_Mode: 0
         m_Arguments:
@@ -5197,8 +5219,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Option, Assembly-CSharp
+      - m_Target: {fileID: -4473256733243656982}
+        m_TargetAssemblyTypeName: UI_Popup_Option, Assembly-CSharp
         m_MethodName: OnSleepModeValueChanged
         m_Mode: 0
         m_Arguments:

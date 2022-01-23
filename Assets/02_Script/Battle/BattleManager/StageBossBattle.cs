@@ -73,13 +73,14 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
     {
         var goldMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Gold) ? 2 : 1;
         var expMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Exp) ? 2 : 1;
+        var stoneMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Stone) ? 2 : 1;
 
         DataManager.CurrencyData.Add(Enum_CurrencyType.Gold, _stageData.Gold * goldMultiply * 10);
         DataManager.PlayerData.AddExp(_stageData.Exp * expMultiply * 10);
         
         if (UtilCode.GetChance(_stageData.UpgradeStonePercent))
         {
-            DataManager.CurrencyData.Add(Enum_CurrencyType.EquipmentStone, _stageData.UpgradeStone);
+            DataManager.CurrencyData.Add(Enum_CurrencyType.EquipmentStone, _stageData.UpgradeStone * stoneMultiply);
         }
         
         if (UtilCode.GetChance(_stageData.EquipmentPercent))

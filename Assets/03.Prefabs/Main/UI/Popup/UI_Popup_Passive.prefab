@@ -972,10 +972,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5087964796221140292}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 6223589752434440647}
+        m_TargetAssemblyTypeName: UI_BasePopup`1[[UI_Popup_Passive, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1621,7 +1621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2679,7 +2679,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2704,14 +2704,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Rune, Assembly-CSharp
-        m_MethodName: OnClickStartRuneBuff_Gold
-        m_Mode: 1
+      - m_Target: {fileID: 6223589752434440647}
+        m_TargetAssemblyTypeName: UI_Popup_Passive, Assembly-CSharp
+        m_MethodName: OnClickAd
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4101,6 +4101,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6899988148469748785}
   - component: {fileID: 6235271466587972513}
+  - component: {fileID: 6223589752434440647}
+  - component: {fileID: 723297643664668619}
   m_Layer: 5
   m_Name: UI_Popup_Passive
   m_TagString: Untagged
@@ -4137,6 +4139,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5087964796221140292}
   m_CullTransparentMesh: 1
+--- !u!114 &6223589752434440647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087964796221140292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e725cf20b0f4a504e87f6078a184aaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIType: 13
+  _onDisableDamage: {fileID: 3401965609743578603}
+  _onDisableGold: {fileID: 769549820006733404}
+  _onDisableExp: {fileID: 7902488898753055092}
+  _onDisableStone: {fileID: 290174745316432783}
+  _txtDamageRemainTime: {fileID: 4590883670966080883}
+  _txtGoldRemainTime: {fileID: 2173565493333689952}
+  _txtExpRemainTime: {fileID: 475345456058694307}
+  _txtStoneRemainTime: {fileID: 6319013412418305608}
+  _txtDamageLimitCount: {fileID: 7271988579156116451}
+  _txtGoldimitCount: {fileID: 913138801126958093}
+  _txtExpLimitCount: {fileID: 938420830624630207}
+  _txtStoneLimitCount: {fileID: 3365862956806368151}
+--- !u!225 &723297643664668619
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087964796221140292}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5365293033794513192
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,7 +4866,7 @@ RectTransform:
   m_GameObject: {fileID: 6489773066322513763}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00032, y: 1.00032, z: 1.00032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6239183121803486119}
   - {fileID: 4216434781179564369}
@@ -5114,7 +5153,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5139,10 +5178,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Rune, Assembly-CSharp
-        m_MethodName: OnClickStartRuneBuff_Gold
-        m_Mode: 1
+      - m_Target: {fileID: 6223589752434440647}
+        m_TargetAssemblyTypeName: UI_Popup_Passive, Assembly-CSharp
+        m_MethodName: OnClickAd
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5782,7 +5821,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5807,14 +5846,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Rune, Assembly-CSharp
-        m_MethodName: OnClickStartRuneBuff_Gold
-        m_Mode: 1
+      - m_Target: {fileID: 6223589752434440647}
+        m_TargetAssemblyTypeName: UI_Popup_Passive, Assembly-CSharp
+        m_MethodName: OnClickAd
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6572,7 +6611,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -6597,14 +6636,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_Rune, Assembly-CSharp
-        m_MethodName: OnClickStartRuneBuff_Gold
-        m_Mode: 1
+      - m_Target: {fileID: 6223589752434440647}
+        m_TargetAssemblyTypeName: UI_Popup_Passive, Assembly-CSharp
+        m_MethodName: OnClickAd
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6668,7 +6707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6729,10 +6768,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5087964796221140292}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 6223589752434440647}
+        m_TargetAssemblyTypeName: UI_BasePopup`1[[UI_Popup_Passive, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
