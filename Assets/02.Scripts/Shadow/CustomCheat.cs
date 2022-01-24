@@ -28,7 +28,12 @@ public partial class SROptions
         rewards.Add(new Reward(RewardType.Follower,2,10));
         rewards.Add(new Reward(RewardType.Follower,3,10));
         
-        UI_Popup_Reward.Instance.Open(rewards);
+        RewardManager.Get(rewards);
+        
+        for (var i = 0; i < DataManager.FollowerData.Levels.Count; i++)
+        {
+            DataManager.FollowerData.Levels[i] += 1;
+        }
     }
 
     [Category("스킬")]

@@ -22,7 +22,7 @@ public class UI_Popup_Achievement_Slot : UI_BaseSlot<TBL_ACHIEVEMENT>
 
     public void Refresh()
     {
-        _txtTitle.text = _data.AchievementMission.ToString();
+        _txtTitle.text = _data.name;
         
         var isClear = DataManager.AchievementData.IsClear[_data.Index];
         _onClear.SetActive(isClear);

@@ -6,14 +6,20 @@ using UnityEngine;
 
 public class FollowerObject : MonoBehaviour
 {
-    private SkeletonAnimation _skeletonAnimation;
+    private Animator _animator;
     
-    public const string MoveAnimationName = "move";
-    public const string IdleAnimationName = "idle";
+    public const string MoveAnimationPostFix = "_move";
+    public const string IdleAnimationPostFix = "_idle";
+
+    private string MoveAnimationName => $"{_currentFollowerIndex+1:D3}{MoveAnimationPostFix}";
+    private string IdleAnimationName => $"{_currentFollowerIndex+1:D3}{IdleAnimationPostFix}";
+
+    private int _currentFollowerIndex;
 
     private void Awake()
     {
-        _skeletonAnimation = GetComponent<SkeletonAnimation>();
+       // _skeletonAnimation = GetComponent<SkeletonAnimation>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     public void ChangeFollowerModel(int index)
@@ -25,28 +31,25 @@ public class FollowerObject : MonoBehaviour
         }
         
         gameObject.SetActive(true);
-        
-        //_skeletonAnimation.skeletonDataAsset =; 
-        _skeletonAnimation.Initialize(true);
+
+        _currentFollowerIndex = index;
     }
     
     public void PlayMoveAnimation(float moveScale = 1f)
     {
-        if (_skeletonAnimation.AnimationName == MoveAnimationName)
-        {
-            return;
-        }
-        _skeletonAnimation.timeScale = moveScale;
-        _skeletonAnimation.AnimationState.SetAnimation(0, MoveAnimationName, true);
+        // if (_animator.runtimeAnimatorController. == MoveAnimationName)
+        // {
+        //     return;
+        // }
+        _animator.speed = moveScale;
+        
+        _animator.SetTrigger(MoveAnimationName);
     }
 
     public void PlayIdleAnimation()
     {        
-        if (_skeletonAnimation.AnimationName == IdleAnimationName)
-        {
-            return;
-        }
-        _skeletonAnimation.timeScale = 1;
-        _skeletonAnimation.AnimationState.SetAnimation(0, IdleAnimationName, true);
+        _animator.speed = 1;
+        
+        _animator.SetTrigger(IdleAnimationName);
     }
 }

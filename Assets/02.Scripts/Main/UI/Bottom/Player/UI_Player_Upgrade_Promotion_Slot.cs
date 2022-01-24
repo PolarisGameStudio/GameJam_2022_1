@@ -19,8 +19,7 @@ public class UI_Player_Upgrade_Promotion_Slot : UI_BaseSlot<TBL_PROMOTION>
     {
         _data = data;
         
-        //_imgPromotionIcon.sprite = null;
-        
+        _imgPromotionIcon.sprite = AssetManager.Instance.PromotionIcon[_data.Index];
         _txtPromotionName.text = $"{_data.name}";
 
         _txtPromotionStatValue.text =

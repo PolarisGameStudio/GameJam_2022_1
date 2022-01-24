@@ -22,7 +22,7 @@ public class UI_Quest : MonoBehaviour , GameEventListener<RefreshEvent>
         var quest = DataManager.QuestData.CurrentQuest;
         var progress = DataManager.QuestData.GetProgress();
 
-        _txtTitle.text = $"{quest.QuestType} ({progress}/{quest.CompleteCount})";
+        _txtTitle.text = $"{quest.name} ({progress}/{quest.CompleteCount})";
         _txtRewardAmount.text = $"{quest.RewardCount}";
 
         _objOnClear.SetActive(DataManager.QuestData.IsEnableClear());

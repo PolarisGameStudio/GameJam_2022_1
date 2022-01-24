@@ -141,7 +141,7 @@ public class PlayerObject : CharacterObject, GameEventListener<StatEvent>, GameE
     {
         for (var i = 0; i < _followers.Count; i++)
         {
-            //_followers[i].ChangeFollowerModel(DataManager.FollowerData.EquippedIndex[i]);
+            _followers[i].ChangeFollowerModel(DataManager.FollowerData.EquippedIndex[i]);
         }
     }
 
