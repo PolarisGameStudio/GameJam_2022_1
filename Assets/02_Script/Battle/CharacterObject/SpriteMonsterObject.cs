@@ -82,6 +82,10 @@ public class SpriteMonsterObject : MonsterObject
             case Enum_CharacterType.StageBossMonster:
                 Model.localScale = new Vector3(1.5f, 1.5f, 1);
                 break;
+            
+            case Enum_CharacterType.BossDungeonMonster:
+                Model.localScale = new Vector3(2f, 2f, 1);
+                break;
         }
     }
 
@@ -134,6 +138,7 @@ public class SpriteMonsterObject : MonsterObject
             case Enum_CharacterType.BossDungeonMonster:
                 MonsterEvent.Trigger(Enum_MonsterEventType.BossMonsterDeath);
                 DataManager.DungeonData.RecordDungeonScore(Enum_BattleType.BossDungeon, _damageHit);
+                InitStat();
                 break;
 
             default:

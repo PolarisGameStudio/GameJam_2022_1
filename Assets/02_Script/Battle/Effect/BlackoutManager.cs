@@ -78,16 +78,16 @@ public class BlackoutManager : MonoBehaviour , GameEventListener<BattleEvent>
         }
     }
 
-    private void OnStateClear()
+    private void OnStageStart()
     {
         PlayBlackOut(_onStageEndPreset);
     }
 
     public void OnGameEvent(BattleEvent e)
     {
-        if (e.Type == Enum_BattleEventType.BattleClear)
+        if (e.Type == Enum_BattleEventType.BattleStart)
         {
-            OnStateClear();
+            OnStageStart();
         }
     }
 }

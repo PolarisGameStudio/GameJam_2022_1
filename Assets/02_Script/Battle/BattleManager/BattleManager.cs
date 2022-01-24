@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
@@ -88,6 +89,8 @@ public class BattleManager : SingletonBehaviour<BattleManager>
     public void BattleStart(Enum_BattleType battleType, int level)
     {
         //SaveManager.Save();
+        
+        StopAllCoroutines();
 
         CurrentBattleEnd();
 
@@ -156,8 +159,13 @@ public class BattleManager : SingletonBehaviour<BattleManager>
     {
         BattleEvent.Trigger(Enum_BattleEventType.BattleClear, Enum_BattleType.Stage);
 
-        await Task.Delay(TimeSpan.FromSeconds(3));
-        
+        StartCoroutine(StageChangeCoroutine(battleType, battleLevel));
+    }
+
+    IEnumerator StageChangeCoroutine(Enum_BattleType battleType, int battleLevel)
+    {
+        yield return new WaitForSecondsRealtime(2);
+
         switch (battleType)
         {
             case Enum_BattleType.None:

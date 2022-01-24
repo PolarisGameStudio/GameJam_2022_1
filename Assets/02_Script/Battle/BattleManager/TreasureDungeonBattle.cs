@@ -28,6 +28,7 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
         if (RemainTime < 0)
         {
             BattleOver();
+            _timer = 0;
         }
     }
 
@@ -117,7 +118,8 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     private void OnWaveClear()
     {
-        _level++;
+        _level = Mathf.Min(_level + 1, TBL_DUNGEON_TREASURE.CountEntities - 1);
+        InitBattleData();
         _monsterObjects.Clear();
 
         SpawnWaveMonsters();

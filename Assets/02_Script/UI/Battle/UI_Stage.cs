@@ -17,7 +17,9 @@ public class UI_Stage : SingletonBehaviour<UI_Stage> , GameEventListener<Refresh
 
     public void Refresh()
     {
-        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage)
+        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage ||
+            BattleManager.Instance.CurrentBattleType != Enum_BattleType.PromotionBattle ||
+            BattleManager.Instance.CurrentBattleType != Enum_BattleType.SmithDungeon)
         {
             SafeSetActive(false);
             return;

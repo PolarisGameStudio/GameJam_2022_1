@@ -29,9 +29,10 @@ public class MonsterObjectFactory : ObjectMultiPool<MonsterObjectFactory, Sprite
             }
 
             case Enum_CharacterType.StageBossMonster:
+            case Enum_CharacterType.BossDungeonMonster:
             {
-               // HealthbarFactory.Instance.Show(monsterObject, monsterObject.GetAbility<AnimationAbility>().Height);
-               // UI_BossHealthbar.Instance.Show(monsterObject);
+              // HealthbarFactory.Instance.Show(monsterObject, monsterObject.GetAbility<AnimationAbility>().Height);
+               UI_BossHealthbar.Instance.Show(monsterObject);
                 break;
             }
         }

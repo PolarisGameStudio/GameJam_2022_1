@@ -16,15 +16,17 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     private void Update()
     {
-        if (_bossDungeonData == null)
+        if (_bossDungeonData == null || BattleManager.Instance.CurrentBattle != this)
         {
             return;
         }
+        
         _timer += Time.deltaTime;      
 
         if (RemainTime < 0)
         {
             BattleOver();
+            _timer = 0;
         }
     }
 
@@ -52,9 +54,7 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
     {
         Vector3 objPosition = _player.Position + Vector3.right * _waveOffsetX;
 
-        Debug.LogError("보스던전 몬스터 정해줘야함!!!!!!!!!");
-        // int monsterIndex = SystemValue.BossDungeonMonsterIndex;
-        int monsterIndex = 1;
+        int monsterIndex = 10;
 
         var spawnPosition = objPosition;
         MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.BossDungeonMonster, spawnPosition,
@@ -106,6 +106,5 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnMonsterDeathReward()
     {
-        throw new NotImplementedException();
     }
 }

@@ -7,6 +7,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
 {
     public Text _txtGrade;
     public Text _txtName;
+    public Image _imgFollower;
 
     public Text _txtEquipStat;
     public Text _txtEquipStatValue;
@@ -123,6 +124,8 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         //_txtGrade.text = $"{_data}";
         _txtGrade.text = $"{DataManager.FollowerData.Levels[_data.Index]}등급";
         _txtName.text = $"{_data.name}";
+
+        _imgFollower.sprite = AssetManager.Instance.FollowerBodyIcon[_data.Index];
 
         OnLevelUpToggle.SetActive(!_isDiceToggle);
         OnDiceToggle.SetActive(_isDiceToggle);
