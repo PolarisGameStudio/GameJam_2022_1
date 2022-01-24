@@ -181,6 +181,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
                 break;
             case Enum_BattleType.PromotionBattle:
                 DataManager.PromotionData.OnClearPromotionBattle(battleLevel);
+                UI_Popup_OK.Instance.Open("승급 성공!", $"{TBL_PROMOTION.GetEntity(battleLevel).name} 승급에 성공했습니다.");
                 BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
                 break;
             

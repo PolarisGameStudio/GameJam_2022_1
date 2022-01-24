@@ -23,6 +23,9 @@ public enum UIType
     Popup_Achieve,
     Popup_Rune,
     Popup_Option,
+    Popup_OK,
+    Popup_Buy,
+    Popup_OfflineReward,
     Null,
 }
 

@@ -8,12 +8,23 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
 
     [SerializeField] private Text _txtRemainPoint;
     
-    private void Start()
+
+    protected override void OnEnable()
     {
-        InitSlot();
+        base.OnEnable();
 
         this.AddGameEventListening<RefreshEvent>();
         this.AddGameEventListening<PlayerEvent>();
+        
+        InitSlot();
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        this.RemoveGameEventListening<RefreshEvent>();
+        this.RemoveGameEventListening<PlayerEvent>();
     }
 
     private void InitSlot()
@@ -39,14 +50,6 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
         _txtRemainPoint.text = $"남은 포인트 : {DataManager.StatGrowthData.RemainPoint}";
     }
 
-    public void CheckEnableLevelUpSlot()
-    {
-        foreach (var slot in m_SlotList)
-        {
-            slot.CheckEnableLevelUp();
-        }
-    }
-
     public void OnGameEvent(PlayerEvent e)
     {
         if (e.Type == Enum_PlayerEventType.LevelUp)
@@ -61,5 +64,16 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
         {
             Refresh();
         }
+    }
+
+    public void OnClickResetStat()
+    {
+        UI_Popup_Buy.Instance.Open("성장 초기화", "성장 스탯을 되돌립니다." , Enum_CurrencyType.Gem, SystemValue.STAT_RESET_PRICE, () =>
+        {
+            if (DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Gem, SystemValue.STAT_RESET_PRICE))
+            {
+                DataManager.StatGrowthData.ResetStatPoint();
+            }
+        });
     }
 }

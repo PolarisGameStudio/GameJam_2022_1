@@ -101,7 +101,7 @@ public class StatGrowthData : StatData
         return (level + 1) * type.IncreaseValue;
     }
 
-    public void TryRollback()
+    public void ResetStatPoint()
     {
         for (var i = 0; i < _levels.Count; i++)
         {

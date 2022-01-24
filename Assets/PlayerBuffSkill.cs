@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class PlayerBuffSkill : PlayerActiveSkill
@@ -9,6 +10,16 @@ public class PlayerBuffSkill : PlayerActiveSkill
     private Stat _stat;
     
     private float _timer;
+
+    [Button]
+    public void SetOrder()
+    {
+        foreach (var c in GetComponentsInChildren<ParticleSystem>())
+        {
+            c.GetComponent<Renderer>().sortingOrder = 999;
+            c.GetComponent<Renderer>().sortingLayerName = "Background";
+        }
+    }
 
     public override bool TryUseSkill()
     {

@@ -32,7 +32,7 @@ public class UI_DiceStat_Slot : UI_BaseSlot<DiceStat>
         else
         {
             var diceData = TBL_UPGRADE_DICE.GetEntity(_data.Index);
-            txtStat.text = $"{diceData.StatType}";
+            txtStat.text = $"{StringValue.GetStatName(diceData.StatType)}";
             txtValue.text = $"{diceData.MinStatValue + _data.AddValue}%";
             txtValue.color = ColorValue.GetColorByGrade(diceData.Grade);
             txtStat.color = ColorValue.GetColorByGrade(diceData.Grade);

@@ -58,7 +58,10 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD>, GameEv
         }
 
         _txtStatCurrenctLevel.text = $"Lv.{DataManager.GoldGrowthData.GetLevel(_data)}";
-        _txtStatPrice.text = $"{DataManager.GoldGrowthData.GetPrice(_data)}";
+
+        var price = DataManager.GoldGrowthData.GetPrice(_data);
+        _txtStatPrice.text = $"{price.ToCurrencyString()}";
+        _txtStatPrice.color = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Gold, price) ? ColorValue.ENABLE_TEXT_COLOR :ColorValue.DISABLE_TEXT_COLOR;
 
         CheckEnableLevelUp();
     }
