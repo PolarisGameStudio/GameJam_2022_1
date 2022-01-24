@@ -8,19 +8,18 @@ using UnityEngine.Serialization;
 
 public class MultiSkinAnimationAbility : AnimationAbility
 {
-    private SkeletonAnimation _animation;
+    public SkeletonAnimation _characterAnim;
+    public SkeletonAnimation _slashAnim;
     
 
     public override void Init()
     {
         base.Init();
-        
-        _animation = GetComponentInChildren<SkeletonAnimation>();
     }
 
     public void RefreshSkins()
     {
-        Skeleton skeleton = _animation.skeleton;
+        Skeleton skeleton = _characterAnim.skeleton;
         SkeletonData skeletonData = skeleton.Data;
 
         Skin newSkin = new Skin("");
@@ -42,8 +41,14 @@ public class MultiSkinAnimationAbility : AnimationAbility
             newSkin.AddSkin(leftSkin); 
         }  
         
-        _animation.skeleton.SetSkin(newSkin);
-        _animation.skeleton.SetSlotsToSetupPose();
+        _characterAnim.skeleton.SetSkin(newSkin);
+        _characterAnim.skeleton.SetSlotsToSetupPose();
     }
 
+    public void PlaySlashAnimation(float timeScale)
+    {
+        _slashAnim.gameObject.SetActive(true);
+        _slashAnim.AnimationState.TimeScale = timeScale;
+        _slashAnim.AnimationState.SetAnimation(0, "eff_attack1_A", false);
+    }
 }

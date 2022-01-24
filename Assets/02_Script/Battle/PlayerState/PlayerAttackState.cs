@@ -8,7 +8,7 @@ public class PlayerAttackState : CoroutineState
 {
     public const string animationName = "attack1";
     
-    private AnimationAbility _animationAbility;
+    private MultiSkinAnimationAbility _animationAbility;
     private PlayerAttackAbility _playerAttackAbility;
     private MonsterDetectAbility _monsterDetectAbility;
 
@@ -20,7 +20,7 @@ public class PlayerAttackState : CoroutineState
     {
         base.Init();
 
-        _animationAbility = _owner.GetAbility<AnimationAbility>();
+        _animationAbility = _owner.GetAbility<MultiSkinAnimationAbility>();
         _playerAttackAbility = _owner.GetAbility<PlayerAttackAbility>();
         _monsterDetectAbility = _owner.GetAbility<MonsterDetectAbility>();
     }
@@ -61,6 +61,7 @@ public class PlayerAttackState : CoroutineState
         }
 
         _animationAbility.PlayAnimation(animationName, false, timeScale);
+        _animationAbility.PlaySlashAnimation(timeScale);
 
         var damageDelay = 0;
         //var damageDelay = attackPreset.DamageDelay / realTimeScale;

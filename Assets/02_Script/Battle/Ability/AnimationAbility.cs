@@ -77,5 +77,4 @@ public class AnimationAbility : CharacterAbility
 
         return animation.Duration / speed;
     }
-
 }
