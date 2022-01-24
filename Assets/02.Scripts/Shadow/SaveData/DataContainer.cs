@@ -122,7 +122,7 @@ public class DataContainer
         damage = PlayerData.Stat[Enum_StatType.Damage] + GoldGrowthData.Stat[Enum_StatType.Damage] +
                  StatGrowthData.Stat[Enum_StatType.Damage];
 
-        damage *= (1 + EquipmentData.Stat[Enum_StatType.Damage]);
+        damage *= (100 + EquipmentData.Stat[Enum_StatType.Damage]) / 100f;
 
         damage *= PromotionData.Stat[Enum_StatType.Damage];
         

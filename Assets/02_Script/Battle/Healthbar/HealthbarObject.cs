@@ -51,7 +51,7 @@ public class HealthbarObject : MultiPoolItem
     {
         var ownerPosition = _owner.Model.position;
 
-        ownerPosition.y -= 3f;
+        ownerPosition.y -= 0.2f;
         ownerPosition.z = 0;
 
         transform.position = ownerPosition;

@@ -38,7 +38,7 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
     {
         TxtGemAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Gem).ToPriceString();
         TxtStoneAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.EquipmentStone).ToPriceString();
-        TxtNickname.text = "승급명";
+        TxtNickname.text = "조선제일검";
     }
 
     public void OnGameEvent(PlayerEvent e)
