@@ -47,6 +47,14 @@ public class Background : MonoBehaviour
 
     public void SetTexture(Texture texture)
     {
+        if (texture == null)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        
+        gameObject.SetActive(true);
+        
         MaterialPropertyBlock mpb = new MaterialPropertyBlock();
         
         _meshRenderer.GetPropertyBlock(mpb);

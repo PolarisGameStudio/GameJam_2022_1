@@ -32,6 +32,8 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
         MonsterObjectFactory.Instance.HideAll();
         HealthbarFactory.Instance.HideAll();
+        
+        BackgroundManager.Instance.SetBackground(_stageData.World.BackgroundType);
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 

@@ -8,7 +8,16 @@ public class StageData : SaveDataBase
 {
     public int StageLevel;
     public int HighestStageLevel;
-    
+
+    public override void ValidCheck()
+    {
+        base.ValidCheck();
+        
+#if UNITY_EDITOR
+        HighestStageLevel = 999;
+#endif
+    }
+
     public void BossStageClear()
     {
         StageLevel = Mathf.Min(StageLevel + 1, TBL_STAGE.CountEntities - 1);

@@ -90,7 +90,11 @@ public enum TobeolBuffType
 }
 public enum BackgroundType
 {
-}public enum WorldType
+    World1,
+    World2,
+    World3,
+}
+public enum WorldType
 {
 }
 public enum TobeolBuffTarget

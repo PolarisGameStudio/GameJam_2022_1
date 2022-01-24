@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum Enum_BackgroundType
 {
-    Stage,
-    Dungeon
+    World1,
+    World2,
+    World3,
 }
