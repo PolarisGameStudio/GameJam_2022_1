@@ -7,8 +7,13 @@ using Random = UnityEngine.Random;
 public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
 {
     private TBL_STAGE _stageData;
-
-
+    
+    
+    public override string GetBattleTitle()
+    {
+        return $"{_stageData.World.name} {_stageData.Index % 20 + 1} 보스도전";
+    }
+    
     private void Awake()
     {
         this.AddGameEventListening<MonsterEvent>();

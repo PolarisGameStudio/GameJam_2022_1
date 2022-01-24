@@ -23,7 +23,7 @@ public class DungeonData : SaveDataBase
                 GetRewardTreasureDungeon(level);
                 break;
             case Enum_BattleType.SmithDungeon:
-                SmithDungeonHighLevel = Mathf.Max(SmithDungeonHighLevel, level);
+                SmithDungeonHighLevel = Mathf.Max(SmithDungeonHighLevel, level + 1);
                 DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Smith, 1);
                 GetRewardSmithDungeon(level);
                 break;
@@ -137,26 +137,93 @@ public class DungeonData : SaveDataBase
         return false;
     }
 
-    public void GetRewardTreasureDungeon(int count)
+    public void GetRewardTreasureDungeon(int level)
     {
         List<Reward> rewards = new List<Reward>();
 
-        while (count > 1)
+        double gold = 0;
+        double gem = 0;
+        double stone = 0;
+
+        for (int i = 0; i < level; i++)
         {
-            count--;
+            var data = TBL_DUNGEON_TREASURE.GetEntity(i);
+
+            gem += data.RewardCount1;
+            gold += data.RewardCount2;
+            stone += data.RewardCount3;
         }
+        
+        rewards.Add(new Reward(RewardType.Currency, (int) Enum_CurrencyType.Gem, gem));
+        rewards.Add(new Reward(RewardType.Currency, (int) Enum_CurrencyType.Gold, gold));
+        rewards.Add(new Reward(RewardType.Currency, (int) Enum_CurrencyType.EquipmentStone, stone));
 
         RewardManager.Get(rewards, true);
     }
 
-    public void GetRewardSmithDungeon(int count)
+    public void GetRewardSmithDungeon(int level)
     {
         List<Reward> rewards = new List<Reward>();
 
-        while (count > 1)
+        var data = TBL_DUNGEON_SMITH.GetEntity(level);
+
+        int randomAmount = Random.Range(data.EquipmentMinCount1, data.EquipmentMaxCount1 + 1);
+        
+        for (int i = 0; i < randomAmount; i++)
         {
-            count--;
+            int type = Random.Range(0, 4);
+            int index = 0;
+
+            if (type == 3)
+            {
+                index = GachaManager.Instance.GachaByGrade(GachaType.Ring, data.EquipmentGrade1);
+            }
+            else
+            {
+                index = GachaManager.Instance.GachaByGrade(GachaType.Weapon, data.EquipmentGrade1);
+            }
+
+            var target = rewards.Find(x => x.Value == index);
+        
+            if (target == null)
+            {
+                rewards.Add(new Reward(RewardType.Equipment, index, 1));
+            }
+            else
+            {
+                target.Count += 1;
+            }
+        } 
+        
+        int randomAmount2 = Random.Range(data.EquipmentMinCount2, data.EquipmentMaxCount2 + 1);
+        
+        for (int i = 0; i < randomAmount2; i++)
+        {
+            int type = Random.Range(0, 4);
+            int index = 0;
+
+            if (type == 3)
+            {
+                index = GachaManager.Instance.GachaByGrade(GachaType.Ring, data.EquipmentGrade2);
+            }
+            else
+            {
+                index = GachaManager.Instance.GachaByGrade(GachaType.Weapon, data.EquipmentGrade2);
+            }
+
+            var target = rewards.Find(x => x.Value == index);
+        
+            if (target == null)
+            {
+                rewards.Add(new Reward(RewardType.Equipment, index, 1));
+            }
+            else
+            {
+                target.Count += 1;
+            }
         }
+        
+        rewards.Add(new Reward(RewardType.Currency, (int) Enum_CurrencyType.EquipmentStone, data.EquipmentStonCount));
 
         RewardManager.Get(rewards, true);
     }

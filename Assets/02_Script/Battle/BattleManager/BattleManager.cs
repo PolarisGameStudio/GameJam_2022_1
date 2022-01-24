@@ -185,7 +185,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
                 break;
             
             case Enum_BattleType.SmithDungeon:
-                DataManager.DungeonData.OnDungeonBattleEnd(Enum_BattleType.SmithDungeon, battleLevel);
+                DataManager.DungeonData.OnDungeonBattleEnd(battleType, battleLevel);
                 BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
                 break;
 
