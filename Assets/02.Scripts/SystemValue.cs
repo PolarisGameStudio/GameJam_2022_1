@@ -111,33 +111,26 @@ public static class StringValue
                 return "치명타 공격력";
             case Enum_StatType.SuperCriticalChance:
                 return "회심의 일격 확률";
-                break;
             case Enum_StatType.SuperCriticalDamage:
                 return "회심의 일격 공격력";
-                break;
             case Enum_StatType.AttackSpeed:
                 return "공격 속도";
-                break;
             case Enum_StatType.MoveSpeed:
                 return "이동 속도";
             case Enum_StatType.MoreGold:
                 return "골드 추가 획득";
-                break;
             case Enum_StatType.MoreExp:
                 return "경험치 추가 획득";
-                break;
             case Enum_StatType.Accuracy:
                 return "명중";
-                break;
             case Enum_StatType.Evasion:
                 return "회피";
-                break;
             case Enum_StatType.HealthRecovery:
                 return "체력 회복";
-                break;
             case Enum_StatType.ReduceCoolTime:
                 return "재사용 대기시간 감소";
-                break;
         }
+        
+        return "";
     }
 }

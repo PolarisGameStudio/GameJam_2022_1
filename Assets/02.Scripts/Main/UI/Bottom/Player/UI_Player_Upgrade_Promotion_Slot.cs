@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Player_Upgrade_Promotion_Slot : UI_BaseSlot<TBL_PROMOTION>,GameEventListener<RefreshEvent>
+public class UI_Player_Upgrade_Promotion_Slot : UI_BaseSlot<TBL_PROMOTION>
 {
     [SerializeField] private Image _imgPromotionIcon;
 
@@ -15,21 +15,6 @@ public class UI_Player_Upgrade_Promotion_Slot : UI_BaseSlot<TBL_PROMOTION>,GameE
     [SerializeField] private GameObject _onDisableObject;
     
 
-    private void OnEnable()
-    {
-        this.AddGameEventListening<RefreshEvent>();
-
-        if (_data != null)
-        {
-            Refresh();
-        }
-    }
-
-    private void OnDisable()
-    {
-        this.RemoveGameEventListening<RefreshEvent>();
-    }
-    
     public override void Init(TBL_PROMOTION data)
     {
         _data = data;
@@ -52,15 +37,6 @@ public class UI_Player_Upgrade_Promotion_Slot : UI_BaseSlot<TBL_PROMOTION>,GameE
 
         _btnChallange.gameObject.SetActive(DataManager.PromotionData.IsEnableChallenge(_data.Index));
     }
-
-    public void OnGameEvent(RefreshEvent e)
-    {
-        if (e.Type == Enum_RefreshEventType.Battle)
-        {
-            Refresh();
-        }
-    }
-
     public void OnClickChallengeButton()
     {
         DataManager.PromotionData.TryChallenge(_data.Index);

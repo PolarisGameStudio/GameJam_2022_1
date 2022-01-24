@@ -14,6 +14,7 @@ public class AssetManager : SingletonBehaviour<AssetManager>
     [PreviewField] [Header("스탯 아이콘")] public List<Sprite> StatIcon;
     [PreviewField] [Header("스킬 아이콘")] public List<Sprite> SkillIcon;
     [PreviewField] [Header("재화 아이콘")] public List<Sprite> CurrencyIcon;
+    [PreviewField] [Header("승급 아이콘")] public List<Sprite> PromotionIcon;
 
     public Sprite GetSpriteWithRewardType(RewardType type, int value)
     {

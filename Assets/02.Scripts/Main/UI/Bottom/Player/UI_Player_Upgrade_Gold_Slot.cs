@@ -43,7 +43,7 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD>, GameEv
     {
         _imgStatIcon.sprite = AssetManager.Instance.StatIcon[(int)_data.StatType];
 
-        _txtStatName.text = $"{_data.StatType} Max Lv.{_data.MaxLevel}";
+        _txtStatName.text = $"{StringValue.GetStatName(_data.StatType)} Max Lv.{_data.MaxLevel}";
         //_txtStatMaxLevel.text = $"Max Lv.{_data.MaxLevel}";
 
         if (_data.StatType == Enum_StatType.CriticalChance || _data.StatType == Enum_StatType.SuperCriticalChance)

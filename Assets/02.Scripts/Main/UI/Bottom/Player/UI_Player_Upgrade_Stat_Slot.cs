@@ -40,12 +40,12 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
     private void Refresh()
     { 
         _imgStatIcon.sprite = AssetManager.Instance.StatIcon[(int)_data.StatType];
-        _txtStatName.text = $"{_data.StatType} Max Lv.{_data.MaxLevel}";
+        _txtStatName.text = $"{StringValue.GetStatName(_data.StatType)} Max Lv.{_data.MaxLevel}";
 
         if (_data.StatType == Enum_StatType.CriticalChance || _data.StatType == Enum_StatType.SuperCriticalChance)
         {
             _txtStatValue.text =
-                $"{DataManager.StatGrowthData.GetValue(_data):N1} -> {DataManager.StatGrowthData.GetNextValue(_data):N1}";
+                $"{DataManager.StatGrowthData.GetValue(_data):N1}% -> {DataManager.StatGrowthData.GetNextValue(_data):N1}%";
         }
         else
         {

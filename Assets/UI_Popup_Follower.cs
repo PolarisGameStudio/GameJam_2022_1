@@ -141,7 +141,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
     {
         var level = DataManager.FollowerData.Levels[_data.Index];
 
-        _txtEquipStat.text = $"{_data.StatType1}";
+        _txtEquipStat.text = $"{StringValue.GetStatName(_data.StatType1)}";
         _txtEquipStatValue.text =
             $"{_data.DefaultValue1 + _data.IncreaseValue1 * (level - 1)} -> {_data.DefaultValue1 + _data.IncreaseValue1 * (level)}";
 
@@ -152,7 +152,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         }
         else
         {
-            _txtOwnStat1.text = $"{_data.StatType2}";
+            _txtOwnStat1.text = $"{StringValue.GetStatName(_data.StatType2)}";
             _txtOwnStatValue1.text =
                 $"{_data.DefaultValue2 + _data.IncreaseValue2 * (level - 1)} -> {_data.DefaultValue2 + _data.IncreaseValue2 * (level)}";
         }

@@ -9,6 +9,7 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
     public Text TxtGemAmount;
     public Text TxtStoneAmount;
     public Text TxtNickname;
+    public Image ImgPromotion;
     
     public Text TxtPlayerLevel;
     public Text TxtPlayerExp;
@@ -38,7 +39,9 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
     {
         TxtGemAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Gem).ToPriceString();
         TxtStoneAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.EquipmentStone).ToPriceString();
-        TxtNickname.text = "조선제일검";
+        TxtNickname.text = TBL_PROMOTION.GetEntity(DataManager.PromotionData.CurrentPromotionIndex).name;
+
+        ImgPromotion.sprite = AssetManager.Instance.PromotionIcon[DataManager.PromotionData.CurrentPromotionIndex];
     }
 
     public void OnGameEvent(PlayerEvent e)

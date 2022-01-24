@@ -141,9 +141,9 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
     {
         var level = DataManager.EquipmentData.Levels[_data.Index];
 
-        _txtEquipStat.text = $"{_data.OnEquipStat}";
+        _txtEquipStat.text = $"{StringValue.GetStatName(_data.OnEquipStat)}";
         _txtEquipStatValue.text =
-            $"{_data.OnEquipVaue + _data.OnEquipIncreaseValue * (level - 1)} -> {_data.OnEquipVaue + _data.OnEquipIncreaseValue * (level)}";
+            $"{_data.OnEquipVaue + _data.OnEquipIncreaseValue * (level - 1)}% -> {_data.OnEquipVaue + _data.OnEquipIncreaseValue * (level)}%";
 
         if (_data.OnOwnValue1 == 0)
         {
@@ -152,9 +152,9 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         }
         else
         {
-            _txtOwnStat1.text = $"{_data.OnOwnStat1}";
+            _txtOwnStat1.text = $"{StringValue.GetStatName(_data.OnOwnStat1)}";
             _txtOwnStatValue1.text =
-                $"{_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level - 1)} -> {_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level)}";
+                $"{_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level - 1)}% -> {_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level)}%";
         }
 
         if (_data.OnOwnValue2 == 0)
@@ -164,9 +164,9 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         }
         else
         {
-            _txtOwnStat2.text = $"{_data.OnOwnStat2}";
+            _txtOwnStat2.text = $"{StringValue.GetStatName(_data.OnOwnStat2)}";
             _txtOwnStatValue2.text =
-                $"{_data.OnOwnValue2 + _data.OnOwnIncreaseValue2 * (level - 1)} -> {_data.OnOwnValue2 + _data.OnOwnIncreaseValue2 * (level)}";
+                $"{_data.OnOwnValue2 + _data.OnOwnIncreaseValue2 * (level - 1)}% -> {_data.OnOwnValue2 + _data.OnOwnIncreaseValue2 * (level)}%";
         }
 
         if (_data.OnOwnValue3 == 0)
@@ -176,9 +176,9 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         }
         else
         {
-            _txtOwnStat3.text = $"{_data.OnOwnStat3}";
+            _txtOwnStat3.text = $"{StringValue.GetStatName(_data.OnOwnStat3)}";
             _txtOwnStatValue3.text =
-                $"{_data.OnOwnValue3 + _data.OnOwnIncreaseValue3 * (level - 1)} -> {_data.OnOwnValue3 + _data.OnOwnIncreaseValue3 * (level)}";
+                $"{_data.OnOwnValue3 + _data.OnOwnIncreaseValue3 * (level - 1)}% -> {_data.OnOwnValue3 + _data.OnOwnIncreaseValue3 * (level)}%";
         }
 
         var price = DataManager.EquipmentData.GetCost(_data.Index);
