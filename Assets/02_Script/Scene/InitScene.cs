@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Facebook.Unity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,9 @@ public class InitScene : MonoBehaviour
 {
     private void Start()
     {
+        FB.Init();
+        
         StartCoroutine(CoWaitToReady());
-
     }
 
     IEnumerator CoWaitToReady()
