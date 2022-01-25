@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class UI_BossHealthbar : SingletonBehaviour<UI_BossHealthbar>
 {
+    public Text _txtBossDungeonLevel;
     private Healthbar _healthbar;
 
     private CharacterObject _owner;
@@ -39,6 +40,15 @@ public class UI_BossHealthbar : SingletonBehaviour<UI_BossHealthbar>
             return;
         }
 
+        if (BattleManager.Instance.CurrentBattle.BattleType == Enum_BattleType.BossDungeon)
+        {
+            _txtBossDungeonLevel.text = $"Lv.{BattleManager.Instance.CurrentBattle.Level+1} 탐관오리";    
+        }
+        else
+        {
+            _txtBossDungeonLevel.text = "";
+        }
+        
         _healthbar.UpdateHealth();
     }
 }

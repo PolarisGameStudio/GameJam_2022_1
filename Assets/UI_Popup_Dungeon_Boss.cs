@@ -25,7 +25,7 @@ public class UI_Popup_Dungeon_Boss : UI_BasePopup<UI_Popup_Dungeon_Boss>
 
     protected override void Refresh()
     {
-        _txtBestScore.text = $"최대 데미지 : {DataManager.DungeonData.BossDungeonHighestDamage}";
+        _txtBestScore.text = $"최대 데미지 : {DataManager.DungeonData.BossDungeonHighestDamage.ToCurrencyString()}";
         _txtPriceEnter.text = $"{DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Ticket_Boss)} / 1";
         _txtPriceSkip.text = $"{DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Ticket_Boss)} / 1";
     }

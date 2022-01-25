@@ -12,6 +12,7 @@ public class UI_Gold : SingletonBehaviour<UI_Gold>, GameEventListener<RefreshEve
         Refresh();
         
         this.AddGameEventListening<RefreshEvent>();
+        this.AddGameEventListening<BattleEvent>();
     }
 
     public void OnGameEvent(RefreshEvent e)
@@ -24,8 +25,7 @@ public class UI_Gold : SingletonBehaviour<UI_Gold>, GameEventListener<RefreshEve
 
     private void Refresh()
     {
-        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage && 
-            BattleManager.Instance.CurrentBattleType != Enum_BattleType.StageBoss)
+        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage)
         {
             SafeSetActive(false);
             return;

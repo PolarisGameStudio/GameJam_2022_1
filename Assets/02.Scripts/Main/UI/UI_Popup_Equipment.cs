@@ -8,6 +8,8 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
     public UI_Equipment_List_Slot selectEquipmentSlot;
     public UI_Equipment_List_Slot nextEquipmentSlot;
 
+    public Text _txtStoneAmount;
+    
     public Text _txtGrade;
     public Text _txtName;
 
@@ -184,9 +186,12 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         var price = DataManager.EquipmentData.GetCost(_data.Index);
         
         _txtPrice.text = price.ToCurrencyString();
-        _btnLevelUp.interactable = DataManager.EquipmentData.IsEnableLevelUp(_data.Index);
+        _txtPrice.color = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.EquipmentStone, price) ? ColorValue.ENABLE_TEXT_COLOR :ColorValue.DISABLE_TEXT_COLOR;
         
+        _btnLevelUp.interactable = DataManager.EquipmentData.IsEnableLevelUp(_data.Index);
         _btnEquip.interactable = DataManager.EquipmentData.Levels[_data.Index] > 0;
+
+        _txtStoneAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.EquipmentStone).ToCurrencyString();
     }
     
 

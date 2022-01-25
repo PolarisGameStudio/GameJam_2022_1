@@ -4,26 +4,28 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_BossRemainTime : GameBehaviour, GameEventListener<RefreshEvent>
+public class UI_BossRemainTime : GameBehaviour, GameEventListener<BattleEvent>
 {
     [SerializeField] private Slider _remainTimeSlider;
     [SerializeField] private Text _remainTimeText;
-    
-    private StageBattle _stageBattle;
+
+    private BossDungeonBattle _bossDungeonBattle;
+    private TreasureDungeonBattle _treasureDungeonBattle;
     
 
     public void Start()
     {
-        _stageBattle = BattleManager.Instance.GetBattle<StageBattle>();
+        _bossDungeonBattle = BattleManager.Instance.GetBattle<BossDungeonBattle>();
+        _treasureDungeonBattle = BattleManager.Instance.GetBattle<TreasureDungeonBattle>();
         
-        this.AddGameEventListening<RefreshEvent>();
+        this.AddGameEventListening<BattleEvent>();
         
         Refresh();
     }
     
-    public void OnGameEvent(RefreshEvent e)
+    public void OnGameEvent(BattleEvent e)
     {
-        if (e.Type != Enum_RefreshEventType.Battle)
+        if (e.Type != Enum_BattleEventType.BattleStart)
         {
             return;
         }
@@ -33,27 +35,27 @@ public class UI_BossRemainTime : GameBehaviour, GameEventListener<RefreshEvent>
 
     private void Refresh()
     {
-        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage)
+        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.TreasureDungeon &&
+                BattleManager.Instance.CurrentBattleType != Enum_BattleType.BossDungeon)
         {
             SafeSetActive(false);
             return;
         }
-
-        // if (!_stageBattle.IsBossTime)
-        // {
-        //     SafeSetActive(false);
-        //     return;
-        // }
 
         SafeSetActive(true);
     }
 
     private void Update()
     {
-        // if (_stageBattle && _stageBattle.IsBossTime)
-        // { 
-        //     _remainTimeSlider.value =  _stageBattle.CurrentBossRemainTime / _stageBattle.MaxBossRemainTime;
-        //     _remainTimeText.text = $"{_stageBattle.CurrentBossRemainTime:N1}s";
-        // }
+        if (BattleManager.Instance.CurrentBattle == _bossDungeonBattle)
+        {
+            _remainTimeSlider.value = _bossDungeonBattle.RemainTime / SystemValue.BOSS_DUNGEON_LIMIT_TIME;
+            _remainTimeText.text = $"{_bossDungeonBattle.RemainTime:N1}s";   
+        }
+        else if (BattleManager.Instance.CurrentBattle == _treasureDungeonBattle)
+        {
+            _remainTimeSlider.value = _treasureDungeonBattle.RemainTime / SystemValue.TREASURE_DUNGEON_LIMIT_TIME;
+            _remainTimeText.text = $"{_treasureDungeonBattle.RemainTime:N1}s";
+        }
     }
 }

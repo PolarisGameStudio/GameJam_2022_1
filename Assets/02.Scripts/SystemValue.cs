@@ -12,8 +12,6 @@ public static class SystemValue
 #else
     public const string DeviceType = "ios";
 #endif
-    public static Color DISABLE_TEXT_COLOR => new Color(224f / 256, 64f / 256, 56f / 256);
-    public static Color ENABLE_TEXT_COLOR => new Color(1, 1, 1);
 
 
     public static int FOLLOWER_MAX_LEVEL = (int) SYSTEM_VALUE.GetEntity("FOLLWER_MAX_LEVEL").Value;
@@ -35,12 +33,19 @@ public static class SystemValue
     public static int GACHA_SKILL_BIG_PRICE = 3000;
 
     public static int MINIMUM_SAVE_PERIOD = 1;
-    public static float BOSS_DUNGEON_LIMIT_TIME = 60f;
-    public static float TREASURE_DUNGEON_LIMIT_TIME = 60f;
+    public static float BOSS_DUNGEON_LIMIT_TIME = 10f;
+    public static float TREASURE_DUNGEON_LIMIT_TIME = 10f;
+    
+    public static int DUNGEON_DAILY_TICKET_AMOUNT = 3;
+    
+    
+    public static int STAT_RESET_PRICE = 2000;
 }
 
 public static class ColorValue
 {
+    public static Color DISABLE_TEXT_COLOR => new Color(224f / 256, 64f / 256, 56f / 256);
+    public static Color ENABLE_TEXT_COLOR => new Color(1, 1, 1);
     public static Color GRADE_GREEN_COLOR => new Color(74f / 256, 233f / 256, 24f / 256);
     public static Color GRADE_BLUE_COLOR => new Color(38f / 256, 129f / 256, 254f / 256);
     public static Color GRADE_PURPLE_COLOR => new Color(184f / 256, 17f / 256, 255f / 256);

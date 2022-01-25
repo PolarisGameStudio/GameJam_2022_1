@@ -8,6 +8,11 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
     private TBL_DUNGEON_BOSS _bossDungeonData;
     public float RemainTime => SystemValue.BOSS_DUNGEON_LIMIT_TIME - _timer;
     private float _timer;
+    
+    public override string GetBattleTitle()
+    {
+        return $"탐관오리 처치";
+    }
 
     private void Awake()
     {
@@ -16,15 +21,17 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     private void Update()
     {
-        if (_bossDungeonData == null)
+        if (_bossDungeonData == null || BattleManager.Instance.CurrentBattle != this)
         {
             return;
         }
+        
         _timer += Time.deltaTime;      
 
         if (RemainTime < 0)
         {
             BattleOver();
+            _timer = 0;
         }
     }
 
@@ -52,9 +59,7 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
     {
         Vector3 objPosition = _player.Position + Vector3.right * _waveOffsetX;
 
-        Debug.LogError("보스던전 몬스터 정해줘야함!!!!!!!!!");
-        // int monsterIndex = SystemValue.BossDungeonMonsterIndex;
-        int monsterIndex = 1;
+        int monsterIndex = 10;
 
         var spawnPosition = objPosition;
         MonsterObject obj = MonsterObjectFactory.Instance.Make(Enum_CharacterType.BossDungeonMonster, spawnPosition,
@@ -72,16 +77,17 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleClear()
     {
+        DataManager.DungeonData.OnDungeonBattleEnd(_battleType, _level);
     }
 
     protected override void OnBattleOver()
     {
+        DataManager.DungeonData.OnDungeonBattleEnd(_battleType, _level);
     }
 
     protected override void OnBattleEnd()
     {
         UI_BossHealthbar.Instance.Hide();
-        DataManager.DungeonData.OnDungeonBattleEnd(_battleType, _level);
     }
 
     public void OnGameEvent(MonsterEvent e)
@@ -106,6 +112,5 @@ public class BossDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnMonsterDeathReward()
     {
-        throw new NotImplementedException();
     }
 }

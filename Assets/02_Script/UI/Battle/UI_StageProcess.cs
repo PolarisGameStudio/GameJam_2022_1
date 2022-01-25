@@ -3,24 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_StageProcess : GameBehaviour, GameEventListener<RefreshEvent> 
+public class UI_StageProcess : GameBehaviour, GameEventListener<BattleEvent> , GameEventListener<RefreshEvent>
 {
     [SerializeField] private Slider _processGauge;
 
-    private StageBattle _stageBattle;
-
     public void Start()
     {
-        _stageBattle = BattleManager.Instance.GetBattle<StageBattle>();
-        
         this.AddGameEventListening<RefreshEvent>();
+        this.AddGameEventListening<BattleEvent>();
         
         Refresh();
     }
     
-    public void OnGameEvent(RefreshEvent e)
+    public void OnGameEvent(BattleEvent e)
     {
-        if (e.Type == Enum_RefreshEventType.Battle)
+        if (e.Type == Enum_BattleEventType.BattleStart)
         {
             Refresh();
         }
@@ -28,7 +25,8 @@ public class UI_StageProcess : GameBehaviour, GameEventListener<RefreshEvent>
 
     private void Refresh()
     {
-        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage)
+        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage &&
+            BattleManager.Instance.CurrentBattleType != Enum_BattleType.SmithDungeon)
         {
             SafeSetActive(false);
             return;
@@ -36,6 +34,14 @@ public class UI_StageProcess : GameBehaviour, GameEventListener<RefreshEvent>
 
         SafeSetActive(true);
 
-        _processGauge.value = _stageBattle.StageProcess;
+        _processGauge.value = BattleManager.Instance.CurrentBattle.GetProgress();
+    }
+
+    public void OnGameEvent(RefreshEvent e)
+    {
+        if (e.Type == Enum_RefreshEventType.Battle)
+        {
+            Refresh();
+        }
     }
 }

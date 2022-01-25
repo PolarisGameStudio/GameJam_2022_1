@@ -92,7 +92,7 @@ public static class RewardManager
 
         if (showPopup)
         {
-            UI_Popup_Reward.Instance.Open(rewardsForUI);
+            UI_Popup_Reward.Instance.Open(rewards);
         }
     }
 }

@@ -7,6 +7,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
 {
     public Text _txtGrade;
     public Text _txtName;
+    public Image _imgFollower;
 
     public Text _txtEquipStat;
     public Text _txtEquipStatValue;
@@ -107,7 +108,10 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         }
 
         _txtDiceAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Dice).ToCurrencyString();
-        _txtDiceCost.text = diceStat.GetRollPrice().ToString();
+
+        var price = diceStat.GetRollPrice();
+        _txtDiceCost.text = price.ToString();
+        _txtDiceCost.color = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Dice, price) ? ColorValue.ENABLE_TEXT_COLOR :ColorValue.DISABLE_TEXT_COLOR;
     }
 
     public void TryRoll()
@@ -123,6 +127,8 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         //_txtGrade.text = $"{_data}";
         _txtGrade.text = $"{DataManager.FollowerData.Levels[_data.Index]}등급";
         _txtName.text = $"{_data.name}";
+
+        _imgFollower.sprite = AssetManager.Instance.FollowerBodyIcon[_data.Index];
 
         OnLevelUpToggle.SetActive(!_isDiceToggle);
         OnDiceToggle.SetActive(_isDiceToggle);
@@ -182,8 +188,11 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         // }
         
         _txtPrice.text = $"({DataManager.FollowerData.Counts[_data.Index]}/{DataManager.FollowerData.GetLevelUpCost(_data.Index)})";
-        _btnLevelUp.interactable = DataManager.FollowerData.IsEnableLevelUp(_data.Index);
 
+        var enable = DataManager.FollowerData.IsEnableLevelUp(_data.Index);
+        _txtPrice.color = enable ? ColorValue.ENABLE_TEXT_COLOR :ColorValue.DISABLE_TEXT_COLOR;
+        _btnLevelUp.interactable = enable;
+        
         _btnEquip.interactable = DataManager.FollowerData.Levels[_data.Index] > 0;
     }
 

@@ -35,7 +35,15 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
         _sliderGauge.value = curExp;
 
         _txtPriceSmall.text = $"{_data.Price_Small}";
+        _txtPriceSmall.color = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Gem, _data.Price_Small)
+            ? ColorValue.ENABLE_TEXT_COLOR
+            : ColorValue.DISABLE_TEXT_COLOR;
+        
         _txtPriceBig.text = $"{_data.Price_Big}";
+        _txtPriceBig.color = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Gem, _data.Price_Big)
+            ? ColorValue.ENABLE_TEXT_COLOR
+            : ColorValue.DISABLE_TEXT_COLOR;
+        
     }
 
     public void OnClickSmallGacha()

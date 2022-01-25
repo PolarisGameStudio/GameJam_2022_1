@@ -10,11 +10,12 @@ public class AssetManager : SingletonBehaviour<AssetManager>
     [PreviewField] [Header("장비 아이콘")] public List<Sprite> EquipmentIcon;
     [PreviewField] [Header("장비타입 아이콘")] public List<Sprite> EquipmentTypeIcon;
     [PreviewField] [Header("슬롯 아이콘")] public List<Sprite> ItemFrameIcon;
-    [PreviewField] [Header("슬롯 아이콘")] public List<Sprite> FollowerIcon;
+    [PreviewField] [Header("몸종 아이콘")] public List<Sprite> FollowerIcon;
     [PreviewField] [Header("스탯 아이콘")] public List<Sprite> StatIcon;
     [PreviewField] [Header("스킬 아이콘")] public List<Sprite> SkillIcon;
     [PreviewField] [Header("재화 아이콘")] public List<Sprite> CurrencyIcon;
     [PreviewField] [Header("승급 아이콘")] public List<Sprite> PromotionIcon;
+    [PreviewField] [Header("몸종 전신")] public List<Sprite> FollowerBodyIcon;
 
     public Sprite GetSpriteWithRewardType(RewardType type, int value)
     {

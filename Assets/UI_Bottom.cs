@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Bottom : MonoBehaviour
+public class UI_Bottom : SingletonBehaviour<UI_Bottom>
 {
     public List<Toggle> Toggles;
 

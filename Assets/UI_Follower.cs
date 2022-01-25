@@ -65,4 +65,9 @@ public class UI_Follower : UI_BaseContent<UI_Follower,UI_Follower_Slot> , GameEv
             Refresh();   
         }
     }
+
+    public void OnClickFollowerSlot()
+    {
+        UI_Popup_OK.Instance.Open("몸종", "장착하면 전투에 도움을 줍니다. 몸종은 탐관오리 던전에서 획득할 수 있습니다.");
+    }
 }

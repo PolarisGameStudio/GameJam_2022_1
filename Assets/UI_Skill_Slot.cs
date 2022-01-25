@@ -7,6 +7,7 @@ public class UI_Skill_Slot : UI_BaseSlot<TBL_SKILL>
 {
     [SerializeField] private Image _imgFrame;
     [SerializeField] private Image _imgIcon;
+    [SerializeField] private Image _imgNone;
 
     [SerializeField] private Text _txtLevel;
 
@@ -33,7 +34,7 @@ public class UI_Skill_Slot : UI_BaseSlot<TBL_SKILL>
             return;
         }
 
-        _imgIcon.enabled = true;
+        //_imgIcon.enabled = true;
         _imgIcon.sprite = AssetManager.Instance.SkillIcon[_data.Index];
         _imgFrame.sprite = AssetManager.Instance.ItemFrameIcon[(int)_data.ItemGrade];
 
@@ -43,11 +44,15 @@ public class UI_Skill_Slot : UI_BaseSlot<TBL_SKILL>
         {
             _txtLevel.text = $"";
             _imgIcon.color = Color.black;
+            _imgIcon.enabled = false;
+            _imgNone.enabled = true;
         }
         else
         {
             _txtLevel.text = $"{level}등급";
             _imgIcon.color = Color.white;
+            _imgIcon.enabled = true;
+            _imgNone.enabled = false;
         }
 
         if(!IgnoreSlider)

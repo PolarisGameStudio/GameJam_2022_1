@@ -48,8 +48,10 @@ public class UI_Popup_Skill : UI_BasePopup<UI_Popup_Skill>, GameEventListener<Re
         
         
         _txtPrice.text = $"({DataManager.SkillData.Counts[_data.Index]}/{DataManager.SkillData.GetLevelUpCost(_data.Index)})";
-        
-        _btnLevelUp.interactable = DataManager.SkillData.IsEnableLevelUp(_data.Index);
+
+        var enable = DataManager.SkillData.IsEnableLevelUp(_data.Index);
+        _txtPrice.color = enable ? ColorValue.ENABLE_TEXT_COLOR :ColorValue.DISABLE_TEXT_COLOR;
+        _btnLevelUp.interactable = enable;
         _btnEquip.interactable = DataManager.SkillData.Levels[_data.Index] > 0;
     }
 
