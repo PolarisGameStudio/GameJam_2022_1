@@ -49,6 +49,6 @@ public class MultiSkinAnimationAbility : AnimationAbility
     {
         _slashAnim.gameObject.SetActive(true);
         _slashAnim.AnimationState.TimeScale = timeScale;
-        _slashAnim.AnimationState.SetAnimation(0, "eff_attack1_A", false);
+        _slashAnim.AnimationState.SetAnimation(0, $"eff_attack1_{(char)('A' + (DataManager.PromotionData.CurrentPromotionIndex))}", false);
     }
 }

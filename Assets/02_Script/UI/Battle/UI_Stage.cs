@@ -3,34 +3,33 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Stage : SingletonBehaviour<UI_Stage> , GameEventListener<RefreshEvent>
+public class UI_Stage : SingletonBehaviour<UI_Stage> , GameEventListener<BattleEvent>
 {
     [SerializeField] private Text _txtStageTitle;
-
-    private StageBattle _stage;
+    
+    [SerializeField] private GameObject _btnWorld;
+    [SerializeField] private GameObject _btnBossChallenge;
+    [SerializeField] private GameObject _btnGiveUp;
     
     private void Awake()
     {
-        _stage = FindObjectOfType<StageBattle>();
-        this.AddGameEventListening<RefreshEvent>();
+        this.AddGameEventListening<BattleEvent>();
     }
 
     public void Refresh()
     {
-        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage)
-        {
-            SafeSetActive(false);
-            return;
-        }
-        
         SafeSetActive(true);
+        
+        _btnBossChallenge.gameObject.SetActive(BattleManager.Instance.CurrentBattleType == Enum_BattleType.Stage);
+        _btnWorld.gameObject.SetActive(BattleManager.Instance.CurrentBattleType == Enum_BattleType.Stage);
+        _btnGiveUp.gameObject.SetActive(BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage);
 
-        _txtStageTitle.text = _stage.StageTitle;
+        _txtStageTitle.text = BattleManager.Instance.CurrentBattle.GetBattleTitle();
     }
 
-    public void OnGameEvent(RefreshEvent e)
+    public void OnGameEvent(BattleEvent e)
     {
-        if (e.Type == Enum_RefreshEventType.Battle)
+        if (e.Type == Enum_BattleEventType.BattleStart)
         {
             Refresh();
         }
@@ -44,5 +43,10 @@ public class UI_Stage : SingletonBehaviour<UI_Stage> , GameEventListener<Refresh
     public void OnClickWorldButton()
     {
         UI_Popup_World.Instance.Open();
+    }
+    
+    public void OnClickGiveUp()
+    {
+        BattleManager.Instance.BattleStart(Enum_BattleType.Stage, DataManager.StageData.StageLevel);
     }
 }

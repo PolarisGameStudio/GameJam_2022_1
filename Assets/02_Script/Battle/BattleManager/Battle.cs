@@ -29,7 +29,6 @@ public abstract class Battle : MonoBehaviour
 
     protected PlayerObject _player;
 
-
     protected bool _inited = false;
     public bool IsInited => _inited;
 
@@ -99,4 +98,11 @@ public abstract class Battle : MonoBehaviour
     protected abstract void OnBattleEnd();
     
     protected abstract void OnMonsterDeathReward();
+
+    public abstract string GetBattleTitle();
+
+    public virtual float GetProgress()
+    {
+        return 1;
+    }
 }

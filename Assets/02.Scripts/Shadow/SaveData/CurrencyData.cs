@@ -28,6 +28,15 @@ public class CurrencyData : SaveDataBase
                 var currency = new Currency(type, 0);
                 //currency.Init(type, 0);
                 CurrencyList.Add(currency);
+
+                switch (type)
+                {
+                    case Enum_CurrencyType.Ticket_Smith:
+                    case Enum_CurrencyType.Ticket_Treasure:
+                    case Enum_CurrencyType.Ticket_Boss:
+                        currency.Amount = SystemValue.DUNGEON_DAILY_TICKET_AMOUNT;
+                        break;
+                }
             }
         }
     }
@@ -57,10 +66,8 @@ public class CurrencyData : SaveDataBase
         {
             return false;
         }
-#endif
-        
         GetCurrency(type).Consume(amount);
-
+#endif
         RefreshEvent.Trigger(Enum_RefreshEventType.Currency);
         
         return true;
@@ -77,5 +84,29 @@ public class CurrencyData : SaveDataBase
         
         RefreshEvent.Trigger(Enum_RefreshEventType.Currency);
     }
-    
+
+    public override void OnNextDay()
+    {
+        base.OnNextDay();
+        
+        ResetDungeonTicket();
+    }
+
+    private void ResetDungeonTicket()
+    {
+        if (GetCurrency(Enum_CurrencyType.Ticket_Boss).Amount <= SystemValue.DUNGEON_DAILY_TICKET_AMOUNT)
+        {
+            GetCurrency(Enum_CurrencyType.Ticket_Boss).Amount = SystemValue.DUNGEON_DAILY_TICKET_AMOUNT;
+        }
+        
+        if (GetCurrency(Enum_CurrencyType.Ticket_Smith).Amount <= SystemValue.DUNGEON_DAILY_TICKET_AMOUNT)
+        {
+            GetCurrency(Enum_CurrencyType.Ticket_Smith).Amount = SystemValue.DUNGEON_DAILY_TICKET_AMOUNT;
+        }
+        
+        if (GetCurrency(Enum_CurrencyType.Ticket_Treasure).Amount <= SystemValue.DUNGEON_DAILY_TICKET_AMOUNT)
+        {
+            GetCurrency(Enum_CurrencyType.Ticket_Treasure).Amount = SystemValue.DUNGEON_DAILY_TICKET_AMOUNT;
+        }
+    }
 }

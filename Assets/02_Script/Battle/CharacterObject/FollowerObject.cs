@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FollowerObject : MonoBehaviour
 {
-    private Animator _animator;
+    public Animator _animator;
     
     public const string MoveAnimationPostFix = "_move";
     public const string IdleAnimationPostFix = "_idle";
@@ -15,13 +15,7 @@ public class FollowerObject : MonoBehaviour
     private string IdleAnimationName => $"{_currentFollowerIndex+1:D3}{IdleAnimationPostFix}";
 
     private int _currentFollowerIndex;
-
-    private void Awake()
-    {
-       // _skeletonAnimation = GetComponent<SkeletonAnimation>();
-        _animator = GetComponentInChildren<Animator>();
-    }
-
+    
     public void ChangeFollowerModel(int index)
     {
         if (index == -1)
@@ -41,6 +35,12 @@ public class FollowerObject : MonoBehaviour
         // {
         //     return;
         // }
+
+        if (!isActiveAndEnabled)
+        {
+            return;
+        }
+        
         _animator.speed = moveScale;
         
         _animator.SetTrigger(MoveAnimationName);
@@ -48,6 +48,11 @@ public class FollowerObject : MonoBehaviour
 
     public void PlayIdleAnimation()
     {        
+        if (!isActiveAndEnabled)
+        {
+            return;
+        }
+
         _animator.speed = 1;
         
         _animator.SetTrigger(IdleAnimationName);

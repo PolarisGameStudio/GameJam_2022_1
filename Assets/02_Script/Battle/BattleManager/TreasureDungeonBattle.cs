@@ -6,10 +6,15 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 {
     private TBL_DUNGEON_TREASURE _treasureDungeonData;
 
-    public float RemainTime => SystemValue.TREASURE_DUNGEON_LIMIT_TIME - _timer;
+    public float RemainTime => _treasureDungeonData.TimeLimit - _timer;
     private float _timer;
 
     private int _monsterKillCount = 0;
+
+    public override string GetBattleTitle()
+    {
+        return "보물고";
+    }
 
     private void Awake()
     {
@@ -28,6 +33,7 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
         if (RemainTime < 0)
         {
             BattleOver();
+            _timer = 0;
         }
     }
 
@@ -79,17 +85,19 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleClear()
     {
+        DataManager.DungeonData.RecordDungeonScore(_battleType, _monsterKillCount);
+        DataManager.DungeonData.OnDungeonBattleEnd(_battleType, _level);
     }
 
     protected override void OnBattleOver()
     {
+        DataManager.DungeonData.RecordDungeonScore(_battleType, _monsterKillCount);
+        DataManager.DungeonData.OnDungeonBattleEnd(_battleType, _level);
     }
 
     protected override void OnBattleEnd()
     {
         UI_BossHealthbar.Instance.Hide();
-        DataManager.DungeonData.RecordDungeonScore(_battleType, _monsterKillCount);
-        DataManager.DungeonData.OnDungeonBattleEnd(_battleType, _level);
     }
 
     protected override void OnMonsterDeathReward()
@@ -117,7 +125,9 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     private void OnWaveClear()
     {
-        _level++;
+        _level = Mathf.Min(_level + 1, TBL_DUNGEON_TREASURE.CountEntities - 1);
+        _timer = 0;
+        InitBattleData();
         _monsterObjects.Clear();
 
         SpawnWaveMonsters();
@@ -130,5 +140,10 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
         {
             OnWaveClear();
         }
+    }
+
+    public override float GetProgress()
+    {
+        return RemainTime / _treasureDungeonData.TimeLimit;
     }
 }

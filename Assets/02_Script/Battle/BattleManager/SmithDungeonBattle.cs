@@ -62,7 +62,7 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnBattleClear()
     {
-        BattleManager.Instance.BattleClear(Enum_BattleType.Stage, _level);
+        BattleManager.Instance.BattleClear(Enum_BattleType.SmithDungeon, _level);
     }
 
     protected override void OnBattleOver()
@@ -78,6 +78,17 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
     {
         throw new System.NotImplementedException();
     }
+
+    public override string GetBattleTitle()
+    {
+        return $"좀비 대장간 {_level+1}층";
+    }
+
+    public override float GetProgress()
+    {
+        return waveLevel / (float) _smithDungeonData.WaveCount;
+    }
+
 
     public void OnGameEvent(MonsterEvent e)
     {
@@ -109,6 +120,8 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
         {
             SpawnWaveMonsters();
         }
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Battle);
     }
 
 

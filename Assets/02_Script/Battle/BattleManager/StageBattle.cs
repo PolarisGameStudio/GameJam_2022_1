@@ -8,8 +8,17 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 {
     private TBL_STAGE _stageData;
     
-    public float StageProcess => waveLevel / (float) _stageData.WaveCount;
-    public string StageTitle => $"{_stageData.World.name} {_stageData.Index % 20 + 1}";
+    
+    public override string GetBattleTitle()
+    {
+        return $"{_stageData.World.name} {_stageData.Index % 20 + 1}";
+    }
+
+    public override float GetProgress()
+    {
+        return waveLevel / (float) _stageData.WaveCount;
+    }
+
 
     private void Awake()
     {

@@ -9,7 +9,10 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
     private TBL_PROMOTION _promotionBattleData;
 
     public float StageProcess => waveLevel / (float) _promotionBattleData.WaveCount;
-    public string StageTitle => $"승급 {_promotionBattleData.name}";
+    public override string GetBattleTitle()
+    {
+        return $"{_promotionBattleData.name} 승급전";
+    }
 
     private void Awake()
     {

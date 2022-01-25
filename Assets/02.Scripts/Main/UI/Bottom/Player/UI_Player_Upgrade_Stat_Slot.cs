@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEventListener<PlayerEvent>
+public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEventListener<RefreshEvent>
 {
     [SerializeField] private Image _imgStatIcon;
     
@@ -17,7 +17,7 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
 
     private void OnEnable()
     {
-        this.AddGameEventListening<PlayerEvent>();
+        this.AddGameEventListening<RefreshEvent>();
 
         if (_data != null)
         {
@@ -27,7 +27,7 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
 
     private void OnDisable()
     {
-        this.RemoveGameEventListening<PlayerEvent>();
+        this.RemoveGameEventListening<RefreshEvent>();
     }
 
     public override void Init(TBL_UPGRADE_STAT data)
@@ -64,9 +64,9 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
         _btnLevelUp.interactable = DataManager.StatGrowthData.GetRemainPoint() >= _data.Price;
     }
 
-    public void OnGameEvent(PlayerEvent e)
+    public void OnGameEvent(RefreshEvent e)
     {
-        if (e.Type == Enum_PlayerEventType.LevelUp)
+        if (e.Type == Enum_RefreshEventType.StatGrowth)
         {
             Refresh();
         }
@@ -80,10 +80,5 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
 
             Refresh();
         }
-    }
-    
-    public void OnClickStatRollback()
-    {
-        DataManager.StatGrowthData.TryRollback();
     }
 }
