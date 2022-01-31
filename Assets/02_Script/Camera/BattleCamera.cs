@@ -6,7 +6,7 @@ using DG.Tweening.Plugins.Options;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class BattleCamera : SingletonBehaviour<BattleCamera> , GameEventListener<BattleEvent>
+public class BattleCamera : SingletonBehaviour<BattleCamera> , GameEventListener<BattleEvent>, GameEventListener<SleepEvent>
 {
     private Camera _camera;
     private ProCamera2D _proCamera2D;
@@ -45,6 +45,7 @@ public class BattleCamera : SingletonBehaviour<BattleCamera> , GameEventListener
         _originOrthographicSize = OrthographicSize;
         
         this.AddGameEventListening<BattleEvent>();
+        this.AddGameEventListening<SleepEvent>();
     }
     //
     // private void OnCameraResize(Vector2 size)
@@ -172,5 +173,16 @@ public class BattleCamera : SingletonBehaviour<BattleCamera> , GameEventListener
             OnStateClear();
         }
     }
-    
+
+    public void OnGameEvent(SleepEvent e)
+    {
+        if (e.Type == Enum_SleepEventType.SleepOn)
+        {
+            _camera.enabled = false;
+        }
+        else if (e.Type == Enum_SleepEventType.SleepOff)
+        {
+            _camera.enabled = true;
+        }
+    }
 }

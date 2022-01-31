@@ -74,6 +74,10 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
     {
         UI_Popup_Achievement.Instance.Open();
     }   
+    public void OnClickSleep()
+    {
+        UI_Popup_Sleep.Instance.Open();
+    }   
     public void OnClickPassive()
     {
         UI_Popup_Passive.Instance.Open();

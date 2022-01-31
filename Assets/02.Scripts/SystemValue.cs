@@ -38,6 +38,9 @@ public static class SystemValue
     
     public static int DUNGEON_DAILY_TICKET_AMOUNT = 3;
     
+    public static int MINIMUM_RECONNECT_MINUTE = 5;
+    public static int MAXIMUM_RECONNECT_MINUTE = 5;
+    
     
     public static int STAT_RESET_PRICE = 2000;
 }

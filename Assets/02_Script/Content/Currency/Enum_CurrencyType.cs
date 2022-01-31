@@ -15,5 +15,7 @@ public enum Enum_CurrencyType
     Key_Ring,
     Key_Skill,
     
+    Exp,
+    
     Count
 }

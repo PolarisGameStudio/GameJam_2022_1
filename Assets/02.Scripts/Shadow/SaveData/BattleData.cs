@@ -12,10 +12,6 @@ public class StageData : SaveDataBase
     public override void ValidCheck()
     {
         base.ValidCheck();
-        
-#if UNITY_EDITOR
-        HighestStageLevel = 999;
-#endif
     }
 
     public void BossStageClear()

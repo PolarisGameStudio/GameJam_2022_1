@@ -25,7 +25,8 @@ public enum UIType
     Popup_Option,
     Popup_OK,
     Popup_Buy,
-    Popup_OfflineReward,
+    Popup_Reconnect,
+    Popup_Sleep,
     Null,
 }
 

@@ -22,6 +22,7 @@ public class DataContainer
     [SerializeField] public SkillData SkillData { get; set; }
 
     public DateTime LastDateTime = DateTime.Today;
+    public DateTime LastSaveTime = DateTime.Now;
 
     public void ValidCheck()
     {

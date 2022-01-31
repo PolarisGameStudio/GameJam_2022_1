@@ -8,6 +8,7 @@ public enum ADType
     Rune,
     
     Gacha,
+    Reconnect,
     
     None,
 }

@@ -60,6 +60,12 @@ public static class RewardManager
         switch (reward.RewardType)
         {
             case RewardType.Currency:
+                if (value == (int) Enum_CurrencyType.Exp)
+                {
+                    DataManager.PlayerData.AddExp(count);
+                    break;
+                }
+                
                 DataManager.CurrencyData.Add((Enum_CurrencyType) value, count);
                 break;
 

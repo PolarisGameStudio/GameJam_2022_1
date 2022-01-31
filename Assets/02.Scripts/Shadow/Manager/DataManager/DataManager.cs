@@ -62,6 +62,8 @@ public class DataManager : SingletonBehaviour<DataManager>, GameEventListener<St
         
         ES3.Save(saveKey, _container);
         _saveTimer = 0;
+        
+        _container.LastSaveTime = DateTime.Now;
     }
 
     public void Load()

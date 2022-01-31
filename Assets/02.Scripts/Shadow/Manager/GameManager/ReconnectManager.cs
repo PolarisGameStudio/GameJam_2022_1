@@ -5,90 +5,92 @@ using System.Linq;
 using UnityEngine;
 
 public class ReconnectManager : SingletonBehaviour<ReconnectManager>
-    // , GameEventListener<FocusEvent>,
-    // GameEventListener<ADSeeEvent>, GameEventListener<GameEvent>
 {
-    private int m_Minutes;
-    public int Minutes => m_Minutes;
-
-    private Coroutine m_CheckCoroutine;
-
-    protected override void Awake()
-    {
-        base.Awake();
-
-        Init();
-
-        // this.AddGameEventListening<FocusEvent>();
-        // this.AddGameEventListening<ADSeeEvent>();
-        // this.AddGameEventListening<GameEvent>();
-    }
-
-    private void Init()
-    {
-      
-    }
-
-    // public void OnGameEvent(FocusEvent e)
-    // {
-    //     switch (e.Type)
-    //     {
-    //         case FocusEventType.FocusOff:
-    //             PlayerManager.Instance.PlayerInfo.LastReconnectSaveTime = ServerManager.ServerUnixTime;
-    //             break;
-    //
-    //         case FocusEventType.FocusOn:
-    //             Check();
-    //             break;
-    //     }
-    // }
-    //
-    // public void OnGameEvent(ADSeeEvent e)
-    // {
-    //     if (e.ADType == ADType.ReconnectionDouble)
-    //     {
-    //         GetReward(true);
-    //     }
-    // }
+    public int Minute { get; set; }
 
     private void Start()
     {
-        Check();
-
-        ///Save_Coroutine();
+        CheckReconnect();
     }
 
-    private void Check()
+    private void OnApplicationPause(bool pauseStatus)
     {
-        if (m_CheckCoroutine != null)
+        if (pauseStatus == false)
         {
-            StopCoroutine(m_CheckCoroutine);
-            m_CheckCoroutine = null;
+            CheckReconnect();
+        }
+    }
+
+
+    public void CheckReconnect()
+    {
+        var reconnectDiff = DateTime.Now - DataManager.Container.LastSaveTime;
+
+        if (reconnectDiff.TotalMinutes >= SystemValue.MINIMUM_RECONNECT_MINUTE)
+        {
+            Minute = Mathf.Min((int) reconnectDiff.TotalMinutes, SystemValue.MAXIMUM_RECONNECT_MINUTE);
+
+            UI_Popup_Reconnect.Instance.Open();
+        }
+    }
+
+    public double GetGoldAmount()
+    {
+        var data = TBL_STAGE.GetEntity(DataManager.StageData.HighestStageLevel);
+
+        if (data == null)
+        {
+            return 0d;
         }
 
-        m_CheckCoroutine = StartCoroutine(CheckReward_Coroutine());
+        return data.GoldPerMin * Minute;
     }
 
-    private IEnumerator CheckReward_Coroutine()
+    public double GetExpAmount()
     {
-        yield return new WaitForSeconds(0.6f);
+        var data = TBL_STAGE.GetEntity(DataManager.StageData.HighestStageLevel);
 
-        CheckReward();
+        if (data == null)
+        {
+            return 0d;
+        }
+
+        return data.ExpPerMin * Minute;
     }
 
-    private void CheckReward()
+    public double GetStoneAmount()
     {
+        var data = TBL_STAGE.GetEntity(DataManager.StageData.HighestStageLevel);
+
+        if (data == null)
+        {
+            return 0d;
+        }
+
+        return data.UpgradeStonePerMin * Minute;
     }
 
-    public void GetReward(bool isAdditional = false)
+    public void GetReward(bool isDoubleReward)
     {
-    }
+        var goldAmount = GetGoldAmount();
+        var expAmount = GetExpAmount();
+        var stoneAmount = GetStoneAmount();
 
-    // public void OnGameEvent(GameEvent e)
-    // {
-    //     // if (e.Type == GameEventType.Quit)
-    //     // {
-    //     //     PlayerManager.Instance.PlayerInfo.LastReconnectSaveTime = UtilCode.UnixTimeNow();
-    //     // }
-    // }
+        if (isDoubleReward)
+        {
+            goldAmount *= 2;
+            expAmount *= 2;
+            stoneAmount *= 2;
+        }
+
+        var rewards = new List<Reward>();
+
+        rewards.Add(new Reward(RewardType.Currency, (int) Enum_CurrencyType.Gold, goldAmount));
+        rewards.Add(new Reward(RewardType.Currency, (int) Enum_CurrencyType.Exp, expAmount));
+        rewards.Add(new Reward(RewardType.Currency, (int) Enum_CurrencyType.EquipmentStone, stoneAmount));
+        
+        RewardManager.Get(rewards);
+
+        DataManager.Instance.Save(force: true);
+    }
 }
