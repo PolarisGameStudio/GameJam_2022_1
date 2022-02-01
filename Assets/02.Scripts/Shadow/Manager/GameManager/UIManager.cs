@@ -27,6 +27,7 @@ public enum UIType
     Popup_Buy,
     Popup_Reconnect,
     Popup_Sleep,
+    Popup_Shop_Percent,
     Null,
 }
 

@@ -28,7 +28,7 @@ public class UI_Popup_Reconnect : UI_BasePopup<UI_Popup_Reconnect>
     {
         AdManager.Instance.TryShowRequest(ADType.Reconnect, () =>
         {
-            ReconnectManager.Instance.GetReward(false);
+            ReconnectManager.Instance.GetReward(true);
             Close();
         });
     }

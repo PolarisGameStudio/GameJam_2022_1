@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_Shop_Gacha : MonoBehaviour , GameEventListener<RefreshEvent>
+public class UI_Shop_Gacha : MonoBehaviour , GameEventListener<ShopEvent>
 {
     public UI_Shop_Gacha_Slot WeaponGachaSlot;
     public UI_Shop_Gacha_Slot RingGachaSlot;
@@ -11,12 +11,12 @@ public class UI_Shop_Gacha : MonoBehaviour , GameEventListener<RefreshEvent>
 
     private void OnEnable()
     {
-        this.AddGameEventListening<RefreshEvent>();
+        this.AddGameEventListening<ShopEvent>();
     }
 
     private void OnDisable()
     {
-        this.RemoveGameEventListening<RefreshEvent>();
+        this.RemoveGameEventListening<ShopEvent>();
     }
 
     public void OnToggle(bool isOn)
@@ -38,11 +38,8 @@ public class UI_Shop_Gacha : MonoBehaviour , GameEventListener<RefreshEvent>
         RingGachaSlot.Refresh();
     }
 
-    public void OnGameEvent(RefreshEvent e)
+    public void OnGameEvent(ShopEvent e)
     {
-        if (e.Type == Enum_RefreshEventType.Gacha)
-        {
-            Refresh();
-        }
+        Refresh();
     }
 }

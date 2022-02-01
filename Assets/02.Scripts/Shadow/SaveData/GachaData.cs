@@ -130,6 +130,24 @@ public class GachaData : SaveDataBase
         return level;
     }
 
+    public int GetGachaMaxLevel(GachaType type)
+    {
+        int count = 0;
+        switch (type)
+        {
+            case GachaType.Weapon:
+            case GachaType.Ring:
+                count = TBL_GACHA_EQUIPMENT.CountEntities;
+                break;
+
+            case GachaType.Skill:
+                count = TBL_GACHA_EQUIPMENT.CountEntities;
+                break;
+        }
+
+        return count;
+    }
+
     public void AddGachaCount(GachaType type, int count)
     {
         int index = (int) type;
@@ -139,6 +157,6 @@ public class GachaData : SaveDataBase
             GachaCount[index] += count;
         }
 
-        RefreshEvent.Trigger(Enum_RefreshEventType.Gacha);
+        ShopEvent.Trigger();
     }
 }

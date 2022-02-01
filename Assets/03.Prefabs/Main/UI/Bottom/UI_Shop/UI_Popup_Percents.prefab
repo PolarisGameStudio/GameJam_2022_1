@@ -320,10 +320,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8923442357047547688}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 6893890485906446587}
+        m_TargetAssemblyTypeName: UI_BasePopup`1[[UI_Shop_Gacha_Percents, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1060,10 +1060,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8923442357047547688}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 6893890485906446587}
+        m_TargetAssemblyTypeName: UI_BasePopup`1[[UI_Shop_Gacha_Percents, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1746,8 +1746,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_ShopArtifactPopup, Assembly-CSharp
+      - m_Target: {fileID: 6893890485906446587}
+        m_TargetAssemblyTypeName: UI_Shop_Gacha_Percents, Assembly-CSharp
         m_MethodName: OnClickArrow
         m_Mode: 6
         m_Arguments:
@@ -1894,8 +1894,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_ShopArtifactPopup, Assembly-CSharp
+      - m_Target: {fileID: 6893890485906446587}
+        m_TargetAssemblyTypeName: UI_Shop_Gacha_Percents, Assembly-CSharp
         m_MethodName: OnClickArrow
         m_Mode: 6
         m_Arguments:
@@ -2107,8 +2107,9 @@ GameObject:
   - component: {fileID: 8923442357047547695}
   - component: {fileID: 2880500987872746373}
   - component: {fileID: 2892515433584901268}
+  - component: {fileID: 6893890485906446587}
   m_Layer: 5
-  m_Name: UI_ShopArtifactPopup
+  m_Name: UI_Popup_Percents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2151,10 +2152,32 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8923442357047547688}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6893890485906446587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8923442357047547688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fad27f2c9653a640888c7338202e7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIType: 19
+  _txtLevel: {fileID: 1654181166450017100}
+  _txtGachaPercentList:
+  - {fileID: 5793427113329766402}
+  - {fileID: 4432465811260589249}
+  - {fileID: 4162558904705238744}
+  - {fileID: 7179074286733364199}
+  - {fileID: 6899846167014656673}
+  _btnArrowLeft: {fileID: 7347563326043834593}
+  _btnArrowRight: {fileID: 7457059329664679127}
 --- !u!1 &9118602263286703568
 GameObject:
   m_ObjectHideFlags: 0

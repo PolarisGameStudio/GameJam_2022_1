@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ReconnectManager : SingletonBehaviour<ReconnectManager>
@@ -22,8 +23,10 @@ public class ReconnectManager : SingletonBehaviour<ReconnectManager>
     }
 
 
-    public void CheckReconnect()
+    public async void CheckReconnect()
     {
+        await Task.Delay(2000);
+        
         var reconnectDiff = DateTime.Now - DataManager.Container.LastSaveTime;
 
         if (reconnectDiff.TotalMinutes >= SystemValue.MINIMUM_RECONNECT_MINUTE)

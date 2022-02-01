@@ -87,7 +87,7 @@ public static class RewardManager
         }
     }
 
-    public static void Get(List<Reward> rewards, bool showPopup = false)
+    public static void Get(List<Reward> rewards, bool showPopup = true)
     {
         List<Reward> rewardsForUI = new List<Reward>();
 
@@ -99,6 +99,20 @@ public static class RewardManager
         if (showPopup)
         {
             UI_Popup_Reward.Instance.Open(rewards);
+        }
+    }
+    
+    public static void Get(Reward reward, bool showPopup = true)
+    {
+        List<Reward> rewardsForUI = new List<Reward>();
+
+        Get(reward, rewardsForUI);
+        
+        rewardsForUI.Add(reward);
+
+        if (showPopup)
+        {
+            UI_Popup_Reward.Instance.Open(rewardsForUI);
         }
     }
 }

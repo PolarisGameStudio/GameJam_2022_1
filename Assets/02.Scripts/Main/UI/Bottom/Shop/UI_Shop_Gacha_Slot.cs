@@ -69,4 +69,9 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
             GachaManager.Instance.Gacha(_data.GachaType,0 ,_data.Count_Small);
         });
     }
+
+    public void OnClickPercent()
+    {
+        UI_Shop_Gacha_Percents.Instance.Open(_data.GachaType);
+    }
 }

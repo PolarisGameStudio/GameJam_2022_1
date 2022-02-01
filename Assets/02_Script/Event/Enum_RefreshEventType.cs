@@ -19,7 +19,6 @@ public enum Enum_RefreshEventType
     Rune,
     Acheieve,
     Quest,
-    Gacha
 }
 
 public struct RefreshEvent
