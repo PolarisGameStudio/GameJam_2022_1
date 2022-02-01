@@ -27,7 +27,7 @@ public class UI_Shop_Gacha_Percents : UI_BasePopup<UI_Shop_Gacha_Percents>
 
     protected override void Refresh()
     {
-        _txtLevel.text = $"{_selectedLevel}단계";
+        _txtLevel.text = $"{_selectedLevel + 1}단계";
         
         _btnArrowLeft.SetActive(_selectedLevel != 0);
         _btnArrowRight.SetActive(_selectedLevel != DataManager.GachaData.GetGachaMaxLevel(_selectedType) - 1);
