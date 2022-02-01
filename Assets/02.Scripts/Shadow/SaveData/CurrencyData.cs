@@ -75,11 +75,6 @@ public class CurrencyData : SaveDataBase
      
     public void Add(Enum_CurrencyType type, double amount)
     {
-        if (type == Enum_CurrencyType.Gold)
-        {
-            amount *= (DataManager.Container.Stat[Enum_StatType.MoreGold] / 100f);
-        }
-        
         GetCurrency(type).Add(amount);
         
         RefreshEvent.Trigger(Enum_RefreshEventType.Currency);

@@ -32,7 +32,7 @@ public class PlayerAttackAbility : CharacterAbility
         if (target.TryTakeHit(damage.Value, damage.Type))
         {
             _onwerObject.OnAttack(target, damage.Value, damage.Type);
-            
+
             return true;
         }
 
@@ -71,7 +71,7 @@ public class PlayerAttackAbility : CharacterAbility
     {
         Enum_DamageType damageType = Enum_DamageType.Normal;
         var isSuperCritical = IsSuperCritical();
-        
+
         if (isSuperCritical)
         {
             damageType = Enum_DamageType.SuperCritical;
@@ -81,10 +81,10 @@ public class PlayerAttackAbility : CharacterAbility
             var isCritical = IsCritical();
             damageType = isCritical ? Enum_DamageType.Critical : Enum_DamageType.Normal;
         }
-        
+
 
         var value = 0d;
-        
+
         if (damageType == Enum_DamageType.SuperCritical)
         {
             value = GetSuperCriticalDamage();
@@ -123,12 +123,12 @@ public class PlayerAttackAbility : CharacterAbility
 
     public double GetCriticalDamage()
     {
-        return GetNormalDamage() * _onwerObject.Stat[Enum_StatType.CriticalDamage] / 100f;
+        return GetNormalDamage() * (100 + _onwerObject.Stat[Enum_StatType.CriticalDamage]) / 100f;
     }
-    
+
     public double GetSuperCriticalDamage()
     {
-        return GetNormalDamage() * _onwerObject.Stat[Enum_StatType.SuperCriticalDamage] / 100f;
+        return GetNormalDamage() * (100 + _onwerObject.Stat[Enum_StatType.SuperCriticalDamage]) / 100f;
     }
 
     public void SetAttackCoolTime(float time)

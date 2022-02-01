@@ -92,8 +92,11 @@ public class StageBattle : Battle, GameEventListener<MonsterEvent>
 
     protected override void OnMonsterDeathReward()
     {
-        var goldMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Gold) ? 2 : 1;
-        var expMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Exp) ? 2 : 1;
+        double goldMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Gold) ? 2 : 1;
+        double expMultiply = DataManager.RuneData.IsRuneActivate(Enum_RuneBuffType.Exp) ? 2 : 1;
+
+        goldMultiply *= (100+ DataManager.Container.Stat[Enum_StatType.MoreGold]) / 100f;
+        expMultiply *= (100+ DataManager.Container.Stat[Enum_StatType.MoreExp]) / 100f;
 
         DataManager.CurrencyData.Add(Enum_CurrencyType.Gold, _stageData.Gold * goldMultiply);
         DataManager.PlayerData.AddExp(_stageData.Exp * expMultiply);

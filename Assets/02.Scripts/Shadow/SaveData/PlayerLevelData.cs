@@ -49,9 +49,7 @@ public class PlayerData : StatData
     }
 
     public void AddExp(double exp)
-    {        
-	    exp *= (DataManager.Container.Stat[Enum_StatType.MoreExp] / 100f);
-
+    {
 	    Exp += exp;
 	 //   CheckLevelUp();
 	    

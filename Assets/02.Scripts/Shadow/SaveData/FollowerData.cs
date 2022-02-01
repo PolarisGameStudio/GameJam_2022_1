@@ -159,4 +159,16 @@ public class FollowerData : StatData
 
         return false;
     }
+
+    public double GetStatValue(Enum_StatType type)
+    {
+        double value = 0;
+
+        for (var i = 0; i < DiceDatas.Count; i++)
+        {
+            value += DiceDatas[i].Stat[type];
+        }
+
+        return value;
+    }
 }

@@ -95,35 +95,31 @@ public class DataContainer
         Stat[Enum_StatType.Damage] = GetDamage();
         Stat[Enum_StatType.MaxHealth] = GetHealth();
         Stat[Enum_StatType.CriticalChance] = GetCriticalChance();
-        Stat[Enum_StatType.CriticalDamage] = GetCriticalDamage();
-        Stat[Enum_StatType.MoveSpeed] = GetMovementSpeed();
-        Stat[Enum_StatType.AttackSpeed] = GetAttackSpeed();
+        Stat[Enum_StatType.CriticalDamage] = GetStatValue(Enum_StatType.CriticalDamage);
+        Stat[Enum_StatType.MoveSpeed] = GetStatValue(Enum_StatType.MoveSpeed);
+        Stat[Enum_StatType.AttackSpeed] = GetStatValue(Enum_StatType.AttackSpeed);
         Stat[Enum_StatType.SuperCriticalChance] = GetSuperCriticalChance();
-        Stat[Enum_StatType.SuperCriticalDamage] = GetSuperCriticalDamage();
+        Stat[Enum_StatType.SuperCriticalDamage] = GetStatValue(Enum_StatType.SuperCriticalDamage);
         Stat[Enum_StatType.AttackRange] = 2;
         Stat[Enum_StatType.DetectRange] = 2;
-        Stat[Enum_StatType.MoreGold] = GetMoreGold();
-        Stat[Enum_StatType.MoreExp] = GetMoreExp();
-    }
-
-    private double GetMoreGold()
-    {
-        return 100 + StatGrowthData.Stat[Enum_StatType.MoreGold];
-    }
-
-    private double GetMoreExp()
-    {
-        return 100 + StatGrowthData.Stat[Enum_StatType.MoreExp];
+        Stat[Enum_StatType.MoreGold] = GetStatValue(Enum_StatType.MoreGold);
+        Stat[Enum_StatType.MoreExp] = GetStatValue(Enum_StatType.MoreExp);
     }
 
     public double GetDamage()
     {
         double damage = 0;
 
-        damage = PlayerData.Stat[Enum_StatType.Damage] + GoldGrowthData.Stat[Enum_StatType.Damage] +
+        damage = PlayerData.Stat[Enum_StatType.Damage] +
+                 GoldGrowthData.Stat[Enum_StatType.Damage] +
                  StatGrowthData.Stat[Enum_StatType.Damage];
 
         damage *= (100 + EquipmentData.Stat[Enum_StatType.Damage]) / 100f;
+
+        var diceStatDamage = PromotionData.DiceStatData.Stat[Enum_StatType.Damage] +
+                             FollowerData.GetStatValue(Enum_StatType.Damage);
+        
+        damage *= (100 + (FollowerData.Stat[Enum_StatType.Damage] +diceStatDamage))  / 100f;
 
         damage *= PromotionData.Stat[Enum_StatType.Damage];
         
@@ -132,16 +128,21 @@ public class DataContainer
         return damage;
     }
 
-
     public double GetHealth()
     {
         double health = 0;
 
-        health = PlayerData.Stat[Enum_StatType.MaxHealth] + GoldGrowthData.Stat[Enum_StatType.MaxHealth] +
+        health = PlayerData.Stat[Enum_StatType.MaxHealth] + 
+                 GoldGrowthData.Stat[Enum_StatType.MaxHealth] +
                  StatGrowthData.Stat[Enum_StatType.MaxHealth];
 
-        health *= (1 + EquipmentData.Stat[Enum_StatType.MaxHealth]);
+        health *= (100 + EquipmentData.Stat[Enum_StatType.MaxHealth]) / 100f;
         
+        var diceStatHealth = PromotionData.DiceStatData.Stat[Enum_StatType.MaxHealth] +
+                             FollowerData.GetStatValue(Enum_StatType.MaxHealth);
+        
+        health *= (100 + (FollowerData.Stat[Enum_StatType.MaxHealth] + diceStatHealth))  / 100f;
+
         health *= PromotionData.Stat[Enum_StatType.MaxHealth];
 
         return health;
@@ -149,31 +150,53 @@ public class DataContainer
 
     public double GetCriticalChance()
     {
-        return GoldGrowthData.Stat[Enum_StatType.CriticalChance];
+        var type = Enum_StatType.CriticalChance;
+        
+        var value = PlayerData.Stat[type];
+
+        double addValue = GoldGrowthData.Stat[type] +
+                          StatGrowthData.Stat[type] +
+                          FollowerData.Stat[type] +
+                          EquipmentData.Stat[type] +
+                          PromotionData.DiceStatData.Stat[type] +
+                          FollowerData.GetStatValue(type);
+
+        value += addValue;
+
+        return value;
+    }
+    
+    private double GetSuperCriticalChance()
+    {
+        var type = Enum_StatType.SuperCriticalChance;
+        
+        var value = PlayerData.Stat[type];
+
+        double addValue = GoldGrowthData.Stat[type] +
+                          StatGrowthData.Stat[type] +
+                          FollowerData.Stat[type] +
+                          EquipmentData.Stat[type] +
+                          PromotionData.DiceStatData.Stat[type] +
+                          FollowerData.GetStatValue(type);
+
+        value += addValue;
+
+        return value;
     }
 
-    public double GetCriticalDamage()
+    public double GetStatValue(Enum_StatType type)
     {
-        return  PlayerData.Stat[Enum_StatType.CriticalDamage] +GoldGrowthData.Stat[Enum_StatType.CriticalDamage];
-    }
+        var value = PlayerData.Stat[type];
 
-    public double GetMovementSpeed()
-    {
-        return PlayerData.Stat[Enum_StatType.MoveSpeed];
-    }
+        double addValue = GoldGrowthData.Stat[type] +
+                          StatGrowthData.Stat[type] +
+                          FollowerData.Stat[type] +
+                          EquipmentData.Stat[type] +
+                          PromotionData.DiceStatData.Stat[type] +
+                          FollowerData.GetStatValue(type);
 
-    public double GetAttackSpeed()
-    {
-        return PlayerData.Stat[Enum_StatType.AttackSpeed];
-    }
+        value *= (100 + addValue) / 100f;
 
-    public double GetSuperCriticalChance()
-    {
-        return GoldGrowthData.Stat[Enum_StatType.SuperCriticalChance];
-    }
-
-    public double GetSuperCriticalDamage()
-    {
-        return PlayerData.Stat[Enum_StatType.SuperCriticalDamage] + GoldGrowthData.Stat[Enum_StatType.SuperCriticalDamage];
+        return value;
     }
 }
