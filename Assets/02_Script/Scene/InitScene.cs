@@ -9,6 +9,7 @@ public class InitScene : MonoBehaviour
 {
     private void Start()
     {
+        IAPManager.Instance.Initialize();
         FB.Init();
         
         StartCoroutine(CoWaitToReady());
