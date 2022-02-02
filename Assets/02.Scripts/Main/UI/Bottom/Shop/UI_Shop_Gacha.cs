@@ -12,6 +12,8 @@ public class UI_Shop_Gacha : MonoBehaviour , GameEventListener<ShopEvent>
     private void OnEnable()
     {
         this.AddGameEventListening<ShopEvent>();
+        
+        Refresh();
     }
 
     private void OnDisable()
@@ -29,6 +31,8 @@ public class UI_Shop_Gacha : MonoBehaviour , GameEventListener<ShopEvent>
         WeaponGachaSlot.Init(TBL_GACHA_DATA.GetEntityByKeyWithType(GachaType.Weapon));
         RingGachaSlot.Init(TBL_GACHA_DATA.GetEntityByKeyWithType(GachaType.Ring));
         SkillGachaSlot.Init(TBL_GACHA_DATA.GetEntityByKeyWithType(GachaType.Skill));
+
+        Refresh();
     }
 
     public void Refresh()

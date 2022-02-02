@@ -16,31 +16,39 @@ public class UI_Popup_Option : UI_BasePopup<UI_Popup_Option>
     public void OnClickQuit()
     {
         DataManager.Instance.Save();
+
+        UI_Popup_OK.Instance.Open("게임 종료", "게임을 종료하시겠습니까?", () =>
+        {
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit();
+            Application.Quit();
 #endif
+        }, () => { });
     }
 
-    public void OnBGMValueChanged(bool value)
+    public void ToggleBGM()
     {
-        DataManager.OptionData.ToggleMusic(value);
+        DataManager.OptionData.ToggleMusic();
+        Refresh();
     }
 
-    public void OnSFXValueChanged(bool value)
+    public void ToggleSFX()
     {
-        DataManager.OptionData.ToggleSfx(value);
+        DataManager.OptionData.ToggleSfx();
+        Refresh();
     }
 
-    public void OnSleepModeValueChanged(bool value)
+    public void ToggleSleep()
     {
-        DataManager.OptionData.ToggleSleep(value);
+        DataManager.OptionData.ToggleSleep();
+        Refresh();
     }
 
-    public void OnEffectValueChanged(bool value)
+    public void ToggleVFX()
     {
-        DataManager.OptionData.ToggleVfx(value);
+        DataManager.OptionData.ToggleVfx();
+        Refresh();
     }
 
     public Toggle _bgmOn;

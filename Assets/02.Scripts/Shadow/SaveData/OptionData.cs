@@ -10,23 +10,23 @@ public class OptionData : SaveDataBase
     public bool VFX;
 
 
-    public void ToggleMusic(bool value)
+    public void ToggleMusic()
     {
-        BGM = value;
+        BGM = !BGM;
     }
 
-    public void ToggleSfx(bool value)
+    public void ToggleSfx()
     {
-        SFX = value;
+        SFX = !SFX;
     }
 
-    public void ToggleSleep(bool value)
+    public void ToggleSleep()
     {
-        Sleep = value;
+        Sleep = !Sleep;
     }
 
-    public void ToggleVfx(bool value)
+    public void ToggleVfx()
     {
-        VFX = value;
+        VFX = !VFX;
     }
 }

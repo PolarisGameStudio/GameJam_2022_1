@@ -9,7 +9,7 @@ public class StatGrowthData : StatData
     [SerializeField] private List<int> _levels = new List<int>();
 
     private int _remainPoint;
-    public int RemainPoint => _remainPoint;
+    
     
     public override void ValidCheck()
     {

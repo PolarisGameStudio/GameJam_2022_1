@@ -22,6 +22,11 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
 
     public void Refresh()
     {
+        if (_data == null)
+        {
+            return;
+        }
+        
         _txtLevel.text = $"소환 레벨{DataManager.GachaData.GetGachaLevel(_data.GachaType) + 1}";
 
         var curExp = DataManager.GachaData.GetGachaCount(_data.GachaType);

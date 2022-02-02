@@ -45,6 +45,7 @@ public static class SystemValue
     
     
     public static int STAT_RESET_PRICE = 2000;
+    public static float SLEEP_TIMER = 60;
 }
 
 public static class ColorValue
