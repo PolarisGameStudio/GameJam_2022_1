@@ -13,6 +13,11 @@ public class UI_Shop_Package_Slot : MonoBehaviour
     {
         Data = data;
 
+        if (DataManager.ShopData.PurchaseCounts[Data.Index] > 0 && Data.IsLimited)
+        {
+            gameObject.SetActive(false);
+        }
+
         _txtPrice.text = IAPManager.Instance.GetProductMoneyString(Data.IAP_ID);
     }
 
