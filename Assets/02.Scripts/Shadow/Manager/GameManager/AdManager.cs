@@ -82,14 +82,11 @@ public class AdManager : SingletonBehaviour<AdManager>
         
         return true;
         
-        #endif
+        #endifㅑ
         
         if (!admobModule.CheckRewardAdLoaded())
         {
-            // string title = LocalizeText.GetText("UI_Popup_Title");
-            // string decript = LocalizeText.GetText("UI_Popup_Description_WaitingAds");
-            //
-            // UI_Popup.Instance.OpenOK(title, decript);
+            UI_Popup_OK.Instance.Open("광고 로드 실패", "실행 가능한 광고가 없습니다. 잠시후 다시 시도해주세요.");
 
             return false;
         }
