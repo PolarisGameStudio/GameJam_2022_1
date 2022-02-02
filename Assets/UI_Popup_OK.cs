@@ -28,6 +28,11 @@ public class UI_Popup_OK : UI_BasePopup<UI_Popup_OK>
         m_CancelButton.gameObject.SetActive(cancelAction != null);
     }
 
+    public void OpenCurrencyNotEnough()
+    {
+        Open("구매 실패", $"재화가 모자랍니다.");
+    }
+
     public void OnClickOk()
     {
         m_OKAction?.Invoke();

@@ -219,6 +219,8 @@ namespace IAPModule
             
             callbackIAPSuccess?.Invoke(new UnityIAPSuccessInfo(e));
             
+            return PurchaseProcessingResult.Complete;    
+            
             if(consumePurchase)
             {
                 Debug.LogError("구매 consume 성공");

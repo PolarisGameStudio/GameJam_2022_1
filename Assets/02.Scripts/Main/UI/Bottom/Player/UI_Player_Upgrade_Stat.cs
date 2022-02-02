@@ -74,6 +74,10 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
             {
                 DataManager.StatGrowthData.ResetStatPoint();
             }
+            else
+            {
+                UI_Popup_OK.Instance.OpenCurrencyNotEnough();
+            }
         });
     }
 }

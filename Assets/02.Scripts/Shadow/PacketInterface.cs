@@ -13,10 +13,10 @@ public abstract class IRequestPacket
     //
     // public string auth_platform { get; private set; }       // [Required] 인증 플랫폼:  'guest', 'google', 'facebook', 'ios' or 'apple'
     //
-    public string ca_uid { get; private set; }
+    //public string ca_uid { get; private set; }
     public string device_id { get; private set; }
-    public int version { get; private set; }
-    public string device { get; private set; }
+  //  public int version { get; private set; }
+  //  public string device { get; private set; }
     
     
     protected IRequestPacket(string url)
@@ -26,10 +26,6 @@ public abstract class IRequestPacket
         // ca_uid = ServerManager.Instance.CA_UID;
         //
         device_id = SystemInfo.deviceUniqueIdentifier;
-        
-        #if UNITY_EDITOR
-        device_id = "Creative_Test";
-        #endif
         
         // version = Convert.ToInt32(Application.version.Replace(".", string.Empty));
         //

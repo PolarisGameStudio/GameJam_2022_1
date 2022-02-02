@@ -7,6 +7,8 @@ public class PlayerData : StatData
     public int Level = 0;
     public double Exp = 0;
 
+    public bool IsReviewShown;
+
     public override void ValidCheck()
     {
 	    base.ValidCheck();
@@ -31,6 +33,11 @@ public class PlayerData : StatData
     private void LevelUp()
     {
         Level++;
+
+        if (!IsReviewShown && Level >= 10)
+        {
+	        UI_Popup_Review.Instance.Open();
+        }
         
         DataManager.StatGrowthData.CalculateStatPoint();
         

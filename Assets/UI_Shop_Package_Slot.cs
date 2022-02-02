@@ -23,16 +23,6 @@ public class UI_Shop_Package_Slot : MonoBehaviour
 
     public void OnClickPurchase()
     {
-        UI_LoadingBlocker.Instance.Open();
-        
-        IAPManager.Instance.PurchaseItem(Data.IAP_ID, (success) =>
-            {
-                UI_LoadingBlocker.Instance.Close();
-                DataManager.ShopData.TryPurchase(Data.IAP_ID);
-            }, (fail) =>
-            {
-                UI_LoadingBlocker.Instance.Close();
-            }
-        );
+        DataManager.ShopData.TryPurchase(Data.IAP_ID);
     }
 }

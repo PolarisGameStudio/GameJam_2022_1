@@ -15,7 +15,7 @@ public partial class SROptions
     [Category("크리에이티브 발사")]
     public void SendCreative()
     {
-        ServerManager.Instance.SendCreative(5);
+        UI_Popup_Review.Instance.Open();
     }
 
     [Category("몸종")]
