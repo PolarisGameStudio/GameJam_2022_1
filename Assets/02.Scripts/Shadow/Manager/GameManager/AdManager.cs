@@ -82,7 +82,7 @@ public class AdManager : SingletonBehaviour<AdManager>
         
         return true;
         
-        #endifㅑ
+        #endif
         
         if (!admobModule.CheckRewardAdLoaded())
         {
