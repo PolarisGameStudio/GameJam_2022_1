@@ -19,6 +19,7 @@ public enum GachaType
 public class GachaData : SaveDataBase
 {
     public List<int> GachaCount = new List<int>();
+    public List<int> DailyLimit = new List<int>();
 
     public override void ValidCheck()
     {
@@ -33,6 +34,7 @@ public class GachaData : SaveDataBase
             for (int i = saveCount; i < gachaTypeCount; i++)
             {
                 GachaCount.Add(0);
+                DailyLimit.Add(0);
             }
         }
     }
@@ -158,5 +160,15 @@ public class GachaData : SaveDataBase
         }
 
         ShopEvent.Trigger();
+    }
+
+    public override void OnNextDay()
+    {
+        base.OnNextDay();
+
+        for (var i = 0; i < DailyLimit.Count; i++)
+        {
+            DailyLimit[i] = 0;
+        }
     }
 }

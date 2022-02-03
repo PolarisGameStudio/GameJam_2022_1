@@ -8,6 +8,7 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
     [SerializeField] private Text _txtLevel;
     [SerializeField] private Text _txtExp;
 
+    [SerializeField] private Text _txtAdDailyLimit;
     [SerializeField] private Text _txtPriceSmall;
     [SerializeField] private Text _txtPriceBig;
     
@@ -48,7 +49,9 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
         _txtPriceBig.color = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Gem, _data.Price_Big)
             ? ColorValue.ENABLE_TEXT_COLOR
             : ColorValue.DISABLE_TEXT_COLOR;
-        
+
+        _txtAdDailyLimit.text = $"일일제한 {DataManager.GachaData.DailyLimit[(int)_data.GachaType]}/{SystemValue.GACHA_DAILY_LIMIT}";
+
     }
 
     public void OnClickSmallGacha()
@@ -69,9 +72,15 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
 
     public void OnClickAdGacha()
     {
+        if (DataManager.GachaData.DailyLimit[(int) _data.GachaType] < SystemValue.GACHA_DAILY_LIMIT)
+        {
+            return;
+        }
+        
         AdManager.Instance.TryShowRequest(ADType.Gacha, () =>
         {
             GachaManager.Instance.Gacha(_data.GachaType,0 ,_data.Count_Small);
+            DataManager.GachaData.DailyLimit[(int) _data.GachaType]++;
         });
     }
 

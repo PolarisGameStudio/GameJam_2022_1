@@ -45,12 +45,17 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
         if (_data.StatType == Enum_StatType.CriticalChance || _data.StatType == Enum_StatType.SuperCriticalChance)
         {
             _txtStatValue.text =
-                $"{DataManager.StatGrowthData.GetValue(_data):N1}% -> {DataManager.StatGrowthData.GetNextValue(_data):N1}%";
+                $"{DataManager.StatGrowthData.GetValue(_data):N2}% -> {DataManager.StatGrowthData.GetNextValue(_data):N2}%";
+        }
+        else if(_data.StatType == Enum_StatType.Damage || _data.StatType == Enum_StatType.MaxHealth)
+        {
+            _txtStatValue.text =
+                $"{DataManager.StatGrowthData.GetValue(_data)} -> {DataManager.StatGrowthData.GetNextValue(_data)}";
         }
         else
         {
             _txtStatValue.text =
-                $"{DataManager.StatGrowthData.GetValue(_data)} -> {DataManager.StatGrowthData.GetNextValue(_data)}";
+                $"{DataManager.StatGrowthData.GetValue(_data):N1}% -> {DataManager.StatGrowthData.GetNextValue(_data):N1}%";
         }
 
         _txtStatCurrenctLevel.text = $"Lv.{DataManager.StatGrowthData.GetLevel(_data)}";

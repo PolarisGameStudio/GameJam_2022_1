@@ -27,16 +27,16 @@ public class StatGrowthData : StatData
             }
         }
 
-        CalculateStat();
         CalculateStatPoint();
+        CalculateStat();
     }
     
     public void LevelUp(TBL_UPGRADE_STAT type)
     {
         _levels[type.Index]++;
 
-        CalculateStat();
         CalculateStatPoint();
+        CalculateStat();
     }
     protected override void InitStat()
     {
@@ -108,7 +108,7 @@ public class StatGrowthData : StatData
             _levels[i] = 0;
         }
         
-        CalculateStat();
         CalculateStatPoint();
+        CalculateStat();
     }
 }
