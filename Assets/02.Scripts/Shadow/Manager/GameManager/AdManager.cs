@@ -106,6 +106,7 @@ public class AdManager : SingletonBehaviour<AdManager>
         
         DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Daily_AdWatch);
         DataManager.QuestData.OnAdWatch();
+        RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
     }
 
     

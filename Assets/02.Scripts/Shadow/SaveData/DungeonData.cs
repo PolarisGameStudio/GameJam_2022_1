@@ -39,6 +39,7 @@ public class DungeonData : SaveDataBase
         }
 
         DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Daily_EnterDungeon, 1);
+        RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
     }
 
     public void RecordDungeonScore(Enum_BattleType dungeonBattleType, double score)
@@ -71,7 +72,7 @@ public class DungeonData : SaveDataBase
 
                 DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Treasure, count);
                 GetRewardTreasureDungeon(TreasureDungeonHighLevel);
-                return true;
+                break;
 
             case Enum_BattleType.SmithDungeon:
                 if (SmithDungeonHighLevel == 0)
@@ -81,7 +82,7 @@ public class DungeonData : SaveDataBase
 
                 DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Smith, count);
                 GetRewardSmithDungeon(SmithDungeonHighLevel);
-                return true;
+                break;
 
             case Enum_BattleType.BossDungeon:
                 if (BossDungeonHighLevel == 0)
@@ -91,11 +92,14 @@ public class DungeonData : SaveDataBase
 
                 DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Boss, count);
                 GetRewardBossDungeon(BossDungeonHighLevel);
-                return true;
-
+                break;
+            
             default:
                 return false;
         }
+
+        DataManager.AchievementData.ProgressAchievement(Enum_AchivementMission.Daily_EnterDungeon, 1);
+        return true;
     }
 
     public bool TryChallenge(Enum_BattleType dungeonBattleType)

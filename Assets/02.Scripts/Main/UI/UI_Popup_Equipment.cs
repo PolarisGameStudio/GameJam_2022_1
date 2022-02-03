@@ -222,4 +222,10 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
             Refresh();
         }
     }
+
+    public override void Close()
+    {
+        RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
+        base.Close();
+    }
 }

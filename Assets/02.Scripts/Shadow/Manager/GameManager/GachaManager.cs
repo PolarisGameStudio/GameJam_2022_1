@@ -47,7 +47,11 @@ public class GachaManager : SingletonBehaviour<GachaManager>
         DataManager.GachaData.AddGachaCount(type, count);
         var list = _gachaHandlers[type].Gacha(count);
 
-        DataManager.Instance.Save();
+        if (type != GachaType.Dice)
+        {
+            RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
+            DataManager.Instance.Save();
+        }
 
         return list;
     }

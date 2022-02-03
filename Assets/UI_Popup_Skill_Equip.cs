@@ -27,7 +27,7 @@ public class UI_Popup_Skill_Equip : UI_BasePopup<UI_Popup_Skill_Equip>
             ConditionTexts[i].enabled = isLock;
             ConditionTexts[i].text = $"레벨 {DataManager.SkillData.GetUnlockCondition(i)} 개방";
 
-            LockImage[i].enabled = isLock;
+            LockImage[i].gameObject.SetActive(isLock);
             
             var index = DataManager.SkillData.EquippedIndex[i];
 

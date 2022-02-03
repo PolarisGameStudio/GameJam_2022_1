@@ -22,6 +22,8 @@ public class StageData : SaveDataBase
         {
             HighestStageLevel = StageLevel;
         }
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
     }
 
     public void TryStartStage(int index)

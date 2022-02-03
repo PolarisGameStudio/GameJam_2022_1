@@ -40,6 +40,8 @@ public class PromotionData : StatData
         
         CheckDiceUnlock();
         CalculateStat();
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
     }
 
     protected override void CalculateStat()

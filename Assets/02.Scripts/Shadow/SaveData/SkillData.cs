@@ -83,6 +83,7 @@ public class SkillData : SaveDataBase
         
         RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
         PlayerEvent.Trigger(Enum_PlayerEventType.EquipSkill);
+        RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
     }
 
     public void AddSkill(int rewardValue, int rewardCount)

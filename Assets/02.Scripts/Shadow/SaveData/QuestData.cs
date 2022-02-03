@@ -61,11 +61,11 @@ public class QuestData : SaveDataBase
                 return DataManager.GachaData.GetGachaCount(GachaType.Weapon) +
                        DataManager.GachaData.GetGachaCount(GachaType.Ring);
             
-            case QuestType.ClearStage:
-                return DataManager.StageData.HighestStageLevel;
-            
             case QuestType.GachaSkill:
                 return DataManager.GachaData.GetGachaCount(GachaType.Skill);
+            
+            case QuestType.ClearStage:
+                return DataManager.StageData.HighestStageLevel + 1;
             
             case QuestType.EquipSkill:
                 return DataManager.SkillData.EquippedIndex.FindAll(x => x != -1).Count > 0 ? int.MaxValue : 0;
@@ -91,11 +91,9 @@ public class QuestData : SaveDataBase
             
             case QuestType.Promotion:
                 return DataManager.PromotionData.CurrentPromotionIndex;
-                break;
             
             case QuestType.ClearBossDungeon:
                 return DataManager.DungeonData.BossDungeonHighLevel;
-                break;
             
             default:
                 Debug.LogError($"{CurrentQuest.QuestType}은 퀘스트 안넣음");
