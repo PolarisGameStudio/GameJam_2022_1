@@ -79,8 +79,8 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
         
         AdManager.Instance.TryShowRequest(ADType.Gacha, () =>
         {
-            GachaManager.Instance.Gacha(_data.GachaType,0 ,_data.Count_Small);
             DataManager.GachaData.DailyLimit[(int) _data.GachaType]++;
+            GachaManager.Instance.Gacha(_data.GachaType,0 ,_data.Count_Small);
         });
     }
 

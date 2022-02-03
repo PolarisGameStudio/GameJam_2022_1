@@ -39,7 +39,7 @@ public class UI_Shop_Gacha : MonoBehaviour , GameEventListener<ShopEvent>
     {
         WeaponGachaSlot.Refresh();
         RingGachaSlot.Refresh();
-        RingGachaSlot.Refresh();
+        SkillGachaSlot.Refresh();
     }
 
     public void OnGameEvent(ShopEvent e)

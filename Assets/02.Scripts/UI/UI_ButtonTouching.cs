@@ -32,8 +32,6 @@ public class UI_ButtonTouching : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
     private void OnDisable()
     {
-        //CurrencyManager.Instance.AddGold(33333333, CurrencySource.Battle);
-        
         m_DownTimeSecond = FIRST_SPEED;
         m_DownTimer = 0f;
         m_AccTimer = 0f;

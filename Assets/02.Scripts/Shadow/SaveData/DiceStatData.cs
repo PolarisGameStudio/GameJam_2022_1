@@ -88,10 +88,11 @@ public class DiceStatData : StatData
 
     public bool IsHighGradeExist()
     {
-        var check = DiceSlotList.Find(diceStat => !diceStat.IsLock && diceStat.GetGrade() > Enum_ItemGrade.Legendary) !=
-                    null;
+        var check = DiceSlotList.Find(diceStat => diceStat.Index >= 0 &&
+                                                  !diceStat.IsLock &&
+                                                  diceStat.GetGrade() >= Enum_ItemGrade.Legendary);
 
-        return check;
+        return check != null;;
     }
 
     public bool TryRoll(bool force = false)
