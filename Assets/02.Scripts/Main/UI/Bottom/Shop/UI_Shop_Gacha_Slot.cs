@@ -72,7 +72,7 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
 
     public void OnClickAdGacha()
     {
-        if (DataManager.GachaData.DailyLimit[(int) _data.GachaType] < SystemValue.GACHA_DAILY_LIMIT)
+        if (DataManager.GachaData.DailyLimit[(int) _data.GachaType] >= SystemValue.GACHA_DAILY_LIMIT)
         {
             return;
         }
