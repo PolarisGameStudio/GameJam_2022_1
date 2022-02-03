@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 
 // 아이템 종류가 추가되도 아래 순서는 건드리지말기!!!!
@@ -14,12 +15,12 @@ public enum RewardType
     Skill,
 
     Equipment,
-    Equipment_Left,
-    Equipment_Right,
-    Equipment_Mouth,
-    Equipment_Ring,
 
     Follower,
+    
+    Weapon_Random,
+    Follower_Random,
+    Skill_Random,
 
 
     Count,
@@ -79,6 +80,52 @@ public static class RewardManager
 
             case RewardType.Follower:
                 DataManager.FollowerData.AddFollower(value, count);
+                break;  
+            
+            case RewardType.Skill_Random:
+                rewardsForUI.Remove(reward);
+                while (count > 0)
+                {
+                    int randomIndex = UnityEngine.Random.Range(0, TBL_SKILL.CountEntities - 1);
+                    var newReward = new Reward(RewardType.Skill, randomIndex, 1);
+                    
+                    rewardsForUI.Add(newReward);
+                
+                    DataManager.SkillData.AddSkill(randomIndex, 1);
+
+                    count--;
+                }
+                break;
+
+            case RewardType.Weapon_Random:
+                rewardsForUI.Remove(reward);
+                while (count > 0)
+                {
+                    var list = TBL_EQUIPMENT.FindEntities(x => x.Grade == (Enum_ItemGrade)value && x.Type != Enum_EquipmentType.Ring);
+                    int randomIndex = UnityEngine.Random.Range(0, list.Count - 1);
+                    var newReward = new Reward(RewardType.Equipment, randomIndex, 1);
+                    
+                    rewardsForUI.Add(newReward);
+                
+                    DataManager.EquipmentData.AddEquipment(randomIndex, 1);
+
+                    count--;
+                }
+                break;
+
+            case RewardType.Follower_Random:
+                rewardsForUI.Remove(reward);
+                while (count > 0)
+                {
+                    int randomIndex = UnityEngine.Random.Range(0, TBL_FOLLOWER.CountEntities - 1);
+                    var newReward = new Reward(RewardType.Follower, randomIndex, 1);
+                    
+                    rewardsForUI.Add(newReward);
+                
+                    DataManager.FollowerData.AddFollower(randomIndex, 1);
+
+                    count--;
+                }
                 break;
 
             default:
@@ -93,12 +140,13 @@ public static class RewardManager
 
         foreach (var reward in rewards)
         {
+            rewardsForUI.Add(reward);
             Get(reward, rewardsForUI);
         }
 
         if (showPopup)
         {
-            UI_Popup_Reward.Instance.Open(rewards);
+            UI_Popup_Reward.Instance.Open(rewardsForUI);
         }
     }
     
@@ -106,9 +154,8 @@ public static class RewardManager
     {
         List<Reward> rewardsForUI = new List<Reward>();
 
-        Get(reward, rewardsForUI);
-        
         rewardsForUI.Add(reward);
+        Get(reward, rewardsForUI);
 
         if (showPopup)
         {

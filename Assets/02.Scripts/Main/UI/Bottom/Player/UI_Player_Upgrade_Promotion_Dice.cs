@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Player_Upgrade_Promotion_Dice : UI_BaseContent<UI_Player_Upgrade_Promotion_Dice,UI_DiceStat_Slot>
+public class UI_Player_Upgrade_Promotion_Dice : UI_BaseContent<UI_Player_Upgrade_Promotion_Dice,UI_DiceStat_Slot> , GameEventListener<RefreshEvent>
 {
     public Text _txtDiceAmount;
     public Text _txtDiceCost;
+    
+    protected void OnEnable()
+    {
+        this.AddGameEventListening<RefreshEvent>();
+    }
 
+    protected void OnDisable()
+    {
+        this.RemoveGameEventListening<RefreshEvent>();
+    }
+    
     public void Open()
     {
         SafeSetActive(true);
@@ -49,6 +59,14 @@ public class UI_Player_Upgrade_Promotion_Dice : UI_BaseContent<UI_Player_Upgrade
     public void TryRoll()
     {
         if (DataManager.PromotionData.DiceStatData.TryRoll())
+        {
+            Refresh();
+        }
+    }
+
+    public void OnGameEvent(RefreshEvent e)
+    {
+        if (e.Type == Enum_RefreshEventType.Promotion)
         {
             Refresh();
         }

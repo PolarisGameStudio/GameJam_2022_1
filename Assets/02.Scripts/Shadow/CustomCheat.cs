@@ -34,6 +34,8 @@ public partial class SROptions
         {
             DataManager.FollowerData.Levels[i] += 1;
         }
+
+        DataManager.FollowerData.CheckDiceUnlock();
     }
 
     [Category("스킬")]

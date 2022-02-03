@@ -28,9 +28,13 @@ public class FollowerData : StatData
                 Counts.Add(0);
 
                 var diceStat = new DiceStatData();
-                diceStat.Init(maxLevel);
                 DiceDatas.Add(diceStat);
             }
+        }
+        
+        for (var i = 0; i < DiceDatas.Count; i++)
+        {
+            DiceDatas[i].Init(maxLevel);
         }
 
         CheckDiceUnlock();
@@ -119,7 +123,7 @@ public class FollowerData : StatData
     }
 
 
-    private void CheckDiceUnlock()
+    public void CheckDiceUnlock()
     {
         for (int i = 0; i < DiceDatas.Count; i++)
         {
@@ -164,9 +168,14 @@ public class FollowerData : StatData
     {
         double value = 0;
 
-        for (var i = 0; i < DiceDatas.Count; i++)
+        for (var i = 0; i < EquippedIndex.Count; i++)
         {
-            value += DiceDatas[i].Stat[type];
+            if (EquippedIndex[i] < 0)
+            {
+                continue;
+            }
+            
+            value += DiceDatas[EquippedIndex[i]].Stat[type];
         }
 
         return value;

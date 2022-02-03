@@ -119,7 +119,7 @@ public class DataContainer
         var diceStatDamage = PromotionData.DiceStatData.Stat[Enum_StatType.Damage] +
                              FollowerData.GetStatValue(Enum_StatType.Damage);
         
-        damage *= (100 + (FollowerData.Stat[Enum_StatType.Damage] +diceStatDamage))  / 100f;
+        damage *= (100 + (FollowerData.Stat[Enum_StatType.Damage] + diceStatDamage))  / 100f;
 
         damage *= PromotionData.Stat[Enum_StatType.Damage];
         

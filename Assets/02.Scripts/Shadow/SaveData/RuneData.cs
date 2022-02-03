@@ -54,6 +54,11 @@ public class RuneData : StatData
         bool isRuneFinish = false;
         for (int i = 0; i < RuneRemainTime.Count; i++)
         {
+            if (RuneRemainTime[i] < 0)
+            {
+                continue;
+            }
+            
             RuneRemainTime[i] -= 1;
 
             if (RuneRemainTime[i] <= 0)

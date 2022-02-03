@@ -21,7 +21,7 @@ public class UI_Shop_Package_Slot : MonoBehaviour
         _txtPrice.text = IAPManager.Instance.GetProductMoneyString(Data.IAP_ID);
     }
 
-    public void OnClickPurchase()
+    public virtual void OnClickPurchase()
     {
         DataManager.ShopData.TryPurchase(Data.IAP_ID);
     }

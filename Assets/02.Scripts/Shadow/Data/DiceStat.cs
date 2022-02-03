@@ -22,7 +22,16 @@ public class DiceStat
 
     public void ToggleLock()
     {
+        if (Index < 0)
+        {
+            IsLock = false;
+            return;
+        }
+        
         IsLock = !IsLock;
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
+        RefreshEvent.Trigger(Enum_RefreshEventType.Promotion);
     }
 
     public void InitStat(int index, int addValue)
