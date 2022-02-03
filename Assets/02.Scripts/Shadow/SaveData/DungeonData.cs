@@ -65,13 +65,18 @@ public class DungeonData : SaveDataBase
         switch (dungeonBattleType)
         {
             case Enum_BattleType.TreasureDungeon:
-                if (TreasureDungeonHighLevel == 0)
+                if (TreasureDungeonHighLevel == 0 )
                 {
                     return false;
                 }
 
-                DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Treasure, count);
+                if (!DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Treasure, count))
+                {
+                    return false;
+                }
+                
                 GetRewardTreasureDungeon(TreasureDungeonHighLevel);
+                
                 break;
 
             case Enum_BattleType.SmithDungeon:
@@ -80,8 +85,13 @@ public class DungeonData : SaveDataBase
                     return false;
                 }
 
-                DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Smith, count);
+                if (!DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Smith, count))
+                {
+                    return false;
+                }
+
                 GetRewardSmithDungeon(SmithDungeonHighLevel);
+                
                 break;
 
             case Enum_BattleType.BossDungeon:
@@ -90,8 +100,13 @@ public class DungeonData : SaveDataBase
                     return false;
                 }
 
-                DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Boss, count);
+                if (!DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Boss, count))
+                {
+                    return false;
+                }
+
                 GetRewardBossDungeon(BossDungeonHighLevel);
+                
                 break;
             
             default:

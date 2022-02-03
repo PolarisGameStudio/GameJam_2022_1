@@ -16,7 +16,7 @@ public class DiceStatData : StatData
         {
             DiceSlotList = new List<DiceStat>();
         }
-        
+
         //todo: 승급이면 승급 갯수 만큼 일반
         var gachaTypeCount = diceCount;
 
@@ -51,6 +51,7 @@ public class DiceStatData : StatData
             {
                 continue;
             }
+
             var data = TBL_UPGRADE_DICE.GetEntity(diceStat.Index);
             Stat[data.StatType] += diceStat.AddValue + data.MinStatValue;
         }
@@ -77,18 +78,39 @@ public class DiceStatData : StatData
 
     public bool IsEnableRoll()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         return true;
-        #endif
-        
+#endif
+
         return DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Dice, GetRollPrice()) &&
                DiceSlotList.Find(diceStat => !diceStat.IsLock) != null;
     }
 
-    public bool TryRoll()
+    public bool IsHighGradeExist()
     {
+        var check = DiceSlotList.Find(diceStat => !diceStat.IsLock && diceStat.GetGrade() > Enum_ItemGrade.Legendary) !=
+                    null;
+
+        return check;
+    }
+
+    public bool TryRoll(bool force = false)
+    {
+        if (!force && IsHighGradeExist())
+        {
+            UI_Popup_Buy.Instance.Open("추가 능력", "높은 등급의 추가 능력이 있습니다. 그래도 초기화하시겠습니까?", Enum_CurrencyType.Dice,
+                GetRollPrice(), () => { TryRoll(true); });
+
+            return false;
+        }
+
         if (IsEnableRoll())
         {
+            if (!DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Dice, GetRollPrice()))
+            {
+                return false;
+            }
+
             var result = GachaManager.Instance.Gacha(GachaType.Dice, 0, DiceSlotList.Count);
 
             for (int i = 0; i < result.Count; i++)
@@ -108,7 +130,7 @@ public class DiceStatData : StatData
 
             return true;
         }
-        
+
         return false;
     }
 }
