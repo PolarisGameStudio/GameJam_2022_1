@@ -13,6 +13,8 @@ public class UI_Skill_Slot : UI_BaseSlot<TBL_SKILL>
 
     [SerializeField] private Slider _sliderGauge;
     [SerializeField] private Text _txtAmount;
+    
+    [SerializeField] private GameObject _onEquipObject;
 
     public bool IgnoreSlider;
 
@@ -65,6 +67,8 @@ public class UI_Skill_Slot : UI_BaseSlot<TBL_SKILL>
             _sliderGauge.value = DataManager.SkillData.Counts[_data.Index];
 
             _txtAmount.text = $"{DataManager.SkillData.Counts[_data.Index]}/{cost}";
+
+            _onEquipObject.gameObject.SetActive(DataManager.SkillData.EquippedIndex.Contains(_data.Index));
         }
     }
 

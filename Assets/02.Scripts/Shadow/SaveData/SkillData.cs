@@ -116,13 +116,15 @@ public class SkillData : SaveDataBase
         }
         RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
     }
-
+    
 
     public bool IsSlotUnlock(int slotIndex)
     {
-        #if UNITY_EDITOR
-        return true;
-        #endif
-        return  DataManager.PlayerData.Level >= (slotIndex - 1) * 10;
+        return DataManager.PlayerData.Level >= GetUnlockCondition(slotIndex);
+    }
+
+    public int GetUnlockCondition(int slotIndex)
+    {
+        return (slotIndex - 1) * 10;
     }
 }

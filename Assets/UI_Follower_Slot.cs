@@ -11,6 +11,9 @@ public class UI_Follower_Slot : UI_BaseSlot<TBL_FOLLOWER>
 
     [SerializeField] private Slider _sliderGauge;
     [SerializeField] private Text _txtAmount;
+    
+    [SerializeField] private GameObject _onEquipObject;
+    
 
     public bool IgnoreSlider;
 
@@ -57,6 +60,8 @@ public class UI_Follower_Slot : UI_BaseSlot<TBL_FOLLOWER>
             _sliderGauge.value = DataManager.FollowerData.Counts[_data.Index];
 
             _txtAmount.text = $"{DataManager.FollowerData.Counts[_data.Index]}/{cost}";
+            
+            _onEquipObject.gameObject.SetActive(DataManager.FollowerData.EquippedIndex.Contains(_data.Index));
         }
     }
 
