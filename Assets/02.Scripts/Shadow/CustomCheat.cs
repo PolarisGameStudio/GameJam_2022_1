@@ -36,6 +36,8 @@ public partial class SROptions
         }
 
         DataManager.FollowerData.CheckDiceUnlock();
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Follower);
     }
 
     [Category("스킬")]
@@ -57,5 +59,38 @@ public partial class SROptions
         {
             DataManager.SkillData.Levels[i] += 1;
         }
+        
+        RefreshEvent.Trigger(Enum_RefreshEventType.Skill);
+    }
+    
+    [Category("골드")]
+    public void Gold()
+    {
+        RewardManager.Get(new Reward(RewardType.Currency,0,100000));
+    }
+    
+    [Category("보석")]
+    public void Gem()
+    {
+        RewardManager.Get(new Reward(RewardType.Currency,1,10000));
+    }
+    
+        
+    [Category("레벨업")]
+    public void LevelUp()
+    {
+        DataManager.PlayerData.LevelUp();
+    }
+        
+    [Category("주사위")]
+    public void Dice()
+    {
+        RewardManager.Get(new Reward(RewardType.Currency,3,10000));
+    }
+        
+    [Category("장비석")]
+    public void Stone()
+    {
+        RewardManager.Get(new Reward(RewardType.Currency,2,10000));
     }
 }

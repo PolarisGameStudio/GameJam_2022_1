@@ -30,7 +30,7 @@ public class PlayerData : StatData
 	    return data.NextLevelExperience;
     }
 
-    private void LevelUp()
+    public void LevelUp()
     {
         Level++;
 
