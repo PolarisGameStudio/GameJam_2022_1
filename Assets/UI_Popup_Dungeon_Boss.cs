@@ -10,6 +10,12 @@ public class UI_Popup_Dungeon_Boss : UI_BasePopup<UI_Popup_Dungeon_Boss>
 
     public void OnClickChallenge()
     {
+        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage)
+        {
+            UI_Popup_OK.Instance.Open("도전", "스테이지에서만 도전 가능합니다.");
+            return;
+        }
+        
         if (DataManager.DungeonData.TryChallenge(Enum_BattleType.BossDungeon))
         {
             Close();

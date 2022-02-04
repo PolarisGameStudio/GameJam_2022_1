@@ -119,11 +119,6 @@ public class DungeonData : SaveDataBase
 
     public bool TryChallenge(Enum_BattleType dungeonBattleType)
     {
-        if (BattleManager.Instance.CurrentBattle.BattleType != Enum_BattleType.Stage)
-        { 
-            return false;
-        }
-        
         Enum_CurrencyType ticket = Enum_CurrencyType.Count;
 
         int level = 0;

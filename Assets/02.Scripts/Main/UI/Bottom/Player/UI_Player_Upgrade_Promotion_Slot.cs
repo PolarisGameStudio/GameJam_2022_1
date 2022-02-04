@@ -38,6 +38,12 @@ public class UI_Player_Upgrade_Promotion_Slot : UI_BaseSlot<TBL_PROMOTION>
     }
     public void OnClickChallengeButton()
     {
+        if (BattleManager.Instance.CurrentBattleType != Enum_BattleType.Stage)
+        {
+            UI_Popup_OK.Instance.Open("도전", "스테이지에서만 도전 가능합니다.");
+            return;
+        }
+        
         DataManager.PromotionData.TryChallenge(_data.Index);
     }
 }
