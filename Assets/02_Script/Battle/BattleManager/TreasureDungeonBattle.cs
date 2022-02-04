@@ -46,6 +46,7 @@ public class TreasureDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
+        _timer = 0;
         _inited = true;
     }
 

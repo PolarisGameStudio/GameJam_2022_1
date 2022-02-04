@@ -7,10 +7,31 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
     private TBL_DUNGEON_SMITH _smithDungeonData;
     
 
+    public float RemainTime => SystemValue.SMITH_DUNGEON_LIMIT_TIME - _timer;
+    private float _timer;
+    
+    
     private void Awake()
     {
         this.AddGameEventListening<MonsterEvent>();
     }
+    
+    private void Update()
+    {
+        if (_smithDungeonData == null || BattleManager.Instance.CurrentBattle != this)
+        {
+            return;
+        }
+
+        _timer += Time.deltaTime;
+
+        if (RemainTime < 0)
+        {
+            BattleOver();
+            _timer = 0;
+        }
+    }
+
 
     protected override void InitBattleData()
     {
@@ -29,6 +50,7 @@ public class SmithDungeonBattle : Battle, GameEventListener<MonsterEvent>
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
+        _timer = 0;
 
         _inited = true;
     }
