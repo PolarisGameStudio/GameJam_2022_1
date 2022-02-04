@@ -41,6 +41,8 @@ public class PlayerAttackState : CoroutineState
             _owner.GetAbility<FSMAbility>().ChangeState(Enum_PlayerStateType.Run);
             yield break;
         }
+        
+        SoundManager.Instance.PlaySound("sfx_HeroAttack_3");
 
         var timeScale = 1f;
         var realTimeScale = 1f;
