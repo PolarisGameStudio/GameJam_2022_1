@@ -88,6 +88,21 @@ public class WeaponGachaHandler : GachaHandler
             rewards.Add(new Reward(RewardType.Equipment,indexList[i],1));
         }
         
-        UI_Popup_Gacha.Instance.Open(rewards);
+
+        var data = TBL_GACHA_EQUIPMENT.GetEntity(DataManager.GachaData.GetGachaLevel(GachaType.Weapon));
+
+        Enum_ItemGrade hightest = Enum_ItemGrade.Myth;
+
+        for (int i = data.Percents.Count - 1 ; i > 0 ; i--)
+        {
+            if (data.Percents[i] > 0)
+            {
+                hightest = (Enum_ItemGrade) i;
+                break;
+            }
+        }
+        
+        
+        UI_Popup_Gacha.Instance.Open(rewards, hightest);
     }
 }

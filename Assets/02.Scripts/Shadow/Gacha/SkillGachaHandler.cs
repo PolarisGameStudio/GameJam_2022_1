@@ -84,7 +84,20 @@ public class SkillGachaHandler : GachaHandler
         {
             rewards.Add(new Reward(RewardType.Skill,skillList[i],1));
         }
-        
-        UI_Popup_Gacha.Instance.Open(rewards);
+
+        var data = TBL_GACHA_SKILL.GetEntity(DataManager.GachaData.GetGachaLevel(GachaType.Skill));
+
+        Enum_ItemGrade hightest = Enum_ItemGrade.Myth;
+
+        for (int i = data.Percents.Count - 1 ; i > 0 ; i--)
+        {
+            if (data.Percents[i] > 0)
+            {
+                hightest = (Enum_ItemGrade) i;
+                break;
+            }
+        }
+
+        UI_Popup_Gacha.Instance.Open(rewards, hightest);
     }
 }
