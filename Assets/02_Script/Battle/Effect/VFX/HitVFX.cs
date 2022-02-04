@@ -27,12 +27,12 @@ public class HitVFX : MultiPoolItem
 
     public void Show(Vector3 startPosition, float height, float width)
     {
-        var randomHeight = Random.Range(0, height);
+        // var randomHeight = Random.Range(0, height);
+        //
+        // var halfWidth = width / 2;
+        // var randomWidth = Random.Range(-halfWidth, halfWidth);
 
-        var halfWidth = width / 2;
-        var randomWidth = Random.Range(-halfWidth, halfWidth);
-
-        transform.position = startPosition + new Vector3(randomWidth, randomHeight, 0f);
+        transform.position = startPosition + (Vector3)Random.insideUnitCircle * 0.5f;
 
         SafeSetActive(true);
         
