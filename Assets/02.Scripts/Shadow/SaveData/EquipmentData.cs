@@ -123,7 +123,7 @@ public class EquipmentData : StatData
 
     public void TryEquip(int typeIndex, int index)
     {
-        if (Levels[index] <= 0)
+        if (Levels[index] <= 0 || EquippedIndex[typeIndex] == index)
         {
             return;
         }

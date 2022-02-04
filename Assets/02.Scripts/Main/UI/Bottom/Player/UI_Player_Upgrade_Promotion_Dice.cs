@@ -61,6 +61,7 @@ public class UI_Player_Upgrade_Promotion_Dice : UI_BaseContent<UI_Player_Upgrade
         if (DataManager.PromotionData.DiceStatData.TryRoll())
         {
             Refresh();
+            SoundManager.Instance.PlaySound("ui_dice_button");
         }
     }
 

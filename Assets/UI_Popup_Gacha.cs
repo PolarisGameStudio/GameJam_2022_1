@@ -81,10 +81,12 @@ public class UI_Popup_Gacha : UI_BasePopup<UI_Popup_Gacha>
                 if (!isHighestGrade)
                 {
                     NormalVFXList[i].Play();
+                    SoundManager.Instance.PlaySound("sfx_gacha_normal_card_get");
                 }
                 else
                 {
                     SpecialVFXList[i].Play();
+                    SoundManager.Instance.PlaySound("sfx_gacha_s_card_get");
                 }
                 
                 yield return period;

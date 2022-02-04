@@ -26,6 +26,8 @@ public class UI_Popup_World : UI_BasePopup<UI_Popup_World>
         }
         _selectWorld = TBL_WORLD.GetEntity(_selectWorld.Index + 1);
         SetWorldStageList();
+        
+        SoundManager.Instance.PlaySound("ui_common_button");
     }
     
     public void OnClickPre()
@@ -36,6 +38,8 @@ public class UI_Popup_World : UI_BasePopup<UI_Popup_World>
         }
         _selectWorld = TBL_WORLD.GetEntity(_selectWorld.Index - 1);
         SetWorldStageList();
+        
+        SoundManager.Instance.PlaySound("ui_common_button");
     }
     
     private void SetWorldStageList()

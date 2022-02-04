@@ -43,6 +43,9 @@ public class UI_Player_Level : MonoBehaviour, GameEventListener<PlayerEvent>
 
     public void OnClickLevelUp()
     {
-        DataManager.PlayerData.TryLevelUp();
+        if (DataManager.PlayerData.TryLevelUp())
+        {
+            SoundManager.Instance.PlaySound("ui_levelup_button");
+        }
     }
 }

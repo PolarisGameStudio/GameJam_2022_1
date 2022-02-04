@@ -27,5 +27,9 @@ public class UI_Popup_World_Slot : UI_BaseSlot<TBL_STAGE>
     {
         UI_Popup_World.Instance.Close();
         DataManager.StageData.TryStartStage(_data.Index);
+        
+        SoundManager.Instance.PlaySound("ui_common_button");
+
+        SoundManager.Instance.PlayBackground("BGM_Stage", force: true);
     }
 }

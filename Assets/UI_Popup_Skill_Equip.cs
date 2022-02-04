@@ -49,6 +49,7 @@ public class UI_Popup_Skill_Equip : UI_BasePopup<UI_Popup_Skill_Equip>
         }
         
         DataManager.SkillData.TryEquip(_data.Index, index);
+        SoundManager.Instance.PlaySound("sfx_slot_equip");
         UI_Popup_Skill.Instance.Close();
         Close();
     }

@@ -31,6 +31,7 @@ public class UI_Shop_Gem_Slot : MonoBehaviour
                 
                 ShopEvent.Trigger();
                 DataManager.Instance.Save(force:true);
+                SoundManager.Instance.PlaySound("sfx_coinDrop");
             }, (fail) =>
             {
                 UI_LoadingBlocker.Instance.Close();

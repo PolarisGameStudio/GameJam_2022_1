@@ -37,6 +37,10 @@ public class UI_Popup_Achievement_Slot : UI_BaseSlot<TBL_ACHIEVEMENT>
 
     public void OnClickClaim()
     {
-        DataManager.AchievementData.ClearAchieve(_data.AchievementMission);
+        if (DataManager.AchievementData.TryClearAchieve(_data.AchievementMission))
+        {
+            Refresh();
+            SoundManager.Instance.PlaySound("sfx_coinDrop");
+        }
     }
 }

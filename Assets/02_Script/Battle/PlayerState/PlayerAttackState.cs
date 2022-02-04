@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 // todo: 스킬툴 공격연출을 위한 땜빵용
 public class PlayerAttackState : CoroutineState
@@ -41,8 +42,16 @@ public class PlayerAttackState : CoroutineState
             _owner.GetAbility<FSMAbility>().ChangeState(Enum_PlayerStateType.Run);
             yield break;
         }
+
+        if (UtilCode.GetChance(50))
+        {
+            SoundManager.Instance.PlaySound("sfx_HeroAttack_3");
+        }
+        else
+        {
+            SoundManager.Instance.PlaySound("sfx_HeroAttack_1");
+        }
         
-        SoundManager.Instance.PlaySound("sfx_HeroAttack_3");
 
         var timeScale = 1f;
         var realTimeScale = 1f;

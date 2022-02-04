@@ -6,7 +6,7 @@ using UnityEngine;
 public class MainScene : MonoBehaviour
 {
     private float _sleepTimer;
-    
+
     private void Update()
     {
         if (UI_Popup_Sleep.Instance.isActiveAndEnabled || !DataManager.OptionData.Sleep)

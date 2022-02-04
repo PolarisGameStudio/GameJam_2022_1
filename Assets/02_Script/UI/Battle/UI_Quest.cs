@@ -41,6 +41,7 @@ public class UI_Quest : MonoBehaviour , GameEventListener<RefreshEvent>
         if (DataManager.QuestData.TryClearQuest())
         {
             Refresh();
+            SoundManager.Instance.PlaySound("sfx_coinDrop");
         }
     }
 }

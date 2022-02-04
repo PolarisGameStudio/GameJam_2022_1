@@ -96,6 +96,20 @@ public class BattleManager : SingletonBehaviour<BattleManager>
 
         _currentBattleType = battleType;
 
+        switch (battleType)
+        {
+            case Enum_BattleType.Stage:
+                SoundManager.Instance.PlayBackground("BGM_Stage");
+                break;
+            case Enum_BattleType.StageBoss:
+            case Enum_BattleType.PromotionBattle:
+            case Enum_BattleType.TreasureDungeon:
+            case Enum_BattleType.SmithDungeon:
+            case Enum_BattleType.BossDungeon:
+                SoundManager.Instance.PlayBackground("BGM_Boss");
+                break;
+        }
+
         CurrentBattleInitAndStart(level);
     }
 

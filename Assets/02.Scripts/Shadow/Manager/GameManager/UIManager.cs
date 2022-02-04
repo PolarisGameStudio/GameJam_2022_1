@@ -50,8 +50,8 @@ public class UIManager : SingletonBehaviour<UIManager>
         if (m_Stack.Count > 0 && m_Stack.Peek() == uiType) return;
 
         m_Stack.Push(uiType);
-
-      // SoundManager.Instance.PlayPopupOpen();
+        
+        SoundManager.Instance.PlayPopupOpen();
     }
 
     public void SetBackButtonEnable(bool enable)
@@ -73,7 +73,8 @@ public class UIManager : SingletonBehaviour<UIManager>
             // todo: 삭제 예정
             Debug.LogWarning(string.Format("[X] 현재: {0}, 시도: {1}", currentType, uiType));
         }
-    //    SoundManager.Instance.PlayPopupClose();
+        
+        SoundManager.Instance.PlayPopupClose();
 
         m_Stack.Pop();
     }

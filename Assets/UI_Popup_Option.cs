@@ -30,6 +30,7 @@ public class UI_Popup_Option : UI_BasePopup<UI_Popup_Option>
     public void ToggleBGM()
     {
         DataManager.OptionData.ToggleMusic();
+        SoundManager.Instance.ToggleMusic();
         Refresh();
     }
 

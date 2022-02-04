@@ -2,25 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class SoundSettings
-{
-    public bool MusicOn = true;
-    public bool SfxOn = true;
-    [Range(0, 1)]
-    public float MusicVolume = 1f;
-    [Range(0, 1)]
-    public float SfxVolume = 1f;
-}
-
 public class SoundManager : SingletonBehaviour<SoundManager>
 {
-    [Header("사운드 세팅")]
-    public SoundSettings Settings;
-    
     private const int AUDIO_SOURCE_COUNT = 24;
-    public bool IsMusicOn => Settings.MusicOn;
-    public bool IsSfxOn => Settings.SfxOn;
+    public bool IsMusicOn => DataManager.OptionData.BGM;
+    public bool IsSfxOn => DataManager.OptionData.SFX; 
     
 
     [SerializeField] [Header("배경음 소스")]
@@ -37,8 +23,6 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     protected override void Awake()
     {
         base.Awake();
-        
-        LoadSoundSettings();
         
         Init();
     }
@@ -95,7 +79,7 @@ public class SoundManager : SingletonBehaviour<SoundManager>
         }
     }
     
-    public void PlayBackground(string soundName, float volumeFactor = 1f, bool loop = true)
+    public void PlayBackground(string soundName, float volumeFactor = 1f, bool loop = true , bool force = false)
     {
         AudioClip audioClip = null;
         
@@ -106,7 +90,7 @@ public class SoundManager : SingletonBehaviour<SoundManager>
             return;
         }
 
-        if (m_BackgroundMusic.clip == audioClip)
+        if (m_BackgroundMusic.clip == audioClip && !force)
         {
             return;
         }
@@ -117,7 +101,7 @@ public class SoundManager : SingletonBehaviour<SoundManager>
         }
 
         m_BackgroundMusic.clip = audioClip;
-        m_BackgroundMusic.volume = IsMusicOn ? Settings.MusicVolume * volumeFactor : 0;
+        m_BackgroundMusic.volume = IsMusicOn ? volumeFactor : 0;
         m_BackgroundMusic.loop = loop;
 
         m_BackgroundMusic.Play();
@@ -139,7 +123,7 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     
     public void PlaySound(string soundName, float volumeFactor = 1f)
     {
-        if(!Settings.SfxOn)
+        if(!IsSfxOn)
         {
             return;
         }
@@ -172,75 +156,18 @@ public class SoundManager : SingletonBehaviour<SoundManager>
         }
 
         audioSource.clip = audioClip;
-        audioSource.volume = Settings.SfxVolume * volumeFactor;
+        audioSource.volume = volumeFactor;
         audioSource.loop = false;
 
         audioSource.PlayOneShot(audioClip);
     }
-
-    public void ChangeMusicVolume(float value)
+    
+    public void ToggleMusic()
     {
-        Settings.MusicVolume = value;
-        m_BackgroundMusic.volume = value;
-        
-        SaveSoundSettings();
-    }
-
-    public void ChangeSFXVolume(float value)
-    {
-        Settings.SfxVolume = value;
-        
-        if (value > 0)
-        {
-            Settings.SfxOn = true;
-        }
-        else
-        {
-            Settings.SfxOn = false;
-        }
-        
-        SaveSoundSettings();
+        m_BackgroundMusic.volume = IsMusicOn ? 1 : 0;
     }
     
-    public void ToggleMusic(bool value)
-    {
-        Settings.MusicOn = value;
-        m_BackgroundMusic.volume = IsMusicOn ? Settings.MusicVolume : 0;
-        
-        SaveSoundSettings();
-    }
     
-    public void ToggleSfx(bool value)
-    {
-        Settings.SfxOn = value;
-
-        foreach (var source in m_SFXSourcePool)
-        {
-            source.volume = IsSfxOn ? Settings.SfxVolume : 0;
-        }
-        
-        SaveSoundSettings();
-    }
-
-    /// ///////////////////////////////////////////////////////////////////////////////////////////
-
-    private const string saveKey = "SoundSettings";
-    private void SaveSoundSettings()
-    {
-        ES3.Save<SoundSettings>(saveKey, Settings);
-    }
-
-    private void LoadSoundSettings()
-    {
-        if (ES3.KeyExists(saveKey))
-        { 
-            Settings = ES3.Load<SoundSettings>(saveKey);
-        }
-    }
-
-    /// ///////////////////////////////////////////////////////////////////////////////////////////
-
-
     public void PlayPopupOpen()
     {
         PlaySound("ui_pop_in");

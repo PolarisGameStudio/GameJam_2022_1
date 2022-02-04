@@ -70,6 +70,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         if (DataManager.FollowerData.TryLevelUp(_data.Index))
         {
             InitLevelUpPanel();
+            SoundManager.Instance.PlaySound("ui_levelup_button2");
         }
     }
 
@@ -119,6 +120,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         if (DataManager.FollowerData.TryRoll(_data.Index))
         {
             InitDicePanel();
+            SoundManager.Instance.PlaySound("ui_dice_button");
         }
     }
 

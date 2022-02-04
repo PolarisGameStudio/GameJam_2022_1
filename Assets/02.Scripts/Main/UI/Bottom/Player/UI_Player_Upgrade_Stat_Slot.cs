@@ -82,8 +82,8 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
         if (DataManager.StatGrowthData.GetRemainPoint() >= _data.Price)
         {
             DataManager.StatGrowthData.LevelUp(_data);
-
             Refresh();
+            SoundManager.Instance.PlaySound("ui_levelup_button");
         }
     }
 }

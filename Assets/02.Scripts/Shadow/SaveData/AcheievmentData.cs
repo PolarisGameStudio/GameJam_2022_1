@@ -96,7 +96,7 @@ public class AchievementData : SaveDataBase
         }
     }
 
-    public void ClearAchieve(Enum_AchivementMission mission)
+    public bool TryClearAchieve(Enum_AchivementMission mission)
     {
         if (IsEnableClear(mission))
         {
@@ -116,7 +116,11 @@ public class AchievementData : SaveDataBase
             Progress[index] -= (int)data.CompleteCount;
             
             RefreshEvent.Trigger(Enum_RefreshEventType.Acheieve);
+
+            return true;
         }
+
+        return false;
     }
 
     public Enum_AchivementType GetAchivementType(Enum_AchivementMission mission)

@@ -68,6 +68,7 @@ public class UI_Popup_Skill : UI_BasePopup<UI_Popup_Skill>, GameEventListener<Re
         if (DataManager.SkillData.TryLevelUp(_data.Index))
         {
             Refresh();
+            SoundManager.Instance.PlaySound("ui_levelup_button2");
         }
     }
 

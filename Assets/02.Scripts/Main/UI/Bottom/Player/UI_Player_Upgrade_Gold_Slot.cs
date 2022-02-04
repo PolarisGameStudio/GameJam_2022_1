@@ -84,6 +84,7 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD>, GameEv
         if (DataManager.GoldGrowthData.TryLevelUp(_data))
         {
             Refresh();
+            SoundManager.Instance.PlaySound("ui_levelup_button");
         }
     }
 }

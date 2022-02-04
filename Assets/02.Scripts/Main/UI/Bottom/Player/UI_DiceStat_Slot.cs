@@ -46,5 +46,7 @@ public class UI_DiceStat_Slot : UI_BaseSlot<DiceStat>
     {
         _data.ToggleLock();
         Refresh();
+        
+        SoundManager.Instance.PlaySound("ui_common_button");
     }
 }

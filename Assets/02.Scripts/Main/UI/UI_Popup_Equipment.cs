@@ -102,6 +102,8 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         {
             selectEquipmentSlot.Init(_data);
             InitLevelUpPanel();
+            
+            SoundManager.Instance.PlaySound("ui_levelup_button");
         }
     }
 
@@ -113,6 +115,7 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         }
 
         DataManager.EquipmentData.TryEquip((int) _data.Type, _data.Index);
+        SoundManager.Instance.PlaySound("sfx_slot_equip");
     }
 
     public void OnClickGradeUp()
@@ -121,6 +124,8 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         {
             selectEquipmentSlot.Init(_data);
             InitGradeUpPanel();
+            
+            SoundManager.Instance.PlaySound("ui_levelup_button2");
         }
     }
 

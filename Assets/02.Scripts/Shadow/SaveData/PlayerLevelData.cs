@@ -45,9 +45,9 @@ public class PlayerData : StatData
         PlayerEvent.Trigger(Enum_PlayerEventType.LevelUp);
     }
 
-    public void TryLevelUp()
+    public bool TryLevelUp()
     {
-	    CheckLevelUp();
+	    return CheckLevelUp();
     }
 
     public float GetExpPercents()
@@ -63,7 +63,7 @@ public class PlayerData : StatData
 	    PlayerEvent.Trigger(Enum_PlayerEventType.Exp);
     }
 
-    private void CheckLevelUp()
+    private bool CheckLevelUp()
     {
 	    double requireExp = GetRequireExp();
         
@@ -75,7 +75,11 @@ public class PlayerData : StatData
 	        LevelUp();
         	
         	//CheckLevelUp();	// 재귀로 다시 검사. : TODO : 레벨업 여러단계 한 번에 되게 하려면 수정 필요.
+            
+            return true;
         }
+
+        return false;
     }
 
     protected override void InitStat()

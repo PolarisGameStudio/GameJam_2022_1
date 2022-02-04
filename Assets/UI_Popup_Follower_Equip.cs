@@ -34,6 +34,7 @@ public class UI_Popup_Follower_Equip : UI_BasePopup<UI_Popup_Follower_Equip>
     public void OnClickSelectSlot(int index)
     {
         DataManager.FollowerData.TryEquip(_data.Index, index);
+        SoundManager.Instance.PlaySound("sfx_slot_equip");
         UI_Popup_Follower.Instance.Close();
         Close();
     }

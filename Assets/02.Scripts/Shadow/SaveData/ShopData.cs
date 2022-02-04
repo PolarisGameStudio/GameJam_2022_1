@@ -93,6 +93,9 @@ public class ShopData : SaveDataBase
         DailyLimit[_package.Index]++;
         
         _package = null;
+        
+        // 비동기라서 얘만 여기서 처리
+        SoundManager.Instance.PlaySound("sfx_coinDrop");
     }
 
     public override void OnNextDay()
