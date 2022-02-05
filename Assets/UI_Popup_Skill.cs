@@ -41,10 +41,11 @@ public class UI_Popup_Skill : UI_BasePopup<UI_Popup_Skill>, GameEventListener<Re
         SelectedSkillSlot.Init(_data);
         
         _txtName.text = $"[{StringValue.GetGradeName(_data.ItemGrade)}] {_data.name}";
-        _txtDescription.text = $"{_data.name} 간단한 설명";
+//        _txtDescription.text = $"{_data.name} 간단한 설명";
+        _txtDescription.text = "";
 
         _txtCoolTime.text = $"재사용 대기 시간 : {_data.CoolTime}";
-        _txtDetailDesc.text = $"{_data.name} 자세한 설명";
+        _txtDetailDesc.text = PlayerSkillManager.Instance.GetDescription(_data.Index);
         
         
         _txtPrice.text = $"({DataManager.SkillData.Counts[_data.Index]}/{DataManager.SkillData.GetLevelUpCost(_data.Index)})";

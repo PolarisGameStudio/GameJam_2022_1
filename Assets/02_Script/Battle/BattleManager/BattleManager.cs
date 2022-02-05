@@ -178,7 +178,7 @@ public class BattleManager : SingletonBehaviour<BattleManager>
 
     IEnumerator StageChangeCoroutine(Enum_BattleType battleType, int battleLevel)
     {
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(1);
 
         switch (battleType)
         {

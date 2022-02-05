@@ -75,15 +75,6 @@ public class AdManager : SingletonBehaviour<AdManager>
             return true;
         }
         
-        #if UNITY_EDITOR  
-        Debug.LogError("에디터 광고무시");
-        m_RewardedAdComplete = rewardedAdComplete;
-        RewardedAdCompletedHandler();
-        
-        return true;
-        
-        #endif
-        
         if (!admobModule.CheckRewardAdLoaded())
         {
             UI_Popup_OK.Instance.Open("광고 로드 실패", "실행 가능한 광고가 없습니다. 잠시후 다시 시도해주세요.");

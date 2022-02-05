@@ -58,4 +58,14 @@ public class PlayerSkillManager : SingletonBehaviour<PlayerSkillManager>
     
         return _activeSkillList[index];
     }
+
+    public string GetDescription(int index)
+    {
+        if (_activeSkillList.Count < 0 || _activeSkillList.Count <= index)
+        {
+            return string.Empty;
+        }
+
+        return _activeSkillList[index].GetDescription();
+    }
 }

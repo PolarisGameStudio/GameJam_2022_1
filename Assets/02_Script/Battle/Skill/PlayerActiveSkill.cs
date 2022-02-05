@@ -16,9 +16,9 @@ public class PlayerActiveSkill : PlayerSkill
 
     public bool EffectOnPlayerPosition;
     public float DamageDelay;
-    
+
     protected WaitForSeconds _damageDelay;
-    
+
     protected virtual void Awake()
     {
         _skillVFX = transform.GetChild(0).GetComponent<ParticleSystem>();
@@ -27,7 +27,7 @@ public class PlayerActiveSkill : PlayerSkill
         //_damageDelay = new WaitForSeconds(AttackPreset.DamageDelay);
         _damageDelay = new WaitForSeconds(DamageDelay);
     }
-    
+
     public override bool TryUseSkill()
     {
         if (!CanUseSKill())
@@ -99,7 +99,7 @@ public class PlayerActiveSkill : PlayerSkill
 
         _skillCoroutine = StartCoroutine(SkillDamageCoroutine(targets));
     }
-    
+
     protected virtual IEnumerator SkillDamageCoroutine(List<CharacterObject> targets)
     {
         var damage = _playerObject.GetAbility<PlayerAttackAbility>().GetDamage();
@@ -115,7 +115,7 @@ public class PlayerActiveSkill : PlayerSkill
         }
 
         yield return new WaitForSecondsRealtime(2f);
-        
+
         Hide();
     }
 
@@ -137,4 +137,8 @@ public class PlayerActiveSkill : PlayerSkill
         SafeSetActive(false);
     }
 
+    public virtual string GetDescription()
+    {
+        return string.Format(_data.Description, Value, _data.SubValue, _data.Distance, _data.Time);
+    }
 }

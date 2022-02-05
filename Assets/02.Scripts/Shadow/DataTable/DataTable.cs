@@ -433,17 +433,6 @@ public partial class TBL_SKILL : BGEntity
 			_name[Index] = value;
 		}
 	}
-	public SkillType SkillType
-	{
-		get
-		{
-			return (SkillType) _SkillType[Index];
-		}
-		set
-		{
-			_SkillType[Index] = value;
-		}
-	}
 	public System.Single Value
 	{
 		get
@@ -554,6 +543,17 @@ public partial class TBL_SKILL : BGEntity
 			_IncreaseCost[Index] = value;
 		}
 	}
+	public System.String Description
+	{
+		get
+		{
+			return _Description[Index];
+		}
+		set
+		{
+			_Description[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -561,15 +561,6 @@ public partial class TBL_SKILL : BGEntity
 		{
 			if(_ufle12jhs77_name==null || _ufle12jhs77_name.IsDeleted) _ufle12jhs77_name=(BansheeGz.BGDatabase.BGFieldEntityName) MetaDefault.GetField(new BGId(5450511217045133028,1534831260943557524));
 			return _ufle12jhs77_name;
-		}
-	}
-	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_SkillType;
-	public static BansheeGz.BGDatabase.BGFieldEnum _SkillType
-	{
-		get
-		{
-			if(_ufle12jhs77_SkillType==null || _ufle12jhs77_SkillType.IsDeleted) _ufle12jhs77_SkillType=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4906265187218299320,8256477299138777984));
-			return _ufle12jhs77_SkillType;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_Value;
@@ -660,6 +651,15 @@ public partial class TBL_SKILL : BGEntity
 		{
 			if(_ufle12jhs77_IncreaseCost==null || _ufle12jhs77_IncreaseCost.IsDeleted) _ufle12jhs77_IncreaseCost=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5601871659401339280,5820943641376042924));
 			return _ufle12jhs77_IncreaseCost;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77_Description;
+	public static BansheeGz.BGDatabase.BGFieldString _Description
+	{
+		get
+		{
+			if(_ufle12jhs77_Description==null || _ufle12jhs77_Description.IsDeleted) _ufle12jhs77_Description=(BansheeGz.BGDatabase.BGFieldString) MetaDefault.GetField(new BGId(5701616342150835626,10819076493593253781));
+			return _ufle12jhs77_Description;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithGrade;
