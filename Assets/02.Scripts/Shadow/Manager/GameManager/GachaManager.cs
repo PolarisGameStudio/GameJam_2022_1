@@ -5,12 +5,12 @@ using System.Diagnostics;
 using UnityEngine;
 
 
-
 public class GachaManager : SingletonBehaviour<GachaManager>
 {
     private Dictionary<GachaType, GachaHandler> _gachaHandlers;
 
     private GachaType _lastGachaType;
+    private Enum_CurrencyType _lastCurrencyType;
     private int _lastPrice;
     private int _lastCount;
 
@@ -20,27 +20,32 @@ public class GachaManager : SingletonBehaviour<GachaManager>
         _gachaHandlers.Add(GachaType.Weapon, new WeaponGachaHandler());
         _gachaHandlers.Add(GachaType.Ring, new RingGachaHandler());
         _gachaHandlers.Add(GachaType.Skill, new SkillGachaHandler());
-        
+
         _gachaHandlers.Add(GachaType.Dice, new DiceGachaHandler());
     }
 
     public void ReGacha()
-    {        
-        if (DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Gem, _lastPrice))
+    {
+        if (DataManager.CurrencyData.TryConsume(_lastCurrencyType, _lastPrice))
         {
-            Gacha(_lastGachaType, _lastPrice, _lastCount);
+            Gacha(_lastGachaType, _lastCurrencyType, _lastPrice, _lastCount);
+        }
+        else
+        {
+            UI_Popup_OK.Instance.OpenCurrencyNotEnough();
         }
     }
 
-    public List<int> Gacha(GachaType type, int price , int count = 1)
+    public List<int> Gacha(GachaType type, Enum_CurrencyType currencyType, int price, int count = 1)
     {
         if (!_gachaHandlers.ContainsKey(type))
         {
             Debug.LogError($"{type} 가챠가 없습니다.");
             return null;
         }
-        
+
         _lastGachaType = type;
+        _lastCurrencyType = currencyType;
         _lastPrice = price;
         _lastCount = count;
 
@@ -60,14 +65,13 @@ public class GachaManager : SingletonBehaviour<GachaManager>
     {
         if (_gachaHandlers.ContainsKey(type))
         {
-
             return _gachaHandlers[type].GachaByGrade(grade);
         }
 
         return -1;
     }
-    
-    
+
+
     public int GetRandomStarCount()
     {
         int random = UnityEngine.Random.Range(0, 100);
@@ -78,25 +82,22 @@ public class GachaManager : SingletonBehaviour<GachaManager>
         }
         else if (random < 70)
         {
-            return 1;   
-        }        
+            return 1;
+        }
         else if (random < 90)
         {
-            return 2;   
+            return 2;
         }
-        else if(random < 95)
+        else if (random < 95)
         {
             return 3;
-        }    
+        }
         else
         {
             return 4;
         }
     }
-    
-    
-    
-    
+
 
     public int GetRandomIndex(GachaType type)
     {
@@ -116,9 +117,13 @@ public class GachaManager : SingletonBehaviour<GachaManager>
     {
         return _lastGachaType;
     }
-    
+
     public int GetLastGachaPrice()
     {
         return _lastPrice;
+    }
+    public Enum_CurrencyType GetLastCurrency()
+    {
+        return _lastCurrencyType;
     }
 }

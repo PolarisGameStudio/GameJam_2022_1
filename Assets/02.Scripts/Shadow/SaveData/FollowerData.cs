@@ -36,6 +36,13 @@ public class FollowerData : StatData
         {
             DiceDatas[i].Init(maxLevel);
         }
+        
+        
+        if (Levels[0] <= 0)
+        {
+            Levels[0] = 1;
+            EquippedIndex[0] = 0;
+        }
 
         CheckDiceUnlock();
 

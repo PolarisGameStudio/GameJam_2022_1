@@ -7577,6 +7577,17 @@ public partial class TBL_GACHA_DATA : BGEntity
 			_Price_Big[Index] = value;
 		}
 	}
+	public Enum_CurrencyType KeyType
+	{
+		get
+		{
+			return (Enum_CurrencyType) _KeyType[Index];
+		}
+		set
+		{
+			_KeyType[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -7629,6 +7640,15 @@ public partial class TBL_GACHA_DATA : BGEntity
 		{
 			if(_ufle12jhs77_Price_Big==null || _ufle12jhs77_Price_Big.IsDeleted) _ufle12jhs77_Price_Big=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4762203715085792996,11062236676615245238));
 			return _ufle12jhs77_Price_Big;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77_KeyType;
+	public static BansheeGz.BGDatabase.BGFieldEnum _KeyType
+	{
+		get
+		{
+			if(_ufle12jhs77_KeyType==null || _ufle12jhs77_KeyType.IsDeleted) _ufle12jhs77_KeyType=(BansheeGz.BGDatabase.BGFieldEnum) MetaDefault.GetField(new BGId(4736513115161640607,9902173566142759101));
+			return _ufle12jhs77_KeyType;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithType;

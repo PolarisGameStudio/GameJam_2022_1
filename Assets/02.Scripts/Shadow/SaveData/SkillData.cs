@@ -33,6 +33,11 @@ public class SkillData : SaveDataBase
                 Counts.Add(0);
             }
         }
+
+        if (Levels[10] <= 0)
+        {
+            Levels[10] = 1;
+        }
     }
 
     public bool IsEnableLevelUp(int index)

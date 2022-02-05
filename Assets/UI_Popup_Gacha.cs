@@ -13,6 +13,7 @@ public class UI_Popup_Gacha : UI_BasePopup<UI_Popup_Gacha>
 
     public GameObject Buttons;
     public GameObject BtnMore;
+    public Image _imgCurrency;
     public Text _txtPrice;
 
 
@@ -34,9 +35,13 @@ public class UI_Popup_Gacha : UI_BasePopup<UI_Popup_Gacha>
         Buttons.SetActive(false);
         SlotList.ForEach(x => x.gameObject.SetActive(false));
 
-        var price = GachaManager.Instance.GetLastGachaPrice();
+        Enum_CurrencyType lastCurrency = GachaManager.Instance.GetLastCurrency();
+        _imgCurrency.sprite = AssetManager.Instance.CurrencyIcon[(int)lastCurrency];
         
+        var price = GachaManager.Instance.GetLastGachaPrice();
         _txtPrice.text = price.ToString();
+        _txtPrice.color = DataManager.CurrencyData.IsEnough(lastCurrency, price) ? ColorValue.ENABLE_TEXT_COLOR : ColorValue.DISABLE_TEXT_COLOR;
+        
         BtnMore.SetActive(price != 0);
         
         base.Open();

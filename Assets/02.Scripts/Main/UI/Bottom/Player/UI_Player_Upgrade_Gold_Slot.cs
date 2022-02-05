@@ -49,26 +49,32 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD>, GameEv
         if (_data.StatType == Enum_StatType.CriticalChance || _data.StatType == Enum_StatType.SuperCriticalChance)
         {
             _txtStatValue.text =
-                $"{DataManager.GoldGrowthData.GetValue(_data):N1} -> {DataManager.GoldGrowthData.GetNextValue(_data):N1}";
+                $"{DataManager.GoldGrowthData.GetValue(_data):N2}% -> {DataManager.GoldGrowthData.GetNextValue(_data):N2}%";
+        }
+        else if(_data.StatType == Enum_StatType.Damage || _data.StatType == Enum_StatType.MaxHealth)
+        {
+            _txtStatValue.text =
+                $"{DataManager.GoldGrowthData.GetValue(_data)} -> {DataManager.GoldGrowthData.GetNextValue(_data)}";
         }
         else
         {
             _txtStatValue.text =
-                $"{DataManager.GoldGrowthData.GetValue(_data)} -> {DataManager.GoldGrowthData.GetNextValue(_data)}";
+                $"{DataManager.GoldGrowthData.GetValue(_data):N1}% -> {DataManager.GoldGrowthData.GetNextValue(_data):N1}%";
         }
 
         _txtStatCurrenctLevel.text = $"Lv.{DataManager.GoldGrowthData.GetLevel(_data)}";
 
         var price = DataManager.GoldGrowthData.GetPrice(_data);
         _txtStatPrice.text = $"{price.ToCurrencyString()}";
-        _txtStatPrice.color = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Gold, price) ? ColorValue.ENABLE_TEXT_COLOR :ColorValue.DISABLE_TEXT_COLOR;
 
         CheckEnableLevelUp();
     }
 
     public void CheckEnableLevelUp()
     {
-        _btnLevelUp.interactable = DataManager.GoldGrowthData.IsEnableLevelUp(_data);
+        bool isEnable = DataManager.GoldGrowthData.IsEnableLevelUp(_data);
+        _btnLevelUp.interactable = isEnable;
+        _txtStatPrice.color = isEnable ? ColorValue.ENABLE_TEXT_COLOR :ColorValue.DISABLE_TEXT_COLOR;
     }
 
     public void OnGameEvent(RefreshEvent e)

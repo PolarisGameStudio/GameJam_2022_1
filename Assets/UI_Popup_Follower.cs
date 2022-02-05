@@ -151,7 +151,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
 
         _txtEquipStat.text = $"{StringValue.GetStatName(_data.StatType1)}";
         _txtEquipStatValue.text =
-            $"{_data.DefaultValue1 + _data.IncreaseValue1 * (level - 1)} -> {_data.DefaultValue1 + _data.IncreaseValue1 * (level)}";
+            $"{_data.DefaultValue1 + _data.IncreaseValue1 * (level - 1)}% -> {_data.DefaultValue1 + _data.IncreaseValue1 * (level)}%";
 
         if (_data.DefaultValue2 == 0)
         {
@@ -162,7 +162,7 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         {
             _txtOwnStat1.text = $"{StringValue.GetStatName(_data.StatType2)}";
             _txtOwnStatValue1.text =
-                $"{_data.DefaultValue2 + _data.IncreaseValue2 * (level - 1)} -> {_data.DefaultValue2 + _data.IncreaseValue2 * (level)}";
+                $"{_data.DefaultValue2 + _data.IncreaseValue2 * (level - 1)}% -> {_data.DefaultValue2 + _data.IncreaseValue2 * (level)}%";
         }
         //
         // if (_data.OnOwnValue2 == 0)
