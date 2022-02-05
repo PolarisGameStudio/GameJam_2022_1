@@ -34,7 +34,7 @@ public class PlayerData : StatData
     {
         Level++;
 
-        if (!IsReviewShown && Level >= 10)
+        if (!IsReviewShown && Level >= 5)
         {
 	        UI_Popup_Review.Instance.Open();
         }
