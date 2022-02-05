@@ -78,10 +78,6 @@ public class DiceStatData : StatData
 
     public bool IsEnableRoll()
     {
-#if UNITY_EDITOR
-        return true;
-#endif
-
         return DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Dice, GetRollPrice()) &&
                DiceSlotList.Find(diceStat => !diceStat.IsLock) != null;
     }

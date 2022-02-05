@@ -117,6 +117,7 @@ public class AchievementData : SaveDataBase
             
             RefreshEvent.Trigger(Enum_RefreshEventType.Acheieve);
 
+            DataManager.Instance.Save(force:true);
             return true;
         }
 

@@ -61,13 +61,12 @@ public class CurrencyData : SaveDataBase
     
     public bool TryConsume(Enum_CurrencyType type, double amount)
     {
-#if !UNITY_EDITOR
         if (!IsEnough(type, amount))
         {
             return false;
         }
         GetCurrency(type).Consume(amount);
-#endif
+        
         RefreshEvent.Trigger(Enum_RefreshEventType.Currency);
         
         return true;

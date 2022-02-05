@@ -37,8 +37,12 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
         Refresh();
     }
 
-    private void Refresh()
-    { 
+    public void Refresh()
+    {
+        if (_data == null)
+        {
+            return;
+        }
         _imgStatIcon.sprite = AssetManager.Instance.StatIcon[(int)_data.StatType];
         _txtStatName.text = $"{StringValue.GetStatName(_data.StatType)} Max Lv.{_data.MaxLevel}";
 
@@ -68,7 +72,7 @@ public class UI_Player_Upgrade_Stat_Slot : UI_BaseSlot<TBL_UPGRADE_STAT>, GameEv
     {
         _btnLevelUp.interactable = DataManager.StatGrowthData.GetRemainPoint() >= _data.Price;
     }
-
+    
     public void OnGameEvent(RefreshEvent e)
     {
         if (e.Type == Enum_RefreshEventType.StatGrowth)

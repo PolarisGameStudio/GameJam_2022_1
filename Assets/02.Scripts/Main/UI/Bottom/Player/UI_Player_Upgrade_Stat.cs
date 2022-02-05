@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,8 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
 
         this.AddGameEventListening<RefreshEvent>();
         this.AddGameEventListening<PlayerEvent>();
-        
-        InitSlot();
+
+        Refresh();
     }
 
     protected override void OnDisable()
@@ -25,6 +26,11 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
 
         this.RemoveGameEventListening<RefreshEvent>();
         this.RemoveGameEventListening<PlayerEvent>();
+    }
+
+    private void Start()
+    {
+        InitSlot();
     }
 
     private void InitSlot()
@@ -48,6 +54,11 @@ public class UI_Player_Upgrade_Stat : UI_BaseContent<UI_Player_Upgrade_Stat,UI_P
     protected override void Refresh()
     {
         _txtRemainPoint.text = $"남은 포인트 : {DataManager.StatGrowthData.GetRemainPoint()}";
+        
+        for (int i = 0; i < m_SlotList.Count; i++)
+        {
+            m_SlotList[i].Refresh();
+        }
     }
 
     public void OnGameEvent(PlayerEvent e)

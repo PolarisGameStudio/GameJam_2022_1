@@ -87,7 +87,7 @@ public class QuestData : SaveDataBase
             }
             
             case QuestType.ADWatch:
-                return _adWatch ? int.MaxValue : 0;
+                return _adWatch ? 1 : 0;
             
             case QuestType.Promotion:
                 return DataManager.PromotionData.CurrentPromotionIndex;
@@ -108,16 +108,9 @@ public class QuestData : SaveDataBase
 
     public bool IsEnableClear()
     {
-        if (CurrentQuest.QuestType == QuestType.ADWatch)
-        {
-            return false;
-        }
-        else
-        {
-            var progress = GetProgress();
+        var progress = GetProgress();
 
-            return progress >= CurrentQuest.CompleteCount;
-        }
+        return progress >= CurrentQuest.CompleteCount;
     }
 
     public bool TryClearQuest()
@@ -131,6 +124,7 @@ public class QuestData : SaveDataBase
         DataManager.CurrencyData.Add(Enum_CurrencyType.Gem, CurrentQuest.RewardCount);
         
         CurrentQuestIndex = Mathf.Min(CurrentQuestIndex + 1, TBL_QUEST.CountEntities - 1);
+        DataManager.Instance.Save(force:true);
         
         return true;
     }

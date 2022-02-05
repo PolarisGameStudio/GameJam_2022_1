@@ -121,9 +121,6 @@ public class SkillData : SaveDataBase
 
     public bool IsSlotUnlock(int slotIndex)
     {
-        #if UNITY_EDITOR
-        return true;
-        #endif
         return DataManager.PlayerData.Level >= GetUnlockCondition(slotIndex);
     }
 
