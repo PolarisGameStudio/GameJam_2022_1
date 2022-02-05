@@ -11,6 +11,8 @@ public class PlayerBuffSkill : PlayerActiveSkill
     
     private float _timer;
 
+    public float _vfxOffsetY;
+
     [Button]
     public void SetOrder()
     {
@@ -66,7 +68,7 @@ public class PlayerBuffSkill : PlayerActiveSkill
         while (_timer < _data.Time)
         {
             _timer += Time.deltaTime;
-            _skillVFX.transform.position = _playerObject.Position;
+            _skillVFX.transform.position = _playerObject.Position + Vector3.up * _vfxOffsetY;
 
             yield return null;
         }
