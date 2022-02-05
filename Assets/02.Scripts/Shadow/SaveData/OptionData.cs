@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class OptionData : SaveDataBase
 {
-    public bool Sleep;
-    public bool BGM;
-    public bool SFX;
-    public bool VFX;
+    public bool Sleep = true;
+    public bool BGM = true;
+    public bool SFX = true;
+    public bool VFX = true;
 
 
     public void ToggleMusic()
