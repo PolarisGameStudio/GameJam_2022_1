@@ -16,12 +16,13 @@ public class PlayerSkill : GameBehaviour
 
     public float RemainCoolTimeNormalized => _coolTimer / _data.CoolTime;
 
-    public float Value => _data.Value + _data.IncreaseValue * DataManager.SkillData.Levels[_data.Index];
+    public float Value => _data.Value + _data.IncreaseValue * (DataManager.SkillData.Levels[_data.Index] - 1);
     
     public virtual void InitSkill(TBL_SKILL data, PlayerObject playerObject)
     {
         _data = data;
         _playerObject = playerObject;
+        
         _coolTimer = _data.CoolTime;
     }
     
@@ -32,6 +33,10 @@ public class PlayerSkill : GameBehaviour
     
     public void UpdateCoolTime(float deltaTime)
     {
+// #if UNITY_EDITOR
+//         _coolTimer += deltaTime * (_data.CoolTime / 4f);
+//         return;
+// #endif
         _coolTimer += deltaTime;
     }
 
@@ -50,9 +55,11 @@ public class PlayerSkill : GameBehaviour
         
         List<CharacterObject> targets = new List<CharacterObject>();
 
+        var position = (_playerObject.Position.x + (float) _playerObject.Stat[Enum_StatType.AttackRange]);
+
         foreach (var monsterObject in BattleManager.Instance.CurrentBattle.MonsterObjects)
         {
-            float x = monsterObject.Position.x - _playerObject.Position.x;
+            float x = monsterObject.Position.x - position;
 
             if (x <= distance * SystemValue.SKILL_DISTANCE_BLOCK_SIZE)
             {

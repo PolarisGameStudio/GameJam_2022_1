@@ -1,11 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerSubstainSkill : PlayerActiveSkill
 {
     public bool IsRandomTarget; 
     
+    public override bool TryUseSkill()
+    {
+        if (!IsRandomTarget)
+        {
+            return base.TryUseSkill();
+        }
+        
+        if (!CanUseSKill())
+        {
+            return false;
+        }
+
+        var monsters = BattleManager.Instance.CurrentBattle.MonsterObjects;
+        var target = monsters[Random.Range(0, monsters.Count)];
+
+        var targetMonsterList = FindTargetFromRandomPoint(target.Position, _data.Distance);
+
+        var aliveTargetExist = targetMonsterList.Count(monster => monster.IsAlive) > 0;
+
+        if (!aliveTargetExist)
+        {
+            return false;
+        }
+        
+        _coolTimer = 0;
+
+        SafeSetActive(true);
+        
+        Active(targetMonsterList);
+
+        return true;
+    }
     
     protected override IEnumerator SkillDamageCoroutine(List<CharacterObject> targets)
     {
@@ -19,6 +52,8 @@ public class PlayerSubstainSkill : PlayerActiveSkill
             if (IsRandomTarget)
             { 
                 var monsters = BattleManager.Instance.CurrentBattle.MonsterObjects;
+
+                monsters.RemoveAll(x => x.IsDeath);
                 
                 if (monsters.Count != 0)
                 {

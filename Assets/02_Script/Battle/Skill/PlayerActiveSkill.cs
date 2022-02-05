@@ -18,6 +18,18 @@ public class PlayerActiveSkill : PlayerSkill
     public float DamageDelay;
 
     protected WaitForSeconds _damageDelay;
+    
+    
+    [Button]
+    public void SetLoop()
+    {
+        foreach (var c in GetComponentsInChildren<ParticleSystem>())
+        {
+            var main = c.main;
+
+            main.loop = false;
+        }
+    }
 
     protected virtual void Awake()
     {

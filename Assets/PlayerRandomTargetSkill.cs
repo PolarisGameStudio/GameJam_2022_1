@@ -14,6 +14,9 @@ public class PlayerRandomTargetSkill : PlayerActiveSkill
         }
 
         var monsters = BattleManager.Instance.CurrentBattle.MonsterObjects;
+        
+        monsters.RemoveAll(x => x.IsDeath);
+        
         var target = monsters[Random.Range(0, monsters.Count)];
 
         var targetMonsterList = FindTargetFromRandomPoint(target.Position, _data.Distance);
@@ -41,7 +44,7 @@ public class PlayerRandomTargetSkill : PlayerActiveSkill
             _animator.enabled = true;
         }
 
-        transform.position = target.Position;
+        _skillVFX.transform.position = target.Position;
         
         Active(targetMonsterList);
 

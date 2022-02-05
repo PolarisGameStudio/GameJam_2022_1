@@ -17,7 +17,7 @@ public class Healthbar : GameBehaviour
     private float _lastSliderValue = 0;
     private float _lastHealth = 0;
 
-    private float _fromLastHitTime = 0.5f;
+    private float _fromLastHitTime = 0f;
     private float _fromLastHitTimer = 0;
 
     private float _sliderMoveTime = 0.5f;
