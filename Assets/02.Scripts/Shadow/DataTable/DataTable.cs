@@ -5455,6 +5455,28 @@ public partial class TBL_STAGE : BGEntity
 			_EquipmentPerMin[Index] = value;
 		}
 	}
+	public System.Double BossDamageFactor
+	{
+		get
+		{
+			return _BossDamageFactor[Index];
+		}
+		set
+		{
+			_BossDamageFactor[Index] = value;
+		}
+	}
+	public System.Double BossHealthFactor
+	{
+		get
+		{
+			return _BossHealthFactor[Index];
+		}
+		set
+		{
+			_BossHealthFactor[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _name
 	{
@@ -5624,6 +5646,24 @@ public partial class TBL_STAGE : BGEntity
 		{
 			if(_ufle12jhs77_EquipmentPerMin==null || _ufle12jhs77_EquipmentPerMin.IsDeleted) _ufle12jhs77_EquipmentPerMin=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(4626443621318263635,2054240231137870216));
 			return _ufle12jhs77_EquipmentPerMin;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_BossDamageFactor;
+	public static BansheeGz.BGDatabase.BGFieldDouble _BossDamageFactor
+	{
+		get
+		{
+			if(_ufle12jhs77_BossDamageFactor==null || _ufle12jhs77_BossDamageFactor.IsDeleted) _ufle12jhs77_BossDamageFactor=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(5401097265052401605,15134015733032815255));
+			return _ufle12jhs77_BossDamageFactor;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldDouble _ufle12jhs77_BossHealthFactor;
+	public static BansheeGz.BGDatabase.BGFieldDouble _BossHealthFactor
+	{
+		get
+		{
+			if(_ufle12jhs77_BossHealthFactor==null || _ufle12jhs77_BossHealthFactor.IsDeleted) _ufle12jhs77_BossHealthFactor=(BansheeGz.BGDatabase.BGFieldDouble) MetaDefault.GetField(new BGId(4647725653537873755,12427399503804417721));
+			return _ufle12jhs77_BossHealthFactor;
 		}
 	}
 	private static BansheeGz.BGDatabase.BGKey _edeht3sdad33_WithWorld;

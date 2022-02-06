@@ -25,8 +25,8 @@ public class StageBossBattle : Battle, GameEventListener<MonsterEvent>
 
         _stageData = TBL_STAGE.GetEntity(_level);
 
-        DamageFactor = _stageData.DamageFactor * 10;
-        HealthFactor = _stageData.HealthFactor * 10;
+        DamageFactor = _stageData.BossDamageFactor;
+        HealthFactor = _stageData.BossHealthFactor;
     }
 
     protected override void OnBattleInit()
