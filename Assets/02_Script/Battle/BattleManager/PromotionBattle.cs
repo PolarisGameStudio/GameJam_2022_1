@@ -8,7 +8,13 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 {
     private TBL_PROMOTION _promotionBattleData;
 
+    
+    public float RemainTime => SystemValue.PROMOTION_BATTLE_LIMIT_TIME - _timer;
+    private float _timer;
+    
     public float StageProcess => waveLevel / (float) _promotionBattleData.WaveCount;
+    
+    
     public override string GetBattleTitle()
     {
         return $"{_promotionBattleData.name} 승급전";
@@ -17,6 +23,21 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
     private void Awake()
     {
         this.AddGameEventListening<MonsterEvent>();
+    }
+    private void Update()
+    {
+        if (BattleManager.Instance.CurrentBattle != this)
+        {
+            return;
+        }
+
+        _timer += Time.deltaTime;
+
+        if (RemainTime < 0)
+        {
+            BattleOver();
+            _timer = 0;
+        }
     }
 
     protected override void InitBattleData()
@@ -38,7 +59,7 @@ public class PromotionBattle : Battle, GameEventListener<MonsterEvent>
 
         BattleManager.Instance.PlayerObject.BattleStart(_startTransform.position);
 
-     
+        _timer = 0;
 
         _inited = true;
     }

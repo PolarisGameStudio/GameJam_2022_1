@@ -38,6 +38,7 @@ public static class SystemValue
     public static float BOSS_DUNGEON_LIMIT_TIME = 20f;
     public static float TREASURE_DUNGEON_LIMIT_TIME = 20f;
     public static float SMITH_DUNGEON_LIMIT_TIME = 50f;
+    public static float PROMOTION_BATTLE_LIMIT_TIME = 50f;
     
     public static int DUNGEON_DAILY_TICKET_AMOUNT = 3;
     
