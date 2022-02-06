@@ -11,6 +11,7 @@ public class PlayerAttackSkill : PlayerActiveSkill
         if (_isActive && UtilCode.GetChance(_data.SubValue))
         {
             target.TryTakeHit(_playerObject.Stat[Enum_StatType.Damage] * _data.Value, Enum_DamageType.Normal);
+            PlaySkillSound();
         }
     }
 

@@ -64,6 +64,7 @@ public class PlayerBuffSkill : PlayerActiveSkill
         _stat[StatType] = Value;
         
         _playerObject.AddBuff(new Buff(_stat,_data.Time));
+        PlaySkillSound();
 
         while (_timer < _data.Time)
         {

@@ -99,4 +99,10 @@ public class PlayerSkill : GameBehaviour
     {
         
     }
+
+    public virtual void PlaySkillSound()
+    {
+        SoundManager.Instance.PlaySound($"skill_index{_data.Index}");
+    }
+    
 }

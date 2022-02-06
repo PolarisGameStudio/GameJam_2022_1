@@ -5,7 +5,10 @@ using System.Linq;
 
 public class PlayerSubstainSkill : PlayerActiveSkill
 {
-    public bool IsRandomTarget; 
+    public bool IsRandomTarget;
+
+    // Todo: 게임잼용으로만 사용 
+    public List<ParticleSystem> _skillVfxs;
     
     public override bool TryUseSkill()
     {
@@ -34,9 +37,13 @@ public class PlayerSubstainSkill : PlayerActiveSkill
         _coolTimer = 0;
 
         SafeSetActive(true);
+        for (var i = 0; i < _skillVfxs.Count; i++)
+        {
+            _skillVfxs[i].Stop();
+        }
         
-        Active(targetMonsterList);
-
+        _skillCoroutine = StartCoroutine(SkillDamageCoroutine(null));
+        
         return true;
     }
     
@@ -44,11 +51,10 @@ public class PlayerSubstainSkill : PlayerActiveSkill
     {
         var damage = _playerObject.GetAbility<PlayerAttackAbility>().GetDamage();
 
-        var second = new WaitForSecondsRealtime(1);
+        var second = new WaitForSecondsRealtime(1 - DamageDelay);
         
         for (int i = 0; i <= _data.Time; ++i)
         {
-          
             if (IsRandomTarget)
             { 
                 var monsters = BattleManager.Instance.CurrentBattle.MonsterObjects;
@@ -60,21 +66,22 @@ public class PlayerSubstainSkill : PlayerActiveSkill
                     var target = monsters[Random.Range(0, monsters.Count)];
 
                     targets = FindTargetFromRandomPoint(target.Position, _data.Distance);
-
-                    _skillVFX.transform.position = target.Position;
-            
-                    _skillVFX.Stop();
-                    _skillVFX.Play();
+                    
+                    _skillVfxs[i % _skillVfxs.Count].transform.position = target.Position;
+                    _skillVfxs[i % _skillVfxs.Count].Play();
                 }
             }
             else
             {
                 targets = FindTargetFromPlayer(_data.Distance);
-                _skillVFX.transform.position = _playerObject.SkillEffectPos.position;
-            
-                _skillVFX.Stop();
-                _skillVFX.Play();
+                
+                _skillVfxs[i % _skillVfxs.Count].transform.position = _playerObject.SkillEffectPos.position;
+                _skillVfxs[i % _skillVfxs.Count].Play();
             }
+            
+            PlaySkillSound();
+
+            yield return _damageDelay;
 
             if (targets != null && targets.Count > 0)
             {
@@ -91,8 +98,6 @@ public class PlayerSubstainSkill : PlayerActiveSkill
 
             yield return second;
         }
-
-        yield return second;
         
         Hide();
     }

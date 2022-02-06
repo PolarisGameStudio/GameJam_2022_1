@@ -116,6 +116,8 @@ public class PlayerActiveSkill : PlayerSkill
     {
         var damage = _playerObject.GetAbility<PlayerAttackAbility>().GetDamage();
 
+        PlaySkillSound();
+        
         for (int i = 0; i < targets.Count; ++i)
         {
             if (!targets[i].isActiveAndEnabled || targets[i].IsDeath)
