@@ -58,7 +58,7 @@ public static class DoubleExtension
 
         if (decima > 0)
         {
-            showDecimalString = $"{Math.Truncate(decima)}";
+            showDecimalString = $"{Mathf.RoundToInt((float)decima)}";
             
             if (quot > 1)
             {

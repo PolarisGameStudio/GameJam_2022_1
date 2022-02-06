@@ -10,6 +10,7 @@ public class UI_Player_Level : MonoBehaviour, GameEventListener<PlayerEvent>
     [SerializeField] private Text _txtExp;
     [SerializeField] private Text _txtExpPercent;
     [SerializeField] private Slider _sliderExp;
+    [SerializeField] private GameObject _onLevelUpEnable;
 
     private void OnEnable()
     {
@@ -39,6 +40,9 @@ public class UI_Player_Level : MonoBehaviour, GameEventListener<PlayerEvent>
         
         _txtExpPercent.text = $"{expPercent * 100:N1}%";
         _sliderExp.value = expPercent;
+
+        
+        _onLevelUpEnable.gameObject.SetActive(expPercent >= 1);
     }
 
     public void OnClickLevelUp()

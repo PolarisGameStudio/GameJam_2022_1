@@ -107,15 +107,7 @@ public class RuneData : StatData
             //ToastMessagePool.Instance.Show(LocalizeText.GetText("UI_Toast_DailyADReward_Disable"));
             return;
         }
-
-        if (DataManager.ShopData.IsAdRemove)
-        {
-            StartRune(type);
-        }
-        else
-        {
-            AdManager.Instance.TryShowRequest(ADType.Rune, () => { StartRune(type); });
-        }
+        AdManager.Instance.TryShowRequest(ADType.Rune, () => { StartRune(type); });
     }
 
     public override void OnNextDay()

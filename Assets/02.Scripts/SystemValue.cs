@@ -36,7 +36,7 @@ public static class SystemValue
 
     public static int MINIMUM_SAVE_PERIOD = 1;
     public static float BOSS_DUNGEON_LIMIT_TIME = 20f;
-    public static float TREASURE_DUNGEON_LIMIT_TIME = 20f;
+    public static float TREASURE_DUNGEON_LIMIT_TIME = 10f;
     public static float SMITH_DUNGEON_LIMIT_TIME = 50f;
     public static float PROMOTION_BATTLE_LIMIT_TIME = 50f;
     
