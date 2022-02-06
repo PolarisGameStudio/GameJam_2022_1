@@ -101,8 +101,8 @@ public static class RewardManager
                 rewardsForUI.Remove(reward);
                 while (count > 0)
                 {
-                    var list = TBL_EQUIPMENT.FindEntities(x => x.Grade == (Enum_ItemGrade)value && x.Type != Enum_EquipmentType.Ring);
-                    int randomIndex = UnityEngine.Random.Range(0, list.Count - 1);
+                    var randomIndex = GachaManager.Instance.GachaByGrade(GachaType.Weapon, (Enum_ItemGrade) value);
+                    
                     var newReward = new Reward(RewardType.Equipment, randomIndex, 1);
                     
                     rewardsForUI.Add(newReward);
