@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Text;
 using CodeStage.AntiCheat.Detectors;
 using CodeStage.AntiCheat.ObscuredTypes;
 using CodeStage.AntiCheat.Time;
@@ -52,13 +53,32 @@ public class ServerManager : SingletonBehaviour<ServerManager>
     private bool m_LoginOverlapped = false;
     private bool m_Cheated = false;
 
-    public async UniTask<ResponseCreativePacket> SendCreative(int score)
+    public async UniTaskVoid SendCreative(int score)
     {
-        var recv = await NetManager.Post<ResponseCreativePacket>(new RequestCreativePacket(score));
+        var form = new WWWForm();
+        form.AddField("round",11);
+        form.AddField("package",Application.identifier);
+        form.AddField("device_id",SystemInfo.deviceUniqueIdentifier);
+        form.AddField("score",score);
+        
+        var recv = UnityWebRequest.Post("https://appevent.cookappsgames.com/api/vote.php", form);
 
-        Debug.LogError(recv.msg);
+        await recv.SendWebRequest();
 
-        return recv;
+        switch (recv.result)
+        {
+            case UnityWebRequest.Result.Success:
+                Debug.Log(recv.downloadHandler.text);
+                break;
+            case UnityWebRequest.Result.ConnectionError:
+            case UnityWebRequest.Result.ProtocolError:
+            case UnityWebRequest.Result.DataProcessingError:
+                Debug.LogError(recv.error);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
     }
     
 //     private void Start()

@@ -11,10 +11,6 @@ public class RequestCreativePacket : IRequestPacket
 
     public RequestCreativePacket(int score) : base("/api/vote.php")
     {
-        this.round = 11;
-        this.package = Application.identifier;
-        this.device_id = SystemInfo.deviceUniqueIdentifier;
-        this.score = score;
     }
 }
 
