@@ -19,6 +19,12 @@ public class UI_Quest : MonoBehaviour , GameEventListener<RefreshEvent>
 
     public void Refresh()
     {
+        if (DataManager.QuestData.IsAllQuestFinish)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        
         var quest = DataManager.QuestData.CurrentQuest;
         var progress = DataManager.QuestData.GetProgress();
 

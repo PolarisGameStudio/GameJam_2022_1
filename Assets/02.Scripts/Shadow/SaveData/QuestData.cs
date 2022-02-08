@@ -30,19 +30,50 @@ public class QuestData : SaveDataBase
 {
     public int CurrentQuestIndex = 0;
 
-    public TBL_QUEST CurrentQuest => TBL_QUEST.GetEntity(CurrentQuestIndex);
+    public TBL_QUEST CurrentQuest
+    {
+        get
+        {
+            if (CurrentQuestIndex < TBL_QUEST.CountEntities)
+            {
+                return TBL_QUEST.GetEntity(CurrentQuestIndex);
+            }
+            else
+            {
+                CheckAllQuestFinish();
+                RefreshEvent.Trigger(Enum_RefreshEventType.Quest);
+                Debug.LogError("All QuestComplete");
+                return null;
+            }
+        }
+    }
 
     [SerializeField] private bool _adWatch;
+    [SerializeField] private bool _isAllQuestFinish;
+    [SerializeField] public bool IsAllQuestFinish => _isAllQuestFinish;
     
     public override void ValidCheck()
     {
         base.ValidCheck();
 
-        CurrentQuestIndex = Mathf.Min(CurrentQuestIndex, TBL_QUEST.CountEntities - 1);
+        CheckAllQuestFinish();
+    }
+
+    public void CheckAllQuestFinish()
+    {
+        if (CurrentQuestIndex >= TBL_QUEST.CountEntities)
+        {
+            _isAllQuestFinish = true;
+        }
     }
 
     public int GetProgress()
     {
+        if (_isAllQuestFinish)
+        {
+            return int.MaxValue;
+        }
+        
         switch (CurrentQuest.QuestType)
         {
             case QuestType.DamageLevel:
@@ -108,6 +139,11 @@ public class QuestData : SaveDataBase
 
     public bool IsEnableClear()
     {
+        if (_isAllQuestFinish)
+        {
+            return false;
+        }
+        
         var progress = GetProgress();
 
         return progress >= CurrentQuest.CompleteCount;
@@ -123,7 +159,9 @@ public class QuestData : SaveDataBase
         _adWatch = false;
         DataManager.CurrencyData.Add(Enum_CurrencyType.Gem, CurrentQuest.RewardCount);
         
-        CurrentQuestIndex = Mathf.Min(CurrentQuestIndex + 1, TBL_QUEST.CountEntities - 1);
+        CurrentQuestIndex++;
+        CheckAllQuestFinish();
+        
         DataManager.Instance.Save(force:true);
         
         return true;
