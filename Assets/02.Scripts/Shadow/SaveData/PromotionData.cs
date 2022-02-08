@@ -48,8 +48,8 @@ public class PromotionData : StatData
     {
         Stat.Init();
 
-        Stat[Enum_StatType.Damage] = 1;
-        Stat[Enum_StatType.MaxHealth] = 1;
+        Stat[Enum_StatType.Damage] = 0;
+        Stat[Enum_StatType.MaxHealth] = 0;
 
         for (int i = 0; i <= _currentPromotionIndex; i++)
         {
@@ -62,12 +62,14 @@ public class PromotionData : StatData
 
             if (data.DamageMultipleValue >= 1)
             {
-                Stat[Enum_StatType.Damage] *= data.DamageMultipleValue;
+                //Stat[Enum_StatType.Damage] *= data.DamageMultipleValue;
+                Stat[Enum_StatType.Damage] += data.DamageMultipleValue;
             }
 
             if (data.HealthMultipleValue >= 1)
             {
-                Stat[Enum_StatType.MaxHealth] *= data.HealthMultipleValue;
+                //Stat[Enum_StatType.MaxHealth] *= data.HealthMultipleValue;
+                Stat[Enum_StatType.MaxHealth] += data.HealthMultipleValue;
             }
         }
 
