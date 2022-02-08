@@ -36,7 +36,7 @@ public class GachaManager : SingletonBehaviour<GachaManager>
         }
     }
 
-    public List<int> Gacha(GachaType type, Enum_CurrencyType currencyType, int price, int count = 1)
+    public List<int> Gacha(GachaType type, Enum_CurrencyType currencyType, int price, int count)
     {
         if (!_gachaHandlers.ContainsKey(type))
         {

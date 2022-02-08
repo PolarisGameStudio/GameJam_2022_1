@@ -23,7 +23,7 @@ public class GoldGrowthData : StatData
                 _levels.Add(0);
             }
         }
-
+        
         CalculateStat();
     }
     
@@ -87,7 +87,7 @@ public class GoldGrowthData : StatData
     
     public double GetPrice(TBL_UPGRADE_GOLD type)
     {
-        var level = _levels[type.Index];
+        double level = _levels[type.Index];
 
         switch (type.StatType)
         {
@@ -95,7 +95,10 @@ public class GoldGrowthData : StatData
             case Enum_StatType.MaxHealth:
             case Enum_StatType.CriticalChance:
             case Enum_StatType.CriticalDamage:
-                return type.IncreaseGoldCost * (level * (level - 1) / 2) + type.GoldCost;
+                double increseCost = type.IncreaseGoldCost;
+                double cost = type.GoldCost;
+                
+                return increseCost * (level * (level - 1) / 2) + cost;
                 break;
             
             
@@ -140,6 +143,11 @@ public class GoldGrowthData : StatData
             {
                 return false;
             }
+        }
+
+        if (data.MaxLevel <= GetLevel(data))
+        {
+            return false;
         }
         
         var price = GetPrice(data);

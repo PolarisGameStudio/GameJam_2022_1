@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_ButtonTouching : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class UI_ButtonTouching : MonoBehaviour, IPointerDownHandler,  IPointerExitHandler, IEndDragHandler
 {
     private Button m_Button;
 
@@ -41,23 +41,33 @@ public class UI_ButtonTouching : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        // m_DownTimeSecond = FIRST_SPEED;
+        // m_DownTimer = 0f;
+        // m_AccTimer = 0f;
+        //
+        // m_IsDown = true;
+    }
+    
+    public void OnPointerExit(PointerEventData eventData)
+    {
+#if UNITY_EDITOR
+        m_IsDown = false;
+
         m_DownTimeSecond = FIRST_SPEED;
         m_DownTimer = 0f;
         m_AccTimer = 0f;
-
-        m_IsDown = true;
+#endif
     }
-
-    public void OnPointerUp(PointerEventData eventData)
+    
+    public void OnEndDrag(PointerEventData eventData)
     {
         m_IsDown = false;
         
         m_DownTimeSecond = FIRST_SPEED;
         m_DownTimer = 0f;
         m_AccTimer = 0f;
-
     }
-
+    
     private void Update()
     {
         if (!m_IsDown) return;

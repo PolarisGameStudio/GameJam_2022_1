@@ -54,9 +54,18 @@ public class UI_TopBar : MonoBehaviour, GameEventListener<RefreshEvent>, GameEve
 
     private void RefreshPlayer()
     {
-        TxtPlayerLevel.text = $"Lv. {DataManager.PlayerData.Level + 1}";
-        TxtPlayerExp.text = $"{DataManager.PlayerData.GetExpPercents() * 100:N0}%";
-        SliderPlayerExp.value = DataManager.PlayerData.GetExpPercents();
+        if (DataManager.PlayerData.IsMaxLevel())
+        {
+            TxtPlayerLevel.text = $"Max Lv.";
+            TxtPlayerExp.text = $"";
+            SliderPlayerExp.value = 1;
+        }
+        else
+        {
+            TxtPlayerLevel.text = $"Lv. {DataManager.PlayerData.Level + 1}";
+            TxtPlayerExp.text = $"{DataManager.PlayerData.GetExpPercents() * 100:N0}%";
+            SliderPlayerExp.value = DataManager.PlayerData.GetExpPercents();
+        }
     }
 
 

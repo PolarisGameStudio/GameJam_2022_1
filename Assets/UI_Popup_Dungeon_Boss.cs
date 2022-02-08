@@ -26,6 +26,7 @@ public class UI_Popup_Dungeon_Boss : UI_BasePopup<UI_Popup_Dungeon_Boss>
     {    
         if (DataManager.DungeonData.TrySkipDungeon(Enum_BattleType.BossDungeon))
         {
+            Refresh();
         }
     }
 

@@ -67,11 +67,13 @@ public class DungeonData : SaveDataBase
             case Enum_BattleType.TreasureDungeon:
                 if (TreasureDungeonHighLevel == 0 )
                 {
+                    UI_Popup_OK.Instance.Open("소탕", "이전 기록이 없어 소탕에 실패했습니다.");
                     return false;
                 }
 
                 if (!DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Treasure, count))
                 {
+                    UI_Popup_OK.Instance.OpenCurrencyNotEnough();
                     return false;
                 }
                 
@@ -82,11 +84,13 @@ public class DungeonData : SaveDataBase
             case Enum_BattleType.SmithDungeon:
                 if (SmithDungeonHighLevel == 0)
                 {
+                    UI_Popup_OK.Instance.Open("소탕", "이전 기록이 없어 소탕에 실패했습니다.");
                     return false;
                 }
 
                 if (!DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Smith, count))
                 {
+                    UI_Popup_OK.Instance.OpenCurrencyNotEnough();
                     return false;
                 }
 
@@ -97,11 +101,13 @@ public class DungeonData : SaveDataBase
             case Enum_BattleType.BossDungeon:
                 if (BossDungeonHighLevel == 0)
                 {
+                    UI_Popup_OK.Instance.Open("소탕", "이전 기록이 없어 소탕에 실패했습니다.");
                     return false;
                 }
 
                 if (!DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Ticket_Boss, count))
                 {
+                    UI_Popup_OK.Instance.OpenCurrencyNotEnough();
                     return false;
                 }
 

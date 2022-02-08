@@ -23,10 +23,10 @@ public class PromotionData : StatData
         }
         DiceStatData.Init(TBL_PROMOTION.CountEntities + 1);
 
+        _currentPromotionIndex = Mathf.Clamp(_currentPromotionIndex, 0, TBL_PROMOTION.CountEntities - 1);
+        
         CheckDiceUnlock();
         CalculateStat();
-
-        _currentPromotionIndex = Mathf.Clamp(_currentPromotionIndex, 0, TBL_PROMOTION.CountEntities - 1);
     }
     
     private void CheckDiceUnlock()

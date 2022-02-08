@@ -34,15 +34,27 @@ public class UI_Player_Level : MonoBehaviour, GameEventListener<PlayerEvent>
     private void Refresh()
     {
         _txtLevel.text = $"Lv.{DataManager.PlayerData.Level + 1}";
-        _txtExp.text =  $"{DataManager.PlayerData.Exp} / {DataManager.PlayerData.GetRequireExp()}";
 
-        var expPercent = Mathf.Min(1,DataManager.PlayerData.GetExpPercents());
+        if (DataManager.PlayerData.IsMaxLevel())
+        {
+            _txtExp.text =  $"Max";
         
-        _txtExpPercent.text = $"{expPercent * 100:N1}%";
-        _sliderExp.value = expPercent;
+            _txtExpPercent.text = $"";
+            
+            _sliderExp.value = 1;
+            _onLevelUpEnable.gameObject.SetActive(false);
+        }
+        else
+        {
+            _txtExp.text =  $"{DataManager.PlayerData.Exp} / {DataManager.PlayerData.GetRequireExp()}";
 
+            var expPercent = Mathf.Min(1,DataManager.PlayerData.GetExpPercents());
         
-        _onLevelUpEnable.gameObject.SetActive(expPercent >= 1);
+            _txtExpPercent.text = $"{expPercent * 100:N1}%";
+            
+            _sliderExp.value = expPercent;
+            _onLevelUpEnable.gameObject.SetActive(expPercent >= 1);
+        }
     }
 
     public void OnClickLevelUp()

@@ -56,6 +56,9 @@ public class CurrencyData : SaveDataBase
 
     public bool IsEnough(Enum_CurrencyType type, double amount)
     {
+        #if UNITY_EDITOR
+        return true;
+        #endif
         return GetCurrency(type).IsEnough(amount);
     }    
     

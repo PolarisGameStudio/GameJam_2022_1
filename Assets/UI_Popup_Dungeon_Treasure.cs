@@ -29,6 +29,7 @@ public class UI_Popup_Dungeon_Treasure : UI_BasePopup<UI_Popup_Dungeon_Treasure>
     {    
         if (DataManager.DungeonData.TrySkipDungeon(Enum_BattleType.TreasureDungeon))
         {
+            Refresh();
         }
     }
 

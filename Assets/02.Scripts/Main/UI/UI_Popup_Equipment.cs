@@ -160,8 +160,15 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         else
         {
             _txtOwnStat1.text = $"{StringValue.GetStatName(_data.OnOwnStat1)}";
-            _txtOwnStatValue1.text =
-                $"{_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level - 1)}% -> {_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level)}%";
+            if (_data.OnOwnIncreaseValue1 == 0)
+            {
+                _txtOwnStatValue1.text = $"{_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level - 1)}%";
+            }
+            else
+            {
+                _txtOwnStatValue1.text =
+                    $"{_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level - 1)}% -> {_data.OnOwnValue1 + _data.OnOwnIncreaseValue1 * (level)}%";   
+            }
         }
 
         if (_data.OnOwnValue2 == 0)
@@ -172,8 +179,17 @@ public class UI_Popup_Equipment : UI_BasePopup<UI_Popup_Equipment>, GameEventLis
         else
         {
             _txtOwnStat2.text = $"{StringValue.GetStatName(_data.OnOwnStat2)}";
-            _txtOwnStatValue2.text =
-                $"{_data.OnOwnValue2 + _data.OnOwnIncreaseValue2 * (level - 1)}% -> {_data.OnOwnValue2 + _data.OnOwnIncreaseValue2 * (level)}%";
+
+            if (_data.OnOwnIncreaseValue2 == 0)
+            {
+                _txtOwnStatValue2.text = $"{_data.OnOwnValue2 + _data.OnOwnIncreaseValue2 * (level - 1)}%";
+            }
+            else
+            {
+                _txtOwnStatValue2.text =
+                    $"{_data.OnOwnValue2 + _data.OnOwnIncreaseValue2 * (level - 1)}% -> {_data.OnOwnValue2 + _data.OnOwnIncreaseValue2 * (level)}%";
+            }
+            
         }
 
         if (_data.OnOwnValue3 == 0)

@@ -35,13 +35,26 @@ public class UI_Shop_Gacha_Slot : UI_BaseSlot<TBL_GACHA_DATA>
 
         var curExp = DataManager.GachaData.GetGachaCount(_data.GachaType);
         var preRequireExp = DataManager.GachaData.GetPreRequireExp(_data.GachaType);
-        var requireExp = DataManager.GachaData.GetNextRequireExp(_data.GachaType);
+        var nextExp = DataManager.GachaData.GetNextRequireExp(_data.GachaType);
 
-        _txtExp.text = $"{curExp} / {requireExp}";
+        var requireExp = nextExp == int.MaxValue ? preRequireExp : nextExp;
 
-        _sliderGauge.minValue = preRequireExp;
-        _sliderGauge.maxValue = requireExp;
-        _sliderGauge.value = curExp;
+        if (nextExp == int.MaxValue)
+        {
+            _txtExp.text = $"Max";
+
+            _sliderGauge.minValue = 0;
+            _sliderGauge.maxValue = 1;
+            _sliderGauge.value = 1;
+        }
+        else
+        {
+            _txtExp.text = $"{curExp} / {requireExp}";
+
+            _sliderGauge.minValue = preRequireExp;
+            _sliderGauge.maxValue = requireExp;
+            _sliderGauge.value = curExp;
+        }
 
         _txtPriceSmall.text = $"{_data.Price_Small}";
         _txtPriceSmall.color = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Gem, _data.Price_Small)

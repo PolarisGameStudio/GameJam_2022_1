@@ -63,7 +63,10 @@ public class DiceStatData : StatData
 
         DiceSlotList.ForEach(diceStat =>
         {
-            if (diceStat.IsLock)
+            if (!diceStat.IsActive)
+            {
+            }
+            else if (diceStat.IsLock)
             {
                 price += 100;
             }
@@ -79,7 +82,7 @@ public class DiceStatData : StatData
     public bool IsEnableRoll()
     {
         return DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Dice, GetRollPrice()) &&
-               DiceSlotList.Find(diceStat => !diceStat.IsLock) != null;
+               DiceSlotList.Find(diceStat => diceStat.IsActive && !diceStat.IsLock) != null;
     }
 
     public bool IsHighGradeExist()
@@ -103,12 +106,14 @@ public class DiceStatData : StatData
 
         if (IsEnableRoll())
         {
+            #if !UNITY_EDITOR
             if (!DataManager.CurrencyData.TryConsume(Enum_CurrencyType.Dice, GetRollPrice()))
             {
                 return false;
             }
+            #endif
 
-            var result = GachaManager.Instance.Gacha(GachaType.Dice, 0, DiceSlotList.Count);
+            var result = GachaManager.Instance.Gacha(GachaType.Dice, Enum_CurrencyType.Dice, GetRollPrice(), DiceSlotList.Count);
 
             for (int i = 0; i < result.Count; i++)
             {

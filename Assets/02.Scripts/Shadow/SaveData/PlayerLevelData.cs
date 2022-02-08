@@ -20,7 +20,7 @@ public class PlayerData : StatData
 
     public double GetRequireExp()
     {
-	    if (TBL_PLAYER_LEVEL.CountEntities <= Level)
+	    if (IsMaxLevel())
 	    {
 		    return Double.MaxValue;
 	    }
@@ -28,6 +28,11 @@ public class PlayerData : StatData
 	    var data = TBL_PLAYER_LEVEL.GetEntity(Level);
 	    
 	    return data.NextLevelExperience;
+    }
+
+    public bool IsMaxLevel()
+    {
+	    return TBL_PLAYER_LEVEL.CountEntities <= Level;
     }
 
     public void LevelUp()

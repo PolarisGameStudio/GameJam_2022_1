@@ -160,9 +160,18 @@ public class UI_Popup_Follower : UI_BasePopup<UI_Popup_Follower>, GameEventListe
         }
         else
         {
-            _txtOwnStat1.text = $"{StringValue.GetStatName(_data.StatType2)}";
-            _txtOwnStatValue1.text =
-                $"{_data.DefaultValue2 + _data.IncreaseValue2 * (level - 1)}% -> {_data.DefaultValue2 + _data.IncreaseValue2 * (level)}%";
+            if (_data.IncreaseValue2 == 0)
+            {
+                _txtOwnStat1.text = $"{StringValue.GetStatName(_data.StatType2)}";
+                _txtOwnStatValue1.text =
+                    $"{_data.DefaultValue2 + _data.IncreaseValue2 * (level - 1)}%";   
+            }
+            else
+            {
+                _txtOwnStat1.text = $"{StringValue.GetStatName(_data.StatType2)}";
+                _txtOwnStatValue1.text =
+                    $"{_data.DefaultValue2 + _data.IncreaseValue2 * (level - 1)}% -> {_data.DefaultValue2 + _data.IncreaseValue2 * (level)}%";
+            }
         }
         //
         // if (_data.OnOwnValue2 == 0)

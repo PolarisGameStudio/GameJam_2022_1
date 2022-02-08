@@ -126,7 +126,7 @@ public class SkillData : SaveDataBase
 
     public bool IsSlotUnlock(int slotIndex)
     {
-        return DataManager.PlayerData.Level >= GetUnlockCondition(slotIndex);
+        return (DataManager.PlayerData.Level + 1) >= GetUnlockCondition(slotIndex);
     }
 
     public int GetUnlockCondition(int slotIndex)

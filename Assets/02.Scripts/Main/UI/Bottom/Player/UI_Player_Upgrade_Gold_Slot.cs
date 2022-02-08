@@ -15,6 +15,10 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD>, GameEv
     [SerializeField] private Text _txtStatCurrenctLevel;
     [SerializeField] private Text _txtStatPrice;
 
+
+    [SerializeField] private GameObject _onLockObject;
+    [SerializeField] private Text _txtUnlockCondition;
+
     [SerializeField] private Button _btnLevelUp;
 
     private void OnEnable()
@@ -75,6 +79,15 @@ public class UI_Player_Upgrade_Gold_Slot : UI_BaseSlot<TBL_UPGRADE_GOLD>, GameEv
         bool isEnable = DataManager.GoldGrowthData.IsEnableLevelUp(_data);
         _btnLevelUp.interactable = isEnable;
         _txtStatPrice.color = isEnable ? ColorValue.ENABLE_TEXT_COLOR :ColorValue.DISABLE_TEXT_COLOR;
+        
+        if (_data.IsLock)
+        {
+            var targetData = TBL_UPGRADE_GOLD.GetEntity(_data.ConditionIndex);
+            var isLock = DataManager.Container.GoldGrowthData.GetLevel(targetData) < targetData.MaxLevel;
+            
+            _onLockObject.gameObject.SetActive(isLock);
+            _txtUnlockCondition.text = $"{StringValue.GetStatName(targetData.StatType)} {targetData.MaxLevel}레벨 달성 시 해금"; 
+        }
     }
 
     public void OnGameEvent(RefreshEvent e)

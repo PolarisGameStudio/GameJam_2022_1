@@ -53,7 +53,12 @@ public class UI_Player_Upgrade_Promotion_Dice : UI_BaseContent<UI_Player_Upgrade
         }
 
         _txtDiceAmount.text = DataManager.CurrencyData.GetAmount(Enum_CurrencyType.Dice).ToCurrencyString();
-        _txtDiceCost.text = diceStat.GetRollPrice().ToString();
+        
+        var price = diceStat.GetRollPrice();
+        _txtDiceCost.text = price.ToString();
+        _txtDiceCost.color = DataManager.CurrencyData.IsEnough(Enum_CurrencyType.Dice, price)
+            ? ColorValue.ENABLE_TEXT_COLOR
+            : ColorValue.DISABLE_TEXT_COLOR;
     }
 
     public void TryRoll()

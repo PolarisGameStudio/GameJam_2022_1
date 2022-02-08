@@ -27,6 +27,7 @@ public class UI_Popup_Dungeon_Smith : UI_BasePopup<UI_Popup_Dungeon_Smith>
     {    
         if (DataManager.DungeonData.TrySkipDungeon(Enum_BattleType.SmithDungeon))
         {
+            Refresh();
         }
     }
 
