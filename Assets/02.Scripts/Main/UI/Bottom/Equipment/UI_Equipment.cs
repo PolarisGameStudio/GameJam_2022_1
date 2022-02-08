@@ -64,4 +64,13 @@ public class UI_Equipment : UI_BaseContent<UI_Equipment, UI_Equipment_List_Slot>
             Refresh();
         }
     }
+    
+    
+    public void OnClickGradeAll()
+    {
+        if (DataManager.EquipmentData.TryGradeAll())
+        {
+            Refresh();
+        }
+    }
 }

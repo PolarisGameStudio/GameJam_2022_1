@@ -250,6 +250,19 @@ public class EquipmentData : StatData
         int index = EquippedIndex[(int) type];
         return TBL_EQUIPMENT.GetEntitiesByKeyWithEquipmentType(type).FindIndex(x => x.Index == index) + 1;
     }
+
+    public bool TryGradeAll()
+    {
+        bool isGradeUpExist = false;
+
+        for (int i = 0; i < Levels.Count; i++)
+        {
+            bool gradeUpSuccess = TryGradeUp(i);
+            isGradeUpExist = isGradeUpExist || gradeUpSuccess;
+        }
+
+        return isGradeUpExist;
+    }
 }
 
 //
